@@ -1,0 +1,110 @@
+//
+//  RightMenuViewController.swift
+//  GetION
+//
+//  Created by NIKHILESH on 12/10/17.
+//  Copyright © 2017 NIKHILESH. All rights reserved.
+//
+
+import UIKit
+import AKSideMenu
+
+class RightMenuViewController: UIViewController {
+
+    var navController: UINavigationController?
+    @IBOutlet weak var imgVwProfilePic: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblDesgnation: UILabel!
+    
+    
+    @IBOutlet weak var tblViewMenu: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sideMenuViewController?.delegate = self
+
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let url = URL(string: GetIONUserDefaults.getProfPic())
+        imgVwProfilePic.kf.setImage(with: url)
+        imgVwProfilePic.layer.cornerRadius = imgVwProfilePic.frame.size.width/2
+        imgVwProfilePic.layer.masksToBounds = true
+        lblName.text = GetIONUserDefaults.getFirstName() + " " + GetIONUserDefaults.getLastName()
+        lblDesgnation.text = GetIONUserDefaults.getRole()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+ 
+}
+extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell")
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if indexPath.row == 1
+        {
+            let plannerVC: PlannerViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PlannerViewController") as! PlannerViewController
+            navController = UINavigationController(rootViewController: plannerVC)
+
+            self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
+        }
+        else
+        {
+            let homeViewController: HomeViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            navController = UINavigationController(rootViewController: homeViewController)
+            self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
+        }
+    }
+}
+
+extension RightMenuViewController : AKSideMenuDelegate
+{
+    open func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // return true to allow both gesture recognizers to recognize simultaneously. Returns false by default
+        return false
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // return true or false based on your failure requirements. Returns false by default
+        return false
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // return true or false based on your failure requirements. Returns false by default
+        return false
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
+        print("willShowMenuViewController")
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
+        print("didShowMenuViewController")
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
+        print("willHideMenuViewController")
+    }
+    
+    open func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
+        print("didHideMenuViewController")
+    }
+
+}

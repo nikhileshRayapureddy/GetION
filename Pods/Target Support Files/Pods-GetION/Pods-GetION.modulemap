@@ -1,0 +1,6 @@
+framework module Pods_GetION {
+  umbrella header "Pods-GetION-umbrella.h"
+
+  export *
+  module * { export * }
+}
