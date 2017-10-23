@@ -20,6 +20,7 @@ class HospitalFeedsCell: UITableViewCell {
     @IBOutlet weak var constLblStatusHeight: NSLayoutConstraint!
     @IBOutlet weak var lblAction: UILabel!
     
+    @IBOutlet weak var imgContext: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

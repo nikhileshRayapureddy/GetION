@@ -196,7 +196,7 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
         cell.imgVwAvatar.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
         cell.imgVwAvatar.layer.borderWidth = 1.0
         cell.lblContent.text = bo.content
-        cell.lblSince.text = bo.since
+        cell.lblSince.text = bo.since + " ago"
         cell.constLblStatusHeight.constant = 15
         cell.lblAction.isHidden = true
         cell.lblAction.layer.cornerRadius = 5.0
@@ -211,6 +211,7 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
         }
         else if bo.action == "Congratulated"
         {
+            cell.imgVwStatus.isHidden = false
             cell.imgVwStatus.image = #imageLiteral(resourceName: "congratulate_selected.png")
             cell.lblStatus.text = "Congratulated"
         }
@@ -223,9 +224,37 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
         }
         else
         {
+            cell.imgVwStatus.isHidden = false
             cell.imgVwStatus.image = #imageLiteral(resourceName: "congratulate_deselected")
             cell.lblStatus.text = "Congratulate"
         }
+        
+        let arrContect = bo.context.split(separator: ".")
+        if arrContect[0] == "discuss"
+        {
+            cell.imgContext.isHidden = true
+        }
+        else if arrContect[0] == "visits"
+        {
+            cell.imgContext.isHidden = false
+            cell.imgContext.image = #imageLiteral(resourceName: "visits")
+        }
+        else if arrContect[0] == "blog"
+        {
+            cell.imgContext.isHidden = false
+            cell.imgContext.image = #imageLiteral(resourceName: "publish")
+        }
+        else if arrContect[0] == "queries"
+        {
+            cell.imgContext.isHidden = false
+            cell.imgContext.image = #imageLiteral(resourceName: "queries")
+        }
+        else
+        {
+            cell.imgContext.isHidden = true
+        }
+        
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

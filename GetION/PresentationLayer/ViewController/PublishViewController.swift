@@ -12,6 +12,7 @@ class PublishViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(2)
         // Do any additional setup after loading the view.
