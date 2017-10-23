@@ -35,6 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="441" y="86"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="J3V-c2-oHL">
@@ -472,7 +473,7 @@ Your simple text goes here Analytics Title</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBn-8b-UEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2827.536231884058" y="136.14130434782609"/>
+            <point key="canvasLocation" x="2972" y="86"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="jM8-Uk-y8T">
@@ -622,7 +623,7 @@ Your simple text goes here Analytics Title</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTw-6F-XqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3761" y="109"/>
+            <point key="canvasLocation" x="3670" y="86"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="bTN-t7-vh0">
@@ -751,7 +752,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnA-yK-dWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="139"/>
+            <point key="canvasLocation" x="1701" y="86"/>
         </scene>
         <!--Right Menu View Controller-->
         <scene sceneID="Spb-Tg-SgB">
@@ -917,7 +918,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdL-d7-5Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047.826086956522" y="138.58695652173915"/>
+            <point key="canvasLocation" x="2328" y="86"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="JEE-aX-b3X">
@@ -943,7 +944,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4TJ-LU-583" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="139"/>
+            <point key="canvasLocation" x="-204" y="86"/>
         </scene>
         <!--Publish View Controller-->
         <scene sceneID="M4V-dN-mQr">
@@ -958,6 +959,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYL-04-oHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1078" y="86"/>
         </scene>
         <!--Queries View Controller-->
         <scene sceneID="VvY-5O-jez">
@@ -1312,7 +1314,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCr-nk-6ml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="762"/>
+            <point key="canvasLocation" x="700" y="801"/>
         </scene>
         <!--Query Reply View Controller-->
         <scene sceneID="LGP-u6-da1">
