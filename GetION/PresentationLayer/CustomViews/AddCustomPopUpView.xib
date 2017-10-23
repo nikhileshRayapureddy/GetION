@@ -61,10 +61,18 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJ2-db-lEq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="130"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="1wI-Om-eug"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QJ2-db-lEq" secondAttribute="bottom" id="9zM-qd-BYV"/>
+                                                        <constraint firstItem="QJ2-db-lEq" firstAttribute="top" secondItem="lRB-sk-IVe" secondAttribute="top" id="d0Q-rs-ZCN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QJ2-db-lEq" secondAttribute="trailing" id="lJ6-zV-7jN"/>
+                                                        <constraint firstItem="QJ2-db-lEq" firstAttribute="leading" secondItem="lRB-sk-IVe" secondAttribute="leading" id="mAj-bh-1cn"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-cY-me1">
@@ -82,10 +90,18 @@
                                                             <color key="textColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhd-Yj-sbm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="130"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="3Fi-d1-XAZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bhd-Yj-sbm" secondAttribute="bottom" id="6gp-Sl-CBX"/>
+                                                        <constraint firstItem="bhd-Yj-sbm" firstAttribute="leading" secondItem="GU5-cY-me1" secondAttribute="leading" id="Kyd-QQ-rsM"/>
+                                                        <constraint firstItem="bhd-Yj-sbm" firstAttribute="top" secondItem="GU5-cY-me1" secondAttribute="top" id="NF6-iJ-Z7u"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bhd-Yj-sbm" secondAttribute="trailing" id="cuO-hu-uwW"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tq6-S3-W4T">
@@ -103,9 +119,20 @@
                                                             <color key="textColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-sh-Wh5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144.00000000000003" height="130"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <action selector="btnAddPromoClicked:" destination="s1V-gs-U2N" eventType="touchUpInside" id="5a6-NW-m3N"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="QYk-sh-Wh5" secondAttribute="trailing" id="3qr-bB-BMp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QYk-sh-Wh5" secondAttribute="bottom" id="66M-1l-sZc"/>
+                                                        <constraint firstItem="QYk-sh-Wh5" firstAttribute="top" secondItem="tq6-S3-W4T" secondAttribute="top" id="6Jm-cn-7Yg"/>
+                                                        <constraint firstItem="QYk-sh-Wh5" firstAttribute="leading" secondItem="tq6-S3-W4T" secondAttribute="leading" id="OFj-kA-31W"/>
                                                         <constraint firstAttribute="height" constant="130" id="V6z-LO-ske"/>
                                                     </constraints>
                                                 </view>
@@ -178,6 +205,9 @@ What would you like to start today?</string>
                                                     <state key="normal" title="Select a promo &gt;">
                                                         <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="btnSelPromo:" destination="s1V-gs-U2N" eventType="touchUpInside" id="yHO-0r-XAs"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,6 +260,10 @@ What would you like to start today?</string>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                                     </collectionViewFlowLayout>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="s1V-gs-U2N" id="uOf-4M-xYL"/>
+                                                        <outlet property="delegate" destination="s1V-gs-U2N" id="jN2-io-MCF"/>
+                                                    </connections>
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-F0-jG6">
                                                     <rect key="frame" x="0.0" y="314.33333333333331" width="335" height="2"/>
@@ -348,10 +382,13 @@ What would you like to start today?</string>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="41C-Kh-Aaf"/>
             <connections>
+                <outlet property="btnAddPromo" destination="QYk-sh-Wh5" id="55Z-cZ-Rgs"/>
                 <outlet property="btnClose" destination="T9A-6q-QOv" id="S1Y-Cl-Bdf"/>
                 <outlet property="btnSelPromo" destination="2xa-Su-v0I" id="UYd-vQ-hwc"/>
+                <outlet property="clVwPromo" destination="kVx-Dt-wED" id="ZJT-F5-oks"/>
                 <outlet property="constVwBgWidth" destination="fZP-v9-eNR" id="sbx-Uf-uhT"/>
                 <outlet property="imgVwBase" destination="PRb-aQ-8Dx" id="gP8-dt-PUP"/>
+                <outlet property="pageControl" destination="xPJ-V6-syN" id="kx6-eM-WTp"/>
                 <outlet property="scrlVw" destination="icd-SO-eDh" id="Zfw-r2-8rc"/>
                 <outlet property="vwBase" destination="k3E-or-bkJ" id="hpd-H9-vWo"/>
             </connections>
