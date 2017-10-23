@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3E-or-bkJ">
-                    <rect key="frame" x="20" y="44" width="335" height="509"/>
+                    <rect key="frame" x="20" y="84" width="335" height="475"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-aQ-8Dx">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="497"/>
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="463"/>
                             <color key="backgroundColor" red="0.40784313725490196" green="0.92941176470588238" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xPJ-V6-syN">
@@ -38,16 +38,16 @@
                             </constraints>
                         </pageControl>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icd-SO-eDh">
-                            <rect key="frame" x="0.0" y="45" width="335" height="452"/>
+                            <rect key="frame" x="0.0" y="45" width="335" height="418"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYw-jP-Cda">
-                                    <rect key="frame" x="0.0" y="0.0" width="1005" height="452"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1005" height="418"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3O-vC-wPU">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="452"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="418"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRB-sk-IVe">
-                                                    <rect key="frame" x="13" y="308" width="309" height="130"/>
+                                                    <rect key="frame" x="13" y="274" width="309" height="130"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Blog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcV-bW-iaB">
                                                             <rect key="frame" x="8" y="89" width="279" height="21"/>
@@ -68,7 +68,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-cY-me1">
-                                                    <rect key="frame" x="14" y="158" width="143.66666666666666" height="130"/>
+                                                    <rect key="frame" x="14" y="124" width="143.66666666666666" height="130"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="addVisit" translatesAutoresizingMaskIntoConstraints="NO" id="0od-kr-vnI">
                                                             <rect key="frame" x="52" y="24" width="38" height="39"/>
@@ -89,7 +89,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tq6-S3-W4T">
-                                                    <rect key="frame" x="178.66666666666663" y="158" width="143.33333333333337" height="130"/>
+                                                    <rect key="frame" x="178.66666666666663" y="124" width="143.33333333333337" height="130"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="megaphone" translatesAutoresizingMaskIntoConstraints="NO" id="ZLW-G6-geO">
                                                             <rect key="frame" x="48" y="24" width="45" height="40"/>
@@ -110,7 +110,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dd-A0-a3V">
-                                                    <rect key="frame" x="15" y="6" width="305" height="62"/>
+                                                    <rect key="frame" x="15" y="-28" width="305" height="62"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="62" id="dNN-Vr-Czz"/>
@@ -140,7 +140,7 @@ What would you like to start today?</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-ch-MnB">
-                                            <rect key="frame" x="335" y="0.0" width="335" height="452"/>
+                                            <rect key="frame" x="335" y="0.0" width="335" height="418"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-bF-cpj">
                                                     <rect key="frame" x="25" y="100" width="285" height="100"/>
@@ -190,10 +190,10 @@ What would you like to start today?</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-0m-XP4">
-                                            <rect key="frame" x="670" y="0.0" width="335" height="452"/>
+                                            <rect key="frame" x="670" y="0.0" width="335" height="418"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which promotion would you like to start from?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5r-sm-X1h">
-                                                    <rect key="frame" x="15" y="47" width="305" height="60"/>
+                                                    <rect key="frame" x="15" y="30.333333333333343" width="305" height="60"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Nwe-wI-0Wh"/>
@@ -203,7 +203,7 @@ What would you like to start today?</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Designs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtA-Eu-4Pb">
-                                                    <rect key="frame" x="8" y="157" width="319" height="21"/>
+                                                    <rect key="frame" x="8" y="140.33333333333331" width="319" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="tmp-AU-yTg"/>
                                                     </constraints>
@@ -212,14 +212,14 @@ What would you like to start today?</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DF-3m-Twf">
-                                                    <rect key="frame" x="0.0" y="179" width="335" height="2"/>
+                                                    <rect key="frame" x="0.0" y="162.33333333333331" width="335" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="lKt-L7-UdP"/>
                                                     </constraints>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kVx-Dt-wED">
-                                                    <rect key="frame" x="0.0" y="181" width="335" height="150"/>
+                                                    <rect key="frame" x="0.0" y="164.33333333333331" width="335" height="150"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="ofs-4h-kfM"/>
@@ -232,14 +232,14 @@ What would you like to start today?</string>
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-F0-jG6">
-                                                    <rect key="frame" x="0.0" y="331" width="335" height="2"/>
+                                                    <rect key="frame" x="0.0" y="314.33333333333331" width="335" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="Cji-a3-a6y"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="088-ea-oNp">
-                                                    <rect key="frame" x="247" y="341" width="80" height="40"/>
+                                                    <rect key="frame" x="247" y="324.33333333333331" width="80" height="40"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="bdQ-Xi-l48"/>
@@ -301,7 +301,7 @@ What would you like to start today?</string>
                             </connections>
                         </scrollView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arr" translatesAutoresizingMaskIntoConstraints="NO" id="IXW-HV-jfs">
-                            <rect key="frame" x="153" y="497" width="29" height="12"/>
+                            <rect key="frame" x="153" y="463" width="29" height="12"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                     </subviews>
@@ -322,7 +322,7 @@ What would you like to start today?</string>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9A-6q-QOv">
-                    <rect key="frame" x="152.66666666666666" y="553" width="70" height="70"/>
+                    <rect key="frame" x="152.66666666666666" y="559" width="70" height="70"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="ZH8-Fk-YZP"/>
@@ -338,13 +338,12 @@ What would you like to start today?</string>
                 <constraint firstItem="41C-Kh-Aaf" firstAttribute="trailing" secondItem="k3E-or-bkJ" secondAttribute="trailing" constant="20" id="7ix-Vi-9bJ"/>
                 <constraint firstItem="k3E-or-bkJ" firstAttribute="leading" secondItem="41C-Kh-Aaf" secondAttribute="leading" constant="20" id="JMh-Ba-D7l"/>
                 <constraint firstItem="T9A-6q-QOv" firstAttribute="top" secondItem="k3E-or-bkJ" secondAttribute="bottom" id="OIj-e7-ber"/>
-                <constraint firstItem="k3E-or-bkJ" firstAttribute="top" secondItem="41C-Kh-Aaf" secondAttribute="top" id="TJV-9j-JJ9"/>
+                <constraint firstItem="k3E-or-bkJ" firstAttribute="top" secondItem="41C-Kh-Aaf" secondAttribute="top" constant="40" id="TJV-9j-JJ9"/>
                 <constraint firstItem="T9A-6q-QOv" firstAttribute="top" secondItem="k3E-or-bkJ" secondAttribute="bottom" id="c1l-h2-g3d"/>
                 <constraint firstItem="41C-Kh-Aaf" firstAttribute="trailing" secondItem="k3E-or-bkJ" secondAttribute="trailing" constant="20" id="cd6-ls-mH2"/>
                 <constraint firstItem="k3E-or-bkJ" firstAttribute="leading" secondItem="41C-Kh-Aaf" secondAttribute="leading" constant="20" id="hO1-dr-hST"/>
-                <constraint firstItem="k3E-or-bkJ" firstAttribute="top" secondItem="41C-Kh-Aaf" secondAttribute="top" id="iQa-ot-4h0"/>
                 <constraint firstItem="T9A-6q-QOv" firstAttribute="centerX" secondItem="s1V-gs-U2N" secondAttribute="centerX" id="oVd-gU-hNe"/>
-                <constraint firstItem="41C-Kh-Aaf" firstAttribute="bottom" secondItem="T9A-6q-QOv" secondAttribute="bottom" constant="10" id="xZO-iQ-raV"/>
+                <constraint firstItem="41C-Kh-Aaf" firstAttribute="bottom" secondItem="T9A-6q-QOv" secondAttribute="bottom" constant="4" id="xZO-iQ-raV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="41C-Kh-Aaf"/>
@@ -352,7 +351,9 @@ What would you like to start today?</string>
                 <outlet property="btnClose" destination="T9A-6q-QOv" id="S1Y-Cl-Bdf"/>
                 <outlet property="btnSelPromo" destination="2xa-Su-v0I" id="UYd-vQ-hwc"/>
                 <outlet property="constVwBgWidth" destination="fZP-v9-eNR" id="sbx-Uf-uhT"/>
+                <outlet property="imgVwBase" destination="PRb-aQ-8Dx" id="gP8-dt-PUP"/>
                 <outlet property="scrlVw" destination="icd-SO-eDh" id="Zfw-r2-8rc"/>
+                <outlet property="vwBase" destination="k3E-or-bkJ" id="hpd-H9-vWo"/>
             </connections>
             <point key="canvasLocation" x="-133.5" y="32.5"/>
         </view>
