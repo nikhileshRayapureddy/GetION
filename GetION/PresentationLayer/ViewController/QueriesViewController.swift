@@ -20,9 +20,20 @@ class QueriesViewController: BaseViewController {
         designTabBar()
         setSelectedButtonAtIndex(4)
         btnSegmentActionsClicked(btnUnAnswered)
+//        getQueries()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func getQueries()
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.getQueries(username: GetIONUserDefaults.getUserName(), status: "0", successMessage: { (response) in
+            
+        }) { (error) in
+            
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
