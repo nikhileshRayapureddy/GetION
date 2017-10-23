@@ -50,7 +50,11 @@ class RightMenuViewController: UIViewController {
 
     @IBAction func btnLogOutAction(_ sender: UIButton)
     {
-        
+        let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController"))
+
+        app_delegate.window!.rootViewController = navigationController
+        app_delegate.window!.backgroundColor = UIColor.white
+        app_delegate.window?.makeKeyAndVisible()
     }
     
 }
