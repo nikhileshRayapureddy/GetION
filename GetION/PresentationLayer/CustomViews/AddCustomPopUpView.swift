@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AddCustomPopUpView: UIView {
+class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet var btnClose: UIButton!
     @IBOutlet var scrlVw: UIScrollView!
+    @IBOutlet weak var btnSelPromo: UIButton!
     
     @IBOutlet var constVwBgWidth: NSLayoutConstraint!
     
@@ -18,15 +19,15 @@ class AddCustomPopUpView: UIView {
     {
         scrlVw.contentSize = CGSize (width: (screenWidth - 40) * 3  , height: 0)
         constVwBgWidth.constant = (screenWidth - 40) * 3
+        print("content size : (\(scrlVw.contentSize.width),\(scrlVw.contentSize.height))")
+        
+        btnSelPromo.layer.cornerRadius = 10.0
+        btnSelPromo.layer.masksToBounds = true
     }
     
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrlVw.contentSize = CGSize (width: (ScreenWidth - 40) * 3  , height: scrlVw.contentSize.height)
+        constVwBgWidth.constant = (ScreenWidth - 40) * 3
     }
-    */
 
 }
