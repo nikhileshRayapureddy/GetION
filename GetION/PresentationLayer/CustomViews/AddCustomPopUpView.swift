@@ -9,7 +9,10 @@
 import UIKit
 
 class AddCustomPopUpView: UIView {
-
+    @IBOutlet var btnClose: UIButton!
+    @IBOutlet var scrlVw: UIScrollView!
+    
+    @IBOutlet var constVwBgWidth: NSLayoutConstraint!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
