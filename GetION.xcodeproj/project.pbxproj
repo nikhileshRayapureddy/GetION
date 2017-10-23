@@ -51,6 +51,7 @@
 		A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAD51F8F61BB00208FD9 /* AppDelegate.swift */; };
 		A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */; };
 		A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */; };
+		A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */; };
 		A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4631F8FB1C500FA108F /* HomeViewController.swift */; };
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
@@ -464,6 +465,7 @@
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
+				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
