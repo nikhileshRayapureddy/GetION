@@ -16,13 +16,21 @@ class RightMenuViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesgnation: UILabel!
     
+    @IBOutlet weak var btnLogOut: UIButton!
     
     @IBOutlet weak var tblViewMenu: UITableView!
+    let arrTitles = ["Analytics","Promotion","Support","Settings"]
+    let arrImages = [#imageLiteral(resourceName: "analytics"),#imageLiteral(resourceName: "promotion"),#imageLiteral(resourceName: "support"),#imageLiteral(resourceName: "settings")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuViewController?.delegate = self
 
         // Do any additional setup after loading the view.
+        
+        btnLogOut.layer.borderWidth = 0.8
+        btnLogOut.layer.borderColor = UIColor.lightGray.cgColor
+        btnLogOut.layer.cornerRadius = 15
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,19 +48,30 @@ class RightMenuViewController: UIViewController {
     }
     
 
- 
+    @IBAction func btnLogOutAction(_ sender: UIButton)
+    {
+        let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController"))
+
+        app_delegate.window!.rootViewController = navigationController
+        app_delegate.window!.backgroundColor = UIColor.white
+        app_delegate.window?.makeKeyAndVisible()
+    }
+    
 }
 extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell")
-        return cell!
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuCell
+        cell.lblTitle.text = arrTitles[indexPath.row]
+        cell.imgIcon.image = arrImages[indexPath.row]
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {

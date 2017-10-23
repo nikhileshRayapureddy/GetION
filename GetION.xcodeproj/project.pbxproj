@@ -39,6 +39,7 @@
 		A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */; };
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
+		A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61581F9E37F5002F8E8F /* MenuCell.swift */; };
 		A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */; };
 		A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */; };
 		A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */; };
@@ -50,6 +51,8 @@
 		A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC91F8F608D00208FD9 /* LaunchScreen.storyboard */; };
 		A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAD51F8F61BB00208FD9 /* AppDelegate.swift */; };
 		A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */; };
+		A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */; };
+		A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */; };
 		A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4631F8FB1C500FA108F /* HomeViewController.swift */; };
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
@@ -105,6 +108,7 @@
 		A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDayEventTableViewCell.swift; sourceTree = "<group>"; };
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
+		A78B61581F9E37F5002F8E8F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsViewController.swift; sourceTree = "<group>"; };
 		A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 		A7DFFACC1F8F608D00208FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DFFAD51F8F61BB00208FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomPopUpView.swift; sourceTree = "<group>"; };
+		A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomPopUpView.xib; sourceTree = "<group>"; };
 		A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */,
 				A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */,
 				A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */,
+				A78B61581F9E37F5002F8E8F /* MenuCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -387,6 +394,8 @@
 				CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */,
 				CC0A557B1F906A390043A0A3 /* BottomView.swift */,
 				CC0A557A1F906A390043A0A3 /* BottomView.xib */,
+				A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */,
+				A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -462,6 +471,7 @@
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
+				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
@@ -541,6 +551,7 @@
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
+				A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */,
 				A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */,
 				CCB0E2B21F96491E004DD3A8 /* QueryReplyViewController.swift in Sources */,
 				CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */,
@@ -549,6 +560,7 @@
 				A71FFEF71F91E6610082BAF8 /* IQUIWindow+Hierarchy.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
+				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
