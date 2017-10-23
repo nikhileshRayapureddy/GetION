@@ -1156,7 +1156,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5N-T2-5I6">
-                                                            <rect key="frame" x="0.0" y="70" width="394" height="85"/>
+                                                            <rect key="frame" x="5" y="70" width="384" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="85" id="0Gb-cn-AlW"/>
                                                             </constraints>
@@ -1165,17 +1165,17 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yum-OO-dzU">
-                                                            <rect key="frame" x="154" y="5" width="240" height="25"/>
+                                                            <rect key="frame" x="244" y="5" width="150" height="25"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT8-cw-XXs">
-                                                                    <rect key="frame" x="215" y="3" width="25" height="20"/>
+                                                                    <rect key="frame" x="125" y="3" width="25" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="25" id="7Uf-gL-fmE"/>
                                                                     </constraints>
                                                                     <state key="normal" image="dotsImage"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-WP-EDM">
-                                                                    <rect key="frame" x="164" y="0.0" width="50" height="25"/>
+                                                                    <rect key="frame" x="74" y="0.0" width="50" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="Bzg-eM-Irm"/>
                                                                     </constraints>
@@ -1184,14 +1184,14 @@ Please enter your Email-Id below :</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ycu-PA-Yvn">
-                                                                    <rect key="frame" x="158" y="5" width="1" height="15"/>
+                                                                    <rect key="frame" x="68" y="5" width="1" height="15"/>
                                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="1" id="PbY-rY-2iG"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gt3-ZJ-VwF">
-                                                                    <rect key="frame" x="93" y="0.0" width="60" height="25"/>
+                                                                    <rect key="frame" x="3" y="0.0" width="60" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="60" id="hXn-SQ-C0f"/>
                                                                     </constraints>
@@ -1211,7 +1211,7 @@ Please enter your Email-Id below :</string>
                                                                 <constraint firstAttribute="bottom" secondItem="Ycu-PA-Yvn" secondAttribute="bottom" constant="5" id="NFA-Og-ehM"/>
                                                                 <constraint firstItem="Ycu-PA-Yvn" firstAttribute="top" secondItem="Yum-OO-dzU" secondAttribute="top" constant="5" id="ZoQ-EJ-zln"/>
                                                                 <constraint firstItem="CT8-cw-XXs" firstAttribute="leading" secondItem="Svv-WP-EDM" secondAttribute="trailing" constant="1" id="cyl-jN-I2X"/>
-                                                                <constraint firstAttribute="width" constant="240" id="fIX-t6-iJs"/>
+                                                                <constraint firstAttribute="width" constant="150" id="fIX-t6-iJs"/>
                                                                 <constraint firstItem="Svv-WP-EDM" firstAttribute="leading" secondItem="Ycu-PA-Yvn" secondAttribute="trailing" constant="5" id="g2l-kL-EpC"/>
                                                                 <constraint firstAttribute="height" constant="25" id="kI6-rw-e4S"/>
                                                                 <constraint firstAttribute="bottom" secondItem="CT8-cw-XXs" secondAttribute="bottom" constant="2" id="nd3-C5-WsP"/>
@@ -1223,14 +1223,14 @@ Please enter your Email-Id below :</string>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otf-Y8-3hi">
                                                                     <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="50"/>
-                                                                    <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Quick Reply">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-r7-cff">
                                                                     <rect key="frame" x="197.66666666666663" y="0.0" width="196.33333333333337" height="50"/>
-                                                                    <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Reply">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
@@ -1257,7 +1257,7 @@ Please enter your Email-Id below :</string>
                                                         <constraint firstItem="gqc-7M-Yx4" firstAttribute="top" secondItem="MFg-Ab-zX8" secondAttribute="bottom" id="1Mb-o4-lFr"/>
                                                         <constraint firstItem="MFg-Ab-zX8" firstAttribute="leading" secondItem="Zgs-b2-syC" secondAttribute="leading" constant="5" id="BdX-xh-0Mg"/>
                                                         <constraint firstAttribute="trailing" secondItem="Yum-OO-dzU" secondAttribute="trailing" id="CLi-oi-iUi"/>
-                                                        <constraint firstItem="V5N-T2-5I6" firstAttribute="leading" secondItem="Zgs-b2-syC" secondAttribute="leading" id="DID-Md-laL"/>
+                                                        <constraint firstItem="V5N-T2-5I6" firstAttribute="leading" secondItem="Zgs-b2-syC" secondAttribute="leading" constant="5" id="DID-Md-laL"/>
                                                         <constraint firstAttribute="trailing" secondItem="sG5-h2-ojr" secondAttribute="trailing" id="Jep-jF-490"/>
                                                         <constraint firstAttribute="bottom" secondItem="sG5-h2-ojr" secondAttribute="bottom" id="Jz6-Vl-o3v"/>
                                                         <constraint firstItem="4vT-aM-upm" firstAttribute="top" secondItem="MFg-Ab-zX8" secondAttribute="bottom" id="OBg-UA-rSV"/>
@@ -1271,7 +1271,7 @@ Please enter your Email-Id below :</string>
                                                         <constraint firstItem="8p9-dQ-ij4" firstAttribute="top" secondItem="MFg-Ab-zX8" secondAttribute="bottom" id="h4o-e3-iyj"/>
                                                         <constraint firstItem="4vT-aM-upm" firstAttribute="leading" secondItem="gqc-7M-Yx4" secondAttribute="trailing" constant="7" id="hbd-eW-VeY"/>
                                                         <constraint firstItem="qJ9-JN-m1x" firstAttribute="top" secondItem="MFg-Ab-zX8" secondAttribute="bottom" id="jnG-fc-ExS"/>
-                                                        <constraint firstAttribute="trailing" secondItem="V5N-T2-5I6" secondAttribute="trailing" id="kHO-YB-YnB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="V5N-T2-5I6" secondAttribute="trailing" constant="5" id="kHO-YB-YnB"/>
                                                         <constraint firstItem="qJ9-JN-m1x" firstAttribute="leading" secondItem="Zgs-b2-syC" secondAttribute="leading" constant="5" id="mSS-Ke-any"/>
                                                         <constraint firstItem="gqc-7M-Yx4" firstAttribute="leading" secondItem="5oF-wE-hrx" secondAttribute="trailing" constant="2" id="qpG-jT-ovL"/>
                                                         <constraint firstItem="5oF-wE-hrx" firstAttribute="leading" secondItem="CFG-eF-OZf" secondAttribute="trailing" constant="9" id="rFZ-1m-Y1G"/>
@@ -1292,7 +1292,14 @@ Please enter your Email-Id below :</string>
                                         <connections>
                                             <outlet property="btnQuickReply" destination="otf-Y8-3hi" id="ECQ-vd-rWL"/>
                                             <outlet property="btnReply" destination="dIJ-r7-cff" id="SGI-TF-y9J"/>
+                                            <outlet property="lblAge" destination="5oF-wE-hrx" id="60q-qf-KVe"/>
+                                            <outlet property="lblDate" destination="Svv-WP-EDM" id="IG9-JI-fos"/>
+                                            <outlet property="lblGender" destination="4vT-aM-upm" id="E2O-0f-sZV"/>
+                                            <outlet property="lblName" destination="8p9-dQ-ij4" id="cUS-Ec-vyx"/>
+                                            <outlet property="lblNameWidthConstraint" destination="Cwb-s2-Ysd" id="mqQ-Lr-PqZ"/>
                                             <outlet property="lblQueryMessage" destination="V5N-T2-5I6" id="sjx-zM-gKv"/>
+                                            <outlet property="lblQueryTitle" destination="MFg-Ab-zX8" id="D9n-nb-A0E"/>
+                                            <outlet property="lblTime" destination="gt3-ZJ-VwF" id="c2r-Rr-fUC"/>
                                             <outlet property="viewBackground" destination="Zgs-b2-syC" id="BBi-tR-6X8"/>
                                         </connections>
                                     </tableViewCell>
@@ -1320,6 +1327,7 @@ Please enter your Email-Id below :</string>
                         <outlet property="btnPopular" destination="9AZ-7F-D9d" id="ex3-Cq-8kV"/>
                         <outlet property="btnUnAnswered" destination="Kuc-6p-wvQ" id="JOn-Ei-Tcr"/>
                         <outlet property="selectedImageView" destination="vLG-i5-uW0" id="uGh-4n-DDI"/>
+                        <outlet property="tblQueries" destination="GA0-UU-uDs" id="mgE-YM-yov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCr-nk-6ml" userLabel="First Responder" sceneMemberID="firstResponder"/>
