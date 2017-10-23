@@ -14,7 +14,12 @@ class QuickReplyPopUp: UIView {
     
     func resizeViews()
     {
-        tblView.register(QuickReplyCustomCell.self, forCellReuseIdentifier: "QUICKREPLY")
+//        "QUICKREPLY"
+        let nib = UINib(nibName: "QuickReplyCustomCell", bundle: Bundle.main)
+        tblView.register(nib, forCellReuseIdentifier: "QUICKREPLY")
+    }
+    @IBAction func cancelPopUpCLicked(_ sender: UIButton) {
+        self.removeFromSuperview()
     }
 }
 

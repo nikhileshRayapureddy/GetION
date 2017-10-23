@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
             let layer = ServiceLayer()
             layer.loginWithUsername(username: txtUsername.text!, password: txtPwd.text!, successMessage: { (success) in
                 DispatchQueue.main.async {
+                    GetIONUserDefaults.setUserName(object: self.txtUsername.text!)
                     app_delegate.removeloder()
                     self.navigateToDashboard()
                 }

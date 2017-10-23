@@ -443,6 +443,29 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    public func getQueries(username:String,status:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+//        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=get&resource=posts&username=%@&status=%@&limit=10", BASE_URL,username,status)
+        obj._serviceURL = "http://www.staging.getion.in/request?module=easydiscuss&action=get&resource=posts&username=ramesh&status=0&limit=10"
+
+        //        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getUserId())&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&promos=2&status=1"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                successMessage("")
+            }
+        }
+    }
+    
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
