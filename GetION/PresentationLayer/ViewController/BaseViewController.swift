@@ -233,15 +233,14 @@ class BaseViewController: UIViewController {
         if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
         {
             addPopUp = popup
-            addPopUp.layoutIfNeeded()
-            addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
-            addPopUp.scrlVw.contentSize = CGSize(width: ScreenWidth-40, height: ScreenHeight + 64)
-            addPopUp.constVwBgWidth.constant = (ScreenWidth-40)*3
+            addPopUp.designScreen(screenWidth: ScreenWidth)
+            addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)            
             self.view.window?.addSubview(addPopUp)
             addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
         }
 
     }
+    
     @objc func btnCloseClicked(sender:UIButton)
     {
         addPopUp.removeFromSuperview()
