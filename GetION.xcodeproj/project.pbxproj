@@ -51,6 +51,7 @@
 		A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC91F8F608D00208FD9 /* LaunchScreen.storyboard */; };
 		A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAD51F8F61BB00208FD9 /* AppDelegate.swift */; };
 		A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */; };
+		A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */; };
 		A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4631F8FB1C500FA108F /* HomeViewController.swift */; };
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
@@ -119,6 +120,8 @@
 		A7DFFACC1F8F608D00208FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DFFAD51F8F61BB00208FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomPopUpView.swift; sourceTree = "<group>"; };
+		A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomPopUpView.xib; sourceTree = "<group>"; };
 		A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */,
 				CC0A557B1F906A390043A0A3 /* BottomView.swift */,
 				CC0A557A1F906A390043A0A3 /* BottomView.xib */,
+				A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */,
+				A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
+				A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */,
 				A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */,
 				CCB0E2B21F96491E004DD3A8 /* QueryReplyViewController.swift in Sources */,
 				CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */,

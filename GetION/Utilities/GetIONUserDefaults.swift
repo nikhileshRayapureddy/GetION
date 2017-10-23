@@ -13,6 +13,8 @@ let ProfPic = "ProfilePic"
 let FirstName = "FirstName"
 let LastName = "LastName"
 let Role = "Role"
+let UserName = "UserName"
+
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
     {
@@ -50,6 +52,26 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
+    
+    class func setUserName (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: UserName)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getUserName () -> String
+    {
+        if UserDefaults.standard.object(forKey: UserName) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: UserName) as! String
+            
+        }
+    }
+
     class func setProfPic (object : String)
     {
         UserDefaults.standard.set(object, forKey: ProfPic)
