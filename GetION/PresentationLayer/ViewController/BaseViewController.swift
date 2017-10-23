@@ -47,14 +47,44 @@ class BaseViewController: UIViewController {
         self.navigationController!.navigationBar.barTintColor = Color_NavBarTint
 
         let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        negativeSpacer.width = -15
+        negativeSpacer.width = -12
         
         let menuButton = UIButton(type: UIButtonType.custom)
-        menuButton.frame = CGRect(x: -2, y: 0  , width: 44 , height: 44)
+        menuButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
         menuButton.setImage(UIImage(named: "menu"), for: UIControlState.normal)
         menuButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
-        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: menuButton)
-        self.navigationItem.rightBarButtonItems = [negativeSpacer, leftBarButtonItem]
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: menuButton)
+        
+        
+        let plannerButton = UIButton(type: UIButtonType.custom)
+        plannerButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        plannerButton.setImage(#imageLiteral(resourceName: "visits"), for: UIControlState.normal)
+        plannerButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
+        let rightBarButtonItem2: UIBarButtonItem = UIBarButtonItem(customView: plannerButton)
+        
+        let searchButton = UIButton(type: UIButtonType.custom)
+        searchButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        searchButton.setImage(#imageLiteral(resourceName: "queries"), for: UIControlState.normal)
+        searchButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
+        let rightBarButtonItem3: UIBarButtonItem = UIBarButtonItem(customView: searchButton)
+        
+        self.navigationItem.rightBarButtonItems = [negativeSpacer,rightBarButtonItem,rightBarButtonItem2, rightBarButtonItem3]
+        
+        let imgLogo = UIButton(type: UIButtonType.custom)
+        imgLogo.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        imgLogo.setImage(#imageLiteral(resourceName: "queries"), for: UIControlState.normal)
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: imgLogo)
+        
+        let lblTitle = UIButton(type: UIButtonType.custom)
+        lblTitle.frame = CGRect(x: 0, y: 0  , width: 100 , height: 30)
+        lblTitle .setTitle("Dr. Arjun Reddy", for: .normal)
+        lblTitle.setTitleColor(UIColor.darkGray, for: .normal)
+        let leftBarButtonItem2: UIBarButtonItem = UIBarButtonItem(customView: lblTitle)
+        
+        self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1,leftBarButtonItem2]
+        
+       
+        
     }
     @objc func menuClicked(sender:UIButton)
     {

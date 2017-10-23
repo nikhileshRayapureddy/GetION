@@ -388,6 +388,13 @@ Your simple text goes here Analytics Title</string>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w9O-xM-UlR">
+                                                            <rect key="frame" x="355" y="40" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="Ry1-n4-qp1"/>
+                                                                <constraint firstAttribute="width" constant="25" id="bkY-eF-aGD"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -405,6 +412,8 @@ Your simple text goes here Analytics Title</string>
                                                         <constraint firstAttribute="bottom" secondItem="paV-Vj-VIQ" secondAttribute="bottom" constant="8" id="elS-NH-wou"/>
                                                         <constraint firstItem="paV-Vj-VIQ" firstAttribute="centerX" secondItem="VFp-LW-iqe" secondAttribute="centerX" id="rXf-Z2-NDt"/>
                                                         <constraint firstItem="R1y-Vg-7hl" firstAttribute="leading" secondItem="NDK-R9-3pH" secondAttribute="trailing" constant="5" id="rnv-Po-LWy"/>
+                                                        <constraint firstItem="w9O-xM-UlR" firstAttribute="centerY" secondItem="VFp-LW-iqe" secondAttribute="centerY" id="uL5-9P-TBn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="w9O-xM-UlR" secondAttribute="trailing" constant="24" id="ur6-hO-5aa"/>
                                                         <constraint firstItem="ldc-i1-AEp" firstAttribute="top" secondItem="R1y-Vg-7hl" secondAttribute="bottom" constant="2" id="vvv-Tg-qjF"/>
                                                         <constraint firstAttribute="trailing" secondItem="cIF-39-fd4" secondAttribute="trailing" constant="3" id="yvG-aO-lCu"/>
                                                     </constraints>
@@ -420,6 +429,7 @@ Your simple text goes here Analytics Title</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="constLblStatusHeight" destination="Zns-iO-nnd" id="DB3-Mz-7W3"/>
+                                            <outlet property="imgContext" destination="w9O-xM-UlR" id="tHW-cn-WwM"/>
                                             <outlet property="imgVwAvatar" destination="NDK-R9-3pH" id="aC4-2t-2q5"/>
                                             <outlet property="imgVwStatus" destination="2ky-e9-nYG" id="vFR-bT-fKq"/>
                                             <outlet property="lblAction" destination="paV-Vj-VIQ" id="gWi-7E-z50"/>
@@ -473,7 +483,7 @@ Your simple text goes here Analytics Title</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBn-8b-UEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="86"/>
+            <point key="canvasLocation" x="2970" y="-318"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="jM8-Uk-y8T">
