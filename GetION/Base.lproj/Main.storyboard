@@ -819,7 +819,7 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGd-kP-65b">
-                                <rect key="frame" x="0.0" y="42.666666666666629" width="394" height="150"/>
+                                <rect key="frame" x="0.0" y="42.666666666666657" width="394" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K8e-Mr-uLD">
                                         <rect key="frame" x="304" y="7" width="80" height="80"/>
