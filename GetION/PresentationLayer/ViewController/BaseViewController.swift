@@ -92,7 +92,16 @@ class BaseViewController: UIViewController {
     }
     func designTabBar()
     {
-        let bottomView = UIView(frame: CGRect(x: 0, y: self.view.frame.size.height - 134, width: self.view.frame.size.width, height: 80))
+        var yPosition = 0
+        if self.view.frame.size.height == 812
+        {
+            yPosition = Int(self.view.frame.size.height - 185)
+        }
+        else
+        {
+            yPosition = Int(self.view.frame.size.height - 134)
+        }
+        let bottomView = UIView(frame: CGRect(x: 0, y: yPosition, width: Int(self.view.frame.size.width), height: 80))
         bottomView.backgroundColor = UIColor.clear
         
         let buttonsBackgroundView = UIView(frame: CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: 50))
@@ -340,4 +349,19 @@ class BaseViewController: UIViewController {
         return label
     }
 
+}
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
 }
