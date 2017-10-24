@@ -11,6 +11,7 @@ import UIKit
 class QuickReplyCustomCell: UITableViewCell {
 
     @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var lblReplyMessage: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

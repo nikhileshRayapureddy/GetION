@@ -17,13 +17,18 @@ class QueriesViewController: BaseViewController {
     @IBOutlet weak var btnAnswered: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var btnPopular: UIButton!
-    
+    var arrQuickReplies = [QuickReplyBO]()
     var selectedButtonIndex = -1
     var arrPopularQueries = [QueriesBO]()
     var arrUnAnsweredQueries = [QueriesBO]()
     var arrAnsweredQueries = [QueriesBO]()
     var arrQueries = [QueriesBO]()
     var isFirstTime = true
+    var cellIndex = -1
+    
+    var quickReplyEditTemplatePopUp: QuickReplyTemplateEditPopUp!
+    var quickReplyPopUp: QuickReplyPopUp!
+    var quickReplyTemplateBO = QuickReplyBO()
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
@@ -132,6 +137,7 @@ class QueriesViewController: BaseViewController {
         layer.getQuickReplyTemplatesWithUserId(userId: GetIONUserDefaults.getUserId(), successMessage: { (response) in
             DispatchQueue.main.async {
                 app_delegate.removeloder()
+                self.arrQuickReplies = response as! [QuickReplyBO]
                 self.showQuickReplyPopup()
             }
         }) { (error) in
@@ -139,6 +145,11 @@ class QueriesViewController: BaseViewController {
                 app_delegate.removeloder()
             }
         }
+    }
+    
+    func updateQuickReplyTemplate()
+    {
+        
     }
     
     func bindData()
@@ -172,10 +183,12 @@ class QueriesViewController: BaseViewController {
     {
         if let popup = Bundle.main.loadNibNamed("QuickReplyPopUp", owner: nil, options: nil)![0] as? QuickReplyPopUp
         {
+            popup.lblMessage.text = arrQueries[cellIndex].content
+            popup.arrTemplates = arrQuickReplies
             popup.resizeViews()
+            quickReplyPopUp = popup
+            popup.delegate = self
             popup.frame = self.view.bounds
-            popup.layer.cornerRadius = 5.0
-            popup.clipsToBounds = true
             self.view.addSubview(popup)
         }
     }
@@ -202,6 +215,7 @@ class QueriesViewController: BaseViewController {
     
     @objc func btnQuickReplyClikced(_ sender: UIButton)
     {
+        cellIndex = sender.tag - 100
         getQuickReplyTemplates()
     }
     
@@ -233,6 +247,7 @@ extension QueriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.lblTime.text = queryBO.display_time
         cell.lblTime.adjustsFontSizeToFitWidth = true
         cell.lblNameWidthConstraint.constant = (cell.lblName.text?.width(withConstraintedHeight: cell.lblName.frame.size.height, font: UIFont.systemFont(ofSize: 17)))! + 5
+        cell.btnQuickReply.tag = indexPath.row + 100
         cell.btnQuickReply.addTarget(self, action: #selector(btnQuickReplyClikced(_:)), for: .touchUpInside)
         cell.btnReply.addTarget(self, action: #selector(btnReplyClicked(_:)), for: .touchUpInside)
         cell.viewBackground.layer.cornerRadius = 10.0
@@ -246,5 +261,81 @@ extension QueriesViewController: UITableViewDelegate, UITableViewDataSource
         let queryBO = arrQueries[indexPath.row]
         vc.queryBO = queryBO
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension QueriesViewController: QuickReplyPopUp_Delegate
+{
+    func showAlertWithMessage(_ message: String) {
+        let alert = UIAlertController(title: "Alert!", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func editTemplateClickedFor(_ template: QuickReplyBO) {
+        if let popup = Bundle.main.loadNibNamed("QuickReplyTemplateEditPopUp", owner: nil, options: nil)![0] as? QuickReplyTemplateEditPopUp
+        {
+            quickReplyTemplateBO = template
+            popup.txtReply.text = template.content
+            popup.resizeViews()
+            popup.delegate = self
+            quickReplyEditTemplatePopUp = popup
+            popup.frame = self.view.bounds
+            self.view.addSubview(popup)
+        }
+    }
+    
+    func closeQuickReplyPopup() {
+        quickReplyPopUp.removeFromSuperview()
+    }
+    
+    func sendReplyWithTemplate(_ template: QuickReplyBO)
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        
+        layer.addReplyForQuestion(id: arrQueries[cellIndex].id, withMessage: template.content, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let message = response as? String
+                if message?.caseInsensitiveCompare("success") == .orderedSame
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sent successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        self.closeQuickReplyPopup()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sending failed. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
+
+}
+
+extension QueriesViewController: QuickReplyTemplateEditPopUp_Delegate
+{
+    func closeEditTemplatePopUp() {
+        quickReplyEditTemplatePopUp.removeFromSuperview()
+    }
+    
+    func showAlertWithText(_ message: String) {
+        let alert = UIAlertController(title: "Alert!", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateEditTemplatePopUp(_ text: String) {
+        
     }
 }
