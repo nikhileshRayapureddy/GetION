@@ -784,6 +784,39 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    public func addReplyForQuestion(id: String, withMessage message: String, forUser userId:String, withUserName userName: String, withPrivacy privacy: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=post&resource=reply&encode=true&private=%@&pwd=cmFtZXNo&question_id=%@&reply=%@&userid=%@&username=%@", BASE_URL,privacy,id,message,userId,userName)
+        obj._serviceURL = obj._serviceURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+
+    
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""

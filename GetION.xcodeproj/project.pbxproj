@@ -73,6 +73,8 @@
 		CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */; };
 		CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C31F9F852A007A6F30 /* GallaryView.swift */; };
 		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
+		CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */; };
+		CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */; };
 		CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */; };
 		CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */; };
 		CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */; };
@@ -156,6 +158,8 @@
 		CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC2519C31F9F852A007A6F30 /* GallaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryView.swift; sourceTree = "<group>"; };
 		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
+		CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyTemplateEditPopUp.swift; sourceTree = "<group>"; };
+		CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyTemplateEditPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyPopUp.swift; sourceTree = "<group>"; };
 		CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesCustomCell.swift; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 				CC0A557A1F906A390043A0A3 /* BottomView.xib */,
 				A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */,
 				A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */,
+				CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */,
+				CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
 				CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */,
+				CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +620,7 @@
 				A71FFEFC1F91E6610082BAF8 /* IQTextView.swift in Sources */,
 				CCB0E2B51F964949004DD3A8 /* FromMessageCustomCell.swift in Sources */,
 				A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */,
+				CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */,
 				A71FFEF91F91E6610082BAF8 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */,
 				A71FFEF51F91E6610082BAF8 /* IQUIView+Hierarchy.swift in Sources */,
