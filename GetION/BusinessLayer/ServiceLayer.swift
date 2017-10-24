@@ -790,9 +790,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "POST"
-        
         obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=post&resource=reply&encode=true&private=%@&pwd=cmFtZXNo&question_id=%@&reply=%@&userid=%@&username=%@", BASE_URL,privacy,id,message,userId,userName)
-        obj._serviceURL = obj._serviceURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
