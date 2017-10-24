@@ -53,6 +53,8 @@
 		A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */; };
 		A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */; };
 		A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */; };
+		A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */; };
+		A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */; };
 		A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4631F8FB1C500FA108F /* HomeViewController.swift */; };
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
@@ -124,6 +126,8 @@
 		A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomPopUpView.swift; sourceTree = "<group>"; };
 		A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomPopUpView.xib; sourceTree = "<group>"; };
+		A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCustomCell.swift; sourceTree = "<group>"; };
+		A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoCustomCell.xib; sourceTree = "<group>"; };
 		A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */,
 				A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */,
 				A78B61581F9E37F5002F8E8F /* MenuCell.swift */,
+				A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */,
+				A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
 				A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */,
@@ -561,6 +568,7 @@
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
+				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
