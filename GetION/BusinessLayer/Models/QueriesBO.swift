@@ -35,4 +35,6 @@ class QueriesBO: NSObject {
     var category_id = ""
     var post_type = ""
     var category_name = ""
+    var arrImages = [UIImage]()
+
 }

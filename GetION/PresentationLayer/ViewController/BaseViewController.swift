@@ -394,9 +394,21 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         label.backgroundColor = UIColor.clear
         return label
     }
-
+    
 }
 extension String {
+    
+    public func heightForHtmlString(_ text: NSMutableAttributedString, font:UIFont, labelWidth:CGFloat) -> CGFloat
+    {
+        let label:UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.attributedText = text as NSAttributedString
+        label.sizeToFit()
+        return label.frame.height
+    }
+    
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
