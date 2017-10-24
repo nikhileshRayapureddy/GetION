@@ -17,6 +17,7 @@ class QueriesViewController: BaseViewController {
     @IBOutlet weak var btnAnswered: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var btnPopular: UIButton!
+    
     var selectedButtonIndex = -1
     var arrPopularQueries = [QueriesBO]()
     var arrUnAnsweredQueries = [QueriesBO]()
@@ -124,6 +125,22 @@ class QueriesViewController: BaseViewController {
         }
     }
     
+    func getQuickReplyTemplates()
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.getQuickReplyTemplatesWithUserId(userId: GetIONUserDefaults.getUserId(), successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                self.showQuickReplyPopup()
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
+    
     func bindData()
     {
         arrQueries.removeAll()
@@ -151,6 +168,18 @@ class QueriesViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func showQuickReplyPopup()
+    {
+        if let popup = Bundle.main.loadNibNamed("QuickReplyPopUp", owner: nil, options: nil)![0] as? QuickReplyPopUp
+        {
+            popup.resizeViews()
+            popup.frame = self.view.bounds
+            popup.layer.cornerRadius = 5.0
+            popup.clipsToBounds = true
+            self.view.addSubview(popup)
+        }
+    }
+    
     @IBAction func btnSegmentActionsClicked(_ sender: UIButton) {
         selectedImageView.frame.size.width = sender.frame.size.width - 20
         selectedImageView.frame.origin.x = sender.frame.origin.x + 10
@@ -173,12 +202,7 @@ class QueriesViewController: BaseViewController {
     
     @objc func btnQuickReplyClikced(_ sender: UIButton)
     {
-        if let popup = Bundle.main.loadNibNamed("QuickReplyPopUp", owner: nil, options: nil)![0] as? QuickReplyPopUp
-        {
-            popup.resizeViews()
-            popup.frame = self.view.bounds
-            self.view.addSubview(popup)
-        }
+        getQuickReplyTemplates()
     }
     
     @objc func btnReplyClicked(_ sender: UIButton)
