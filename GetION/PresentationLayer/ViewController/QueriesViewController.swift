@@ -219,6 +219,8 @@ extension QueriesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+        let queryBO = arrQueries[indexPath.row]
+        vc.queryBO = queryBO
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
