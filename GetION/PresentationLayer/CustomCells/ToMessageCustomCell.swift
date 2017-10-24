@@ -10,7 +10,10 @@ import UIKit
 
 class ToMessageCustomCell: UITableViewCell {
 
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var lblQueryMessage: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
