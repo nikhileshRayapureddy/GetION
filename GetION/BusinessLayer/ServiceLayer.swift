@@ -579,6 +579,11 @@ class ServiceLayer: NSObject {
                     }
                     successMessage(arrQueries)
                 }
+                else
+                {
+                    failureMessage("Failure")
+                }
+
             }
         }
     }
@@ -710,6 +715,71 @@ class ServiceLayer: NSObject {
                         arrQueries.append(query)
                     }
                     successMessage(arrQueries)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+
+            }
+        }
+    }
+    
+    public func getQuickReplyTemplatesWithUserId(userId:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=get&resource=templateslist&userid=%@", BASE_URL,userId)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                {
+                    var quickReplyTemplates = [QuickReplyBO]()
+                    for blog in posts
+                    {
+                        let reply = QuickReplyBO()
+                        if let id = blog["id"] as? String
+                        {
+                            reply.id = id
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            reply.title = title
+                        }
+
+                        if let content = blog["content"] as? String
+                        {
+                            reply.content = content
+                        }
+
+                        if let created_by = blog["created_by"] as? String
+                        {
+                            reply.created_by = created_by
+                        }
+
+                        if let created_date = blog["created_date"] as? String
+                        {
+                            reply.created_date = created_date
+                        }
+
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            reply.modified_date = modified_date
+                        }
+                        quickReplyTemplates.append(reply)
+                    }
+                    successMessage(quickReplyTemplates)
+                }
+                else
+                {
+                    failureMessage("Failure")
                 }
             }
         }
