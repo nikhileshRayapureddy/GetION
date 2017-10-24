@@ -9,29 +9,40 @@
 import UIKit
 
 class QueryReplyViewController: BaseViewController {
-
+    var queryBO = QueriesBO()
+    var arrQueries = [QueriesBO]()
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
         // Do any additional setup after loading the view.
     }
 
+    func getQueryDetails()
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.getQueryDetailsWithId(id: queryBO.id, successMessage: { (response) in
+            DispatchQueue.main.async {
+                self.arrQueries = response as! [QueriesBO]
+                app_delegate.removeloder()
+                self.bindData()
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
+    
+    func bindData()
+    {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
