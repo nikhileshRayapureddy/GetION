@@ -304,13 +304,19 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     {
         if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
         {
-            addPopUp = popup
-            addPopUp.callBack = self
-            addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
-            self.view.window?.addSubview(addPopUp)
-            addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
-            addPopUp.designScreen(screenWidth: ScreenWidth)
+            UIView.animate(withDuration: 0.3, animations: {
+                    sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
+            }, completion: { (isComplete) in
+                sender.transform = .identity
+                self.addPopUp = popup
+                self.addPopUp.callBack = self
+                self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
+                self.view.window?.addSubview(self.addPopUp)
+                self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
+                self.addPopUp.designScreen(screenWidth: ScreenWidth)
+                
 
+            })
         }
 
     }

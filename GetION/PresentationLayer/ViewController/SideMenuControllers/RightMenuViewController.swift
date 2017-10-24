@@ -19,8 +19,8 @@ class RightMenuViewController: UIViewController {
     @IBOutlet weak var btnLogOut: UIButton!
     
     @IBOutlet weak var tblViewMenu: UITableView!
-    let arrTitles = ["Analytics","Promotion","Support","Settings"]
-    let arrImages = [#imageLiteral(resourceName: "analytics"),#imageLiteral(resourceName: "promotion"),#imageLiteral(resourceName: "support"),#imageLiteral(resourceName: "settings")]
+    let arrTitles = ["Home","Analytics","Promotion","Support","Settings"]
+    let arrImages = [#imageLiteral(resourceName: "analytics"),#imageLiteral(resourceName: "analytics"),#imageLiteral(resourceName: "promotion"),#imageLiteral(resourceName: "support"),#imageLiteral(resourceName: "settings")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 4
+        return arrTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -75,14 +75,22 @@ extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if indexPath.row == 1
+        if indexPath.row == 0
         {
-            let plannerVC: PlannerViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PlannerViewController") as! PlannerViewController
-            navController = UINavigationController(rootViewController: plannerVC)
+            let homeViewController: HomeViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            navController = UINavigationController(rootViewController: homeViewController)
+            self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
+        }
+        if indexPath.row == 2
+        {
+            let promotionsMainViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionsMainViewController") as! PromotionsMainViewController
+            navController = UINavigationController(rootViewController: promotionsMainViewController)
 
             self.sideMenuViewController!.setContentViewController(navController!, animated: true)
             self.sideMenuViewController!.hideMenuViewController()
         }
+            
         else
         {
             let homeViewController: HomeViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
