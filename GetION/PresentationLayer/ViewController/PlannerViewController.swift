@@ -16,7 +16,8 @@ class PlannerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // designTabBar()
+
         self.calendar.appearance.weekdayTextColor = UIColor.darkGray
         self.calendar.appearance.headerTitleColor = UIColor.darkGray
         self.calendar.appearance.eventDefaultColor = UIColor.red
@@ -31,7 +32,6 @@ class PlannerViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        designNavigationBar()
-       // designTabBar()
     }
     
     override func didReceiveMemoryWarning() {
