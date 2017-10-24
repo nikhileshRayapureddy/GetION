@@ -124,10 +124,10 @@ class HomeViewController: BaseViewController {
             let lblTitle = UILabel(frame: CGRect(x: Xpos, y: CGFloat(30), width: 150, height: 25))
             lblTitle.backgroundColor = UIColor.white
             lblTitle.text = bo.title
-            lblTitle.layer.cornerRadius = 2.0
+//            lblTitle.layer.cornerRadius = 2.0
             lblTitle.numberOfLines = 0
             lblTitle.lineBreakMode = .byWordWrapping
-            lblTitle.layer.masksToBounds = true
+//            lblTitle.layer.masksToBounds = true
             lblTitle.textColor = UIColor.black
             lblTitle.font = UIFont(name: "Myriad_Pro_Regular", size: 11)
             scrlVwBlog.addSubview(lblTitle)
