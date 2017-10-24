@@ -1370,7 +1370,7 @@ Please enter your Email-Id below :</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npA-xh-gB1">
-                                                    <rect key="frame" x="5" y="5" width="389" height="89.666666666666671"/>
+                                                    <rect key="frame" x="5" y="5" width="379" height="89.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3H-fQ-hky">
                                                             <rect key="frame" x="5" y="10" width="100" height="25"/>
@@ -1378,12 +1378,12 @@ Please enter your Email-Id below :</string>
                                                                 <constraint firstAttribute="width" constant="100" id="Pjb-kA-OjP"/>
                                                                 <constraint firstAttribute="height" constant="25" id="lDs-Jg-38x"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-4q-PIo">
-                                                            <rect key="frame" x="334" y="5" width="50" height="20"/>
+                                                            <rect key="frame" x="324" y="5" width="50" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="2C3-wJ-Vaf"/>
                                                                 <constraint firstAttribute="width" constant="50" id="7Nv-dn-qp1"/>
@@ -1393,7 +1393,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Wy-Urc">
-                                                            <rect key="frame" x="5" y="40" width="379" height="44.666666666666671"/>
+                                                            <rect key="frame" x="5" y="40" width="369" height="44.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1414,12 +1414,15 @@ Please enter your Email-Id below :</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="npA-xh-gB1" secondAttribute="bottom" constant="5" id="7f8-05-6Vy"/>
-                                                <constraint firstAttribute="trailing" secondItem="npA-xh-gB1" secondAttribute="trailing" constant="20" id="EvM-uM-tqX"/>
+                                                <constraint firstAttribute="trailing" secondItem="npA-xh-gB1" secondAttribute="trailing" constant="30" id="EvM-uM-tqX"/>
                                                 <constraint firstItem="npA-xh-gB1" firstAttribute="top" secondItem="Hct-hR-2I6" secondAttribute="top" constant="5" id="rdf-GU-FjT"/>
                                                 <constraint firstItem="npA-xh-gB1" firstAttribute="leading" secondItem="Hct-hR-2I6" secondAttribute="leading" constant="5" id="vQw-pw-11L"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lblName" destination="x3H-fQ-hky" id="aal-mn-Csf"/>
+                                            <outlet property="lblQueryMessage" destination="lMq-Wy-Urc" id="x1e-xC-gdW"/>
+                                            <outlet property="lblTime" destination="gbz-4q-PIo" id="Ddi-Fs-ehX"/>
                                             <outlet property="viewBackground" destination="npA-xh-gB1" id="sVj-jz-O3b"/>
                                         </connections>
                                     </tableViewCell>
@@ -1431,7 +1434,7 @@ Please enter your Email-Id below :</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLb-4e-aSj">
-                                                    <rect key="frame" x="20" y="5" width="389" height="89.666666666666671"/>
+                                                    <rect key="frame" x="30" y="5" width="379" height="89.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-hw-vXw">
                                                             <rect key="frame" x="5" y="10" width="100" height="25"/>
@@ -1439,12 +1442,12 @@ Please enter your Email-Id below :</string>
                                                                 <constraint firstAttribute="height" constant="25" id="NSN-7M-pwc"/>
                                                                 <constraint firstAttribute="width" constant="100" id="iwg-4u-AJ3"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gn1-hg-2v2">
-                                                            <rect key="frame" x="284" y="5" width="100" height="20"/>
+                                                            <rect key="frame" x="274" y="5" width="100" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="DNV-vv-Qg7"/>
                                                                 <constraint firstAttribute="height" constant="20" id="ZKI-Zi-obF"/>
@@ -1454,7 +1457,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ7-Yu-W0m">
-                                                            <rect key="frame" x="5" y="35" width="384" height="54.666666666666671"/>
+                                                            <rect key="frame" x="5" y="35" width="374" height="54.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1475,12 +1478,15 @@ Please enter your Email-Id below :</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="HLb-4e-aSj" secondAttribute="trailing" constant="5" id="9c9-lo-olJ"/>
-                                                <constraint firstItem="HLb-4e-aSj" firstAttribute="leading" secondItem="VaM-Dy-fSM" secondAttribute="leading" constant="20" id="E6X-vl-G8y"/>
+                                                <constraint firstItem="HLb-4e-aSj" firstAttribute="leading" secondItem="VaM-Dy-fSM" secondAttribute="leading" constant="30" id="E6X-vl-G8y"/>
                                                 <constraint firstItem="HLb-4e-aSj" firstAttribute="top" secondItem="VaM-Dy-fSM" secondAttribute="top" constant="5" id="REq-wq-K1d"/>
                                                 <constraint firstAttribute="bottom" secondItem="HLb-4e-aSj" secondAttribute="bottom" constant="5" id="kvY-k8-zIx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lblName" destination="gxe-hw-vXw" id="eZQ-FU-Jg0"/>
+                                            <outlet property="lblQueryMessage" destination="jJ7-Yu-W0m" id="o5F-jS-KLI"/>
+                                            <outlet property="lblTime" destination="Gn1-hg-2v2" id="jH6-Oo-T3b"/>
                                             <outlet property="viewBackground" destination="HLb-4e-aSj" id="wlb-VI-PbJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -1656,6 +1662,10 @@ Please enter your Email-Id below :</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X0w-1x-8kz"/>
                     </view>
+                    <connections>
+                        <outlet property="lblMessage" destination="ku0-L3-0Bj" id="vDQ-ID-JZP"/>
+                        <outlet property="tblView" destination="XUX-e7-e1C" id="6l7-0q-Aqx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1M-Ni-dIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

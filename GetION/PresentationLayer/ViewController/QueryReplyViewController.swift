@@ -11,9 +11,13 @@ import UIKit
 class QueryReplyViewController: BaseViewController {
     var queryBO = QueriesBO()
     var arrQueries = [QueriesBO]()
+    @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var lblMessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
+        getQueryDetails()
+        lblMessage.text = queryBO.content
         // Do any additional setup after loading the view.
     }
 
@@ -36,7 +40,7 @@ class QueryReplyViewController: BaseViewController {
     
     func bindData()
     {
-        
+        tblView.reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,13 +52,18 @@ class QueryReplyViewController: BaseViewController {
 extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return arrQueries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0
+        
+        let queryDetailBO = arrQueries[indexPath.row]
+        if queryDetailBO.user_id == "0"
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
+            cell.lblName.text = queryDetailBO.poster_name
+            cell.lblTime.text = queryDetailBO.display_time
+            cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
             return cell
@@ -62,6 +71,9 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TOMESSAGE", for: indexPath) as! ToMessageCustomCell
+            cell.lblName.text = queryDetailBO.poster_name
+            cell.lblTime.text = queryDetailBO.display_time
+            cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
             return cell
