@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import AKSideMenu
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Create content and menu controllers
-        
+        IQKeyboardManager.sharedManager().enable = true
         
         if GetIONUserDefaults.getLoginStatus() == "true"
         {

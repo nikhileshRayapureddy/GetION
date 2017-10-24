@@ -13,11 +13,24 @@ class QueryReplyViewController: BaseViewController {
     var arrQueries = [QueriesBO]()
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var lblMessage: UILabel!
+    
+    @IBOutlet weak var txtViewMessage: UITextView!
+    @IBOutlet weak var collctView: UICollectionView!
+    @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var constrtReplyBottom: NSLayoutConstraint!
+    var imagePicker = UIImagePickerController()
+    var arrImages = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
         getQueryDetails()
         lblMessage.text = queryBO.content
+        constrtImgVwHeight.constant = 0
+
+        
+
         // Do any additional setup after loading the view.
     }
 
@@ -28,6 +41,7 @@ class QueryReplyViewController: BaseViewController {
         layer.getQueryDetailsWithId(id: queryBO.id, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrQueries = response as! [QueriesBO]
+                self.arrQueries[7].arrImages = [#imageLiteral(resourceName: "close"), #imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "promotion"), #imageLiteral(resourceName: "settings")]
                 app_delegate.removeloder()
                 self.bindData()
             }
@@ -47,6 +61,103 @@ class QueryReplyViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBAction func btnAddImageAction(_ sender: UIButton)
+    {
+        imagePicker.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func removeImageAction(sender : UIButton)
+    {
+        let tag = sender.tag - 2000
+        arrImages.remove(at: tag)
+        if arrImages.count == 0
+        {
+            constrtImgVwHeight.constant = 0
+        }
+        
+        self.collctView.reloadData()
+    }
+    
+    
+    @objc func showGallary(sender:UIButton)
+    {
+        let tag = sender.tag - 3000
+        
+        if let vwGallery = Bundle.main.loadNibNamed("GallaryView", owner: nil, options: nil)![0] as? GallaryView
+        {
+            vwGallery.frame = CGRect (x: 0, y: 20, width: (self.view.window?.bounds.width)!, height: (self.view.window?.bounds.height)! - 20)
+            vwGallery.arrImages.append(contentsOf: arrQueries[tag].arrImages)
+            vwGallery.loadGalleryWithImages()
+            self.view.window?.addSubview(vwGallery)
+        }
+    }
+    
+    @IBAction func btnQuickReplyAction(_ sender: UIButton)
+    {
+        self.txtViewMessage.resignFirstResponder()
+        self.constrtReplyBottom.constant = 5
+    }
+    
+}
+
+extension QueryReplyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        
+        self.dismiss(animated: true) {
+            DispatchQueue.main.async {
+                
+                self.arrImages.append(tempImage)
+                self.constrtImgVwHeight.constant = 80
+                self.collctView.reloadData()
+            }
+            
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+extension QueryReplyViewController: UITextViewDelegate
+{
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        self.constrtReplyBottom.constant = 150
+    }
+    func textViewDidEndEditing(_ textView: UITextView)
+    {
+        self.constrtReplyBottom.constant = 5
+    }
+}
+extension QueryReplyViewController: UICollectionViewDelegate, UICollectionViewDataSource
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Images Array Count : \(arrImages.count)")
+        return arrImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        print("Images Array Count : \(arrImages.count) : IndexPath \(indexPath.row) ")
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageAttachmentCollectionCell", for: indexPath) as! ImageAttachmentCollectionCell
+        cell.imgVw.image = arrImages[indexPath.item]
+        cell.btnClose.tag = indexPath.item + 2000
+        cell.btnClose.addTarget(self, action: #selector(removeImageAction(sender:)), for: .touchUpInside)
+        return cell
+    }
 }
 
 extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
@@ -58,7 +169,6 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let queryDetailBO = arrQueries[indexPath.row]
-        print(queryDetailBO.content)
         if queryDetailBO.user_id == "0"
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
@@ -67,9 +177,67 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
-            cell.constrtVwImagesHeight.constant = 0
+            cell.btnShowGallery.tag = indexPath.row + 3000
+            cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
             
-            cell.selectionStyle = .none
+            if queryDetailBO.arrImages.count == 1
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.isHidden = true
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count == 2
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count == 3
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                cell.img3.isHidden = false
+                
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count > 3
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                cell.img3.isHidden = false
+                cell.btn4thImage.isHidden = false
+                
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
+                
+            }
+            else
+            {
+                cell.constrtVwImagesHeight.constant = 0
+                cell.img1.isHidden = true
+                cell.img2.isHidden = true
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            
             return cell
         }
         else
@@ -80,8 +248,67 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
-            cell.constrtVwImagesHeight.constant = 0
-            cell.selectionStyle = .none
+            cell.btnShowGallery.tag = indexPath.row + 3000
+            cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
+            
+            if queryDetailBO.arrImages.count == 1
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.isHidden = true
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count == 2
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count == 3
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                cell.img3.isHidden = false
+                
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.btn4thImage.isHidden = true
+            }
+            else if queryDetailBO.arrImages.count > 3
+            {
+                cell.constrtVwImagesHeight.constant = 76
+                cell.img1.isHidden = false
+                cell.img2.isHidden = false
+                cell.img3.isHidden = false
+                cell.btn4thImage.isHidden = false
+                
+                
+                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
+                
+            }
+            else
+            {
+                cell.constrtVwImagesHeight.constant = 0
+                cell.img1.isHidden = true
+                cell.img2.isHidden = true
+                cell.img3.isHidden = true
+                cell.btn4thImage.isHidden = true
+            }
+            
             return cell
         }
     }
@@ -89,9 +316,34 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         let queryDetailBO = arrQueries[indexPath.row]
-        var height = queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.systemFont(ofSize: 17.0))
-        height = height + 50
-        return height
-
+        var height = 0
+        if queryDetailBO.content.contains("</")
+        {
+            let attrDescription = try! NSMutableAttributedString(
+                data: queryDetailBO.content.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                options: [.documentType: NSAttributedString.DocumentType.html],
+                documentAttributes: nil)
+            
+            height = Int(queryDetailBO.content.heightForHtmlString(attrDescription, font: UIFont.systemFont(ofSize: 17.0), labelWidth: self.view.frame.size.width - 45))
+            height = height + 50
+        }
+        else
+        {
+            height = Int(queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.systemFont(ofSize: 17.0)))
+            height = height + 60
+        }
+        
+        if queryDetailBO.arrImages.count != 0
+        {
+            return CGFloat(height + 60)
+        }
+        return CGFloat(height)
+        
     }
+    
+   
+    
+  
+    
 }
+
