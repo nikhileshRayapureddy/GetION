@@ -9,6 +9,7 @@
 import UIKit
 protocol AddCustomPopUpViewDelegate {
     func btnViewMoreClicked(sender: UIButton)
+    func AddPoupCollectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 }
 class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet var btnClose: UIButton!
@@ -77,5 +78,11 @@ extension AddCustomPopUpView : UICollectionViewDelegate,UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: ScreenWidth/2.7, height: 150)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if callBack != nil
+        {
+            callBack.AddPoupCollectionView(collectionView: collectionView, didSelectItemAt: indexPath)
+        }
     }
 }
