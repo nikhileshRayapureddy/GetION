@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0wF-fB-vRi">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -33,7 +33,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -52,11 +52,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ysf-lL-puh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gB0-Fj-kDs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgx-JE-0Yy">
-                                <rect key="frame" x="0.0" y="25" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="25" width="375" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3p-Zt-PNo">
                                         <rect key="frame" x="238" y="45" width="90" height="5"/>
@@ -67,7 +67,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-iA-iBJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="206.66666666666666" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Action Points">
                                             <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,7 +80,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QY-Sa-qZA">
-                                        <rect key="frame" x="207.66666666666663" y="0.0" width="206.33333333333337" height="50"/>
+                                        <rect key="frame" x="188" y="0.0" width="187" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Hospital Feed">
                                             <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,7 +93,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RbZ-Wp-ByV">
-                                        <rect key="frame" x="206.66666666666666" y="10" width="1" height="30"/>
+                                        <rect key="frame" x="187" y="10" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="0ca-rB-aKW"/>
@@ -119,10 +119,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4K-ee-7gI">
-                                <rect key="frame" x="5" y="80" width="404" height="213"/>
+                                <rect key="frame" x="5" y="80" width="365" height="178.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrH-aD-v7t">
-                                        <rect key="frame" x="329" y="10" width="75" height="40"/>
+                                        <rect key="frame" x="290" y="10" width="75" height="40"/>
                                         <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="A2a-VW-X7s"/>
@@ -133,7 +133,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJf-a5-JIe">
-                                        <rect key="frame" x="13.999999999999996" y="32" width="44.666666666666657" height="18"/>
+                                        <rect key="frame" x="14" y="32" width="44.5" height="18"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="cWh-3E-uhB"/>
@@ -143,7 +143,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3e4-Sr-i6m">
-                                        <rect key="frame" x="18" y="60" width="368" height="143"/>
+                                        <rect key="frame" x="18" y="60" width="329" height="108.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Your simple text goes here Analytics Projects
 Your simple text goes here Analytics Title</string>
@@ -176,13 +176,13 @@ Your simple text goes here Analytics Title</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZX-ID-M30">
-                                <rect key="frame" x="5" y="298" width="404" height="213"/>
+                                <rect key="frame" x="5" y="263.5" width="365" height="178.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDh-oH-vGM">
-                                        <rect key="frame" x="0.0" y="0.0" width="199.66666666666666" height="213"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="178.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3C-O4-iAK">
-                                                <rect key="frame" x="124.66666666666666" y="10" width="75" height="40"/>
+                                                <rect key="frame" x="105" y="10" width="75" height="40"/>
                                                 <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="bKO-uq-ixb"/>
@@ -203,7 +203,7 @@ Your simple text goes here Analytics Title</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your simple text goes here Analytics Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOS-c4-cZw">
-                                                <rect key="frame" x="10" y="60" width="179.66666666666666" height="145.66666666666669"/>
+                                                <rect key="frame" x="10" y="60" width="160" height="111"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,10 +234,10 @@ Your simple text goes here Analytics Title</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZ9-9k-snd">
-                                        <rect key="frame" x="204.66666666666663" y="0.0" width="199.33333333333337" height="213"/>
+                                        <rect key="frame" x="185" y="0.0" width="180" height="178.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saU-eB-C53">
-                                                <rect key="frame" x="125.00000000000003" y="10" width="75" height="40"/>
+                                                <rect key="frame" x="105.5" y="10" width="75" height="40"/>
                                                 <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="16j-Ib-uLF"/>
@@ -248,7 +248,7 @@ Your simple text goes here Analytics Title</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be3-dk-PyW">
-                                                <rect key="frame" x="14" y="32" width="47.000000000000028" height="18"/>
+                                                <rect key="frame" x="14" y="32" width="47" height="18"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="Uzy-Ur-2xT"/>
@@ -258,7 +258,7 @@ Your simple text goes here Analytics Title</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your simple text goes here Analytics Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpj-vu-ZvQ">
-                                                <rect key="frame" x="10" y="60" width="180.00000000000003" height="145.66666666666669"/>
+                                                <rect key="frame" x="10" y="60" width="160.5" height="111"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -302,10 +302,10 @@ Your simple text goes here Analytics Title</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59H-am-sJS">
-                                <rect key="frame" x="5" y="516" width="404" height="150"/>
+                                <rect key="frame" x="5" y="447" width="365" height="150"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vWR-tu-qIY">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="150"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                 </subviews>
@@ -319,7 +319,7 @@ Your simple text goes here Analytics Title</string>
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-9a-OXR">
-                                <rect key="frame" x="0.0" y="75" width="414" height="591"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="522"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -327,14 +327,14 @@ Your simple text goes here Analytics Title</string>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HospitalFeedsCell" rowHeight="115" id="9vl-RP-59g" customClass="HospitalFeedsCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="115"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9vl-RP-59g" id="9xv-sz-855">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFp-LW-iqe">
-                                                    <rect key="frame" x="5" y="10" width="404" height="105"/>
+                                                    <rect key="frame" x="5" y="10" width="365" height="105"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NDK-R9-3pH">
                                                             <rect key="frame" x="5" y="5" width="30" height="30"/>
@@ -345,7 +345,7 @@ Your simple text goes here Analytics Title</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is test to check whether design gets adjusted or not in tall iOS devices" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1y-Vg-7hl">
-                                                            <rect key="frame" x="40" y="5" width="359" height="35"/>
+                                                            <rect key="frame" x="40" y="5" width="320" height="35"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="6HR-y5-6fy"/>
@@ -366,7 +366,7 @@ Your simple text goes here Analytics Title</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIF-39-fd4">
-                                                            <rect key="frame" x="3" y="85" width="398" height="15"/>
+                                                            <rect key="frame" x="3" y="85" width="359" height="15"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="Zns-iO-nnd"/>
@@ -376,7 +376,7 @@ Your simple text goes here Analytics Title</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-e9-nYG">
-                                                            <rect key="frame" x="181.66666666666666" y="45" width="40" height="40"/>
+                                                            <rect key="frame" x="162" y="45" width="40" height="40"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="DAl-0W-ID2"/>
@@ -384,7 +384,7 @@ Your simple text goes here Analytics Title</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reply" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paV-Vj-VIQ">
-                                                            <rect key="frame" x="172.33333333333334" y="72" width="60" height="25"/>
+                                                            <rect key="frame" x="153" y="72" width="60" height="25"/>
                                                             <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="lWb-S7-kky"/>
@@ -395,7 +395,7 @@ Your simple text goes here Analytics Title</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w9O-xM-UlR">
-                                                            <rect key="frame" x="355" y="40" width="25" height="25"/>
+                                                            <rect key="frame" x="316" y="40" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="Ry1-n4-qp1"/>
                                                                 <constraint firstAttribute="width" constant="25" id="bkY-eF-aGD"/>
@@ -496,14 +496,14 @@ Your simple text goes here Analytics Title</string>
             <objects>
                 <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="XS0-HW-dOn" customClass="LoginViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xTo-5I-pSt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="39w-Tx-2dg">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDb-78-eWj">
-                                <rect key="frame" x="25" y="263" width="364" height="250"/>
+                                <rect key="frame" x="25" y="228.5" width="325" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="HKG-ua-tJ7">
                                         <rect key="frame" x="8" y="0.0" width="30" height="30"/>
@@ -514,7 +514,7 @@ Your simple text goes here Analytics Title</string>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ramesh" placeholder="Enter your Email-Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-9Z-Prg">
-                                        <rect key="frame" x="58" y="0.0" width="298" height="30"/>
+                                        <rect key="frame" x="58" y="0.0" width="259" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2it-LP-Qpb"/>
@@ -524,7 +524,7 @@ Your simple text goes here Analytics Title</string>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BX6-rb-oRi">
-                                        <rect key="frame" x="60" y="31" width="296" height="1"/>
+                                        <rect key="frame" x="60" y="31" width="257" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="uoP-VN-RGt"/>
@@ -539,7 +539,7 @@ Your simple text goes here Analytics Title</string>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ramesh" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2sA-Gm-PM5">
-                                        <rect key="frame" x="58" y="65" width="298" height="30"/>
+                                        <rect key="frame" x="58" y="65" width="259" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IpF-j2-7tN"/>
@@ -549,14 +549,14 @@ Your simple text goes here Analytics Title</string>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-NY-6ia">
-                                        <rect key="frame" x="60" y="95" width="295" height="1"/>
+                                        <rect key="frame" x="60" y="95" width="256" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="NEg-gf-RER"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-3d-9VJ">
-                                        <rect key="frame" x="77.666666666666686" y="135" width="208" height="40"/>
+                                        <rect key="frame" x="58" y="135" width="208" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.82745098039215681" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="aHR-R0-JCm"/>
@@ -569,7 +569,7 @@ Your simple text goes here Analytics Title</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvv-er-KXs">
-                                        <rect key="frame" x="8" y="215" width="348" height="35"/>
+                                        <rect key="frame" x="8" y="215" width="309" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                         <state key="normal" title="Help, I forgot my login details &gt;">
@@ -608,7 +608,7 @@ Your simple text goes here Analytics Title</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HnJ-iY-2KF">
-                                <rect key="frame" x="95" y="56" width="224" height="130"/>
+                                <rect key="frame" x="75.5" y="56" width="224" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="MyC-7v-q6t"/>
@@ -646,17 +646,17 @@ Your simple text goes here Analytics Title</string>
             <objects>
                 <viewController restorationIdentifier="ForgotPasswordViewController" storyboardIdentifier="ForgotPasswordViewController" id="slN-Y7-J2X" customClass="ForgotPasswordViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OuG-hW-A0h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-li-HD7">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgK-h0-Jp0">
-                                <rect key="frame" x="0.0" y="170" width="414" height="280"/>
+                                <rect key="frame" x="0.0" y="170" width="375" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ri-4H-h2T">
-                                        <rect key="frame" x="8" y="245" width="398" height="30"/>
+                                        <rect key="frame" x="8" y="245" width="359" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="JCr-sh-HAa"/>
@@ -670,7 +670,7 @@ Your simple text goes here Analytics Title</string>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your Email-Id" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yAT-1I-JBD">
-                                        <rect key="frame" x="73.666666666666686" y="105" width="268" height="30"/>
+                                        <rect key="frame" x="54" y="105" width="268" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="e8y-av-2Kh"/>
@@ -681,7 +681,7 @@ Your simple text goes here Analytics Title</string>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vud-LN-qRG">
-                                        <rect key="frame" x="73.666666666666686" y="139" width="268" height="1"/>
+                                        <rect key="frame" x="54" y="139" width="268" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Xwh-zF-Rze"/>
@@ -689,7 +689,7 @@ Your simple text goes here Analytics Title</string>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fan-Ie-UbB">
-                                        <rect key="frame" x="73.666666666666686" y="175" width="268" height="40"/>
+                                        <rect key="frame" x="54" y="175" width="268" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="CdM-9e-azv"/>
@@ -702,7 +702,7 @@ Your simple text goes here Analytics Title</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-C5-FeG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="lDy-oo-vCm"/>
                                         </constraints>
@@ -760,7 +760,7 @@ Please enter your Email-Id below :</string>
                         <viewControllerLayoutGuide type="bottom" id="0pR-FG-Xx5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="p9p-aA-iyB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="St2-Fl-Zum"/>
@@ -779,22 +779,22 @@ Please enter your Email-Id below :</string>
                         <viewControllerLayoutGuide type="bottom" id="zjD-j8-9ci"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iwE-nh-6pR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GvP-Lc-6tf">
-                                <rect key="frame" x="0.0" y="239" width="414" height="372"/>
+                                <rect key="frame" x="0.0" y="219" width="375" height="323"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" id="vUa-1P-SbI" customClass="MenuCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vUa-1P-SbI" id="3Km-Ud-7He">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugi-gf-pvg">
-                                                    <rect key="frame" x="294" y="24.666666666666664" width="93" height="20.999999999999993"/>
+                                                    <rect key="frame" x="255" y="24.5" width="93" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="5in-Lv-kRd"/>
                                                         <constraint firstAttribute="width" constant="93" id="Zwq-9F-J4f"/>
@@ -804,7 +804,7 @@ Please enter your Email-Id below :</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XT3-6t-GOh">
-                                                    <rect key="frame" x="228" y="12.666666666666664" width="45" height="45"/>
+                                                    <rect key="frame" x="189" y="12.5" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="O7x-8w-vmd"/>
                                                         <constraint firstAttribute="width" constant="45" id="Wzh-Me-WwN"/>
@@ -830,16 +830,16 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBg2X" translatesAutoresizingMaskIntoConstraints="NO" id="M42-cc-zis">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="217.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M42-cc-zis" secondAttribute="height" multiplier="75:38" constant="-16.263157894736821" id="pl8-Zy-ecc"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGd-kP-65b">
-                                <rect key="frame" x="0.0" y="42.666666666666657" width="394" height="150"/>
+                                <rect key="frame" x="0.0" y="23" width="355" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K8e-Mr-uLD">
-                                        <rect key="frame" x="304" y="7" width="80" height="80"/>
+                                        <rect key="frame" x="265" y="7" width="80" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="4UM-Qf-Xrl"/>
@@ -847,7 +847,7 @@ Please enter your Email-Id below :</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-D3-uqt">
-                                        <rect key="frame" x="0.0" y="87" width="386" height="30"/>
+                                        <rect key="frame" x="0.0" y="87" width="347" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AeW-yb-GfC"/>
@@ -857,7 +857,7 @@ Please enter your Email-Id below :</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desgn." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-zS-3II">
-                                        <rect key="frame" x="0.0" y="117" width="386" height="30"/>
+                                        <rect key="frame" x="0.0" y="117" width="347" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="jz7-vB-5og"/>
@@ -881,7 +881,7 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6R-dk-QAd">
-                                <rect key="frame" x="209" y="647" width="151" height="35"/>
+                                <rect key="frame" x="170" y="578" width="151" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="151" id="0Tt-Db-u36"/>
                                     <constraint firstAttribute="height" constant="35" id="ArJ-l2-f9B"/>
@@ -895,7 +895,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J51-Cx-zl5">
-                                <rect key="frame" x="226" y="708" width="116" height="21"/>
+                                <rect key="frame" x="187" y="639" width="116" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="hse-Eo-0Ta"/>
                                     <constraint firstAttribute="width" constant="116" id="r3C-HB-f7P"/>
@@ -945,7 +945,7 @@ Please enter your Email-Id below :</string>
                         <viewControllerLayoutGuide type="bottom" id="VUp-9b-9Xc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1VA-zI-EJ6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-8a-czL">
@@ -967,7 +967,7 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController restorationIdentifier="PublishViewController" storyboardIdentifier="PublishViewController" id="zy7-Hu-AA8" customClass="PublishViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNU-IH-o6K">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.87049323320000005" green="0.87064296009999997" blue="0.8704838157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="F6y-Cb-uE3"/>
@@ -982,11 +982,11 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController restorationIdentifier="QueriesViewController" storyboardIdentifier="QueriesViewController" id="Ci8-Mc-pd9" customClass="QueriesViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EC3-9b-c6T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yu-se-rGd">
-                                <rect key="frame" x="0.0" y="25" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="25" width="375" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLG-i5-uW0">
                                         <rect key="frame" x="10" y="45" width="84" height="5"/>
@@ -994,7 +994,7 @@ Please enter your Email-Id below :</string>
                                         <color key="backgroundColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kuc-6p-wvQ">
-                                        <rect key="frame" x="5" y="0.0" width="135.66666666666666" height="50"/>
+                                        <rect key="frame" x="5" y="0.0" width="122.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hFW-II-S9w"/>
                                         </constraints>
@@ -1010,14 +1010,14 @@ Please enter your Email-Id below :</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-Sq-aUV">
-                                        <rect key="frame" x="140.66666666666666" y="10" width="1" height="30"/>
+                                        <rect key="frame" x="127.5" y="10" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="VvQ-aP-gIS"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPd-4V-cov">
-                                        <rect key="frame" x="141.66666666666669" y="0.0" width="135.00000000000006" height="50"/>
+                                        <rect key="frame" x="128.5" y="0.0" width="122" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Dpy-Wa-FLF"/>
                                         </constraints>
@@ -1033,14 +1033,14 @@ Please enter your Email-Id below :</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Sn-Xx-75T">
-                                        <rect key="frame" x="276.66666666666669" y="10" width="1" height="30"/>
+                                        <rect key="frame" x="250.5" y="10" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="VCD-hy-uvq"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-7F-D9d">
-                                        <rect key="frame" x="277.66666666666674" y="0.0" width="135.33333333333331" height="50"/>
+                                        <rect key="frame" x="251.5" y="0.0" width="122.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="OQA-mf-EJ2"/>
                                         </constraints>
@@ -1082,18 +1082,18 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="215" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GA0-UU-uDs">
-                                <rect key="frame" x="0.0" y="85" width="414" height="581"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUERYCELL" id="Ldh-fy-Ocp" customClass="QueriesCustomCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="215"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ldh-fy-Ocp" id="zEE-2V-VOv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-b2-syC">
-                                                    <rect key="frame" x="10" y="5" width="394" height="205"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="205"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dental Pain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-Ab-zX8">
                                                             <rect key="frame" x="5" y="15" width="200" height="25"/>
@@ -1162,7 +1162,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5N-T2-5I6">
-                                                            <rect key="frame" x="5" y="70" width="384" height="85"/>
+                                                            <rect key="frame" x="5" y="70" width="345" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="85" id="0Gb-cn-AlW"/>
                                                             </constraints>
@@ -1171,7 +1171,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yum-OO-dzU">
-                                                            <rect key="frame" x="244" y="5" width="150" height="25"/>
+                                                            <rect key="frame" x="205" y="5" width="150" height="25"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT8-cw-XXs">
                                                                     <rect key="frame" x="125" y="3" width="25" height="20"/>
@@ -1225,17 +1225,17 @@ Please enter your Email-Id below :</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sG5-h2-ojr">
-                                                            <rect key="frame" x="0.0" y="155" width="394" height="50"/>
+                                                            <rect key="frame" x="0.0" y="155" width="355" height="50"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otf-Y8-3hi">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="50"/>
                                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Quick Reply">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-r7-cff">
-                                                                    <rect key="frame" x="197.66666666666663" y="0.0" width="196.33333333333337" height="50"/>
+                                                                    <rect key="frame" x="178" y="0.0" width="177" height="50"/>
                                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Reply">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1345,11 +1345,11 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController storyboardIdentifier="QueryReplyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hwu-Ss-gxy" customClass="QueryReplyViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9vA-Yj-QEs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YU-Ii-PcO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjr-js-fzG">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -1365,18 +1365,18 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Va-iV-j8J">
-                                <rect key="frame" x="0.0" y="50" width="414" height="441"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FROMMESSAGE" rowHeight="160" id="kwa-ab-Z3r" customClass="FromMessageCustomCell" customModule="MessangerApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="160"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FROMMESSAGE" rowHeight="160" id="kwa-ab-Z3r" customClass="FromMessageCustomCell" customModule="GetION" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwa-ab-Z3r" id="9Yf-fF-GLV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHi-Ql-WDK">
-                                                    <rect key="frame" x="5" y="5" width="379" height="66.333333333333329"/>
+                                                    <rect key="frame" x="5" y="5" width="340" height="66.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-va-LD7">
                                                             <rect key="frame" x="5" y="10" width="100" height="25"/>
@@ -1389,7 +1389,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-9F-TE3">
-                                                            <rect key="frame" x="324" y="5" width="50" height="20"/>
+                                                            <rect key="frame" x="285" y="5" width="50" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Aab-UC-MYQ"/>
                                                                 <constraint firstAttribute="width" constant="50" id="Dil-t4-iB4"/>
@@ -1399,7 +1399,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9T-Mr-34A">
-                                                            <rect key="frame" x="5" y="40" width="369" height="21.333333333333329"/>
+                                                            <rect key="frame" x="5" y="40" width="330" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1418,31 +1418,31 @@ Please enter your Email-Id below :</string>
                                                     </constraints>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-Se-Ia6">
-                                                    <rect key="frame" x="5" y="80" width="379" height="76"/>
+                                                    <rect key="frame" x="5" y="80" width="340" height="76"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KPD-pS-206">
-                                                            <rect key="frame" x="5" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="5" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="63.5" id="5NN-yX-Myk"/>
                                                                 <constraint firstAttribute="width" constant="78" id="ath-1p-K7c"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jiR-aE-NpM">
-                                                            <rect key="frame" x="89" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="89" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="78" id="9UK-Nz-1m3"/>
                                                                 <constraint firstAttribute="height" constant="63.5" id="Za6-2F-ILu"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="95o-un-ooI">
-                                                            <rect key="frame" x="173" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="173" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="78" id="8HJ-iS-Q2n"/>
                                                                 <constraint firstAttribute="height" constant="63.5" id="9T6-km-Ync"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNP-0f-G4s">
-                                                            <rect key="frame" x="257" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="257" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="78" id="LSz-d0-VHp"/>
                                                                 <constraint firstAttribute="height" constant="63.5" id="LYr-Un-OQ7"/>
@@ -1453,7 +1453,7 @@ Please enter your Email-Id below :</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7g-9O-GZp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="379" height="76"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="76"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </button>
                                                     </subviews>
@@ -1499,15 +1499,15 @@ Please enter your Email-Id below :</string>
                                             <outlet property="vwImgs" destination="8kK-Se-Ia6" id="Mke-vw-OGi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TOMESSAGE" rowHeight="160" id="U4j-UK-hjn" customClass="ToMessageCustomCell" customModule="MessangerApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="414" height="160"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TOMESSAGE" rowHeight="160" id="U4j-UK-hjn" customClass="ToMessageCustomCell" customModule="GetION" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U4j-UK-hjn" id="Ycl-wP-gM1">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOu-fT-5Y3">
-                                                    <rect key="frame" x="30" y="5" width="379" height="65.333333333333329"/>
+                                                    <rect key="frame" x="30" y="5" width="340" height="65.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdg-RX-I6e">
                                                             <rect key="frame" x="5" y="10" width="100" height="25"/>
@@ -1520,7 +1520,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0es-EK-mDQ">
-                                                            <rect key="frame" x="274" y="5" width="100" height="20"/>
+                                                            <rect key="frame" x="235" y="5" width="100" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="OjS-wZ-rvI"/>
                                                                 <constraint firstAttribute="width" constant="100" id="eke-uN-N5F"/>
@@ -1530,7 +1530,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-Uc-bQg">
-                                                            <rect key="frame" x="5" y="35" width="374" height="30.333333333333329"/>
+                                                            <rect key="frame" x="5" y="35" width="335" height="30.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1549,31 +1549,31 @@ Please enter your Email-Id below :</string>
                                                     </constraints>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiR-FT-qVP">
-                                                    <rect key="frame" x="30" y="79" width="379" height="76"/>
+                                                    <rect key="frame" x="30" y="79" width="340" height="76"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MaL-OS-Un3">
-                                                            <rect key="frame" x="6" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="6" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="78" id="FL7-Jo-qSw"/>
                                                                 <constraint firstAttribute="height" constant="63.5" id="Zg2-te-4Aq"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dH4-pb-IPO">
-                                                            <rect key="frame" x="90" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="90" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="78" id="HVK-8n-SG0"/>
                                                                 <constraint firstAttribute="height" constant="63.5" id="QOB-MB-gby"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-Mj-8d7">
-                                                            <rect key="frame" x="174" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="174" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="63.5" id="Pch-gR-PsN"/>
                                                                 <constraint firstAttribute="width" constant="78" id="dnk-FN-PAc"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2m-Ps-RwJ">
-                                                            <rect key="frame" x="258" y="6" width="78" height="63.666666666666657"/>
+                                                            <rect key="frame" x="258" y="6" width="78" height="63.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="63.5" id="cLz-LN-NNC"/>
                                                                 <constraint firstAttribute="width" constant="78" id="g1j-2C-tTy"/>
@@ -1584,7 +1584,7 @@ Please enter your Email-Id below :</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soK-Hz-p1Z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="379" height="76"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="76"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </button>
                                                     </subviews>
@@ -1631,14 +1631,14 @@ Please enter your Email-Id below :</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="190" id="MvU-eB-cd0">
-                                        <rect key="frame" x="0.0" y="348" width="414" height="190"/>
+                                        <rect key="frame" x="0.0" y="348" width="375" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MvU-eB-cd0" id="ieT-Dx-ATP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CnP-S5-9IQ">
-                                                    <rect key="frame" x="20" y="5" width="389" height="179.66666666666666"/>
+                                                    <rect key="frame" x="20" y="5" width="350" height="179.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWn-hn-LOA">
                                                             <rect key="frame" x="5" y="10" width="100" height="25"/>
@@ -1651,7 +1651,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4J-cx-bcz">
-                                                            <rect key="frame" x="284" y="5" width="100" height="20"/>
+                                                            <rect key="frame" x="245" y="5" width="100" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="VEj-PZ-fbg"/>
                                                                 <constraint firstAttribute="height" constant="20" id="Yd3-FG-etE"/>
@@ -1661,7 +1661,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cn-As-c4r">
-                                                            <rect key="frame" x="5" y="40" width="379" height="25"/>
+                                                            <rect key="frame" x="5" y="40" width="340" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="SFG-te-NhT"/>
                                                             </constraints>
@@ -1670,7 +1670,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkS-AS-oRU">
-                                                            <rect key="frame" x="5" y="70" width="379" height="120"/>
+                                                            <rect key="frame" x="5" y="70" width="340" height="120"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="120" id="3Ev-ro-T72"/>
@@ -1707,7 +1707,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your message here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CaJ-V9-Tli">
-                                <rect key="frame" x="5" y="493" width="404" height="70"/>
+                                <rect key="frame" x="5" y="424" width="365" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="c04-nT-JgM"/>
@@ -1716,7 +1716,7 @@ Please enter your Email-Id below :</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWH-4j-4oo">
-                                <rect key="frame" x="5" y="651" width="30" height="30"/>
+                                <rect key="frame" x="5" y="582" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hu3-gr-idI"/>
@@ -1725,7 +1725,7 @@ Please enter your Email-Id below :</string>
                                 <state key="normal" title="B"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish on website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaE-gO-fIz">
-                                <rect key="frame" x="45" y="651" width="150" height="30"/>
+                                <rect key="frame" x="45" y="582" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AOE-JP-0KR"/>
                                     <constraint firstAttribute="width" constant="150" id="HZL-ri-QBn"/>
@@ -1735,7 +1735,7 @@ Please enter your Email-Id below :</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeX-kh-fM8">
-                                <rect key="frame" x="219" y="651" width="30" height="30"/>
+                                <rect key="frame" x="180" y="582" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="q6l-sj-NB2"/>
@@ -1744,7 +1744,7 @@ Please enter your Email-Id below :</string>
                                 <state key="normal" title="B"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to quick reply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soG-98-IKM">
-                                <rect key="frame" x="259" y="651" width="150" height="30"/>
+                                <rect key="frame" x="220" y="582" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5We-DJ-6bi"/>
                                     <constraint firstAttribute="width" constant="150" id="JB6-i9-5FF"/>
@@ -1754,7 +1754,7 @@ Please enter your Email-Id below :</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVi-RS-Vdu">
-                                <rect key="frame" x="5" y="696" width="30" height="30"/>
+                                <rect key="frame" x="5" y="627" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="chU-cv-OsP"/>
                                     <constraint firstAttribute="height" constant="30" id="kww-Wv-RmF"/>
@@ -1764,7 +1764,7 @@ Please enter your Email-Id below :</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ4-Tu-2WE">
-                                <rect key="frame" x="45" y="691" width="364" height="40"/>
+                                <rect key="frame" x="45" y="622" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zME-K5-rJK"/>
@@ -1774,10 +1774,10 @@ Please enter your Email-Id below :</string>
                                 </state>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPc-kc-GfO">
-                                <rect key="frame" x="5" y="563" width="404" height="80"/>
+                                <rect key="frame" x="5" y="494" width="365" height="80"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ePh-zM-oeo">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="78"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="78"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="78" id="Gw9-yd-Sn7"/>
@@ -1789,7 +1789,7 @@ Please enter your Email-Id below :</string>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageAttachmentCollectionCell" id="4kd-vB-gDs" customClass="ImageAttachmentCollectionCell" customModule="MessangerApp" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageAttachmentCollectionCell" id="4kd-vB-gDs" customClass="ImageAttachmentCollectionCell" customModule="GetION" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1880,11 +1880,11 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController storyboardIdentifier="PlannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jCW-fH-RrE" userLabel="PlannerViewController" customClass="PlannerViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JW9-S8-FbX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yM-W7-WFN" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="20" width="414" height="466.66666666666669"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7yM-W7-WFN" secondAttribute="height" multiplier="414:497" constant="24.989939637826978" id="FNz-g5-lb1"/>
@@ -1904,18 +1904,18 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-GX-bgB">
-                                <rect key="frame" x="0.0" y="496.66666666666674" width="414" height="239.33333333333326"/>
+                                <rect key="frame" x="0.0" y="450" width="375" height="217"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlannerDayEventTableViewCell" id="nso-8S-DvT" customClass="PlannerDayEventTableViewCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="92"/>
+                                        <rect key="frame" x="0.0" y="1" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nso-8S-DvT" id="E88-98-mMY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-ml-BlP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-PP-BzB">
                                                             <rect key="frame" x="0.0" y="0.0" width="10" height="80"/>
@@ -2032,17 +2032,17 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController restorationIdentifier="PromotionListViewController" storyboardIdentifier="PromotionListViewController" id="gc8-7a-ti5" customClass="PromotionListViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IEa-cQ-NSH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRp-Lp-tYN">
-                                <rect key="frame" x="0.0" y="22" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0z-Ya-l6H">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yik-SO-MXC">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                                 <state key="normal" title="Promotions">
@@ -2065,10 +2065,10 @@ Please enter your Email-Id below :</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwE-zE-eSV">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="60"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-Cf-jvB">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                                 <state key="normal" title="SMS Campaign">
@@ -2091,7 +2091,7 @@ Please enter your Email-Id below :</string>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-ts-cSS">
-                                        <rect key="frame" x="207" y="15" width="1" height="30"/>
+                                        <rect key="frame" x="187.5" y="15" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="WyC-f2-NT7"/>
@@ -2115,11 +2115,11 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KNt-xe-bTO">
-                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" red="0.0" green="0.82745098039215681" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Promotions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhs-bR-1wa">
-                                <rect key="frame" x="16" y="90" width="382" height="35"/>
+                                <rect key="frame" x="16" y="90" width="343" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="htD-kj-wx6"/>
                                 </constraints>
@@ -2128,18 +2128,18 @@ Please enter your Email-Id below :</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vjU-Ae-G80">
-                                <rect key="frame" x="0.0" y="125" width="414" height="611"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PromoListCustomCell" rowHeight="224" id="Hxb-cM-1o6" customClass="PromoListCustomCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="224"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hxb-cM-1o6" id="os8-qz-GPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="223.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-DB-x9c">
-                                                    <rect key="frame" x="8" y="5" width="398" height="30"/>
+                                                    <rect key="frame" x="8" y="5" width="359" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Cr0-Z1-nMZ"/>
@@ -2149,7 +2149,7 @@ Please enter your Email-Id below :</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ukT-ND-jQn">
-                                                    <rect key="frame" x="0.0" y="34.999999999999986" width="414" height="188.66666666666663"/>
+                                                    <rect key="frame" x="0.0" y="35" width="375" height="188.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BEH-7D-bLm">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -2159,7 +2159,7 @@ Please enter your Email-Id below :</string>
                                                     </collectionViewFlowLayout>
                                                 </collectionView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SK8-WT-YVj">
-                                                    <rect key="frame" x="0.0" y="222" width="414" height="2"/>
+                                                    <rect key="frame" x="0.0" y="222" width="375" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="ouM-dM-iO3"/>
@@ -2228,17 +2228,17 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController restorationIdentifier="PromotionsMainViewController" storyboardIdentifier="PromotionsMainViewController" id="lg4-cH-cPL" customClass="PromotionsMainViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rw7-0Q-94B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISK-zx-jHv">
-                                <rect key="frame" x="0.0" y="20" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-JX-Jbw">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-C6-pA6">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                                 <state key="normal" title="Promotions">
@@ -2261,10 +2261,10 @@ Please enter your Email-Id below :</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mi-yJ-y65">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="60"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXV-MW-LSM">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                                 <state key="normal" title="SMS Campaign">
@@ -2287,7 +2287,7 @@ Please enter your Email-Id below :</string>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jxi-Eq-GF8">
-                                        <rect key="frame" x="207" y="15" width="1" height="30"/>
+                                        <rect key="frame" x="187.5" y="15" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="Wrc-fp-J8z"/>
@@ -2311,14 +2311,14 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-dk-azZ">
-                                <rect key="frame" x="0.0" y="80" width="414" height="236"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="236"/>
                                 <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="7Cn-mJ-UkM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Promotions (Popular)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-VG-wxS">
-                                <rect key="frame" x="8" y="80" width="398" height="35"/>
+                                <rect key="frame" x="8" y="80" width="359" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="8bR-rB-T9P"/>
@@ -2328,7 +2328,7 @@ Please enter your Email-Id below :</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WP4-Sp-sGc">
-                                <rect key="frame" x="0.0" y="115" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="115" width="375" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="sVm-Ud-g17"/>
@@ -2345,7 +2345,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
-                                <rect key="frame" x="317" y="270" width="89" height="40"/>
+                                <rect key="frame" x="283" y="270" width="84" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="PgL-l2-DhS"/>
@@ -2358,7 +2358,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Oy-k4-BGt">
-                                <rect key="frame" x="8" y="318" width="398" height="35"/>
+                                <rect key="frame" x="8" y="318" width="359" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="X4A-j6-ew0"/>
@@ -2383,28 +2383,28 @@ Please enter your Email-Id below :</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fyj-tc-fSX">
-                                <rect key="frame" x="0.0" y="361" width="414" height="375"/>
+                                <rect key="frame" x="0.0" y="361" width="375" height="306"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PromoIonizedCustomCell" rowHeight="220" id="ORP-fP-hWF" customClass="PromoIonizedCustomCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="220"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ORP-fP-hWF" id="j4s-JJ-KcE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ae-rd-9DT">
-                                                    <rect key="frame" x="10" y="0.0" width="394" height="200"/>
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="200"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mZc-FR-ihA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="150"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="B8n-Q8-Qjn"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCz-vW-guM">
-                                                            <rect key="frame" x="351" y="8" width="35" height="35"/>
+                                                            <rect key="frame" x="312" y="8" width="35" height="35"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="SK1-YE-VN7"/>
@@ -2415,7 +2415,7 @@ Please enter your Email-Id below :</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-Di-gSv">
-                                                            <rect key="frame" x="286" y="158" width="100" height="35"/>
+                                                            <rect key="frame" x="247" y="158" width="100" height="35"/>
                                                             <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="Cch-kz-nQx"/>
@@ -2433,7 +2433,7 @@ Please enter your Email-Id below :</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem epsum is dummy text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvD-3M-XRH">
-                                                            <rect key="frame" x="8" y="158" width="270" height="34"/>
+                                                            <rect key="frame" x="8" y="158" width="231" height="34"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -2521,11 +2521,11 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController storyboardIdentifier="VisitsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MUU-NJ-6Eg" userLabel="VisitsViewController" customClass="VisitsViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAa-zp-ZBO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mi-ml-Srl">
-                                <rect key="frame" x="0.0" y="20" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bL-nB-jUS">
                                         <rect key="frame" x="0.0" y="39" width="40" height="63"/>
@@ -2541,7 +2541,7 @@ Please enter your Email-Id below :</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-J2-f0h">
-                                        <rect key="frame" x="370" y="39" width="40" height="63"/>
+                                        <rect key="frame" x="331" y="39" width="40" height="63"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="E4s-u1-viE"/>
                                             <constraint firstAttribute="height" constant="63" id="iWK-4Y-ZCh"/>
@@ -2564,7 +2564,7 @@ Please enter your Email-Id below :</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-Jm-tB5" customClass="FSCalendar">
-                                <rect key="frame" x="30" y="20" width="354" height="300"/>
+                                <rect key="frame" x="30" y="20" width="315" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="uex-8t-mUK"/>
@@ -2586,7 +2586,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFI-gd-rv8">
-                                <rect key="frame" x="344" y="30" width="50" height="30"/>
+                                <rect key="frame" x="305" y="30" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="rJv-fA-0VK"/>
                                     <constraint firstAttribute="height" constant="30" id="vK0-UD-NW5"/>
@@ -2600,28 +2600,28 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-WS-b2r">
-                                <rect key="frame" x="0.0" y="140" width="414" height="546"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VisitsEventTableViewCell" id="86A-RT-b33" customClass="VisitsEventTableViewCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="1" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="86A-RT-b33" id="UOg-Pd-wBz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htg-zT-stt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTb-OM-JRw">
-                                                            <rect key="frame" x="404" y="0.0" width="10" height="80"/>
+                                                            <rect key="frame" x="365" y="0.0" width="10" height="80"/>
                                                             <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="e26-z2-DOl"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun Singh  " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-zR-DPs">
-                                                            <rect key="frame" x="25" y="15" width="109.66666666666666" height="30"/>
+                                                            <rect key="frame" x="25" y="15" width="109.5" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="eY1-v4-P5a"/>
                                                             </constraints>
@@ -2630,7 +2630,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Male" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-cB-5My">
-                                                            <rect key="frame" x="135.66666666666666" y="18" width="41" height="23"/>
+                                                            <rect key="frame" x="135.5" y="18" width="41" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="9fC-cy-CO2"/>
                                                                 <constraint firstAttribute="width" constant="41" id="TSJ-Zh-gZA"/>
@@ -2640,7 +2640,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-aH-vBQ">
-                                                            <rect key="frame" x="320" y="12.666666666666664" width="74" height="43"/>
+                                                            <rect key="frame" x="281" y="12.5" width="74" height="43"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="43" id="IHa-LJ-tRE"/>
@@ -2733,6 +2733,228 @@ Please enter your Email-Id below :</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOG-kr-OcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6486.9565217391309" y="69.293478260869577"/>
+        </scene>
+        <!--Add Promotion View Controller-->
+        <scene sceneID="Msi-Su-xlb">
+            <objects>
+                <viewController restorationIdentifier="AddPromotionViewController" storyboardIdentifier="AddPromotionViewController" id="sz6-eG-zv1" customClass="AddPromotionViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t9E-Ua-UkO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-bW-wmL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-6v-YeK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZq-zu-nBg">
+                                                <rect key="frame" x="0.0" y="6" width="375" height="200"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-Mp-lMs">
+                                                        <rect key="frame" x="8" y="0.0" width="359" height="38"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="38" id="irM-o7-Wgn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-wk-YBy">
+                                                        <rect key="frame" x="67" y="38" width="240" height="140"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="240" id="0xZ-L9-Pke"/>
+                                                            <constraint firstAttribute="height" constant="140" id="WNd-ZT-ctB"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="uXQ-wk-YBy" firstAttribute="centerX" secondItem="aZq-zu-nBg" secondAttribute="centerX" id="I6P-Xy-VqC"/>
+                                                    <constraint firstItem="uXQ-wk-YBy" firstAttribute="top" secondItem="5g2-Mp-lMs" secondAttribute="bottom" id="XUd-Xq-U1B"/>
+                                                    <constraint firstItem="5g2-Mp-lMs" firstAttribute="top" secondItem="aZq-zu-nBg" secondAttribute="top" id="Zxq-uG-Nv4"/>
+                                                    <constraint firstAttribute="height" constant="200" id="gwk-xj-h5V"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5g2-Mp-lMs" secondAttribute="trailing" constant="8" id="s4a-PH-KCO"/>
+                                                    <constraint firstItem="5g2-Mp-lMs" firstAttribute="leading" secondItem="aZq-zu-nBg" secondAttribute="leading" constant="8" id="xBp-mS-OZg"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you want to post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRQ-Cl-Dl7">
+                                                <rect key="frame" x="25" y="214" width="325" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="rlf-K7-mqN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOb-ld-u1Z">
+                                                <rect key="frame" x="25" y="247" width="71" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="71" id="pZx-7e-sGA"/>
+                                                    <constraint firstAttribute="height" constant="30" id="teb-5M-IAH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <state key="normal" title="Website">
+                                                    <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnWebSiteClicked:" destination="sz6-eG-zv1" eventType="touchUpInside" id="CJ5-yn-4fy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XJ-Jg-1AA">
+                                                <rect key="frame" x="106" y="247" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="A10-IV-zKU"/>
+                                                    <constraint firstAttribute="width" constant="100" id="fwo-ek-Q8g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <state key="normal" title="Social Media">
+                                                    <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnSocialMediaClicked:" destination="sz6-eG-zv1" eventType="touchUpInside" id="cuX-Cm-5vZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqh-XX-ZiW">
+                                                <rect key="frame" x="216" y="247" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2ly-jd-umW"/>
+                                                    <constraint firstAttribute="width" constant="60" id="wGr-ME-vox"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <state key="normal" title="Email">
+                                                    <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnEmailClicked:" destination="sz6-eG-zv1" eventType="touchUpInside" id="JKD-n2-IOf"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Any Other" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZ4-at-tcm">
+                                                <rect key="frame" x="25" y="285" width="325" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="s6m-sa-L4u"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Design Brief" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pif-Et-qML">
+                                                <rect key="frame" x="25" y="323" width="325" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="iPO-Ob-Xq2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="weJ-X8-iJ6">
+                                                <rect key="frame" x="25" y="356" width="325" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="eld-BC-bqK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add sample photos or videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-Nj-Syh">
+                                                <rect key="frame" x="25" y="492" width="325" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="np0-8J-kub"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URj-WO-Kfl">
+                                                <rect key="frame" x="25" y="525" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="gc2-3a-3El"/>
+                                                    <constraint firstAttribute="width" constant="35" id="pJS-Ti-oPe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="26"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnAddClicked:" destination="sz6-eG-zv1" eventType="touchUpInside" id="S74-Y5-5oZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icG-2b-Osc">
+                                                <rect key="frame" x="263" y="525" width="81" height="35"/>
+                                                <color key="backgroundColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="81" id="OsF-xv-us6"/>
+                                                    <constraint firstAttribute="height" constant="35" id="owL-cC-bhk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
+                                                <state key="normal" title="Ionize"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="BFu-Nj-Syh" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="1nO-uX-J1O"/>
+                                            <constraint firstItem="weJ-X8-iJ6" firstAttribute="top" secondItem="pif-Et-qML" secondAttribute="bottom" constant="8" id="3b8-e1-ZIl"/>
+                                            <constraint firstItem="Gqh-XX-ZiW" firstAttribute="leading" secondItem="3XJ-Jg-1AA" secondAttribute="trailing" constant="10" id="Dsa-8A-lgy"/>
+                                            <constraint firstItem="URj-WO-Kfl" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="Evp-cR-6dF"/>
+                                            <constraint firstItem="weJ-X8-iJ6" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="L7z-GX-OvC"/>
+                                            <constraint firstItem="3XJ-Jg-1AA" firstAttribute="top" secondItem="aRQ-Cl-Dl7" secondAttribute="bottom" constant="8" id="MeZ-2q-FPO"/>
+                                            <constraint firstItem="aRQ-Cl-Dl7" firstAttribute="top" secondItem="aZq-zu-nBg" secondAttribute="bottom" constant="8" id="PxG-gh-eCc"/>
+                                            <constraint firstItem="wOb-ld-u1Z" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="Rif-3H-P4Z"/>
+                                            <constraint firstItem="Gqh-XX-ZiW" firstAttribute="top" secondItem="aRQ-Cl-Dl7" secondAttribute="bottom" constant="8" id="Tcb-72-7gr"/>
+                                            <constraint firstAttribute="height" constant="580" id="UKK-Jc-NyA"/>
+                                            <constraint firstAttribute="trailing" secondItem="AZ4-at-tcm" secondAttribute="trailing" constant="25" id="UuO-Ur-CJL"/>
+                                            <constraint firstAttribute="trailing" secondItem="icG-2b-Osc" secondAttribute="trailing" constant="31" id="V9V-3v-XJj"/>
+                                            <constraint firstAttribute="trailing" secondItem="BFu-Nj-Syh" secondAttribute="trailing" constant="25" id="Wp5-sN-0Vk"/>
+                                            <constraint firstItem="pif-Et-qML" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="aEE-en-GtU"/>
+                                            <constraint firstAttribute="trailing" secondItem="aZq-zu-nBg" secondAttribute="trailing" id="bJd-BP-W5h"/>
+                                            <constraint firstItem="URj-WO-Kfl" firstAttribute="top" secondItem="BFu-Nj-Syh" secondAttribute="bottom" constant="8" id="bdI-hE-6Dz"/>
+                                            <constraint firstItem="pif-Et-qML" firstAttribute="top" secondItem="AZ4-at-tcm" secondAttribute="bottom" constant="8" id="ehU-5X-k84"/>
+                                            <constraint firstAttribute="trailing" secondItem="pif-Et-qML" secondAttribute="trailing" constant="25" id="fsh-k9-kpX"/>
+                                            <constraint firstItem="wOb-ld-u1Z" firstAttribute="top" secondItem="aRQ-Cl-Dl7" secondAttribute="bottom" constant="8" id="fuc-0Y-JBQ"/>
+                                            <constraint firstItem="aZq-zu-nBg" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" id="gVh-gl-ys1"/>
+                                            <constraint firstAttribute="trailing" secondItem="weJ-X8-iJ6" secondAttribute="trailing" constant="25" id="h3v-Hq-zek"/>
+                                            <constraint firstItem="icG-2b-Osc" firstAttribute="top" secondItem="BFu-Nj-Syh" secondAttribute="bottom" constant="8" id="hhk-77-yS0"/>
+                                            <constraint firstAttribute="trailing" secondItem="aRQ-Cl-Dl7" secondAttribute="trailing" constant="25" id="i36-Ur-eZ5"/>
+                                            <constraint firstItem="3XJ-Jg-1AA" firstAttribute="leading" secondItem="wOb-ld-u1Z" secondAttribute="trailing" constant="10" id="i4z-dS-oRC"/>
+                                            <constraint firstItem="BFu-Nj-Syh" firstAttribute="top" secondItem="weJ-X8-iJ6" secondAttribute="bottom" constant="8" id="now-0S-rN8"/>
+                                            <constraint firstItem="AZ4-at-tcm" firstAttribute="top" secondItem="wOb-ld-u1Z" secondAttribute="bottom" constant="8" id="rwq-hN-sS2"/>
+                                            <constraint firstItem="aRQ-Cl-Dl7" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="vYe-wI-S9Y"/>
+                                            <constraint firstItem="aZq-zu-nBg" firstAttribute="top" secondItem="cFO-6v-YeK" secondAttribute="top" constant="6" id="xtW-ZS-7NW"/>
+                                            <constraint firstItem="AZ4-at-tcm" firstAttribute="leading" secondItem="cFO-6v-YeK" secondAttribute="leading" constant="25" id="yyW-ep-Jza"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cFO-6v-YeK" firstAttribute="top" secondItem="eKg-bW-wmL" secondAttribute="top" id="D3I-kb-neE"/>
+                                    <constraint firstItem="cFO-6v-YeK" firstAttribute="centerX" secondItem="eKg-bW-wmL" secondAttribute="centerX" id="IRM-hG-i94"/>
+                                    <constraint firstItem="cFO-6v-YeK" firstAttribute="leading" secondItem="eKg-bW-wmL" secondAttribute="leading" id="LVo-Hc-3j5"/>
+                                    <constraint firstAttribute="bottom" secondItem="cFO-6v-YeK" secondAttribute="bottom" id="PcW-P3-IYQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="cFO-6v-YeK" secondAttribute="trailing" id="gR1-8R-4yH"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eKg-bW-wmL" firstAttribute="bottom" secondItem="q66-3m-9V4" secondAttribute="bottom" id="8xp-it-L7A"/>
+                            <constraint firstItem="eKg-bW-wmL" firstAttribute="top" secondItem="q66-3m-9V4" secondAttribute="top" id="afr-G3-lR7"/>
+                            <constraint firstItem="eKg-bW-wmL" firstAttribute="trailing" secondItem="q66-3m-9V4" secondAttribute="trailing" id="kXs-tV-1eZ"/>
+                            <constraint firstItem="eKg-bW-wmL" firstAttribute="leading" secondItem="q66-3m-9V4" secondAttribute="leading" id="seY-TC-eal"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q66-3m-9V4"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnAdd" destination="URj-WO-Kfl" id="B0C-Q8-uBu"/>
+                        <outlet property="btnEmail" destination="Gqh-XX-ZiW" id="eYN-72-SU5"/>
+                        <outlet property="btnIonize" destination="icG-2b-Osc" id="YlR-Pv-Gid"/>
+                        <outlet property="btnSocialMedia" destination="3XJ-Jg-1AA" id="uTs-yO-FJy"/>
+                        <outlet property="btnWebSite" destination="wOb-ld-u1Z" id="r0g-hB-upW"/>
+                        <outlet property="txtFldAnyOther" destination="AZ4-at-tcm" id="2Xe-1y-NFc"/>
+                        <outlet property="txtVwDesignBrief" destination="weJ-X8-iJ6" id="gKy-h2-Y00"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ue-3h-Q8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663.20000000000005" y="58.920539730134934"/>
         </scene>
     </scenes>
     <resources>

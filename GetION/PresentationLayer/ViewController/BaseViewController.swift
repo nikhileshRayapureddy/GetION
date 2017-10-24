@@ -326,7 +326,14 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         let promotionListViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
         self.navigationController?.pushViewController(promotionListViewController, animated: true)
     }
-        
+    func AddPoupCollectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        addPopUp.removeFromSuperview()
+        let addPromotionViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddPromotionViewController") as! AddPromotionViewController
+        self.navigationController?.pushViewController(addPromotionViewController, animated: true)
+
+    }
+    
     @objc func btnCloseClicked(sender:UIButton)
     {
         addPopUp.removeFromSuperview()

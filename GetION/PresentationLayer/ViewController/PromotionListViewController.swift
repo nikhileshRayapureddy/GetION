@@ -74,5 +74,9 @@ extension PromotionListViewController : UICollectionViewDelegate,UICollectionVie
         return CGSize(width: collectionView.frame.size.width/2.7, height: 150)
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let promotionListViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddPromotionViewController") as! AddPromotionViewController
+        self.navigationController?.pushViewController(promotionListViewController, animated: true)
+    }
+
 }
