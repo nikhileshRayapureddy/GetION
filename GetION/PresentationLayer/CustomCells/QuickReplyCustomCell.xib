@@ -25,10 +25,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydt-h8-zd2">
                         <rect key="frame" x="5" y="5" width="365" height="80.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzJ-g3-MEM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzJ-g3-MEM">
                                 <rect key="frame" x="5" y="5" width="355" height="70.5"/>
-                                <string key="text">Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-</string>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,6 +49,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="lblReplyMessage" destination="EzJ-g3-MEM" id="e89-ZT-s0T"/>
                 <outlet property="viewBackground" destination="Ydt-h8-zd2" id="6hJ-su-M5U"/>
             </connections>
             <point key="canvasLocation" x="61.5" y="28.5"/>

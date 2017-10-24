@@ -17,7 +17,7 @@ class QueriesViewController: BaseViewController {
     @IBOutlet weak var btnAnswered: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var btnPopular: UIButton!
-    
+    var arrQuickReplies = [QuickReplyBO]()
     var selectedButtonIndex = -1
     var arrPopularQueries = [QueriesBO]()
     var arrUnAnsweredQueries = [QueriesBO]()
@@ -132,6 +132,7 @@ class QueriesViewController: BaseViewController {
         layer.getQuickReplyTemplatesWithUserId(userId: GetIONUserDefaults.getUserId(), successMessage: { (response) in
             DispatchQueue.main.async {
                 app_delegate.removeloder()
+                self.arrQuickReplies = response as! [QuickReplyBO]
                 self.showQuickReplyPopup()
             }
         }) { (error) in
@@ -172,6 +173,7 @@ class QueriesViewController: BaseViewController {
     {
         if let popup = Bundle.main.loadNibNamed("QuickReplyPopUp", owner: nil, options: nil)![0] as? QuickReplyPopUp
         {
+            popup.arrTemplates = arrQuickReplies
             popup.resizeViews()
             popup.frame = self.view.bounds
             popup.layer.cornerRadius = 5.0

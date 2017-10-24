@@ -11,13 +11,13 @@ import UIKit
 class QuickReplyPopUp: UIView {
 
     @IBOutlet weak var tblView: UITableView!
-    
+    var arrTemplates = [QuickReplyBO]()
     func resizeViews()
     {
-//        "QUICKREPLY"
         let nib = UINib(nibName: "QuickReplyCustomCell", bundle: Bundle.main)
         tblView.register(nib, forCellReuseIdentifier: "QUICKREPLY")
     }
+    
     @IBAction func cancelPopUpCLicked(_ sender: UIButton) {
         self.removeFromSuperview()
     }
@@ -30,7 +30,7 @@ extension QuickReplyPopUp: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return arrTemplates.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
