@@ -10,8 +10,9 @@ import UIKit
 let ScreenWidth =  UIScreen.main.bounds.size.width
 let ScreenHeight = UIScreen.main.bounds.size.height
 let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+let THEME_COLOR = UIColor(red: 0, green: 211.0/255.0, blue: 208.0/255.0, alpha: 1.0)
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     
     var btnHome: UIButton!
     var btnPublish: UIButton!
@@ -86,6 +87,38 @@ class BaseViewController: UIViewController {
        
         
     }
+    func designNavigationBarWithBackAnd(strTitle:String)
+    {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.barTintColor = Color_NavBarTint
+        self.navigationItem.hidesBackButton = true
+        
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+        let btnBack = UIButton(type: UIButtonType.custom)
+        btnBack.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        btnBack.setImage(#imageLiteral(resourceName: "back"), for: UIControlState.normal)
+        btnBack.addTarget(self, action: #selector(self.btnBackClicked(sender:)), for: UIControlEvents.touchUpInside)
+        
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnBack)
+        if strTitle != ""
+        {
+            btnBack.setTitle(strTitle, for: .normal)
+            btnBack.setTitle(strTitle, for: .selected)
+            btnBack.setTitle(strTitle, for: .highlighted)
+            btnBack.setTitleColor(THEME_COLOR, for: .normal)
+            btnBack.setTitleColor(THEME_COLOR, for: .selected)
+            btnBack.setTitleColor(THEME_COLOR, for: .highlighted)
+            
+        }
+        self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1]
+    }
+    @objc func btnBackClicked(sender:UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func menuClicked(sender:UIButton)
     {
         self.sideMenuViewController!.presentRightMenuViewController()
@@ -272,6 +305,7 @@ class BaseViewController: UIViewController {
         if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
         {
             addPopUp = popup
+            addPopUp.callBack = self
             addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
             self.view.window?.addSubview(addPopUp)
             addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
@@ -280,7 +314,13 @@ class BaseViewController: UIViewController {
         }
 
     }
-    
+    func btnViewMoreClicked(sender: UIButton)
+    {
+        addPopUp.removeFromSuperview()
+        let promotionListViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
+        self.navigationController?.pushViewController(promotionListViewController, animated: true)
+    }
+        
     @objc func btnCloseClicked(sender:UIButton)
     {
         addPopUp.removeFromSuperview()

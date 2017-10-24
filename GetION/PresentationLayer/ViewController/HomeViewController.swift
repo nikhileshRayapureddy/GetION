@@ -28,12 +28,13 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.btnActionPointsClicked(self.btnActionPoints)
+        designTabBar()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         designNavigationBar()
-        designTabBar()
         setSelectedButtonAtIndex(1)
 
         self.getIonisedReports()

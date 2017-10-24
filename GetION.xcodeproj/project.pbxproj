@@ -40,6 +40,8 @@
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
 		A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61581F9E37F5002F8E8F /* MenuCell.swift */; };
+		A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */; };
+		A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */; };
 		A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */; };
 		A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */; };
 		A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */; };
@@ -111,6 +113,8 @@
 		A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDayEventTableViewCell.swift; sourceTree = "<group>"; };
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
 		A78B61581F9E37F5002F8E8F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
+		A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoListCustomCell.swift; sourceTree = "<group>"; };
 		A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsViewController.swift; sourceTree = "<group>"; };
 		A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				A78B61581F9E37F5002F8E8F /* MenuCell.swift */,
 				A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */,
 				A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */,
+				A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				A7164CA71F90F1F2003DB84D /* ForgotPasswordViewController.swift */,
 				CCB0E2B11F96491E004DD3A8 /* QueryReplyViewController.swift */,
 				A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */,
+				A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
+				A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */,
 				A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */,
 				A71FFEFA1F91E6610082BAF8 /* IQKeyboardManager.swift in Sources */,
 				A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */,
@@ -602,6 +609,7 @@
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
+				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

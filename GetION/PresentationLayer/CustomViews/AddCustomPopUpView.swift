@@ -7,14 +7,16 @@
 //
 
 import UIKit
-
+protocol AddCustomPopUpViewDelegate {
+    func btnViewMoreClicked(sender: UIButton)
+}
 class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet var btnClose: UIButton!
     @IBOutlet var scrlVw: UIScrollView!
     @IBOutlet weak var btnSelPromo: UIButton!
     @IBOutlet weak var vwBase: UIView!
     @IBOutlet var constVwBgWidth: NSLayoutConstraint!
-    
+    var callBack : AddCustomPopUpViewDelegate!
     @IBOutlet weak var btnAddPromo: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var clVwPromo: UICollectionView!
@@ -42,6 +44,12 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     {
         scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width * 2, y: 0), animated: true)
         pageControl.currentPage = 2
+    }
+    @IBAction func btnViewMoreClicked(_ sender: UIButton) {
+        if callBack != nil
+        {
+            callBack.btnViewMoreClicked(sender: sender)
+        }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == scrlVw
