@@ -58,6 +58,7 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let queryDetailBO = arrQueries[indexPath.row]
+        print(queryDetailBO.content)
         if queryDetailBO.user_id == "0"
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
@@ -66,6 +67,9 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
+            cell.constrtVwImagesHeight.constant = 0
+            
+            cell.selectionStyle = .none
             return cell
         }
         else
@@ -76,7 +80,18 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             cell.lblQueryMessage.text = queryDetailBO.content
             cell.viewBackground.layer.cornerRadius = 10.0
             cell.viewBackground.clipsToBounds = true
+            cell.constrtVwImagesHeight.constant = 0
+            cell.selectionStyle = .none
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let queryDetailBO = arrQueries[indexPath.row]
+        var height = queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.systemFont(ofSize: 17.0))
+        height = height + 50
+        return height
+
     }
 }

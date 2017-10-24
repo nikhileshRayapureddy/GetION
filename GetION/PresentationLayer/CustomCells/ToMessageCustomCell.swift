@@ -14,6 +14,19 @@ class ToMessageCustomCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var lblQueryMessage: UILabel!
+    
+    @IBOutlet weak var vwImgs: UIView!
+    @IBOutlet weak var constrtVwImagesHeight: NSLayoutConstraint!
+    @IBOutlet weak var img1: UIImageView!
+    
+    @IBOutlet weak var img2: UIImageView!
+    
+    @IBOutlet weak var img3: UIImageView!
+    
+    @IBOutlet weak var btn4thImage: UIButton!
+    
+    @IBOutlet weak var btnShowGallery: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

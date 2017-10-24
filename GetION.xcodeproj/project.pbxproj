@@ -65,6 +65,12 @@
 		CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A557B1F906A390043A0A3 /* BottomView.swift */; };
 		CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0A557A1F906A390043A0A3 /* BottomView.xib */; };
 		CC2519BA1F9E3F39007A6F30 /* QueriesBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */; };
+		CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */; };
+		CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */; };
+		CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */; };
+		CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */; };
+		CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C31F9F852A007A6F30 /* GallaryView.swift */; };
+		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
 		CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */; };
 		CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */; };
 		CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */; };
@@ -140,6 +146,12 @@
 		CC0A557A1F906A390043A0A3 /* BottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomView.xib; sourceTree = "<group>"; };
 		CC0A557B1F906A390043A0A3 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesBO.swift; sourceTree = "<group>"; };
+		CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyBO.swift; sourceTree = "<group>"; };
+		CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttachmentCollectionCell.swift; sourceTree = "<group>"; };
+		CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC2519C31F9F852A007A6F30 /* GallaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryView.swift; sourceTree = "<group>"; };
+		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
 		CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyPopUp.swift; sourceTree = "<group>"; };
 		CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesCustomCell.swift; sourceTree = "<group>"; };
@@ -176,6 +188,9 @@
 		A7164C9F1F90D87F003DB84D /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */,
+				CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */,
+				CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */,
 				CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */,
 				CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */,
 				CCB0E2B31F964948004DD3A8 /* FromMessageCustomCell.swift */,
@@ -303,6 +318,7 @@
 				A7C9635A1F9273A9002CB4ED /* BlogBO.swift */,
 				A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */,
 				CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */,
+				CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +416,8 @@
 		CC0A55791F906A240043A0A3 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				CC2519C31F9F852A007A6F30 /* GallaryView.swift */,
+				CC2519C41F9F852A007A6F30 /* GallaryView.xib */,
 				CCB0E2B81F964963004DD3A8 /* QueryProfilePopUp.swift */,
 				CCB0E2B71F964963004DD3A8 /* QueryProfilePopUp.xib */,
 				CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */,
@@ -481,12 +499,14 @@
 				A7164CAE1F90FA34003DB84D /* Myriad_Pro_Bold.ttf in Resources */,
 				A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
+				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
 				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
+				CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +591,7 @@
 				A71FFEF61F91E6610082BAF8 /* IQUIViewController+Additions.swift in Sources */,
 				A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */,
 				A71FFEF71F91E6610082BAF8 /* IQUIWindow+Hierarchy.swift in Sources */,
+				CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
@@ -590,6 +611,7 @@
 				A71FFEF51F91E6610082BAF8 /* IQUIView+Hierarchy.swift in Sources */,
 				A71FFEF41F91E6610082BAF8 /* IQUITextFieldView+Additions.swift in Sources */,
 				A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */,
+				CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */,
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
@@ -604,6 +626,7 @@
 				A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */,
 				A7DFFAC61F8F608D00208FD9 /* GetION.xcdatamodeld in Sources */,
 				CC2519BA1F9E3F39007A6F30 /* QueriesBO.swift in Sources */,
+				CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */,
 				CCB0E2B61F964949004DD3A8 /* ToMessageCustomCell.swift in Sources */,
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
@@ -611,6 +634,7 @@
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
+				CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
