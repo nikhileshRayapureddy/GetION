@@ -148,8 +148,8 @@ class HomeViewController: BaseViewController {
             let lblContent = UILabel(frame: CGRect(x: Xpos + 15, y: lblTitle.frame.size.height + 40, width: boundingBoxContent.width + 5, height: boundingBoxContent.height + 15))
             lblContent.backgroundColor = UIColor.black.withAlphaComponent(0.3)
             lblContent.text = strContent
-            lblTitle.numberOfLines = 0
-            lblTitle.lineBreakMode = .byWordWrapping
+            lblContent.numberOfLines = 0
+            lblContent.lineBreakMode = .byWordWrapping
             lblContent.textColor = UIColor.white
             lblContent.font = UIFont.myridFontOfSize(size: 15)
             scrlVwBlog.addSubview(lblContent)
