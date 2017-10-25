@@ -14,11 +14,11 @@
         <array key="GillSans.ttc">
             <string>GillSans</string>
         </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="Menlo.ttc">
             <string>Menlo-Regular</string>
+        </array>
+        <array key="Myriad_Pro_Bold.ttf">
+            <string>MyriadPro-Bold</string>
         </array>
         <array key="Myriad_Pro_Regular.ttf">
             <string>MyriadPro-Regular</string>
@@ -68,9 +68,9 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-iA-iBJ">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
                                         <state key="normal" title="Action Points">
-                                            <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.058823529411764705" green="0.058823529411764705" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="selected" title="Action Points">
                                             <color key="titleColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,9 +81,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QY-Sa-qZA">
                                         <rect key="frame" x="188" y="0.0" width="187" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
                                         <state key="normal" title="Hospital Feed">
-                                            <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.058823529411764705" green="0.058823529411764705" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="selected" title="Hospital Feed">
                                             <color key="titleColor" red="0.40928730369999999" green="0.91679614779999996" blue="0.84059494729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -318,7 +318,7 @@ Your simple text goes here Analytics Title</string>
                                     <constraint firstItem="vWR-tu-qIY" firstAttribute="top" secondItem="59H-am-sJS" secondAttribute="top" id="rxh-0d-109"/>
                                 </constraints>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-9a-OXR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-9a-OXR">
                                 <rect key="frame" x="0.0" y="75" width="375" height="522"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -350,7 +350,7 @@ Your simple text goes here Analytics Title</string>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="6HR-y5-6fy"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -361,7 +361,7 @@ Your simple text goes here Analytics Title</string>
                                                                 <constraint firstAttribute="height" constant="20" id="5A9-JA-40o"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="M6P-tk-A4L"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -371,7 +371,7 @@ Your simple text goes here Analytics Title</string>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="Zns-iO-nnd"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -390,7 +390,7 @@ Your simple text goes here Analytics Title</string>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="lWb-S7-kky"/>
                                                                 <constraint firstAttribute="height" constant="25" id="rtq-kq-Dmc"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -506,70 +506,75 @@ Your simple text goes here Analytics Title</string>
                                 <rect key="frame" x="25" y="228.5" width="325" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="HKG-ua-tJ7">
-                                        <rect key="frame" x="8" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="8" y="35" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="rQv-h8-ASk"/>
-                                            <constraint firstAttribute="height" constant="30" id="tk4-eO-fvI"/>
+                                            <constraint firstAttribute="width" constant="20" id="rQv-h8-ASk"/>
+                                            <constraint firstAttribute="height" constant="20" id="tk4-eO-fvI"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ramesh" placeholder="Enter your Email-Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-9Z-Prg">
-                                        <rect key="frame" x="58" y="0.0" width="259" height="30"/>
+                                        <rect key="frame" x="58" y="32.5" width="259" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="2it-LP-Qpb"/>
+                                            <constraint firstAttribute="height" constant="25" id="2it-LP-Qpb"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BX6-rb-oRi">
-                                        <rect key="frame" x="60" y="31" width="257" height="1"/>
+                                        <rect key="frame" x="60" y="58.5" width="257" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="uoP-VN-RGt"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="YdH-Fh-mP7">
-                                        <rect key="frame" x="8" y="65" width="30" height="30"/>
+                                        <rect key="frame" x="8" y="90" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="R6N-QF-Mqs"/>
-                                            <constraint firstAttribute="height" constant="30" id="WTY-ut-QnN"/>
+                                            <constraint firstAttribute="width" constant="20" id="R6N-QF-Mqs"/>
+                                            <constraint firstAttribute="height" constant="20" id="WTY-ut-QnN"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ramesh" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2sA-Gm-PM5">
-                                        <rect key="frame" x="58" y="65" width="259" height="30"/>
+                                        <rect key="frame" x="58" y="87.5" width="259" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="IpF-j2-7tN"/>
+                                            <constraint firstAttribute="height" constant="25" id="IpF-j2-7tN"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-NY-6ia">
-                                        <rect key="frame" x="60" y="95" width="256" height="1"/>
+                                        <rect key="frame" x="60" y="112.5" width="256" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="NEg-gf-RER"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-3d-9VJ">
-                                        <rect key="frame" x="58" y="135" width="208" height="40"/>
+                                        <rect key="frame" x="30" y="152.5" width="265" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.82745098039215681" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="aHR-R0-JCm"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="ahI-nX-kI6"/>
+                                            <constraint firstAttribute="height" constant="50" id="aHR-R0-JCm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
                                         <state key="normal" title="Log In"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btnLoginClicked:" destination="XS0-HW-dOn" eventType="touchUpInside" id="0WH-y5-Qft"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvv-er-KXs">
-                                        <rect key="frame" x="8" y="215" width="309" height="35"/>
+                                        <rect key="frame" x="8" y="242.5" width="309" height="7.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                         <state key="normal" title="Help, I forgot my login details &gt;">
@@ -593,18 +598,19 @@ Your simple text goes here Analytics Title</string>
                                     <constraint firstAttribute="bottom" secondItem="vvv-er-KXs" secondAttribute="bottom" id="Lgk-ff-FuK"/>
                                     <constraint firstItem="BX6-rb-oRi" firstAttribute="leading" secondItem="eDb-78-eWj" secondAttribute="leading" constant="60" id="MTb-XL-n7X"/>
                                     <constraint firstItem="HKG-ua-tJ7" firstAttribute="leading" secondItem="eDb-78-eWj" secondAttribute="leading" constant="8" id="NaG-c8-gmF"/>
+                                    <constraint firstAttribute="trailing" secondItem="CWd-3d-9VJ" secondAttribute="trailing" constant="30" id="OWg-b3-aib"/>
                                     <constraint firstAttribute="trailing" secondItem="2sA-Gm-PM5" secondAttribute="trailing" constant="8" id="Phb-0P-1c2"/>
                                     <constraint firstItem="qwn-9Z-Prg" firstAttribute="centerY" secondItem="HKG-ua-tJ7" secondAttribute="centerY" id="PqY-5y-yKI"/>
                                     <constraint firstAttribute="trailing" secondItem="vvv-er-KXs" secondAttribute="trailing" constant="8" id="YWO-p6-Qo1"/>
-                                    <constraint firstItem="CWd-3d-9VJ" firstAttribute="centerX" secondItem="eDb-78-eWj" secondAttribute="centerX" id="btI-Ov-2Nr"/>
                                     <constraint firstItem="vvv-er-KXs" firstAttribute="top" secondItem="CWd-3d-9VJ" secondAttribute="bottom" constant="40" id="cZh-lZ-llp"/>
                                     <constraint firstAttribute="trailing" secondItem="BX6-rb-oRi" secondAttribute="trailing" constant="8" id="fG1-Uu-kyv"/>
+                                    <constraint firstItem="CWd-3d-9VJ" firstAttribute="leading" secondItem="eDb-78-eWj" secondAttribute="leading" constant="30" id="fvD-iB-jpo"/>
                                     <constraint firstItem="Ji7-NY-6ia" firstAttribute="leading" secondItem="eDb-78-eWj" secondAttribute="leading" constant="60" id="h7e-fW-5eb"/>
-                                    <constraint firstItem="HKG-ua-tJ7" firstAttribute="top" secondItem="eDb-78-eWj" secondAttribute="top" id="laP-Ty-pmJ"/>
+                                    <constraint firstItem="HKG-ua-tJ7" firstAttribute="top" secondItem="eDb-78-eWj" secondAttribute="top" constant="35" id="laP-Ty-pmJ"/>
                                     <constraint firstItem="CWd-3d-9VJ" firstAttribute="top" secondItem="2sA-Gm-PM5" secondAttribute="bottom" constant="40" id="t33-eu-Ffm"/>
-                                    <constraint firstItem="qwn-9Z-Prg" firstAttribute="leading" secondItem="HKG-ua-tJ7" secondAttribute="trailing" constant="20" id="vAk-T2-oi6"/>
+                                    <constraint firstItem="qwn-9Z-Prg" firstAttribute="leading" secondItem="HKG-ua-tJ7" secondAttribute="trailing" constant="30" id="vAk-T2-oi6"/>
                                     <constraint firstItem="Ji7-NY-6ia" firstAttribute="top" secondItem="2sA-Gm-PM5" secondAttribute="bottom" id="wt8-RV-cvC"/>
-                                    <constraint firstItem="2sA-Gm-PM5" firstAttribute="leading" secondItem="YdH-Fh-mP7" secondAttribute="trailing" constant="20" id="yG9-LS-ujN"/>
+                                    <constraint firstItem="2sA-Gm-PM5" firstAttribute="leading" secondItem="YdH-Fh-mP7" secondAttribute="trailing" constant="30" id="yG9-LS-ujN"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HnJ-iY-2KF">
@@ -656,7 +662,7 @@ Your simple text goes here Analytics Title</string>
                                 <rect key="frame" x="0.0" y="170" width="375" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ri-4H-h2T">
-                                        <rect key="frame" x="8" y="245" width="359" height="30"/>
+                                        <rect key="frame" x="8" y="255" width="359" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="JCr-sh-HAa"/>
@@ -689,14 +695,19 @@ Your simple text goes here Analytics Title</string>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fan-Ie-UbB">
-                                        <rect key="frame" x="54" y="175" width="268" height="40"/>
+                                        <rect key="frame" x="30" y="175" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="CdM-9e-azv"/>
-                                            <constraint firstAttribute="height" constant="40" id="MEM-QM-qg6"/>
+                                            <constraint firstAttribute="height" constant="50" id="MEM-QM-qg6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="Log In"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
+                                        <state key="normal" title="Reset my password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btnResetClicked:" destination="slN-Y7-J2X" eventType="touchUpInside" id="hia-yS-XlX"/>
                                         </connections>
@@ -706,7 +717,7 @@ Your simple text goes here Analytics Title</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="lDy-oo-vCm"/>
                                         </constraints>
-                                        <string key="text">We can help you reset your Password !
+                                        <string key="text">We can help you reset your Password!
 Please enter your Email-Id below :</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -715,18 +726,19 @@ Please enter your Email-Id below :</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fan-Ie-UbB" secondAttribute="trailing" constant="30" id="27E-RE-C8f"/>
                                     <constraint firstAttribute="trailing" secondItem="2Ri-4H-h2T" secondAttribute="trailing" constant="8" id="5DG-Bo-ma8"/>
                                     <constraint firstItem="fan-Ie-UbB" firstAttribute="top" secondItem="vud-LN-qRG" secondAttribute="bottom" constant="35" id="5bf-hI-B3p"/>
                                     <constraint firstItem="vud-LN-qRG" firstAttribute="top" secondItem="yAT-1I-JBD" secondAttribute="bottom" constant="4" id="9Ol-de-wM4"/>
                                     <constraint firstItem="bLf-C5-FeG" firstAttribute="leading" secondItem="LgK-h0-Jp0" secondAttribute="leading" id="9gg-ZG-fDa"/>
                                     <constraint firstItem="vud-LN-qRG" firstAttribute="centerX" secondItem="LgK-h0-Jp0" secondAttribute="centerX" id="GWl-3p-MDZ"/>
                                     <constraint firstItem="yAT-1I-JBD" firstAttribute="centerX" secondItem="LgK-h0-Jp0" secondAttribute="centerX" id="Q1u-Sf-0oJ"/>
+                                    <constraint firstItem="fan-Ie-UbB" firstAttribute="leading" secondItem="LgK-h0-Jp0" secondAttribute="leading" constant="30" id="Sp5-FL-BvW"/>
                                     <constraint firstItem="2Ri-4H-h2T" firstAttribute="leading" secondItem="LgK-h0-Jp0" secondAttribute="leading" constant="8" id="U6F-Wp-kXr"/>
                                     <constraint firstAttribute="trailing" secondItem="bLf-C5-FeG" secondAttribute="trailing" id="qmr-I6-n93"/>
                                     <constraint firstItem="yAT-1I-JBD" firstAttribute="top" secondItem="bLf-C5-FeG" secondAttribute="bottom" constant="50" id="rHT-aQ-PEr"/>
                                     <constraint firstAttribute="height" constant="280" id="sPw-B7-ShR"/>
                                     <constraint firstItem="2Ri-4H-h2T" firstAttribute="top" secondItem="fan-Ie-UbB" secondAttribute="bottom" constant="30" id="vMA-hV-i6e"/>
-                                    <constraint firstItem="fan-Ie-UbB" firstAttribute="centerX" secondItem="LgK-h0-Jp0" secondAttribute="centerX" id="xtk-ko-gTA"/>
                                     <constraint firstItem="bLf-C5-FeG" firstAttribute="top" secondItem="LgK-h0-Jp0" secondAttribute="top" id="zBp-8U-Jkl"/>
                                 </constraints>
                             </view>
@@ -999,7 +1011,7 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="height" constant="50" id="hFW-II-S9w"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="12 Unaswered">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="selected" title="Action Points">
@@ -1022,7 +1034,7 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="height" constant="50" id="Dpy-Wa-FLF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="8 Answered">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="selected" title="Hospital Feed">
@@ -1045,7 +1057,7 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="height" constant="50" id="OQA-mf-EJ2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="30 Popular">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.1058823529" green="0.08235294118" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="selected" title="Hospital Feed">
@@ -1810,7 +1822,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
-                                <rect key="frame" x="283" y="270" width="84" height="40"/>
+                                <rect key="frame" x="278" y="270" width="89" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="PgL-l2-DhS"/>
@@ -2980,10 +2992,10 @@ Please enter your Email-Id below :</string>
         </scene>
     </scenes>
     <resources>
-        <image name="PlusIcon" width="127" height="124"/>
-        <image name="Publish_UnSelected" width="15" height="20"/>
-        <image name="Queries_UnSelected" width="19" height="20"/>
-        <image name="Visit_UnSelected" width="20" height="20"/>
+        <image name="PlusIcon" width="74" height="69"/>
+        <image name="Publish_UnSelected" width="19" height="25"/>
+        <image name="Queries_UnSelected" width="26" height="27"/>
+        <image name="Visit_UnSelected" width="26" height="26"/>
         <image name="arr" width="29" height="12"/>
         <image name="background" width="414" height="736"/>
         <image name="dotsImage" width="16" height="16"/>
