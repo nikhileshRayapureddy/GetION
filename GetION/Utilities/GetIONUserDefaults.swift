@@ -14,6 +14,7 @@ let FirstName = "FirstName"
 let LastName = "LastName"
 let Role = "Role"
 let UserName = "UserName"
+let Password = "Password"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -71,7 +72,25 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
-
+    
+    class func setPassword (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: Password)
+        UserDefaults.standard.synchronize()
+    }
+    class func getPassword () -> String
+    {
+        if UserDefaults.standard.object(forKey: Password) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: Password) as! String
+            
+        }
+    }
+    
     class func setProfPic (object : String)
     {
         UserDefaults.standard.set(object, forKey: ProfPic)

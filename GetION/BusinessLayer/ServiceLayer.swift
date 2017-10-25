@@ -10,6 +10,7 @@ import UIKit
 public enum ParsingConstant : Int
 {
     case Login
+    case Vists
 }
 class ServiceLayer: NSObject {
     let SERVER_ERROR = "Server not responding.\nPlease try after some time."
@@ -814,6 +815,195 @@ class ServiceLayer: NSObject {
         }
     }
 
+    public func getVisitsFor(date:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_bookings&adm=1&list_type=daily&usr=\(username)&pwd=\(password)&adm=1&encode=true&sd=\(date)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                var arrVisitData = [VisitsBO]()
+                if let data = obj.parsedDataDict["data"] as? [[String : AnyObject]]
+                {
+                    for item in data
+                    {
+                        let objVisits = VisitsBO()
+                        if let id = item["id"] as?  String
+                        {
+                            objVisits.visitId = id
+                        }
+                        if let name = item["name"] as?  String
+                        {
+                            objVisits.name = name
+                        }
+                        if let email = item["email"] as?  String
+                        {
+                            objVisits.email = email
+                        }
+                        if let mobile = item["mobile"] as?  String
+                        {
+                            objVisits.mobile = mobile
+                        }
+                        if let resource = item["resource"] as?  String
+                        {
+                            objVisits.resource = resource
+                        }
+                        if let request_status = item["request_status"] as?  String
+                        {
+                            objVisits.requestStatus = request_status
+                        }
+                        if let payment_status = item["payment_status"] as?  String
+                        {
+                            objVisits.paymentStatus = payment_status
+                        }
+                        if let resource_admins = item["resource_admins"] as?  String
+                        {
+                            objVisits.resourceAdmins = resource_admins
+                        }
+                        if let booking_due = item["booking_due"] as?  String
+                        {
+                            objVisits.bookingDue = booking_due
+                        }
+                        if let booking_deposit = item["booking_deposit"] as?  String
+                        {
+                            objVisits.bookingDeposit = booking_deposit
+                        }
+                        if let booking_total = item["booking_total"] as?  String
+                        {
+                            objVisits.bookingTotal = booking_total
+                        }
+                        if let startdate = item["startdate"] as?  String
+                        {
+                            objVisits.startdate = startdate
+                        }
+                        if let starttime = item["starttime"] as?  String
+                        {
+                            objVisits.starttime = starttime
+                        }
+                        if let enddate = item["enddate"] as?  String
+                        {
+                            objVisits.enddate = enddate
+                        }
+                        if let endtime = item["endtime"] as?  String
+                        {
+                            objVisits.endtime = endtime
+                        }
+                        if let resname = item["resname"] as?  String
+                        {
+                            objVisits.resname = resname
+                        }
+                        if let ServiceName = item["ServiceName"] as?  String
+                        {
+                            objVisits.ServiceName = ServiceName
+                        }
+                        if let startdatetime = item["startdatetime"] as?  String
+                        {
+                            objVisits.startdatetime = startdatetime
+                        }
+                        if let display_startdate = item["display_startdate"] as?  String
+                        {
+                            objVisits.displayStartdate = display_startdate
+                        }
+                        if let display_starttime = item["display_starttime"] as?  String
+                        {
+                            objVisits.displayStarttime = display_starttime
+                        }
+                        if let image = item["image"] as?  String
+                        {
+                            objVisits.image = image
+                        }
+                        if let sex = item["sex"] as?  String
+                        {
+                            objVisits.sex = sex
+                        }
+                        if let age = item["age"] as?  String
+                        {
+                            objVisits.age = age
+                        }
+                        if let area = item["area"] as?  String
+                        {
+                            objVisits.area = area
+                        }
+                        if let city = item["city"] as?  String
+                        {
+                            objVisits.city = city
+                        }
+                        if let birthday = item["birthday"] as?  String
+                        {
+                            objVisits.birthday = birthday
+                        }
+                        if let remarks = item["remarks"] as?  String
+                        {
+                            objVisits.remarks = remarks
+                        }
+                        if let ce_id = item["ce_id"] as?  String
+                        {
+                            objVisits.ceId = ce_id
+                        }
+                        if let nametag = item["nametag"] as?  String
+                        {
+                            objVisits.nametag = nametag
+                        }
+                        
+                        arrVisitData.append(objVisits)
+                        
+                    }
+                    
+                    successMessage (arrVisitData)
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
+    
+    public func deletVisitsWithID(visitID:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=delete_visits&usr=\(username)&pwd=\(password)&encode=true&id=\(visitID)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let status = obj.parsedDataDict["Delete Result"] as? String
+                {
+                    if status == "OK"
+                    {
+                        successMessage (status)
+                    }
+                    else
+                    {
+                        failureMessage("unable to delete the visit")
+                    }
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
     
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
