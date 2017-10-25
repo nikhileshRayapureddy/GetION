@@ -48,6 +48,9 @@ class LoginViewController: UIViewController {
             layer.loginWithUsername(username: txtUsername.text!, password: txtPwd.text!, successMessage: { (success) in
                 DispatchQueue.main.async {
                     GetIONUserDefaults.setUserName(object: self.txtUsername.text!)
+                    let data = (self.txtPwd.text!).data(using: String.Encoding.utf8)
+                    let base64Pass = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                    GetIONUserDefaults.setPassword(object: base64Pass)
                     app_delegate.removeloder()
                     self.navigateToDashboard()
                 }

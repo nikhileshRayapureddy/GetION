@@ -2044,6 +2044,15 @@ Please enter your Email-Id below :</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
+                                        <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="MUU-NJ-6Eg" id="yHP-1Q-st8"/>
@@ -2064,7 +2073,7 @@ Please enter your Email-Id below :</string>
                                     <action selector="btnTodayAction:" destination="MUU-NJ-6Eg" eventType="touchUpInside" id="P8h-BA-96c"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-WS-b2r">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-WS-b2r">
                                 <rect key="frame" x="0.0" y="140" width="375" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2072,7 +2081,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="1" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="86A-RT-b33" id="UOg-Pd-wBz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htg-zT-stt">
@@ -2104,14 +2113,14 @@ Please enter your Email-Id below :</string>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-aH-vBQ">
-                                                            <rect key="frame" x="281" y="12.5" width="74" height="43"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-aH-vBQ">
+                                                            <rect key="frame" x="234" y="13" width="121" height="43"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="43" id="IHa-LJ-tRE"/>
-                                                                <constraint firstAttribute="width" constant="74" id="wZQ-cf-sMs"/>
+                                                                <constraint firstAttribute="width" constant="121" id="wZQ-cf-sMs"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="19"/>
+                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
@@ -2171,6 +2180,16 @@ Please enter your Email-Id below :</string>
                                     <outlet property="delegate" destination="MUU-NJ-6Eg" id="gJc-TL-dNM"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Visits Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFD-Wg-DOR">
+                                <rect key="frame" x="52" y="323" width="270" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="5qd-q5-sGx"/>
+                                    <constraint firstAttribute="height" constant="21" id="qS2-Zz-gum"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87049323320000005" green="0.87064296009999997" blue="0.8704838157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2180,7 +2199,9 @@ Please enter your Email-Id below :</string>
                             <constraint firstItem="0Mi-ml-Srl" firstAttribute="top" secondItem="ek6-Rm-nq0" secondAttribute="top" id="8iP-o3-BaW"/>
                             <constraint firstItem="9cF-WS-b2r" firstAttribute="top" secondItem="e5Q-Jm-tB5" secondAttribute="bottom" constant="-180" id="Hox-1T-BUv"/>
                             <constraint firstItem="0Mi-ml-Srl" firstAttribute="leading" secondItem="ek6-Rm-nq0" secondAttribute="leading" id="L38-6P-F3j"/>
+                            <constraint firstItem="kFD-Wg-DOR" firstAttribute="centerY" secondItem="dAa-zp-ZBO" secondAttribute="centerY" id="QBE-hv-Rxb"/>
                             <constraint firstItem="0Mi-ml-Srl" firstAttribute="trailing" secondItem="ek6-Rm-nq0" secondAttribute="trailing" id="b0b-HI-QZJ"/>
+                            <constraint firstItem="kFD-Wg-DOR" firstAttribute="centerX" secondItem="dAa-zp-ZBO" secondAttribute="centerX" id="laN-Ql-Jhr"/>
                             <constraint firstItem="EFI-gd-rv8" firstAttribute="top" secondItem="ek6-Rm-nq0" secondAttribute="top" constant="10" id="lmx-HW-beb"/>
                             <constraint firstItem="ek6-Rm-nq0" firstAttribute="trailing" secondItem="EFI-gd-rv8" secondAttribute="trailing" constant="20" id="qJ5-gQ-HgI"/>
                             <constraint firstItem="e5Q-Jm-tB5" firstAttribute="trailing" secondItem="ek6-Rm-nq0" secondAttribute="trailing" constant="-30" id="sRr-ro-2mx"/>
@@ -2192,12 +2213,13 @@ Please enter your Email-Id below :</string>
                     <connections>
                         <outlet property="btnToday" destination="EFI-gd-rv8" id="m79-LE-93M"/>
                         <outlet property="calender" destination="e5Q-Jm-tB5" id="mob-1L-6B0"/>
+                        <outlet property="lblNoVisits" destination="kFD-Wg-DOR" id="TlD-Xy-tB1"/>
                         <outlet property="tblVisitEvents" destination="9cF-WS-b2r" id="a0h-sV-Yum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOG-kr-OcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6486.9565217391309" y="69.293478260869577"/>
+            <point key="canvasLocation" x="6485.6000000000004" y="68.815592203898049"/>
         </scene>
         <!--Add Promotion View Controller-->
         <scene sceneID="Msi-Su-xlb">
