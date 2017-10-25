@@ -14,10 +14,11 @@ class QueryReplyViewController: BaseViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var lblMessage: UILabel!
     
+    @IBOutlet weak var viewTop: UIView!
     @IBOutlet weak var txtViewMessage: UITextView!
     @IBOutlet weak var collctView: UICollectionView!
     @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
-    
+    @IBOutlet weak var btnQuickReply: UIButton!
     @IBOutlet weak var constrtReplyBottom: NSLayoutConstraint!
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
@@ -25,12 +26,18 @@ class QueryReplyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 51.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
         getQueryDetails()
         lblMessage.text = queryBO.content
         constrtImgVwHeight.constant = 0
 
-        
+        viewTop.layer.shadowColor = UIColor.black.cgColor
+        viewTop.layer.shadowOffset = CGSize.zero
+        viewTop.layer.shadowOpacity = 0.5
+        viewTop.layer.shadowRadius = 5
 
+        btnQuickReply.layer.cornerRadius = 10.0
+        btnQuickReply.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -62,7 +69,13 @@ class QueryReplyViewController: BaseViewController {
     }
     
     
+    @IBAction func btnPublishOnWebsiteCheckboxClicked(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
     
+    @IBAction func btnAddToQuickReplyCheckboxClicked(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
     @IBAction func btnAddImageAction(_ sender: UIButton)
     {
         imagePicker.modalPresentationStyle = UIModalPresentationStyle.currentContext
@@ -335,7 +348,7 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
         
         if queryDetailBO.arrImages.count != 0
         {
-            return CGFloat(height + 60)
+            return CGFloat(height + 76)
         }
         return CGFloat(height)
         

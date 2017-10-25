@@ -8,7 +8,7 @@
 
 import UIKit
 // 0 - UnAnswered
-// 1 - UnAnswered
+// 1 - Answered
 
 class QueriesViewController: BaseViewController {
     
@@ -17,6 +17,7 @@ class QueriesViewController: BaseViewController {
     @IBOutlet weak var btnAnswered: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var btnPopular: UIButton!
+    @IBOutlet weak var lblNoRecordFound: UILabel!
     var arrQuickReplies = [QuickReplyBO]()
     var selectedButtonIndex = -1
     var arrPopularQueries = [QueriesBO]()
@@ -170,7 +171,18 @@ class QueriesViewController: BaseViewController {
         }
         
         DispatchQueue.main.async {
-            self.tblQueries.reloadData()
+            if self.arrQueries.count == 0
+            {
+                self.lblNoRecordFound.isHidden = false
+                self.tblQueries.isHidden = true
+            }
+            else
+            {
+                self.lblNoRecordFound.isHidden = true
+                self.tblQueries.isHidden = false
+                self.tblQueries.reloadData()
+            }
+            
         }
     }
     
