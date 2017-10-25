@@ -73,7 +73,9 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         
         let imgLogo = UIButton(type: UIButtonType.custom)
         imgLogo.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        imgLogo.addTarget(self, action: #selector(btnBackClicked(sender:)), for: .touchUpInside)
         imgLogo.setImage(#imageLiteral(resourceName: "user"), for: UIControlState.normal)
+
         let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: imgLogo)
         
         let btnTitle = UIButton(type: UIButtonType.custom)
