@@ -44,6 +44,10 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setProfPic(object: profile_image)
                         }
+                        if let auth = obj.parsedDataDict["auth"] as? String
+                        {
+                            GetIONUserDefaults.setAuth(object: auth)
+                        }
                         if let firstname = obj.parsedDataDict["firstname"] as? String
                         {
                             GetIONUserDefaults.setFirstName(object: firstname)
@@ -1004,7 +1008,249 @@ class ServiceLayer: NSObject {
         }
     }
     
+    public func getAllPromotionsWith(parentId : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=category&key=e69071fc2d60078968041ecfaefe2675fafc8fd9&parentid=\(parentId)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let arrPromos = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrPromotions = [PromotionsBO]()
+                    for promo in arrPromos
+                    {
+                        let bo = PromotionsBO()
+
+                        if let id = promo["id"] as? String
+                        {
+                            bo.id = id
+                        }
+                        if let title = promo["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let alias = promo["alias"] as? String
+                        {
+                            bo.alias = alias
+                        }
+                        if let strPrivate = promo["private"] as? String
+                        {
+                            bo.strPrivate = strPrivate
+                        }
+                        if let parent_id = promo["parent_id"] as? String
+                        {
+                            bo.parent_id = parent_id
+                        }
+                        if let avatar = promo["avatar"] as? String
+                        {
+                            bo.avatar = avatar
+                        }
+                        arrPromotions.append(bo)
+                    }
+                    successMessage(arrPromotions)
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    func uploadImageWithData(imageData : Data,completion: @escaping (_ success: Bool,_ result : [String:AnyObject]) -> Void){
+        
+        let str = "http://www.dashboard.getion.in/index.php/request?action=post&module=user&resource=upload"//\(BASE_URL)
+        var request  = URLRequest(url: URL(string:str as String)!)
+        request.httpMethod = "POST"
+        let params = ["username": GetIONUserDefaults.getUserName(), "userid": GetIONUserDefaults.getUserId(), "password" : GetIONUserDefaults.getPassword(), "auth_key": GetIONUserDefaults.getAuth(), "encode": true] as [String : Any]
+        
+        let boundary = NSString(format: "---------------------------14737809831466499882746641449")
+        let contentType = NSString(format: "multipart/form-data; boundary=%@",boundary)
+        request.addValue(contentType as String, forHTTPHeaderField: "Content-Type")
+        let body = NSMutableData()
+        body.append(NSString(format: "\r\n--%@\r\n", boundary).data(using: String.Encoding.utf8.rawValue)!)
+        body.append(NSString(format:"Content-Disposition: form-data; name=\"file\"; filename=\"img.jpg\"\\r\n").data(using: String.Encoding.utf8.rawValue)!)
+        body.append(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").data(using: String.Encoding.utf8.rawValue)!)
+        body.append(imageData)
+        
+        body.append(NSString(format: "\r\n--%@\r\n", boundary).data(using: String.Encoding.utf8.rawValue)!)
+        
+        for (key, value) in params {
+            
+            body.append(NSString(format:"--\(boundary)\r\n" as NSString).data(using: String.Encoding.utf8.rawValue)!)
+            
+            body.append(NSString(format:"Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n" as NSString).data(using: String.Encoding.utf8.rawValue)!)
+            
+            body.append(NSString(format:"\(value)\r\n" as NSString).data(using: String.Encoding.utf8.rawValue)!)
+            
+        }
+        request.httpBody = body as Data
+        
+        let config = URLSessionConfiguration.ephemeral
+        config.timeoutIntervalForRequest = 180.0
+        config.timeoutIntervalForResource = 180.0
+        let urlSession = URLSession(configuration: config)
+        let task = urlSession.dataTask(with: request) { (data, response, err) in
+            var parsedDataDict = [String:AnyObject]()
+            if err == nil
+            {
+                if let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                {
+                    print("Response : ",dataString)
+                    
+                   if let data = self.convertStringToDictionary(dataString as String) as? [String:AnyObject]
+                    {
+                        parsedDataDict = data
+                    }else
+                    {
+                        var dict =  [String:AnyObject]()
+                        dict["data"] = self.convertStringToDictionary(dataString as String) as AnyObject?
+                        parsedDataDict = dict
+                    }
+                    
+                    completion (true,parsedDataDict)
+                }
+                else
+                {
+                    completion(false,parsedDataDict)
+                }
+                
+            }
+            else
+            {
+                completion(false,parsedDataDict)
+            }
+        }
+        
+        task.resume()
+    }
+    func addPromotionWith(dict : [String:AnyObject],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "http://www.dashboard.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.params = dict
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["code"] as? String
+                {
+                    if code == "200"
+                    {
+                        if let id = obj.parsedDataDict["id"] as? String
+                        {
+                            GetIONUserDefaults.setUserId(object: id)
+                        }
+                        if let profile_image = obj.parsedDataDict["profile_image"] as? String
+                        {
+                            GetIONUserDefaults.setProfPic(object: profile_image)
+                        }
+                        if let auth = obj.parsedDataDict["auth"] as? String
+                        {
+                            GetIONUserDefaults.setAuth(object: auth)
+                        }
+                        if let firstname = obj.parsedDataDict["firstname"] as? String
+                        {
+                            GetIONUserDefaults.setFirstName(object: firstname)
+                        }
+                        if let lastname = obj.parsedDataDict["lastname"] as? String
+                        {
+                            GetIONUserDefaults.setLastName(object: lastname)
+                        }
+                        if let role = obj.parsedDataDict["role"] as? String
+                        {
+                            GetIONUserDefaults.setRole(object: role)
+                        }
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
     
+    func getAllTagSuggestion(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/searchTags/contacts/contacts?user_id=180&filterVal="
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let arrPromos = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrSuggestions = [TagSuggestionBO]()
+                            for promo in arrPromos
+                            {
+                                let bo = TagSuggestionBO()
+                                
+                                if let id = promo["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let title = promo["title"] as? String
+                                {
+                                    bo.title = title
+                                }
+                                if let created = promo["created"] as? String
+                                {
+                                    bo.created = created
+                                }
+                                arrSuggestions.append(bo)
+                            }
+                            successMessage(arrSuggestions)
+                        }
+                        else
+                        {
+                            failureMessage(self.SERVER_ERROR)
+                        }
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+
+            }
+        }
+    }
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
@@ -1020,7 +1266,13 @@ class ServiceLayer: NSObject {
     
     
     public func convertStringToDictionary(_ text: String) -> [String:AnyObject]? {
-        if let data = text.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
+        var str = text
+        if str.contains("FILE BIGGER THAN 8MB")
+        {
+            str = text.replacingOccurrences(of: "FILE BIGGER THAN 8MB", with: "")
+        }
+        
+        if let data = str.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
                 return json

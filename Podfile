@@ -10,6 +10,4 @@ target 'GetION' do
     pod 'Kingfisher'
     pod 'FSCalendar'
     pod 'SwipeCellKit'
-
-
 end

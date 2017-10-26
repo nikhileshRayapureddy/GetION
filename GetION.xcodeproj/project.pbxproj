@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1851B152BE2498C93FC7C4DB /* Pods_GetION.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E223C7B883D864793EF0EC /* Pods_GetION.framework */; };
+		A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707DE231FA1CF1100320892 /* PromotionsBO.swift */; };
 		A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */; };
 		A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */; };
 		A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */; };
@@ -38,6 +39,7 @@
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
+		A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1311FA2008200963FBB /* TagSuggestionBO.swift */; };
 		A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */; };
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
@@ -66,6 +68,10 @@
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
 		A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */; };
+		A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13D1FA209FC00963FBB /* KSToken.swift */; };
+		A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13E1FA209FC00963FBB /* KSTokenField.swift */; };
+		A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13F1FA209FC00963FBB /* KSTokenView.swift */; };
+		A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1401FA209FC00963FBB /* KSUtils.swift */; };
 		CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A55771F9069F80043A0A3 /* BaseViewController.swift */; };
 		CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A557B1F906A390043A0A3 /* BottomView.swift */; };
 		CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0A557A1F906A390043A0A3 /* BottomView.xib */; };
@@ -93,6 +99,7 @@
 /* Begin PBXFileReference section */
 		66E223C7B883D864793EF0EC /* Pods_GetION.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetION.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.debug.xcconfig"; sourceTree = "<group>"; };
+		A707DE231FA1CF1100320892 /* PromotionsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsBO.swift; sourceTree = "<group>"; };
 		A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsBO.swift; sourceTree = "<group>"; };
 		A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalFeedsCell.swift; sourceTree = "<group>"; };
 		A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIONUserDefaults.swift; sourceTree = "<group>"; };
@@ -124,6 +131,11 @@
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
+		A741E1311FA2008200963FBB /* TagSuggestionBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionBO.swift; sourceTree = "<group>"; };
+		A741E13D1FA209FC00963FBB /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		A741E13E1FA209FC00963FBB /* KSTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
+		A741E13F1FA209FC00963FBB /* KSTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
+		A741E1401FA209FC00963FBB /* KSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
 		A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDayEventTableViewCell.swift; sourceTree = "<group>"; };
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
@@ -225,6 +237,7 @@
 		A7164CA21F90F0E2003DB84D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A741E13C1FA209FC00963FBB /* KSTokenView */,
 				A71FFEC21F91E6600082BAF8 /* IQKeyboardManagerSwift */,
 				A71FFEF01F91E6610082BAF8 /* ServiceCallHelpers */,
 				A7164CA91F90FA34003DB84D /* Fonts */,
@@ -336,8 +349,21 @@
 				CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */,
 				CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */,
 				A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */,
+				A707DE231FA1CF1100320892 /* PromotionsBO.swift */,
+				A741E1311FA2008200963FBB /* TagSuggestionBO.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A741E13C1FA209FC00963FBB /* KSTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				A741E13D1FA209FC00963FBB /* KSToken.swift */,
+				A741E13E1FA209FC00963FBB /* KSTokenField.swift */,
+				A741E13F1FA209FC00963FBB /* KSTokenView.swift */,
+				A741E1401FA209FC00963FBB /* KSUtils.swift */,
+			);
+			path = KSTokenView;
 			sourceTree = "<group>";
 		};
 		A7DFFAB11F8F608D00208FD9 = {
@@ -551,7 +577,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D3BC23792E3E892FAE45C1D8 /* [CP] Embed Pods Frameworks */ = {
@@ -605,9 +631,12 @@
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
+				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
+				A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
 				A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */,
 				A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */,
+				A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */,
 				CCB0E2B21F96491E004DD3A8 /* QueryReplyViewController.swift in Sources */,
 				CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */,
 				A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */,
@@ -624,10 +653,12 @@
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
+				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
 				A71FFF011F91E6610082BAF8 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */,
 				A71FFEFC1F91E6610082BAF8 /* IQTextView.swift in Sources */,
 				CCB0E2B51F964949004DD3A8 /* FromMessageCustomCell.swift in Sources */,
 				A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */,
@@ -656,6 +687,7 @@
 				CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */,
 				CCB0E2B61F964949004DD3A8 /* ToMessageCustomCell.swift in Sources */,
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
+				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,

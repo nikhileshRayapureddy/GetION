@@ -22,6 +22,9 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var clVwPromo: UICollectionView!
     @IBOutlet weak var imgVwBase: UIImageView!
+    
+    @IBOutlet weak var lblCategory: UILabel!
+    var arrPromotion = [PromotionsBO]()
     func designScreen(screenWidth : CGFloat)
     {
         scrlVw.contentSize = CGSize (width: (screenWidth - 40) * 3  , height: 0)
@@ -70,10 +73,15 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
 extension AddCustomPopUpView : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return arrPromotion.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromoCustomCell", for: indexPath) as! PromoCustomCell
+        let bo = arrPromotion[indexPath.row]
+        cell.lblName.text = bo.title
+        let url = URL(string: bo.avatar)
+        cell.imgVwPromo.kf.setImage(with: url)
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
