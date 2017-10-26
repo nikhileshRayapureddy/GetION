@@ -48,7 +48,7 @@ class QueryReplyViewController: BaseViewController {
         layer.getQueryDetailsWithId(id: queryBO.id, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrQueries = response as! [QueriesBO]
-                self.arrQueries[7].arrImages = [#imageLiteral(resourceName: "close"), #imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "promotion"), #imageLiteral(resourceName: "settings")]
+                self.arrQueries[self.arrQueries.count - 2].arrImages = [#imageLiteral(resourceName: "close"), #imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "promotion"), #imageLiteral(resourceName: "settings")]
                 app_delegate.removeloder()
                 self.bindData()
             }

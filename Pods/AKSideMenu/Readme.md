@@ -35,7 +35,7 @@ github "dogo/AKSideMenu" "1.3.3"
 
 ## Easy to use
 
-###Simple implementation
+### Simple implementation
 In your AppDelegate, add the code below.
 
 ```swift
@@ -82,6 +82,21 @@ sideMenuViewController.delegate = self
 
 // MARK: - <AKSideMenuDelegate>
 
+open func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    // return true to allow both gesture recognizers to recognize simultaneously. Returns false by default
+    return false
+}
+
+open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    // return true or false based on your failure requirements. Returns false by default
+    return false
+}
+
+open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    // return true or false based on your failure requirements. Returns false by default
+    return false
+}
+
 open func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
     print("willShowMenuViewController")
 }
@@ -118,7 +133,7 @@ self.sideMenuViewController!.setContentViewController(viewController, animated: 
 self.sideMenuViewController!.hideMenuViewController()
 ```
 
-###Properties
+### Properties
 ```swift
 public var animationDuration: TimeInterval
 ```

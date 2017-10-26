@@ -444,6 +444,7 @@ What would you like to start today?</string>
                 <outlet property="clVwPromo" destination="kVx-Dt-wED" id="ZJT-F5-oks"/>
                 <outlet property="constVwBgWidth" destination="fZP-v9-eNR" id="sbx-Uf-uhT"/>
                 <outlet property="imgVwBase" destination="PRb-aQ-8Dx" id="gP8-dt-PUP"/>
+                <outlet property="lblCategory" destination="YtA-Eu-4Pb" id="FDP-xc-41u"/>
                 <outlet property="pageControl" destination="xPJ-V6-syN" id="kx6-eM-WTp"/>
                 <outlet property="scrlVw" destination="icd-SO-eDh" id="Zfw-r2-8rc"/>
                 <outlet property="vwBase" destination="k3E-or-bkJ" id="hpd-H9-vWo"/>

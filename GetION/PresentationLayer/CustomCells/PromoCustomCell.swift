@@ -10,6 +10,8 @@ import UIKit
 
 class PromoCustomCell: UICollectionViewCell {
 
+    @IBOutlet weak var imgVwPromo: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

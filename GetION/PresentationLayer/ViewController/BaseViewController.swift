@@ -126,6 +126,10 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     }
     @objc func plannerButtonClicked(sender:UIButton)
     {
+        let plannerViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PlannerViewController") as! PlannerViewController
+        navController = UINavigationController(rootViewController: plannerViewController)
+        self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+        self.sideMenuViewController!.hideMenuViewController()
     }
     @objc func searchButtonClicked(sender:UIButton)
     {
@@ -318,22 +322,60 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
 
     @objc func btnPlusClicked(_ sender: UIButton)
     {
-        if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
-        {
-            UIView.animate(withDuration: 0.3, animations: {
-                    sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
-            }, completion: { (isComplete) in
-                sender.transform = .identity
-                self.addPopUp = popup
-                self.addPopUp.callBack = self
-                self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
-                self.view.window?.addSubview(self.addPopUp)
-                self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
-                self.addPopUp.designScreen(screenWidth: ScreenWidth)
-                
+        app_delegate.showLoader(message: "Loading Promotions...")
 
-            })
+        let layer = ServiceLayer()
+        layer.getAllPromotionsWith(parentId: "87", successMessage: { (reponse) in
+            
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
+                {
+                    UIView.animate(withDuration: 0.3, animations: {
+                        sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
+                    }, completion: { (isComplete) in
+                        sender.transform = .identity
+                        self.addPopUp = popup
+                        let filteredArray = (reponse as! [PromotionsBO]).filter() {
+                            if let type : String = ($0 as PromotionsBO).parent_id as String {
+                                return type == "87"
+                            } else {
+                                return false
+                            }
+                        }
+                        if filteredArray.count > 0
+                        {
+                            self.addPopUp.lblCategory.text = filteredArray[0].title
+                            self.addPopUp.arrPromotion = (reponse as! [PromotionsBO]).filter() {
+                                if let type : String = ($0 as PromotionsBO).parent_id as String {
+                                    return type == filteredArray[0].id
+                                } else {
+                                    return false
+                                }
+                            }
+
+
+                            
+                        }
+                        self.addPopUp.callBack = self
+                        self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
+                        self.view.window?.addSubview(self.addPopUp)
+                        self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
+                        self.addPopUp.designScreen(screenWidth: ScreenWidth)
+                        
+                        
+                    })
+                }            }
+        }) { (error) in
+            app_delegate.removeloder()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Promotions.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+
         }
+
 
     }
     func btnViewMoreClicked(sender: UIButton)
@@ -344,8 +386,10 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     }
     func AddPoupCollectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
+        
         addPopUp.removeFromSuperview()
         let addPromotionViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddPromotionViewController") as! AddPromotionViewController
+        addPromotionViewController.promotionBO = addPopUp.arrPromotion[indexPath.row]
         self.navigationController?.pushViewController(addPromotionViewController, animated: true)
 
     }
