@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1851B152BE2498C93FC7C4DB /* Pods_GetION.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E223C7B883D864793EF0EC /* Pods_GetION.framework */; };
 		A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707DE231FA1CF1100320892 /* PromotionsBO.swift */; };
+		A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */; };
 		A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */; };
 		A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */; };
 		A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */; };
@@ -100,6 +101,7 @@
 		66E223C7B883D864793EF0EC /* Pods_GetION.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetION.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.debug.xcconfig"; sourceTree = "<group>"; };
 		A707DE231FA1CF1100320892 /* PromotionsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsBO.swift; sourceTree = "<group>"; };
+		A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVisitsViewController.swift; sourceTree = "<group>"; };
 		A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsBO.swift; sourceTree = "<group>"; };
 		A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalFeedsCell.swift; sourceTree = "<group>"; };
 		A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIONUserDefaults.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */,
 				A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */,
 				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
+				A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
+				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
