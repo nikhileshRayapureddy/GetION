@@ -1251,6 +1251,66 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func ionizePromotionWith(dict : [String:AnyObject],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //title:First blog
+        
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "http://www.dashboard.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.params = dict
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["code"] as? String
+                {
+                    if code == "200"
+                    {
+                        if let id = obj.parsedDataDict["id"] as? String
+                        {
+                            GetIONUserDefaults.setUserId(object: id)
+                        }
+                        if let profile_image = obj.parsedDataDict["profile_image"] as? String
+                        {
+                            GetIONUserDefaults.setProfPic(object: profile_image)
+                        }
+                        if let auth = obj.parsedDataDict["auth"] as? String
+                        {
+                            GetIONUserDefaults.setAuth(object: auth)
+                        }
+                        if let firstname = obj.parsedDataDict["firstname"] as? String
+                        {
+                            GetIONUserDefaults.setFirstName(object: firstname)
+                        }
+                        if let lastname = obj.parsedDataDict["lastname"] as? String
+                        {
+                            GetIONUserDefaults.setLastName(object: lastname)
+                        }
+                        if let role = obj.parsedDataDict["role"] as? String
+                        {
+                            GetIONUserDefaults.setRole(object: role)
+                        }
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
