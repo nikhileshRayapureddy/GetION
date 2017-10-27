@@ -43,7 +43,7 @@ extension ReplyOptionPopOverView: UITableViewDataSource,UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPTIONS", for: indexPath)
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "Add"
+            cell.textLabel?.text = "Edit"
             break
         case 1:
             cell.textLabel?.text = "Delete"

@@ -23,7 +23,8 @@ class QueryReplyViewController: BaseViewController {
     var arrImageUrls = [String]()
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
-    
+    var currentImage = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
@@ -113,7 +114,6 @@ class QueryReplyViewController: BaseViewController {
     @IBAction func btnQuickReplyAction(_ sender: UIButton)
     {
         self.txtViewMessage.resignFirstResponder()
-//        self.constrtReplyBottom.constant = 5
         if txtViewMessage.text.characters.count == 0
         {
             let alert = UIAlertController(title: "Alert!", message: "Please enter your reply.", preferredStyle: UIAlertControllerStyle.alert)
@@ -129,6 +129,7 @@ class QueryReplyViewController: BaseViewController {
                 layer.addReplyForQuestion(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", successMessage: { (response) in
                     DispatchQueue.main.async {
                         app_delegate.removeloder()
+                        self.txtViewMessage.text = ""
                         let message = response as? String
                         if message?.caseInsensitiveCompare("success") == .orderedSame
                         {
@@ -159,45 +160,41 @@ class QueryReplyViewController: BaseViewController {
             }
         }
     }
-    
     func uploadImages()
     {
+        let imageData = UIImagePNGRepresentation(self.arrImages[self.currentImage])
+        app_delegate.showLoader(message: "Uploading...")
         let layer = ServiceLayer()
-        var count = 0
-        while count < arrImages.count
-        {
-            let data = UIImagePNGRepresentation(arrImages[count])
-            layer.uploadImageWithData(imageData: data!) { (isSuccess, dict) in
-                app_delegate.removeloder()
-                if isSuccess
+        layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
+            app_delegate.removeloder()
+            if isSuccess
+            {
+                self.arrImageUrls.append(dict["url"] as! String)
+                print("response : \(dict.description)")
+                self.currentImage += 1
+                if self.currentImage < self.arrImages.count
                 {
-                    self.arrImageUrls.append(dict["url"] as! String)
-                    print("response : \(dict.description)")
-                    count = count + 1
-                    if count < self.arrImages.count
-                    {
-                        self.uploadImages()
-                    }
-                    else
-                    {
-                        
-                        DispatchQueue.main.async {
-                            app_delegate.removeloder()
-                            self.addReplyWithMessageAndAttachments()
-                        }
-                    }
+                    self.uploadImages()
                 }
                 else
                 {
-                    let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
+                    app_delegate.removeloder()
+                    DispatchQueue.main.async {
+                        self.addReplyWithMessageAndAttachments()
+                    }
                 }
             }
+            else
+            {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
+        
     }
-    
+
     func addReplyWithMessageAndAttachments()
     {
         app_delegate.showLoader(message: "Sending message. . .")
@@ -210,6 +207,10 @@ class QueryReplyViewController: BaseViewController {
                 {
                     let alert = UIAlertController(title: "Alert!", message: "Message sent successfully", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        self.arrImages.removeAll()
+                        self.collctView.reloadData()
+                        self.txtViewMessage.text = ""
+                        self.constrtImgVwHeight.constant = 0
                         self.getQueryDetails()
                     }))
                     self.present(alert, animated: true, completion: nil)

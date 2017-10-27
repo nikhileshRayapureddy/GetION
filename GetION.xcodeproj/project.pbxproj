@@ -97,6 +97,8 @@
 		CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */; };
 		CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */; };
 		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
+		CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */; };
+		CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +196,8 @@
 		CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyCustomCell.xib; sourceTree = "<group>"; };
 		CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyOptionPopOverView.swift; sourceTree = "<group>"; };
 		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
+		CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQueryPopUpView.swift; sourceTree = "<group>"; };
+		CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQueryPopUpView.xib; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +486,8 @@
 				CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */,
 				CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */,
 				CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */,
+				CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */,
+				CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
+				CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */,
 				A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */,
 				A7164CAE1F90FA34003DB84D /* Myriad_Pro_Bold.ttf in Resources */,
 				A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */,
@@ -666,6 +673,7 @@
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
+				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
 				A71FFF011F91E6610082BAF8 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */,

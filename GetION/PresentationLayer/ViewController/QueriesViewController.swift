@@ -31,6 +31,7 @@ class QueriesViewController: BaseViewController {
     var quickReplyPopUp: QuickReplyPopUp!
     var quickReplyTemplateBO = QuickReplyBO()
     
+    var editQueryPopUp: EditQueryPopUpView!
     var selectedQueryForOptions = QueriesBO()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -252,7 +253,16 @@ class QueriesViewController: BaseViewController {
             popup.layer.cornerRadius = 10.0
             popup.clipsToBounds = true
             popup.delegate = self
-            popup.frame = CGRect(x: self.view.frame.size.width - 220, y: rectOfCellInSuperview.origin.y + 20, width: 200, height: 120)
+            var y = rectOfCellInSuperview.origin.y
+            if y + 132 > tblQueries.frame.size.height
+            {
+                y = rectOfCellInSuperview.origin.y - 132
+            }
+            else
+            {
+                
+            }
+            popup.frame = CGRect(x: self.view.frame.size.width - 220, y: y, width: 200, height: 132)
             self.view.addSubview(popup)
         }
     }
@@ -416,9 +426,131 @@ extension QueriesViewController: ReplyOptionPopOverView_Delegate
                 }
             })
         }
-        else
+        else if option.caseInsensitiveCompare("edit") == .orderedSame
         {
+            if let popup = Bundle.main.loadNibNamed("EditQueryPopUpView", owner: nil, options: nil)![0] as? EditQueryPopUpView
+            {
+                popup.txtReply.text = selectedQueryForOptions.content
+                popup.resizeViews()
+                popup.delegate = self
+                editQueryPopUp = popup
+                popup.frame = self.view.bounds
+                self.view.addSubview(popup)
+            }
+        }
+        else if option.caseInsensitiveCompare("ionize") == .orderedSame
+        {
+            var dict  = [String:AnyObject]()
             
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+            let strDate = formatter.string(from: Date())
+
+            dict["image"] = "" as AnyObject
+            dict["groupTags"] = "" as AnyObject
+            dict["Write_content_hidden"] = "" as AnyObject
+            dict["publish_up"] = strDate as AnyObject
+            dict["copyrights"] = "" as AnyObject
+            dict["send_notification_emails"] = "1" as AnyObject
+            dict["created"] = strDate as AnyObject
+            dict["write_content"] = selectedQueryForOptions.content as AnyObject
+            dict["published"] = "4" as AnyObject
+            dict["subscription"] = "1" as AnyObject
+            dict["title"] = selectedQueryForOptions.title as AnyObject
+            dict["content"] = selectedQueryForOptions.content as AnyObject
+            dict["tags"] = "" as AnyObject
+            dict["frontpage"] = "1" as AnyObject
+            dict["allowcomment"] = "1" as AnyObject
+            dict["category_id"] = selectedQueryForOptions.id as AnyObject
+            dict["publish_down"] = "0000-00-00 00:00:00" as AnyObject
+            dict["blogpassword"] = "" as AnyObject
+            dict["robots"] = "" as AnyObject
+            dict["excerpt"] = "" as AnyObject
+            dict["permalink"] = "" as AnyObject
+            dict["key"] = GetIONUserDefaults.getAuth() as AnyObject
+
+            app_delegate.showLoader(message: "Ionizing...")
+            let layer = ServiceLayer()
+            layer.addPromotionWith(dict: dict, successMessage: { (reponse) in
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Alert!", message: "Ionized successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        if self.selectedButtonIndex == 1
+                        {
+                            self.getUnAnsweredQueries()
+                        }
+                        else if self.selectedButtonIndex == 2
+                        {
+                            self.getAnsweredQueries()
+                        }
+                        else
+                        {
+                            self.getPopularQueries()
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+
+                }
+                app_delegate.removeloder()
+                
+            }) { (error) in
+                app_delegate.removeloder()
+            }
+
+        }
+    }
+}
+
+extension QueriesViewController: EditQueryPopUpView_Delegate
+{
+    func closeEditQueryPopUp() {
+        editQueryPopUp.removeFromSuperview()
+    }
+    func showAlertWithTextForEditQuery(_ message: String) {
+        let alert = UIAlertController(title: "Alert!", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateEditQueryPopUp(_ text: String) {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.editQueryWithId(queryId: selectedQueryForOptions.id, andQueryTitle: selectedQueryForOptions.title, withContent: text, successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                self.closeEditQueryPopUp()
+                let message = response as? String
+                if message?.caseInsensitiveCompare("success") == .orderedSame
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Query updated successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        if self.selectedButtonIndex == 1
+                        {
+                            self.getUnAnsweredQueries()
+                        }
+                        else if self.selectedButtonIndex == 2
+                        {
+                            self.getAnsweredQueries()
+                        }
+                        else
+                        {
+                            self.getPopularQueries()
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sending failed. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
         }
     }
 }
