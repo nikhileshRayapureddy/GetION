@@ -40,6 +40,10 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setUserId(object: id)
                         }
+                        if let teamid = obj.parsedDataDict["teamid"] as? String
+                        {
+                            GetIONUserDefaults.setTeamId(object: teamid)
+                        }
                         if let publishid = obj.parsedDataDict["publishid"] as? String
                         {
                             GetIONUserDefaults.setPublishId(object: publishid)
@@ -873,8 +877,8 @@ class ServiceLayer: NSObject {
     {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
-        obj.MethodNamee = "POST"
-        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=delete&resource=deletequery&pwd=cmFtZXNo&id=%@&username=%@", BASE_URL,id,userName)
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=64&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -883,7 +887,21 @@ class ServiceLayer: NSObject {
             }
             else
             {
-                
+                if let status = obj.parsedDataDict["status"] as? String
+                {
+                    if status == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
             }
         }
     }
@@ -1586,6 +1604,42 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func sendSMSFromIONServerWith(message : String,MobileNo : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request/sendSmsByPhoneNumb/contacts/contacts?username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&phone=\(MobileNo)&user_id=\(GetIONUserDefaults.getTeamId())&sendType=server&message=\(message)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
