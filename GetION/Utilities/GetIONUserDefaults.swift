@@ -16,6 +16,7 @@ let Role = "Role"
 let UserName = "UserName"
 let Password = "Password"
 let Auth = "Auth"
+let Publishid = "Publishid"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -54,7 +55,25 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
+    class func setPublishId (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: Publishid)
+        UserDefaults.standard.synchronize()
+    }
     
+    class func getPublishId () -> String
+    {
+        if UserDefaults.standard.object(forKey: Publishid) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: Publishid) as! String
+            
+        }
+    }
+
     class func setUserName (object : String)
     {
         UserDefaults.standard.set(object, forKey: UserName)

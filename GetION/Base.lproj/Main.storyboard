@@ -1837,7 +1837,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
-                                <rect key="frame" x="283" y="270" width="84" height="40"/>
+                                <rect key="frame" x="278" y="270" width="89" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="PgL-l2-DhS"/>
@@ -1872,6 +1872,17 @@ Please enter your Email-Id below :</string>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Blogs Found." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0M-al-6HN">
+                                <rect key="frame" x="8" y="368" width="359" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="XXS-mG-qw3"/>
+                                    <constraint firstAttribute="height" constant="35" id="d3f-jt-Nuz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fyj-tc-fSX">
@@ -1958,6 +1969,10 @@ Please enter your Email-Id below :</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="btnDownLoad" destination="gCz-vW-guM" id="5XG-wb-1ad"/>
+                                            <outlet property="btnPublish" destination="ejV-Di-gSv" id="2Z8-YE-qt7"/>
+                                            <outlet property="imgVwBlog" destination="mZc-FR-ihA" id="9E8-Tk-urR"/>
+                                            <outlet property="lbltitle" destination="uvD-3M-XRH" id="bfb-gv-LTe"/>
                                             <outlet property="vwBg" destination="7Ae-rd-9DT" id="fs1-qP-ezJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -1979,15 +1994,18 @@ Please enter your Email-Id below :</string>
                             <constraint firstItem="b2q-ag-r6c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rw7-0Q-94B" secondAttribute="leading" constant="20" symbolic="YES" id="AlB-wk-gQs"/>
                             <constraint firstItem="9rl-VG-wxS" firstAttribute="leading" secondItem="Tqq-L8-GxT" secondAttribute="leading" constant="8" id="AnS-JO-E0A"/>
                             <constraint firstItem="Iy4-dk-azZ" firstAttribute="trailing" secondItem="Tqq-L8-GxT" secondAttribute="trailing" id="Iqm-QY-NbW"/>
+                            <constraint firstItem="f0M-al-6HN" firstAttribute="top" secondItem="0Oy-k4-BGt" secondAttribute="bottom" constant="15" id="Kv2-UR-cSj"/>
                             <constraint firstItem="b2q-ag-r6c" firstAttribute="top" secondItem="WP4-Sp-sGc" secondAttribute="bottom" constant="5" id="S6X-kZ-ACj"/>
                             <constraint firstItem="0Oy-k4-BGt" firstAttribute="top" secondItem="b2q-ag-r6c" secondAttribute="bottom" constant="8" id="U3N-kg-TMC"/>
                             <constraint firstItem="0Oy-k4-BGt" firstAttribute="leading" secondItem="Tqq-L8-GxT" secondAttribute="leading" constant="8" id="VFR-ai-cwq"/>
                             <constraint firstItem="fyj-tc-fSX" firstAttribute="trailing" secondItem="Tqq-L8-GxT" secondAttribute="trailing" id="Wjo-ET-RGP"/>
                             <constraint firstItem="ISK-zx-jHv" firstAttribute="trailing" secondItem="Tqq-L8-GxT" secondAttribute="trailing" id="Yk9-8V-fSl"/>
                             <constraint firstItem="ISK-zx-jHv" firstAttribute="leading" secondItem="Tqq-L8-GxT" secondAttribute="leading" id="amc-Jj-P4h"/>
+                            <constraint firstItem="Tqq-L8-GxT" firstAttribute="trailing" secondItem="f0M-al-6HN" secondAttribute="trailing" constant="8" id="bEp-RU-zeA"/>
                             <constraint firstItem="ISK-zx-jHv" firstAttribute="top" secondItem="Tqq-L8-GxT" secondAttribute="top" id="eAg-1Y-qFv"/>
                             <constraint firstItem="WP4-Sp-sGc" firstAttribute="top" secondItem="9rl-VG-wxS" secondAttribute="bottom" id="gPo-aF-stk"/>
                             <constraint firstItem="Tqq-L8-GxT" firstAttribute="trailing" secondItem="0Oy-k4-BGt" secondAttribute="trailing" constant="8" id="gaW-BB-iZo"/>
+                            <constraint firstItem="f0M-al-6HN" firstAttribute="leading" secondItem="Tqq-L8-GxT" secondAttribute="leading" constant="8" id="hEc-wx-6nB"/>
                             <constraint firstItem="Tqq-L8-GxT" firstAttribute="trailing" secondItem="9rl-VG-wxS" secondAttribute="trailing" constant="8" id="hP9-QR-4fo"/>
                             <constraint firstItem="0Oy-k4-BGt" firstAttribute="leading" secondItem="Tqq-L8-GxT" secondAttribute="leading" constant="8" id="j8t-XM-Ta3"/>
                             <constraint firstItem="Tqq-L8-GxT" firstAttribute="trailing" secondItem="WP4-Sp-sGc" secondAttribute="trailing" id="lCC-PY-IQ3"/>
@@ -2002,6 +2020,8 @@ Please enter your Email-Id below :</string>
                         <outlet property="btnPromotions" destination="UKe-C6-pA6" id="Q1t-MN-0Nt"/>
                         <outlet property="btnSMSCampaign" destination="eXV-MW-LSM" id="DdJ-Pj-Ioq"/>
                         <outlet property="clVwPromo" destination="WP4-Sp-sGc" id="Blu-Th-5Xy"/>
+                        <outlet property="lblNoBlogs" destination="f0M-al-6HN" id="qHH-JD-hWS"/>
+                        <outlet property="tblBlogs" destination="fyj-tc-fSX" id="wYw-EY-KfK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAP-P6-zHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
