@@ -823,12 +823,58 @@ class ServiceLayer: NSObject {
         }
     }
 
+    public func addReplyForQuestionWithAttachmentsFor(id: String, withMessage message: String, forUser userId:String, withUserName userName: String, withPrivacy privacy: String, withAttachments attachments: [String], successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        var attachmentString = ""
+        var count = 0
+        while count < attachments.count
+        {
+            let imageUrl = attachments[count]
+            if attachmentString.characters.count == 0
+            {
+                attachmentString = String(format: "&attachment1=%@", imageUrl)
+            }
+            else
+            {
+                attachmentString = String(format: "%@&attachment%d=%@", attachmentString,count+1,imageUrl)
+            }
+            count = count + 1
+        }
+        
+        attachmentString = String(format: "%@&attachments=%d", attachmentString,attachments.count)
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=post&resource=reply&encode=true&private=%@&pwd=cmFtZXNo&question_id=%@&reply=%@&userid=%@&username=%@%@", BASE_URL,privacy,id,message,userId,userName,attachmentString)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+
     public func deleteReplyForQuestion(id: String, forUser userId:String, withUserName userName: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "POST"
-        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=delete&resource=deletequery&pwd=cmFtZXNo&userid=%@&username=%@", BASE_URL,id,userId,userName)
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=delete&resource=deletequery&pwd=cmFtZXNo&id=%@&username=%@", BASE_URL,id,userName)
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
