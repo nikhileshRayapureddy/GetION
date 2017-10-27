@@ -26,10 +26,12 @@ class QueriesViewController: BaseViewController {
     var arrQueries = [QueriesBO]()
     var isFirstTime = true
     var cellIndex = -1
-    
+    var optionsPopUp: ReplyOptionPopOverView!
     var quickReplyEditTemplatePopUp: QuickReplyTemplateEditPopUp!
     var quickReplyPopUp: QuickReplyPopUp!
     var quickReplyTemplateBO = QuickReplyBO()
+    
+    var selectedQueryForOptions = QueriesBO()
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
@@ -230,7 +232,37 @@ class QueriesViewController: BaseViewController {
         cellIndex = sender.tag - 100
         getQuickReplyTemplates()
     }
-    
+
+    @objc func showOptionsPopUp(_ sender: UIButton)
+    {
+        if let popup = Bundle.main.loadNibNamed("ReplyOptionPopOverView", owner: nil, options: nil)![0] as? ReplyOptionPopOverView
+        {
+            let transparentButton = UIButton(type: .custom)
+            transparentButton.frame = self.view.bounds
+            transparentButton.tag = 3344
+            transparentButton.addTarget(self, action: #selector(removeOptionsPopUp), for: .touchUpInside)
+            transparentButton.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
+            self.view.addSubview(transparentButton)
+            popup.bindData()
+            let index = IndexPath(row: sender.tag - 1000, section: 0)
+            let rectOfCellInTableView = tblQueries.rectForRow(at: index)
+            let rectOfCellInSuperview = tblQueries.convert(rectOfCellInTableView, to: tblQueries.superview)
+            selectedQueryForOptions = arrQueries[sender.tag - 1000]
+            optionsPopUp = popup
+            popup.layer.cornerRadius = 10.0
+            popup.clipsToBounds = true
+            popup.delegate = self
+            popup.frame = CGRect(x: self.view.frame.size.width - 220, y: rectOfCellInSuperview.origin.y + 20, width: 200, height: 120)
+            self.view.addSubview(popup)
+        }
+    }
+
+    @objc func removeOptionsPopUp()
+    {
+        optionsPopUp.removeFromSuperview()
+        let button = self.view.viewWithTag(3344) as! UIButton
+        button.removeFromSuperview()
+    }
     @objc func btnReplyClicked(_ sender: UIButton)
     {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
@@ -264,6 +296,8 @@ extension QueriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.btnReply.addTarget(self, action: #selector(btnReplyClicked(_:)), for: .touchUpInside)
         cell.viewBackground.layer.cornerRadius = 10.0
         cell.viewBackground.clipsToBounds = true
+        cell.btnOptions.tag = indexPath.row + 1000
+        cell.btnOptions.addTarget(self, action: #selector(showOptionsPopUp(_:)), for: .touchUpInside)
         cell.selectionStyle = .none
         return cell
     }
@@ -349,5 +383,41 @@ extension QueriesViewController: QuickReplyTemplateEditPopUp_Delegate
     
     func updateEditTemplatePopUp(_ text: String) {
         
+    }
+}
+
+extension QueriesViewController: ReplyOptionPopOverView_Delegate
+{
+    func selectedOption(_ option: String) {
+        if option.caseInsensitiveCompare("delete") == .orderedSame
+        {
+            app_delegate.showLoader(message: "Loading. . .")
+            let layer = ServiceLayer()
+            layer.deleteReplyForQuestion(id: selectedQueryForOptions.id, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), successMessage: { (response) in
+                DispatchQueue.main.async {
+                   app_delegate.removeloder()
+                    if self.selectedButtonIndex == 1
+                    {
+                        self.getUnAnsweredQueries()
+                    }
+                    else if self.selectedButtonIndex == 2
+                    {
+                        self.getAnsweredQueries()
+                    }
+                    else
+                    {
+                        self.getPopularQueries()
+                    }
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+            })
+        }
+        else
+        {
+            
+        }
     }
 }

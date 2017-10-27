@@ -95,6 +95,8 @@
 		CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2B71F964963004DD3A8 /* QueryProfilePopUp.xib */; };
 		CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */; };
 		CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */; };
+		CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */; };
+		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +192,8 @@
 		CCB0E2B81F964963004DD3A8 /* QueryProfilePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryProfilePopUp.swift; sourceTree = "<group>"; };
 		CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyCustomCell.swift; sourceTree = "<group>"; };
 		CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyCustomCell.xib; sourceTree = "<group>"; };
+		CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyOptionPopOverView.swift; sourceTree = "<group>"; };
+		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -476,6 +480,8 @@
 				A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */,
 				CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */,
 				CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */,
+				CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */,
+				CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
+				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
@@ -675,6 +682,7 @@
 				CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */,
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
+				CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
 				A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */,
 				A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */,
