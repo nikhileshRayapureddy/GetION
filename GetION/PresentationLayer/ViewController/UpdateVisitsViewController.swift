@@ -30,6 +30,10 @@ class UpdateVisitsViewController: BaseViewController
     @IBOutlet weak var txtAreaLocality: UITextField!
     @IBOutlet weak var txtSource: UITextField!
     @IBOutlet weak var txtVwRemarks: UITextView!
+    @IBOutlet weak var btnCall: UIButton!
+    @IBOutlet weak var btnServerMessage: UIButton!
+    @IBOutlet weak var btnOSMessage: UIButton!
+    @IBOutlet weak var btnEdit: UIButton!
     
     
     
@@ -51,7 +55,17 @@ class UpdateVisitsViewController: BaseViewController
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func btnCallAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnServerMessageAction(_ sender: UIButton) {
+    }
+    @IBAction func btnOSMessageAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnUpdateAction(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
