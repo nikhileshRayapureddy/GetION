@@ -2,8 +2,8 @@
 //  BottomView.swift
 //  Temp
 //
-//  Created by Kiran Kumar on 12/10/17.
-//  Copyright © 2017 Kiran Kumar. All rights reserved.
+//  Created by Nikhilesh on 12/10/17.
+//  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
