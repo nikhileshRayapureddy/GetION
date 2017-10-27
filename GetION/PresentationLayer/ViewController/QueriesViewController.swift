@@ -389,6 +389,7 @@ extension QueriesViewController: QuickReplyTemplateEditPopUp_Delegate
 extension QueriesViewController: ReplyOptionPopOverView_Delegate
 {
     func selectedOption(_ option: String) {
+        removeOptionsPopUp()
         if option.caseInsensitiveCompare("delete") == .orderedSame
         {
             app_delegate.showLoader(message: "Loading. . .")

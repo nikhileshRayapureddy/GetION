@@ -155,7 +155,7 @@ class QueryReplyViewController: BaseViewController {
             }
             else
             {
-                
+                self.uploadImages()
             }
         }
     }
@@ -180,9 +180,10 @@ class QueryReplyViewController: BaseViewController {
                     }
                     else
                     {
-                        app_delegate.removeloder()
+                        
                         DispatchQueue.main.async {
-                            
+                            app_delegate.removeloder()
+                            self.addReplyWithMessageAndAttachments()
                         }
                     }
                 }
@@ -197,6 +198,37 @@ class QueryReplyViewController: BaseViewController {
         }
     }
     
+    func addReplyWithMessageAndAttachments()
+    {
+        app_delegate.showLoader(message: "Sending message. . .")
+        let layer = ServiceLayer()
+        layer.addReplyForQuestionWithAttachmentsFor(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", withAttachments: self.arrImageUrls, successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let message = response as? String
+                if message?.caseInsensitiveCompare("success") == .orderedSame
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sent successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        self.getQueryDetails()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sending failed. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
 }
 
 extension QueryReplyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
