@@ -2,7 +2,7 @@
 //  QuickReplyTemplateEditPopUp.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 24/10/17.
+//  Created by Nikhilesh on 24/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
