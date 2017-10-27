@@ -79,10 +79,11 @@ class AddPromotionViewController: BaseViewController {
             self.arrSuggestions = response as! [TagSuggestionBO]
 
         }) { (error) in
+            DispatchQueue.main.async {
             let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-
+            }
         }
     }
     func uploadImageWithData(imageData : Data)
@@ -122,9 +123,11 @@ class AddPromotionViewController: BaseViewController {
     {
         var dict  = [String:AnyObject]()
         var strImage = ""
-        var strContent = ""
+        var strContent = txtVwDesignBrief.text!
         if self.arrImageUrls.count > 1
         {
+            strImage = self.arrImageUrls[0]
+            strContent.append("</br>")
             for str in self.arrImageUrls
             {
                 strContent.append("<img src='image=\(str)'/>")
@@ -157,20 +160,20 @@ class AddPromotionViewController: BaseViewController {
         
         dict["image"] = strImage as AnyObject
         dict["groupTags"] = "" as AnyObject
-        dict["Write_content_hidden"] = "" as AnyObject
+        dict["Write_content_hidden"] = txtVwDesignBrief.text! as AnyObject
         dict["publish_up"] = strDate as AnyObject
         dict["copyrights"] = "" as AnyObject
         dict["send_notification_emails"] = "1" as AnyObject
         dict["created"] = strDate as AnyObject
-        dict["write_content"] = txtVwDesignBrief.text as AnyObject
+        dict["write_content"] = txtVwDesignBrief.text! as AnyObject
         dict["published"] = "4" as AnyObject
         dict["subscription"] = "1" as AnyObject
-        dict["title"] = lblPromo.text as AnyObject
-        dict["content"] = strContent as AnyObject
-        dict["tags"] = strTag as AnyObject
+        dict["title"] = "test blog" as AnyObject
+        dict["content"] = strContent as AnyObject//strContent
+        dict["tags"] = "" as AnyObject
         dict["frontpage"] = "1" as AnyObject
         dict["allowcomment"] = "1" as AnyObject
-        dict["category_id"] = promotionBO.id as AnyObject
+        dict["category_id"] = GetIONUserDefaults.getPublishId() as AnyObject
         dict["publish_down"] = "0000-00-00 00:00:00" as AnyObject
         dict["blogpassword"] = "" as AnyObject
         dict["robots"] = "" as AnyObject
@@ -182,9 +185,27 @@ class AddPromotionViewController: BaseViewController {
         let layer = ServiceLayer()
         layer.addPromotionWith(dict: dict, successMessage: { (reponse) in
             app_delegate.removeloder()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Success!", message: "Promotion added Succesfully.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+
             
         }) { (error) in
             app_delegate.removeloder()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to add Promotion.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+
         }
     }
     @IBAction func btnAddClicked(_ sender: UIButton) {
@@ -199,9 +220,18 @@ class AddPromotionViewController: BaseViewController {
         {
             self.uploadImageWithData(imageData: UIImageJPEGRepresentation(self.arrImages[self.currentImage], CGFloat(1))!)
         }
+        else if txtVwDesignBrief.text == ""
+        {
+            let alert = UIAlertController(title: "Alert!", message: "Please add brief description of the Promotion design.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         else
         {
-            self.addPromotion()
+            let alert = UIAlertController(title: "Alert!", message: "Please add atleast one image to ionize.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
         }
         
 

@@ -437,6 +437,7 @@
 				CC0A55771F9069F80043A0A3 /* BaseViewController.swift */,
 				A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */,
 				A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */,
+				A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */,
 				A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */,
 				A7164CA51F90F1B0003DB84D /* LoginViewController.swift */,
 				A7164CA71F90F1F2003DB84D /* ForgotPasswordViewController.swift */,
@@ -445,7 +446,6 @@
 				A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */,
 				A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */,
 				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
-				A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
