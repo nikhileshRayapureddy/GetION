@@ -2711,7 +2711,7 @@ Please enter your Email-Id below :</string>
                                                     <fragment content="Lorem ipsum is simply dummy textof the printing and typesetting industry. Lorem ipsun has been the industry&quot;s standard.">
                                                         <attributes>
                                                             <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="18" name="MyriadPro-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>

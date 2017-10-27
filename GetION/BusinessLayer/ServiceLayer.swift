@@ -738,6 +738,35 @@ class ServiceLayer: NSObject {
         }
     }
     
+    public func editQueryWithId(queryId:String, andQueryTitle title: String, withContent content: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=put&resource=update&id=%@&title=%@&content=%@&username=%@&pwd=%@&encode=true", BASE_URL,queryId,title,content,GetIONUserDefaults.getUserName(),GetIONUserDefaults.getPassword())
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+
     public func getQuickReplyTemplatesWithUserId(userId:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
@@ -878,7 +907,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=64&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=\(userId)&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
