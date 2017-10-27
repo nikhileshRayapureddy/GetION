@@ -819,6 +819,24 @@ class ServiceLayer: NSObject {
         }
     }
 
+    public func deleteReplyForQuestion(id: String, forUser userId:String, withUserName userName: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=delete&resource=deletequery&pwd=cmFtZXNo&userid=%@&username=%@", BASE_URL,id,userId,userName)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                
+            }
+        }
+    }
     public func getVisitsFor(date:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
