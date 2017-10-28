@@ -2,8 +2,8 @@
 //  QueriesCustomCell.swift
 //  Queries
 //
-//  Created by Kiran Kumar on 15/10/17.
-//  Copyright © 2017 Kiran Kumar. All rights reserved.
+//  Created by Nikhilesh on 15/10/17.
+//  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
@@ -21,6 +21,7 @@ class QueriesCustomCell: UITableViewCell {
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var btnOptions: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

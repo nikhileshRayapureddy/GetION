@@ -2,7 +2,7 @@
 //  QueriesBO.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 23/10/17.
+//  Created by Nikhilesh on 23/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 

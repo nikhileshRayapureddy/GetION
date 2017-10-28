@@ -2,8 +2,8 @@
 //  QueryReplyViewController.swift
 //  Queries
 //
-//  Created by Kiran Kumar on 15/10/17.
-//  Copyright © 2017 Kiran Kumar. All rights reserved.
+//  Created by Nikhilesh on 15/10/17.
+//  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
@@ -20,9 +20,11 @@ class QueryReplyViewController: BaseViewController {
     @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
     @IBOutlet weak var btnQuickReply: UIButton!
     @IBOutlet weak var constrtReplyBottom: NSLayoutConstraint!
+    var arrImageUrls = [String]()
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
-    
+    var currentImage = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
@@ -112,9 +114,122 @@ class QueryReplyViewController: BaseViewController {
     @IBAction func btnQuickReplyAction(_ sender: UIButton)
     {
         self.txtViewMessage.resignFirstResponder()
-        self.constrtReplyBottom.constant = 5
+        if txtViewMessage.text.characters.count == 0
+        {
+            let alert = UIAlertController(title: "Alert!", message: "Please enter your reply.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            if arrImages.count == 0
+            {
+                app_delegate.showLoader(message: "Sending message. . .")
+                let layer = ServiceLayer()
+                layer.addReplyForQuestion(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", successMessage: { (response) in
+                    DispatchQueue.main.async {
+                        app_delegate.removeloder()
+                        self.txtViewMessage.text = ""
+                        let message = response as? String
+                        if message?.caseInsensitiveCompare("success") == .orderedSame
+                        {
+                            let alert = UIAlertController(title: "Alert!", message: "Message sent successfully", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                                self.getQueryDetails()
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        else
+                        {
+                            let alert = UIAlertController(title: "Alert!", message: "Message sending failed. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        
+                    }
+                }, failureMessage: { (error) in
+                    DispatchQueue.main.async {
+                        app_delegate.removeloder()
+                    }
+                })
+            }
+            else
+            {
+                self.uploadImages()
+            }
+        }
     }
-    
+    func uploadImages()
+    {
+        let imageData = UIImagePNGRepresentation(self.arrImages[self.currentImage])
+        app_delegate.showLoader(message: "Uploading...")
+        let layer = ServiceLayer()
+        layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
+            app_delegate.removeloder()
+            if isSuccess
+            {
+                self.arrImageUrls.append(dict["url"] as! String)
+                print("response : \(dict.description)")
+                self.currentImage += 1
+                if self.currentImage < self.arrImages.count
+                {
+                    self.uploadImages()
+                }
+                else
+                {
+                    app_delegate.removeloder()
+                    DispatchQueue.main.async {
+                        self.addReplyWithMessageAndAttachments()
+                    }
+                }
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+        
+    }
+
+    func addReplyWithMessageAndAttachments()
+    {
+        app_delegate.showLoader(message: "Sending message. . .")
+        let layer = ServiceLayer()
+        layer.addReplyForQuestionWithAttachmentsFor(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", withAttachments: self.arrImageUrls, successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let message = response as? String
+                if message?.caseInsensitiveCompare("success") == .orderedSame
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sent successfully", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                        self.arrImages.removeAll()
+                        self.collctView.reloadData()
+                        self.txtViewMessage.text = ""
+                        self.constrtImgVwHeight.constant = 0
+                        self.getQueryDetails()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "Alert!", message: "Message sending failed. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
 }
 
 extension QueryReplyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
@@ -147,11 +262,15 @@ extension QueryReplyViewController: UITextViewDelegate
 {
     func textViewDidBeginEditing(_ textView: UITextView)
     {
-        self.constrtReplyBottom.constant = 150
+//        self.constrtReplyBottom.constant = 150
+        DispatchQueue.main.async {
+            let indexpath = IndexPath(row: self.arrQueries.count - 1, section: 0)
+            self.tblView.scrollToRow(at: indexpath, at: .bottom, animated: false)
+        }
     }
     func textViewDidEndEditing(_ textView: UITextView)
     {
-        self.constrtReplyBottom.constant = 5
+//        self.constrtReplyBottom.constant = 5
     }
 }
 extension QueryReplyViewController: UICollectionViewDelegate, UICollectionViewDataSource
@@ -182,6 +301,7 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let queryDetailBO = arrQueries[indexPath.row]
+        queryDetailBO.content = queryDetailBO.content.removingPercentEncoding!
         if queryDetailBO.user_id == "0"
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell

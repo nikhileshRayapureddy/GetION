@@ -24,6 +24,9 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet weak var imgVwBase: UIImageView!
     
     @IBOutlet weak var lblCategory: UILabel!
+    
+    @IBOutlet weak var btnAddVisit: UIButton!
+    
     var arrPromotion = [PromotionsBO]()
     func designScreen(screenWidth : CGFloat)
     {

@@ -1,22 +1,24 @@
 //
-//  QuickReplyTemplateEditPopUp.swift
+//  EditQueryPopUpView.swift
 //  GetION
 //
-//  Created by Nikhilesh on 24/10/17.
+//  Created by Nikhilesh on 27/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
-protocol QuickReplyTemplateEditPopUp_Delegate {
-    func closeEditTemplatePopUp()
-    func updateEditTemplatePopUp(_ text: String)
-    func showAlertWithText(_ message: String)
+
+protocol EditQueryPopUpView_Delegate {
+    func closeEditQueryPopUp()
+    func updateEditQueryPopUp(_ text: String)
+    func showAlertWithTextForEditQuery(_ message: String)
 }
-class QuickReplyTemplateEditPopUp: UIView {
+
+class EditQueryPopUpView: UIView {
 
     @IBOutlet weak var viewPopUp: UIView!
     @IBOutlet weak var txtReply: UITextView!
-    var delegate: QuickReplyTemplateEditPopUp_Delegate!
+    var delegate: EditQueryPopUpView_Delegate!
     func resizeViews()
     {
         viewPopUp.layer.cornerRadius = 5.0
@@ -27,7 +29,7 @@ class QuickReplyTemplateEditPopUp: UIView {
     @IBAction func btnCancelClicked(_ sender: UIButton) {
         if let delegate = self.delegate
         {
-            delegate.closeEditTemplatePopUp()
+            delegate.closeEditQueryPopUp()
         }
     }
     
@@ -36,15 +38,16 @@ class QuickReplyTemplateEditPopUp: UIView {
         {
             if let delegate = self.delegate
             {
-                delegate.showAlertWithText("Please enter any message")
+                delegate.showAlertWithTextForEditQuery("Please enter any message")
             }
         }
         else
         {
             if let delegate = self.delegate
             {
-                delegate.updateEditTemplatePopUp(txtReply.text)
+                delegate.updateEditQueryPopUp(txtReply.text)
             }
         }
     }
+
 }

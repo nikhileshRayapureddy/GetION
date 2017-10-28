@@ -439,6 +439,7 @@ What would you like to start today?</string>
             <viewLayoutGuide key="safeArea" id="41C-Kh-Aaf"/>
             <connections>
                 <outlet property="btnAddPromo" destination="QYk-sh-Wh5" id="55Z-cZ-Rgs"/>
+                <outlet property="btnAddVisit" destination="bhd-Yj-sbm" id="gwp-HT-qsz"/>
                 <outlet property="btnClose" destination="T9A-6q-QOv" id="S1Y-Cl-Bdf"/>
                 <outlet property="btnSelPromo" destination="2xa-Su-v0I" id="UYd-vQ-hwc"/>
                 <outlet property="clVwPromo" destination="kVx-Dt-wED" id="ZJT-F5-oks"/>

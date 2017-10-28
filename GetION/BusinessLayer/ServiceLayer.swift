@@ -40,6 +40,14 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setUserId(object: id)
                         }
+                        if let teamid = obj.parsedDataDict["teamid"] as? String
+                        {
+                            GetIONUserDefaults.setTeamId(object: teamid)
+                        }
+                        if let publishid = obj.parsedDataDict["publishid"] as? String
+                        {
+                            GetIONUserDefaults.setPublishId(object: publishid)
+                        }
                         if let profile_image = obj.parsedDataDict["profile_image"] as? String
                         {
                             GetIONUserDefaults.setProfPic(object: profile_image)
@@ -730,6 +738,35 @@ class ServiceLayer: NSObject {
         }
     }
     
+    public func editQueryWithId(queryId:String, andQueryTitle title: String, withContent content: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=put&resource=update&id=%@&title=%@&content=%@&username=%@&pwd=%@&encode=true", BASE_URL,queryId,title,content,GetIONUserDefaults.getUserName(),GetIONUserDefaults.getPassword())
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+
     public func getQuickReplyTemplatesWithUserId(userId:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
@@ -819,6 +856,84 @@ class ServiceLayer: NSObject {
         }
     }
 
+    public func addReplyForQuestionWithAttachmentsFor(id: String, withMessage message: String, forUser userId:String, withUserName userName: String, withPrivacy privacy: String, withAttachments attachments: [String], successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        var attachmentString = ""
+        var count = 0
+        while count < attachments.count
+        {
+            let imageUrl = attachments[count]
+            if attachmentString.characters.count == 0
+            {
+                attachmentString = String(format: "&attachment1=%@", imageUrl)
+            }
+            else
+            {
+                attachmentString = String(format: "%@&attachment%d=%@", attachmentString,count+1,imageUrl)
+            }
+            count = count + 1
+        }
+        
+        attachmentString = String(format: "%@&attachments=%d", attachmentString,attachments.count)
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=post&resource=reply&encode=true&private=%@&pwd=cmFtZXNo&question_id=%@&reply=%@&userid=%@&username=%@%@", BASE_URL,privacy,id,message,userId,userName,attachmentString)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+
+    public func deleteReplyForQuestion(id: String, forUser userId:String, withUserName userName: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=\(userId)&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let status = obj.parsedDataDict["status"] as? String
+                {
+                    if status == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+            }
+        }
+    }
     public func getVisitsFor(date:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
@@ -1138,8 +1253,8 @@ class ServiceLayer: NSObject {
 
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
-        obj.MethodNamee = "PUT"
-        obj._serviceURL = "http://www.dashboard.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=blog"
         obj.params = dict
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -1148,34 +1263,10 @@ class ServiceLayer: NSObject {
             }
             else
             {
-                if let code = obj.parsedDataDict["code"] as? String
+                if let postid = obj.parsedDataDict["postid"] as? String
                 {
-                    if code == "200"
+                    if postid != ""
                     {
-                        if let id = obj.parsedDataDict["id"] as? String
-                        {
-                            GetIONUserDefaults.setUserId(object: id)
-                        }
-                        if let profile_image = obj.parsedDataDict["profile_image"] as? String
-                        {
-                            GetIONUserDefaults.setProfPic(object: profile_image)
-                        }
-                        if let auth = obj.parsedDataDict["auth"] as? String
-                        {
-                            GetIONUserDefaults.setAuth(object: auth)
-                        }
-                        if let firstname = obj.parsedDataDict["firstname"] as? String
-                        {
-                            GetIONUserDefaults.setFirstName(object: firstname)
-                        }
-                        if let lastname = obj.parsedDataDict["lastname"] as? String
-                        {
-                            GetIONUserDefaults.setLastName(object: lastname)
-                        }
-                        if let role = obj.parsedDataDict["role"] as? String
-                        {
-                            GetIONUserDefaults.setRole(object: role)
-                        }
                         successMessage("Success")
                     }
                     else
@@ -1186,6 +1277,200 @@ class ServiceLayer: NSObject {
                 else
                 {
                     failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
+    
+    func getIonizedBlogsWith(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getUserId())&key=\(GetIONUserDefaults.getAuth())&promos=1&status=0"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrBlogs = [BlogBO]()
+                    for blog in data
+                    {
+                        let bo = BlogBO()
+                        if let postid = blog["postid"] as? String
+                        {
+                            bo.postId = postid
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let textplain = blog["textplain"] as? String
+                        {
+                            bo.textplain = textplain
+                        }
+                        if let image = blog["image"] as? [String:AnyObject]
+                        {
+                            if let url = image["url"] as? String
+                            {
+                                bo.imageURL = url
+                            }
+                        }
+                        if let created_date = blog["created_date"] as? String
+                        {
+                            bo.created_date = created_date
+                        }
+                        if let created_date_elapsed = blog["created_date_elapsed"] as? String
+                        {
+                            bo.created_date_elapsed = created_date_elapsed
+                        }
+                        if let updated_date = blog["updated_date"] as? String
+                        {
+                            bo.updated_date = updated_date
+                        }
+                        if let author = blog["author"] as? [String:AnyObject]
+                        {
+                            if let name = author["name"] as? String
+                            {
+                                bo.authorName = name
+                            }
+                            if let email = author["email"] as? String
+                            {
+                                bo.authorEmail = email
+                            }
+                            if let photo = author["photo"] as? String
+                            {
+                                bo.authorPhoto = photo
+                            }
+                            if let website = author["website"] as? String
+                            {
+                                bo.authorWebsite = website
+                            }
+                            if let bio = author["bio"] as? String
+                            {
+                                bo.authorBio = bio
+                            }
+                        }
+                        if let comments = blog["comments"] as? String
+                        {
+                            bo.comments = comments
+                        }
+                        if let url = blog["url"] as? String
+                        {
+                            bo.url = url
+                        }
+                        if let tags = blog["tags"] as? [[String:AnyObject]]
+                        {
+                            bo.tags = tags as [AnyObject]
+                        }
+                        if let rating = blog["rating"] as? String
+                        {
+                            bo.rating = rating
+                        }
+                        if let rate = blog["rate"] as? [String:AnyObject]
+                        {
+                            if let ratings = rate["ratings"] as? NSNumber
+                            {
+                                bo.ratings = Int(truncating: ratings)
+                            }
+                            if let total = rate["total"] as? String
+                            {
+                                bo.ratingTotal = total
+                            }
+                        }
+                        if let category = blog["category"] as? [String:AnyObject]
+                        {
+                            if let categoryid = category["categoryid"] as? String
+                            {
+                                bo.categoryId = categoryid
+                            }
+                            if let title = category["title"] as? String
+                            {
+                                bo.categoryTitle = title
+                            }
+                            if let description = category["description"] as? String
+                            {
+                                bo.categoryDescription = description
+                            }
+                            if let created_date = category["created_date"] as? String
+                            {
+                                bo.categoryCreated_date = created_date
+                            }
+                            if let updated_date = category["updated_date"] as? String
+                            {
+                                bo.categoryUpdated_date = updated_date
+                            }
+                            if let scope = category["scope"] as? String
+                            {
+                                bo.categoryScope = scope
+                            }
+                        }
+                        if let permalink = blog["permalink"] as? String
+                        {
+                            bo.permalink = permalink
+                        }
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            bo.modified_date = modified_date
+                        }
+                        if let isowner = blog["isowner"] as? Bool
+                        {
+                            bo.isowner = isowner
+                        }
+                        if let ispassword = blog["ispassword"] as? Bool
+                        {
+                            bo.ispassword = ispassword
+                        }
+                        if let blogpassword = blog["blogpassword"] as? String
+                        {
+                            bo.blogpassword = blogpassword
+                        }
+                        if let views = blog["views"] as? NSNumber
+                        {
+                            bo.views = Int(truncating: views)
+                        }
+                        if let vote = blog["vote"] as? String
+                        {
+                            bo.vote = vote
+                        }
+                        if let state = blog["state"] as? NSNumber
+                        {
+                            bo.state = Int(truncating: state)
+                        }
+                        if let published = blog["published"] as? String
+                        {
+                            bo.published = published
+                        }
+                        if let like = blog["like"] as? NSNumber
+                        {
+                            bo.like = Int(truncating: like)
+                        }
+                        if let intro = blog["intro"] as? String
+                        {
+                            bo.intro = intro
+                        }
+                        if let isVoted = blog["isVoted"] as? NSNumber
+                        {
+                            bo.isVoted = Int(truncating: isVoted)
+                        }
+                        if let userid = blog["userid"] as? String
+                        {
+                            bo.userid = userid
+                        }
+                        arrBlogs.append(bo)
+                    }
+                    successMessage(arrBlogs)
+                }
+                else
+                {
+                    failureMessage("Failure")
                 }
                 
             }
@@ -1311,6 +1596,79 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    func btnPublishBlogWith(dict : [String:AnyObject],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.params = dict
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let id = obj.parsedDataDict["id"] as? String,let message = obj.parsedDataDict["message"] as? String
+                {
+                    if id != ""
+                    {
+                        successMessage(message)
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    func sendSMSFromIONServerWith(message : String,MobileNo : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request/sendSmsByPhoneNumb/contacts/contacts?username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&phone=\(MobileNo)&user_id=\(GetIONUserDefaults.getTeamId())&sendType=server&message=\(message)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""

@@ -2,7 +2,7 @@
 //  BaseViewController.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 13/10/17.
+//  Created by Nikhilesh on 13/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
@@ -320,6 +320,12 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         button.isSelected = true
     }
 
+    @objc func addNewVisitAction()
+    {
+         let addNewVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewVisitViewController") as! AddNewVisitViewController
+        self.navigationController?.pushViewController(addNewVisitVC, animated: true)
+    }
+    
     @objc func btnPlusClicked(_ sender: UIButton)
     {
         app_delegate.showLoader(message: "Loading Promotions...")
@@ -331,6 +337,9 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
                 app_delegate.removeloder()
                 if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
                 {
+                    
+                    popup.btnAddVisit.addTarget(self, action: #selector(self.addNewVisitAction), for: .touchUpInside)
+                    
                     UIView.animate(withDuration: 0.3, animations: {
                         sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
                     }, completion: { (isComplete) in
