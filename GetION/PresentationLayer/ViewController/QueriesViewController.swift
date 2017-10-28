@@ -48,7 +48,7 @@ class QueriesViewController: BaseViewController {
         app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
         
-        layer.getQueries(username: GetIONUserDefaults.getUserName(), status: "0", andIsPopular: true, successMessage: { (response) in
+        layer.getQueries(status: "0", andIsPopular: true, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrPopularQueries = response as! [QueriesBO]
                 self.btnPopular.setTitle(String(format: "%d Popular", self.arrPopularQueries.count) , for: .normal)
@@ -82,7 +82,7 @@ class QueriesViewController: BaseViewController {
         }
         let layer = ServiceLayer()
         
-        layer.getQueries(username: GetIONUserDefaults.getUserName(), status: "1", andIsPopular: false, successMessage: { (response) in
+        layer.getQueries(status: "1", andIsPopular: false, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrAnsweredQueries = response as! [QueriesBO]
                 self.btnAnswered.setTitle(String(format: "%d Answered", self.arrAnsweredQueries.count) , for: .normal)
@@ -118,7 +118,7 @@ class QueriesViewController: BaseViewController {
         app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
         
-        layer.getQueries(username: GetIONUserDefaults.getUserName(), status: "0", andIsPopular: false, successMessage: { (response) in
+        layer.getQueries(status: "0", andIsPopular: false, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrUnAnsweredQueries = response as! [QueriesBO]
                 self.btnUnAnswered.setTitle(String(format: "%d Unanswered", self.arrUnAnsweredQueries.count) , for: .normal)
