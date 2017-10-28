@@ -142,7 +142,15 @@ class QueriesViewController: BaseViewController {
             DispatchQueue.main.async {
                 app_delegate.removeloder()
                 self.arrQuickReplies = response as! [QuickReplyBO]
-                self.showQuickReplyPopup()
+                if self.quickReplyPopUp == nil
+                {
+                    self.showQuickReplyPopup()
+                }
+                else
+                {
+                    self.quickReplyPopUp.arrTemplates = self.arrQuickReplies
+                    self.quickReplyPopUp.tblView.reloadData()
+                }
             }
         }) { (error) in
             DispatchQueue.main.async {
@@ -343,6 +351,7 @@ extension QueriesViewController: QuickReplyPopUp_Delegate
     
     func closeQuickReplyPopup() {
         quickReplyPopUp.removeFromSuperview()
+        quickReplyPopUp = nil
     }
     
     func sendReplyWithTemplate(_ template: QuickReplyBO)
@@ -392,7 +401,29 @@ extension QueriesViewController: QuickReplyTemplateEditPopUp_Delegate
     }
     
     func updateEditTemplatePopUp(_ text: String) {
-        
+        self.view.endEditing(true)
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.editQueryTemplateWith(id: quickReplyTemplateBO.id, oldMessage: quickReplyTemplateBO.title, newMessage: text, successMessage: { (success) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                self.quickReplyEditTemplatePopUp.removeFromSuperview()
+                self.getQuickReplyTemplates()
+//                self.editTemplateClickedFor(self.quickReplyTemplateBO)
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let alert = UIAlertController(title: "Alert!", message: "Updating Template Failed.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    DispatchQueue.main.async {
+                        self.quickReplyEditTemplatePopUp.txtReply.becomeFirstResponder()
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+
+        }
     }
 }
 
