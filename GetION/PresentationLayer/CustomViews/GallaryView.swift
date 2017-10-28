@@ -7,14 +7,18 @@
 //
 
 import UIKit
+protocol GallaryView_Delegate {
+    func downloadImage(sender: UIButton)
+}
 
 class GallaryView: UIView {
     
     @IBOutlet weak var collctView: UICollectionView!
     @IBOutlet weak var btnClose: UIButton!
+    var delegate: GallaryView_Delegate!
+
     
-    
-    var arrImages = [UIImage]()
+    var arrImages = [String]()
     
     
     func loadGalleryWithImages()
@@ -29,9 +33,12 @@ class GallaryView: UIView {
     }
     @objc func downloadImage(sender : UIButton)
     {
-        
+        if delegate != nil{
+            delegate.downloadImage(sender : sender)
+        }
+
     }
-    
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -55,7 +62,9 @@ extension GallaryView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
-        cell.imgVw.image = arrImages[indexPath.item]
+        let url = URL(string: arrImages[indexPath.item])
+        cell.imgVw.kf.indicatorType = .activity
+        cell.imgVw.kf.setImage(with: url)
         cell.btnDownload.tag = indexPath.item + 2000
         cell.btnDownload.addTarget(self, action: #selector(downloadImage(sender:)), for: .touchUpInside)
         return cell

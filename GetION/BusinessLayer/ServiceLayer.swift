@@ -520,6 +520,10 @@ class ServiceLayer: NSObject {
                         if let state = blog["state"] as? String
                         {
                             query.state = state
+                            if query.state == "0"
+                            {
+                                continue
+                            }
                         }
                         if let modified = blog["modified"] as? String
                         {
@@ -730,6 +734,17 @@ class ServiceLayer: NSObject {
                         {
                             query.category_name = category_name
                         }
+                        if let attachments = blog["attachments"] as? [[String:AnyObject]]
+                        {
+                            for attachemnt in attachments
+                            {
+                                if let title = attachemnt["title"] as? String
+                                {
+                                    query.arrImages.append(title)
+                                }
+                            }
+                        }
+                        
                         arrQueries.append(query)
                     }
                     successMessage(arrQueries)
@@ -912,7 +927,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=\(userId)&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=delete&resource=querydelete&id=\(id)&username=\(userName)&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -1765,6 +1780,62 @@ class ServiceLayer: NSObject {
                     failureMessage(self.SERVER_ERROR)
                 }
                 
+            }
+        }
+    }
+    public func addQueryTemplateWith(message : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=post&resource=addtemplate&userid=\(GetIONUserDefaults.getUserId())&title=\(message)&content=\(message)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let status = obj.parsedDataDict["status"] as? String
+                {
+                    if status == "Query Template Added"
+                    {
+                        successMessage(status)
+                    }
+                    else
+                    {
+                        failureMessage(status)
+                    }
+                }
+            }
+        }
+    }
+    public func editQueryTemplateWith(id:String,oldMessage : String,newMessage : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request?module=easydiscuss&action=put&resource=edittemplate&id=\(id)&title=\(oldMessage)&content=\(newMessage)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let status = obj.parsedDataDict["status"] as? String
+                {
+                    if status == "Query Template Updated"
+                    {
+                        successMessage(status)
+                    }
+                    else
+                    {
+                        failureMessage(status)
+                    }
+                }
             }
         }
     }
