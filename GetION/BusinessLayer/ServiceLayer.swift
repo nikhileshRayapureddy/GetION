@@ -1221,7 +1221,193 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    
+    public func getDoctorsWithSelectedCatID(CatID:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        
+       // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_resources&usr=ramesh&pwd=cmFtZXNo&adm=1&encode=true&cat_id={sel_catID}
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_resources&usr=\(username)&pwd=\(password)&encode=true&cat_id=\(CatID)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                var arrDocData = [DoctorDetailBO]()
+                if let data = obj.parsedDataDict["data"] as? [[String : AnyObject]]
+                {
+                    for item in data
+                    {
+                        let objDoc = DoctorDetailBO()
+                        if let id_resources = item["id_resources"] as?  String
+                        {
+                            objDoc.id_resources = id_resources
+                        }
+                        if let name = item["name"] as?  String
+                        {
+                            objDoc.name = name
+                        }
+                        if let description = item["description"] as?  String
+                        {
+                            objDoc.docDescription = description
+                        }
+                        if let disable_dates_before = item["disable_dates_before"] as?  String
+                        {
+                            objDoc.disable_dates_before = disable_dates_before
+                        }
+                        if let disable_dates_before_days = item["disable_dates_before_days"] as?  String
+                        {
+                            objDoc.disable_dates_before_days = disable_dates_before_days
+                        }
+                        if let disable_dates_after = item["disable_dates_after"] as?  String
+                        {
+                            objDoc.disable_dates_after = disable_dates_after
+                        }
+                        if let disable_dates_after_days = item["disable_dates_after_days"] as?  String
+                        {
+                            objDoc.disable_dates_after_days = disable_dates_after_days
+                        }
+                        if let id = item["id"] as?  String
+                        {
+                            objDoc.id = id
+                        }
+                        if let rate = item["rate"] as?  String
+                        {
+                            objDoc.rate = rate
+                        }
+                        
+                        arrDocData.append(objDoc)
+                    }
+                    
+                    successMessage (arrDocData)
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
 
+    
+    public func getTimeSlotsWithSelectedDocAndDate(DocID:String,Date:String, username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        
+        // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_timeslots&admin=Yes&res_id=8&ts_date={sel_date}&usr=ramesh&pwd=cmFtZXNo&adm=1&encode=true
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_timeslots&admin=Yes&res_id=\(DocID)&ts_date=\(Date)&usr=\(username)&pwd=\(password)&encode=true"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                var arrTimeSlots = [TimeSlotsBO]()
+                if let data = obj.parsedDataDict["data"] as? [[String : AnyObject]]
+                {
+                    for item in data
+                    {
+                        let objTimeSlots = TimeSlotsBO()
+                        if let id = item["id"] as?  String
+                        {
+                            objTimeSlots.id = id
+                        }
+                        if let timeslot_starttime = item["timeslot_starttime"] as?  String
+                        {
+                            objTimeSlots.timeslot_starttime = timeslot_starttime
+                        }
+                        if let timeslot_endtime = item["timeslot_endtime"] as?  String
+                        {
+                            objTimeSlots.timeslot_endtime = timeslot_endtime
+                        }
+                        if let timeslot_description = item["timeslot_description"] as?  String
+                        {
+                            objTimeSlots.timeslot_description = timeslot_description
+                        }
+                        if let startendtime = item["startendtime"] as?  String
+                        {
+                            objTimeSlots.startendtime = startendtime
+                        }
+                        if let display_starttime = item["display_starttime"] as?  String
+                        {
+                            objTimeSlots.display_starttime = display_starttime
+                        }
+                        if let display_endtime = item["display_endtime"] as?  String
+                        {
+                            objTimeSlots.display_endtime = display_endtime
+                        }
+                        if let booked = item["booked"] as?  String
+                        {
+                            objTimeSlots.booked = booked
+                        }
+                        
+                        
+                        arrTimeSlots.append(objTimeSlots)
+                    }
+                    
+                    successMessage (arrTimeSlots)
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
+    public func addVisit(DocID:String, name:String, email:String, phone:String, startdate:String, enddate:String, starttime:String, endtime:String, bookingDeposit:String, bookingTotal:String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        
+     //  http://www.staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=insertBooking&res_id=8&ce_id=74353&name=Nikhilesh Naga&email=naga.nikhil65@gmail.com&phone=9542121331&startdate=2017-10-27&starttime=08:00:00&enddate=2017-05-06&endtime=08:15:00&booked_seats=1&comment=&coupon_used=&credit_used=0&booking_deposit=2&booking_total=250&request_status=accepted&fa=No&user_id=180
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=insertBooking&res_id=\(DocID)&ce_id=74353&name=\(name)&email=\(email)&phone=\(phone)&startdate=\(startdate)&starttime=\(starttime)&enddate=\(enddate)&endtime=\(endtime)&booked_seats=1&comment=&coupon_used=&credit_used=0&booking_deposit=\(bookingDeposit)&booking_total=\(bookingTotal)&request_status=accepted&fa=No&user_id=\(GetIONUserDefaults.getUserId())"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let status = obj.parsedDataDict["status"] as? String
+                {
+                    if status == "ok"
+                    {
+                        successMessage (status)
+                    }
+                    else
+                    {
+                        failureMessage("unable to add visit")
+                    }
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
     
     public func getAllPromotionsWith(parentId : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {

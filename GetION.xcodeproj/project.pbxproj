@@ -58,6 +58,8 @@
 		A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */; };
 		A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */; };
 		A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */; };
+		A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */; };
+		A7D5861C1FA4B2ED00B1BD4A /* TimeSlotsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */; };
 		A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC11F8F608D00208FD9 /* Main.storyboard */; };
 		A7DFFAC61F8F608D00208FD9 /* GetION.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAC41F8F608D00208FD9 /* GetION.xcdatamodeld */; };
 		A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC71F8F608D00208FD9 /* Assets.xcassets */; };
@@ -162,6 +164,8 @@
 		A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsBO.swift; sourceTree = "<group>"; };
 		A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupsViewController.swift; sourceTree = "<group>"; };
 		A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryBO.swift; sourceTree = "<group>"; };
+		A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailBO.swift; sourceTree = "<group>"; };
+		A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotsBO.swift; sourceTree = "<group>"; };
 		A7DFFABA1F8F608D00208FD9 /* GetION.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetION.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DFFAC21F8F608D00208FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7DFFAC51F8F608D00208FD9 /* GetION.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GetION.xcdatamodel; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 				A707DE231FA1CF1100320892 /* PromotionsBO.swift */,
 				A741E1311FA2008200963FBB /* TagSuggestionBO.swift */,
 				A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */,
+				A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */,
+				A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
+				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
@@ -708,6 +715,7 @@
 				A71FFEFA1F91E6610082BAF8 /* IQKeyboardManager.swift in Sources */,
 				A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */,
 				CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */,
+				A7D5861C1FA4B2ED00B1BD4A /* TimeSlotsBO.swift in Sources */,
 				A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */,
 				A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */,
 				A71FFEFE1F91E6610082BAF8 /* IQPreviousNextView.swift in Sources */,
