@@ -28,17 +28,22 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.btnActionPointsClicked(self.btnActionPoints)
+        designTabBar()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         designNavigationBar()
-        designTabBar()
         setSelectedButtonAtIndex(1)
 
         self.getIonisedReports()
         self.getBlogs()
         self.getFeeds()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     func getIonisedReports()
     {
@@ -120,24 +125,33 @@ class HomeViewController: BaseViewController {
             imgBlog.kf.setImage(with: url)
             scrlVwBlog.addSubview(imgBlog)
             
-            let lblTitle = UILabel(frame: CGRect(x: Xpos, y: CGFloat(30), width: 150, height: 25))
+            let strTitle = "   " + bo.title + "   "
+            let constraintRect = CGSize(width: scrlVwBlog.frame.size.width, height: .greatestFiniteMagnitude)
+            let boundingBox = strTitle.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.myridFontOfSize(size: 15)], context: nil)
+            
+            let lblTitle = UILabel(frame: CGRect(x: Xpos, y: CGFloat(30), width: boundingBox.width + 5, height: boundingBox.height + 15))
             lblTitle.backgroundColor = UIColor.white
-            lblTitle.text = bo.title
-            lblTitle.layer.cornerRadius = 2.0
+            lblTitle.text = strTitle
             lblTitle.numberOfLines = 0
             lblTitle.lineBreakMode = .byWordWrapping
-            lblTitle.layer.masksToBounds = true
             lblTitle.textColor = UIColor.black
-            lblTitle.font = UIFont(name: "Myriad_Pro_Regular", size: 11)
+            lblTitle.round(corners: [.bottomRight,.topRight], radius: 5)
+            lblTitle.font = UIFont.myridFontOfSize(size: 15)
             scrlVwBlog.addSubview(lblTitle)
 
-            let lblContent = UILabel(frame: CGRect(x: Xpos + 15, y: CGFloat(60), width: 250, height: 30))
+            
+            let strContent = "   " + bo.intro + "   "
+            let constraintRectContent = CGSize(width: scrlVwBlog.frame.size.width - 15, height: .greatestFiniteMagnitude)
+            let boundingBoxContent = strContent.boundingRect(with: constraintRectContent, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.myridFontOfSize(size: 15)], context: nil)
+
+
+            let lblContent = UILabel(frame: CGRect(x: Xpos + 15, y: lblTitle.frame.size.height + 40, width: boundingBoxContent.width + 5, height: boundingBoxContent.height + 15))
             lblContent.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-            lblContent.text = bo.intro
-            lblTitle.numberOfLines = 0
-            lblTitle.lineBreakMode = .byWordWrapping
+            lblContent.text = strContent
+            lblContent.numberOfLines = 0
+            lblContent.lineBreakMode = .byWordWrapping
             lblContent.textColor = UIColor.white
-            lblContent.font = UIFont(name: "Myriad_Pro_Regular", size: 12)
+            lblContent.font = UIFont.myridFontOfSize(size: 15)
             scrlVwBlog.addSubview(lblContent)
 
             
@@ -265,3 +279,4 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     
 }
+

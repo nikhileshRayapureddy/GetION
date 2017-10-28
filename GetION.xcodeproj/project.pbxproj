@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1851B152BE2498C93FC7C4DB /* Pods_GetION.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E223C7B883D864793EF0EC /* Pods_GetION.framework */; };
+		A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707DE231FA1CF1100320892 /* PromotionsBO.swift */; };
+		A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */; };
+		A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */; };
 		A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */; };
 		A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */; };
 		A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7164CA51F90F1B0003DB84D /* LoginViewController.swift */; };
@@ -36,15 +39,25 @@
 		A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */; };
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
+		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
+		A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1311FA2008200963FBB /* TagSuggestionBO.swift */; };
 		A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */; };
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
 		A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61581F9E37F5002F8E8F /* MenuCell.swift */; };
+		A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */; };
+		A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */; };
+		A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */; };
+		A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */; };
+		A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */; };
+		A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */; };
 		A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */; };
 		A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */; };
 		A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */; };
 		A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635A1F9273A9002CB4ED /* BlogBO.swift */; };
 		A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */; };
+		A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */; };
+		A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */; };
 		A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC11F8F608D00208FD9 /* Main.storyboard */; };
 		A7DFFAC61F8F608D00208FD9 /* GetION.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAC41F8F608D00208FD9 /* GetION.xcdatamodeld */; };
 		A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC71F8F608D00208FD9 /* Assets.xcassets */; };
@@ -53,13 +66,28 @@
 		A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */; };
 		A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */; };
 		A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */; };
+		A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */; };
+		A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */; };
 		A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4631F8FB1C500FA108F /* HomeViewController.swift */; };
 		A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */; };
 		A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */; };
 		A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */; };
+		A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13D1FA209FC00963FBB /* KSToken.swift */; };
+		A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13E1FA209FC00963FBB /* KSTokenField.swift */; };
+		A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E13F1FA209FC00963FBB /* KSTokenView.swift */; };
+		A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1401FA209FC00963FBB /* KSUtils.swift */; };
 		CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A55771F9069F80043A0A3 /* BaseViewController.swift */; };
 		CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A557B1F906A390043A0A3 /* BottomView.swift */; };
 		CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0A557A1F906A390043A0A3 /* BottomView.xib */; };
+		CC2519BA1F9E3F39007A6F30 /* QueriesBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */; };
+		CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */; };
+		CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */; };
+		CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */; };
+		CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */; };
+		CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C31F9F852A007A6F30 /* GallaryView.swift */; };
+		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
+		CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */; };
+		CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */; };
 		CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */; };
 		CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */; };
 		CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */; };
@@ -70,11 +98,18 @@
 		CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2B71F964963004DD3A8 /* QueryProfilePopUp.xib */; };
 		CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */; };
 		CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */; };
+		CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */; };
+		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
+		CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */; };
+		CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66E223C7B883D864793EF0EC /* Pods_GetION.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetION.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.debug.xcconfig"; sourceTree = "<group>"; };
+		A707DE231FA1CF1100320892 /* PromotionsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsBO.swift; sourceTree = "<group>"; };
+		A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVisitsViewController.swift; sourceTree = "<group>"; };
+		A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsBO.swift; sourceTree = "<group>"; };
 		A7164CA01F90D8A0003DB84D /* HospitalFeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalFeedsCell.swift; sourceTree = "<group>"; };
 		A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIONUserDefaults.swift; sourceTree = "<group>"; };
 		A7164CA51F90F1B0003DB84D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,15 +139,29 @@
 		A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
+		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
+		A741E1311FA2008200963FBB /* TagSuggestionBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionBO.swift; sourceTree = "<group>"; };
+		A741E13D1FA209FC00963FBB /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		A741E13E1FA209FC00963FBB /* KSTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
+		A741E13F1FA209FC00963FBB /* KSTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
+		A741E1401FA209FC00963FBB /* KSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
 		A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDayEventTableViewCell.swift; sourceTree = "<group>"; };
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
 		A78B61581F9E37F5002F8E8F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
+		A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoListCustomCell.swift; sourceTree = "<group>"; };
+		A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsMainViewController.swift; sourceTree = "<group>"; };
+		A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoIonizedCustomCell.swift; sourceTree = "<group>"; };
+		A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionViewController.swift; sourceTree = "<group>"; };
+		A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisitViewController.swift; sourceTree = "<group>"; };
 		A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsViewController.swift; sourceTree = "<group>"; };
 		A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesViewController.swift; sourceTree = "<group>"; };
 		A7C9635A1F9273A9002CB4ED /* BlogBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBO.swift; sourceTree = "<group>"; };
 		A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsBO.swift; sourceTree = "<group>"; };
+		A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupsViewController.swift; sourceTree = "<group>"; };
+		A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryBO.swift; sourceTree = "<group>"; };
 		A7DFFABA1F8F608D00208FD9 /* GetION.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetION.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DFFAC21F8F608D00208FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7DFFAC51F8F608D00208FD9 /* GetION.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GetION.xcdatamodel; sourceTree = "<group>"; };
@@ -123,6 +172,8 @@
 		A7DFFADA1F8F61BB00208FD9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomPopUpView.swift; sourceTree = "<group>"; };
 		A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomPopUpView.xib; sourceTree = "<group>"; };
+		A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCustomCell.swift; sourceTree = "<group>"; };
+		A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoCustomCell.xib; sourceTree = "<group>"; };
 		A7F7D4601F8FB1AB00FA108F /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A7F7D4611F8FB1AB00FA108F /* RightMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		A7F7D4621F8FB1AB00FA108F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +181,15 @@
 		CC0A55771F9069F80043A0A3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC0A557A1F906A390043A0A3 /* BottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomView.xib; sourceTree = "<group>"; };
 		CC0A557B1F906A390043A0A3 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesBO.swift; sourceTree = "<group>"; };
+		CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyBO.swift; sourceTree = "<group>"; };
+		CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttachmentCollectionCell.swift; sourceTree = "<group>"; };
+		CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC2519C31F9F852A007A6F30 /* GallaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryView.swift; sourceTree = "<group>"; };
+		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
+		CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyTemplateEditPopUp.swift; sourceTree = "<group>"; };
+		CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyTemplateEditPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyPopUp.swift; sourceTree = "<group>"; };
 		CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesCustomCell.swift; sourceTree = "<group>"; };
@@ -140,6 +200,10 @@
 		CCB0E2B81F964963004DD3A8 /* QueryProfilePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryProfilePopUp.swift; sourceTree = "<group>"; };
 		CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyCustomCell.swift; sourceTree = "<group>"; };
 		CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyCustomCell.xib; sourceTree = "<group>"; };
+		CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyOptionPopOverView.swift; sourceTree = "<group>"; };
+		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
+		CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQueryPopUpView.swift; sourceTree = "<group>"; };
+		CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQueryPopUpView.xib; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +230,9 @@
 		A7164C9F1F90D87F003DB84D /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				CC2519BF1F9F850D007A6F30 /* GalleryCollectionViewCell.swift */,
+				CC2519BD1F9F850D007A6F30 /* GalleryCollectionViewCell.xib */,
+				CC2519BE1F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift */,
 				CCB0E2BB1F964A70004DD3A8 /* QuickReplyCustomCell.swift */,
 				CCB0E2BC1F964A71004DD3A8 /* QuickReplyCustomCell.xib */,
 				CCB0E2B31F964948004DD3A8 /* FromMessageCustomCell.swift */,
@@ -175,6 +242,10 @@
 				A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */,
 				A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */,
 				A78B61581F9E37F5002F8E8F /* MenuCell.swift */,
+				A7EAF6B91F9E727800CB6622 /* PromoCustomCell.swift */,
+				A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */,
+				A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */,
+				A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -182,10 +253,12 @@
 		A7164CA21F90F0E2003DB84D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A741E13C1FA209FC00963FBB /* KSTokenView */,
 				A71FFEC21F91E6600082BAF8 /* IQKeyboardManagerSwift */,
 				A71FFEF01F91E6610082BAF8 /* ServiceCallHelpers */,
 				A7164CA91F90FA34003DB84D /* Fonts */,
 				A7164CA31F90F123003DB84D /* GetIONUserDefaults.swift */,
+				A72957C51FA0F43C0061E705 /* FontConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -289,8 +362,25 @@
 				A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */,
 				A7C9635A1F9273A9002CB4ED /* BlogBO.swift */,
 				A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */,
+				CC2519B91F9E3F39007A6F30 /* QueriesBO.swift */,
+				CC2519BB1F9F7678007A6F30 /* QuickReplyBO.swift */,
+				A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */,
+				A707DE231FA1CF1100320892 /* PromotionsBO.swift */,
+				A741E1311FA2008200963FBB /* TagSuggestionBO.swift */,
+				A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A741E13C1FA209FC00963FBB /* KSTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				A741E13D1FA209FC00963FBB /* KSToken.swift */,
+				A741E13E1FA209FC00963FBB /* KSTokenField.swift */,
+				A741E13F1FA209FC00963FBB /* KSTokenView.swift */,
+				A741E1401FA209FC00963FBB /* KSUtils.swift */,
+			);
+			path = KSTokenView;
 			sourceTree = "<group>";
 		};
 		A7DFFAB11F8F608D00208FD9 = {
@@ -354,11 +444,17 @@
 				CC0A55771F9069F80043A0A3 /* BaseViewController.swift */,
 				A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */,
 				A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */,
+				A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */,
+				A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */,
 				A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */,
 				A7164CA51F90F1B0003DB84D /* LoginViewController.swift */,
 				A7164CA71F90F1F2003DB84D /* ForgotPasswordViewController.swift */,
 				CCB0E2B11F96491E004DD3A8 /* QueryReplyViewController.swift */,
 				A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */,
+				A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */,
+				A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */,
+				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
+				A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -385,6 +481,8 @@
 		CC0A55791F906A240043A0A3 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				CC2519C31F9F852A007A6F30 /* GallaryView.swift */,
+				CC2519C41F9F852A007A6F30 /* GallaryView.xib */,
 				CCB0E2B81F964963004DD3A8 /* QueryProfilePopUp.swift */,
 				CCB0E2B71F964963004DD3A8 /* QueryProfilePopUp.xib */,
 				CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */,
@@ -393,6 +491,12 @@
 				CC0A557A1F906A390043A0A3 /* BottomView.xib */,
 				A7EAF6B51F9E366C00CB6622 /* AddCustomPopUpView.swift */,
 				A7EAF6B61F9E366C00CB6622 /* AddCustomPopUpView.xib */,
+				CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */,
+				CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */,
+				CCC8BC241FA2DD1500F9002E /* ReplyOptionPopOverView.swift */,
+				CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */,
+				CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */,
+				CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -432,7 +536,7 @@
 				TargetAttributes = {
 					A7DFFAB91F8F608D00208FD9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -459,18 +563,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
+				CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */,
 				A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */,
 				A7164CAE1F90FA34003DB84D /* Myriad_Pro_Bold.ttf in Resources */,
 				A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
+				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
+				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
 				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
+				CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */,
+				CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +603,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D3BC23792E3E892FAE45C1D8 /* [CP] Embed Pods Frameworks */ = {
@@ -547,35 +657,53 @@
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
+				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
+				A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
+				A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */,
 				A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */,
 				A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */,
+				A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */,
 				CCB0E2B21F96491E004DD3A8 /* QueryReplyViewController.swift in Sources */,
 				CC0A557C1F906AA90043A0A3 /* BottomView.swift in Sources */,
+				A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */,
 				A71FFEF61F91E6610082BAF8 /* IQUIViewController+Additions.swift in Sources */,
 				A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */,
+				A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */,
 				A71FFEF71F91E6610082BAF8 /* IQUIWindow+Hierarchy.swift in Sources */,
+				CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
+				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
+				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
+				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
 				A71FFF011F91E6610082BAF8 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */,
 				A71FFEFC1F91E6610082BAF8 /* IQTextView.swift in Sources */,
 				CCB0E2B51F964949004DD3A8 /* FromMessageCustomCell.swift in Sources */,
 				A7DFFADC1F8F61BB00208FD9 /* ViewController.swift in Sources */,
+				CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */,
 				A71FFEF91F91E6610082BAF8 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */,
 				A71FFEF51F91E6610082BAF8 /* IQUIView+Hierarchy.swift in Sources */,
+				A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */,
 				A71FFEF41F91E6610082BAF8 /* IQUITextFieldView+Additions.swift in Sources */,
 				A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */,
+				A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */,
+				CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */,
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
+				CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
+				A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */,
 				A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */,
 				A71FFEFA1F91E6610082BAF8 /* IQKeyboardManager.swift in Sources */,
 				A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */,
@@ -585,12 +713,20 @@
 				A71FFEFE1F91E6610082BAF8 /* IQPreviousNextView.swift in Sources */,
 				A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */,
 				A7DFFAC61F8F608D00208FD9 /* GetION.xcdatamodeld in Sources */,
+				CC2519BA1F9E3F39007A6F30 /* QueriesBO.swift in Sources */,
+				CC2519C51F9F852A007A6F30 /* GallaryView.swift in Sources */,
 				CCB0E2B61F964949004DD3A8 /* ToMessageCustomCell.swift in Sources */,
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
+				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
+				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
+				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
+				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
+				A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */,
+				CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,11 +864,14 @@
 			baseConfigurationReference = 8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GNZQY3798N;
 				INFOPLIST_FILE = GetION/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.test.GetION;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medicodesk.nativeionapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "66d3619d-afdd-4939-a002-1a5ad9f6d1c2";
+				PROVISIONING_PROFILE_SPECIFIER = GetION_Dev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,11 +882,14 @@
 			baseConfigurationReference = DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GNZQY3798N;
 				INFOPLIST_FILE = GetION/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.test.GetION;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medicodesk.nativeionapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "66d3619d-afdd-4939-a002-1a5ad9f6d1c2";
+				PROVISIONING_PROFILE_SPECIFIER = GetION_Dev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

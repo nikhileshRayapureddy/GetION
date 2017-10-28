@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="g9o-D2-tDT" customClass="GallaryView" customModule="GetION" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlB-AH-dYo">
+                    <rect key="frame" x="20" y="60" width="335" height="533"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arr" translatesAutoresizingMaskIntoConstraints="NO" id="KRV-Ic-Kak">
+                            <rect key="frame" x="159.5" y="521" width="16" height="16"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="Cmr-dN-HP6"/>
+                                <constraint firstAttribute="width" constant="16" id="v7g-a4-Cwg"/>
+                            </constraints>
+                        </imageView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Yv8-MZ-Dgi">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="521"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ftb-KK-4bM">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="g9o-D2-tDT" id="gd1-cQ-nfe"/>
+                                <outlet property="delegate" destination="g9o-D2-tDT" id="hy3-fb-Dep"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Yv8-MZ-Dgi" secondAttribute="trailing" id="BLV-j8-pVi"/>
+                        <constraint firstItem="Yv8-MZ-Dgi" firstAttribute="top" secondItem="BlB-AH-dYo" secondAttribute="top" id="OaO-t3-WyH"/>
+                        <constraint firstItem="KRV-Ic-Kak" firstAttribute="centerX" secondItem="BlB-AH-dYo" secondAttribute="centerX" id="Rc6-ih-2Lc"/>
+                        <constraint firstItem="Yv8-MZ-Dgi" firstAttribute="leading" secondItem="BlB-AH-dYo" secondAttribute="leading" id="Vbt-X9-tRz"/>
+                        <constraint firstAttribute="bottom" secondItem="KRV-Ic-Kak" secondAttribute="bottom" constant="-4" id="d8f-5z-aU3"/>
+                        <constraint firstItem="KRV-Ic-Kak" firstAttribute="top" secondItem="Yv8-MZ-Dgi" secondAttribute="bottom" id="daw-Ai-h3A"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOA-g4-Tr1">
+                    <rect key="frame" x="152.5" y="593" width="70" height="70"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="LpC-D0-oob"/>
+                        <constraint firstAttribute="height" constant="70" id="r5F-z5-rhQ"/>
+                    </constraints>
+                    <state key="normal" image="close">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCloseAction:" destination="g9o-D2-tDT" eventType="touchUpInside" id="3Vi-lZ-IZz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BlB-AH-dYo" firstAttribute="leading" secondItem="Tv8-YL-tWN" secondAttribute="leading" constant="20" id="3TY-cT-tVH"/>
+                <constraint firstItem="MOA-g4-Tr1" firstAttribute="top" secondItem="BlB-AH-dYo" secondAttribute="bottom" id="5F4-jd-g6l"/>
+                <constraint firstItem="MOA-g4-Tr1" firstAttribute="centerX" secondItem="g9o-D2-tDT" secondAttribute="centerX" id="G41-zz-crg"/>
+                <constraint firstItem="Tv8-YL-tWN" firstAttribute="trailing" secondItem="BlB-AH-dYo" secondAttribute="trailing" constant="20" id="HPO-jG-U26"/>
+                <constraint firstItem="Tv8-YL-tWN" firstAttribute="bottom" secondItem="MOA-g4-Tr1" secondAttribute="bottom" constant="4" id="QFT-Za-weN"/>
+                <constraint firstItem="Tv8-YL-tWN" firstAttribute="trailing" secondItem="BlB-AH-dYo" secondAttribute="trailing" constant="20" id="Z2z-Ee-HoY"/>
+                <constraint firstItem="BlB-AH-dYo" firstAttribute="top" secondItem="Tv8-YL-tWN" secondAttribute="top" constant="40" id="dXP-Tw-sEy"/>
+                <constraint firstItem="BlB-AH-dYo" firstAttribute="leading" secondItem="Tv8-YL-tWN" secondAttribute="leading" constant="20" id="ioo-wO-oqu"/>
+                <constraint firstItem="MOA-g4-Tr1" firstAttribute="top" secondItem="BlB-AH-dYo" secondAttribute="bottom" id="jta-9h-Z4m"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Tv8-YL-tWN"/>
+            <connections>
+                <outlet property="btnClose" destination="MOA-g4-Tr1" id="eVW-uK-LXx"/>
+                <outlet property="collctView" destination="Yv8-MZ-Dgi" id="iZT-XD-0Fa"/>
+            </connections>
+            <point key="canvasLocation" x="-133.5" y="32.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arr" width="29" height="12"/>
+        <image name="close" width="127" height="124"/>
+    </resources>
+</document>

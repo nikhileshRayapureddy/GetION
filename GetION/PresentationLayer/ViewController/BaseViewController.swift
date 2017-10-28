@@ -2,7 +2,7 @@
 //  BaseViewController.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 13/10/17.
+//  Created by Nikhilesh on 13/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
@@ -10,8 +10,9 @@ import UIKit
 let ScreenWidth =  UIScreen.main.bounds.size.width
 let ScreenHeight = UIScreen.main.bounds.size.height
 let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+let THEME_COLOR = UIColor(red: 0, green: 211.0/255.0, blue: 208.0/255.0, alpha: 1.0)
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     
     var btnHome: UIButton!
     var btnPublish: UIButton!
@@ -50,49 +51,106 @@ class BaseViewController: UIViewController {
         negativeSpacer.width = -12
         
         let menuButton = UIButton(type: UIButtonType.custom)
-        menuButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
-        menuButton.setImage(UIImage(named: "menu"), for: UIControlState.normal)
+        menuButton.frame = CGRect(x: 0, y: 0  , width: 44 , height: 44)
+        menuButton.setImage(#imageLiteral(resourceName: "menu"), for: UIControlState.normal)
         menuButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
         let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: menuButton)
         
         
         let plannerButton = UIButton(type: UIButtonType.custom)
-        plannerButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        plannerButton.frame = CGRect(x: 0, y: 0  , width: 44 , height: 44)
         plannerButton.setImage(#imageLiteral(resourceName: "visits"), for: UIControlState.normal)
-        plannerButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
+        plannerButton.addTarget(self, action: #selector(self.plannerButtonClicked(sender:)), for: UIControlEvents.touchUpInside)
         let rightBarButtonItem2: UIBarButtonItem = UIBarButtonItem(customView: plannerButton)
         
         let searchButton = UIButton(type: UIButtonType.custom)
-        searchButton.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
-        searchButton.setImage(#imageLiteral(resourceName: "queries"), for: UIControlState.normal)
-        searchButton.addTarget(self, action: #selector(self.menuClicked(sender:)), for: UIControlEvents.touchUpInside)
+        searchButton.frame = CGRect(x: 0, y: 0  , width: 44 , height: 44)
+        searchButton.setImage(#imageLiteral(resourceName: "search"), for: UIControlState.normal)
+        searchButton.addTarget(self, action: #selector(self.searchButtonClicked(sender:)), for: UIControlEvents.touchUpInside)
         let rightBarButtonItem3: UIBarButtonItem = UIBarButtonItem(customView: searchButton)
         
         self.navigationItem.rightBarButtonItems = [negativeSpacer,rightBarButtonItem,rightBarButtonItem2, rightBarButtonItem3]
         
         let imgLogo = UIButton(type: UIButtonType.custom)
         imgLogo.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
-        imgLogo.setImage(#imageLiteral(resourceName: "queries"), for: UIControlState.normal)
+        imgLogo.addTarget(self, action: #selector(btnBackClicked(sender:)), for: .touchUpInside)
+        imgLogo.setImage(#imageLiteral(resourceName: "user"), for: UIControlState.normal)
+
         let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: imgLogo)
         
-        let lblTitle = UIButton(type: UIButtonType.custom)
-        lblTitle.frame = CGRect(x: 0, y: 0  , width: 100 , height: 30)
-        lblTitle .setTitle("Dr. Arjun Reddy", for: .normal)
-        lblTitle.setTitleColor(UIColor.darkGray, for: .normal)
-        let leftBarButtonItem2: UIBarButtonItem = UIBarButtonItem(customView: lblTitle)
+        let btnTitle = UIButton(type: UIButtonType.custom)
+        btnTitle.frame = CGRect(x: 0, y: 0  , width: 100 , height: 30)
+        btnTitle.setTitle("Dr.Arjun Reddy", for: .normal)
+        btnTitle.setTitleColor(UIColor.darkGray, for: .normal)
+        btnTitle.titleLabel?.adjustsFontSizeToFitWidth = true
+        btnTitle.titleLabel?.font = UIFont.myridSemiboldFontOfSize(size: 17)
+//        btnTitle.titleLabel?.numberOfLines = 2
+//        btnTitle.titleLabel?.lineBreakMode = .byWordWrapping
+        let leftBarButtonItem2: UIBarButtonItem = UIBarButtonItem(customView: btnTitle)
         
         self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1,leftBarButtonItem2]
         
        
         
     }
+    func designNavigationBarWithBackAnd(strTitle:String)
+    {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.barTintColor = Color_NavBarTint
+        self.navigationItem.hidesBackButton = true
+        
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+        let btnBack = UIButton(type: UIButtonType.custom)
+        btnBack.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        btnBack.setImage(#imageLiteral(resourceName: "back"), for: UIControlState.normal)
+        btnBack.addTarget(self, action: #selector(self.btnBackClicked(sender:)), for: UIControlEvents.touchUpInside)
+        
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnBack)
+        if strTitle != ""
+        {
+            btnBack.setTitle(strTitle, for: .normal)
+            btnBack.setTitle(strTitle, for: .selected)
+            btnBack.setTitle(strTitle, for: .highlighted)
+            btnBack.setTitleColor(THEME_COLOR, for: .normal)
+            btnBack.setTitleColor(THEME_COLOR, for: .selected)
+            btnBack.setTitleColor(THEME_COLOR, for: .highlighted)
+            
+        }
+        self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1]
+    }
+    @objc func btnBackClicked(sender:UIButton)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @objc func plannerButtonClicked(sender:UIButton)
+    {
+        let plannerViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PlannerViewController") as! PlannerViewController
+        navController = UINavigationController(rootViewController: plannerViewController)
+        self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+        self.sideMenuViewController!.hideMenuViewController()
+    }
+    @objc func searchButtonClicked(sender:UIButton)
+    {
+    }
+
     @objc func menuClicked(sender:UIButton)
     {
         self.sideMenuViewController!.presentRightMenuViewController()
     }
     func designTabBar()
     {
-        let bottomView = UIView(frame: CGRect(x: 0, y: self.view.frame.size.height - 134, width: self.view.frame.size.width, height: 80))
+        var yPosition = 0
+        if self.view.frame.size.height == 812
+        {
+            yPosition = Int(self.view.frame.size.height - 185)
+        }
+        else
+        {
+            yPosition = Int(self.view.frame.size.height - 134)
+        }
+        let bottomView = UIView(frame: CGRect(x: 0, y: yPosition, width: Int(self.view.frame.size.width), height: 80))
         bottomView.backgroundColor = UIColor.clear
         
         let buttonsBackgroundView = UIView(frame: CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: 50))
@@ -105,9 +163,10 @@ class BaseViewController: UIViewController {
         homeButtonView.backgroundColor = UIColor.clear
         buttonsBackgroundView.addSubview(homeButtonView)
         
-        lblHome = UILabel(frame: CGRect(x: 0, y: 20, width: Int(buttonWidth), height: 30))
+        lblHome = UILabel(frame: CGRect(x: 0, y: 30, width: Int(buttonWidth), height: 20))
         lblHome.text = "Home"
-        lblHome.font = UIFont.systemFont(ofSize: 14)
+        lblHome.textColor = .darkGray
+        lblHome.font = UIFont.myridFontOfSize(size: 13)
         lblHome.textAlignment = .center
         homeButtonView.addSubview(lblHome)
         
@@ -125,10 +184,11 @@ class BaseViewController: UIViewController {
         publishButtonView.backgroundColor = UIColor.clear
         buttonsBackgroundView.addSubview(publishButtonView)
         
-        lblPublish = UILabel(frame: CGRect(x: 0, y: 20, width: Int(buttonWidth), height: 30))
+        lblPublish = UILabel(frame: CGRect(x: 0, y: 30, width: Int(buttonWidth), height: 20))
         lblPublish.text = "Publish"
         lblPublish.textAlignment = .center
-        lblPublish.font = UIFont.systemFont(ofSize: 14)
+        lblPublish.textColor = .darkGray
+        lblPublish.font = UIFont.myridFontOfSize(size: 13)
         publishButtonView.addSubview(lblPublish)
         
         btnPublish = UIButton(type: .custom)
@@ -146,10 +206,11 @@ class BaseViewController: UIViewController {
         visitButtonView.backgroundColor = UIColor.clear
         buttonsBackgroundView.addSubview(visitButtonView)
         
-        lblVisit = UILabel(frame: CGRect(x: 0, y: 20, width: Int(buttonWidth), height: 30))
+        lblVisit = UILabel(frame: CGRect(x: 0, y: 30, width: Int(buttonWidth), height: 20))
         lblVisit.text = "Visits"
         lblVisit.textAlignment = .center
-        lblVisit.font = UIFont.systemFont(ofSize: 14)
+        lblVisit.textColor = .darkGray
+        lblVisit.font = UIFont.myridFontOfSize(size: 13)
         visitButtonView.addSubview(lblVisit)
         
         btnVisit = UIButton(type: .custom)
@@ -166,17 +227,18 @@ class BaseViewController: UIViewController {
         queriesButtonView.backgroundColor = UIColor.clear
         buttonsBackgroundView.addSubview(queriesButtonView)
         
-        lblQueries = UILabel(frame: CGRect(x: 0, y: 20, width: Int(buttonWidth), height: 30))
+        lblQueries = UILabel(frame: CGRect(x: 0, y: 30, width: Int(buttonWidth), height: 20))
         lblQueries.text = "Queries"
         lblQueries.textAlignment = .center
-        lblQueries.font = UIFont.systemFont(ofSize: 14)
+        lblQueries.textColor = .darkGray
+        lblQueries.font = UIFont.myridFontOfSize(size: 13)
         queriesButtonView.addSubview(lblQueries)
         
         btnQueries = UIButton(type: .custom)
         btnQueries.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 50)
         btnQueries.setImage(#imageLiteral(resourceName: "Queries_UnSelected"), for: .normal)
-        btnQueries.setImage(#imageLiteral(resourceName: "Queries_UnSelected"), for: .selected)
-        btnQueries.setImage(#imageLiteral(resourceName: "Queries_UnSelected"), for: .highlighted)
+        btnQueries.setImage(#imageLiteral(resourceName: "Queries_Selected"), for: .selected)
+        btnQueries.setImage(#imageLiteral(resourceName: "Queries_Selected"), for: .highlighted)
         btnQueries.contentVerticalAlignment = .top
         btnQueries.addTarget(self, action: #selector(btnBottomTabBarClicked(_:)), for: .touchUpInside)
         btnQueries.imageEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
@@ -258,17 +320,90 @@ class BaseViewController: UIViewController {
         button.isSelected = true
     }
 
+   
+    
     @objc func btnPlusClicked(_ sender: UIButton)
     {
-        if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
-        {
-            addPopUp = popup
-            addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
-            self.view.window?.addSubview(addPopUp)
-            addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
-            addPopUp.designScreen(screenWidth: ScreenWidth)
+        app_delegate.showLoader(message: "Loading Promotions...")
+
+        let layer = ServiceLayer()
+        layer.getAllPromotionsWith(parentId: "87", successMessage: { (reponse) in
+            
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
+                {
+                    
+                    popup.btnAddVisit.addTarget(self, action: #selector(self.addNewVisitAction), for: .touchUpInside)
+                    
+                    UIView.animate(withDuration: 0.3, animations: {
+                        sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
+                    }, completion: { (isComplete) in
+                        sender.transform = .identity
+                        self.addPopUp = popup
+                        let filteredArray = (reponse as! [PromotionsBO]).filter() {
+                            if let type : String = ($0 as PromotionsBO).parent_id as String {
+                                return type == "87"
+                            } else {
+                                return false
+                            }
+                        }
+                        if filteredArray.count > 0
+                        {
+                            self.addPopUp.lblCategory.text = filteredArray[0].title
+                            self.addPopUp.arrPromotion = (reponse as! [PromotionsBO]).filter() {
+                                if let type : String = ($0 as PromotionsBO).parent_id as String {
+                                    return type == filteredArray[0].id
+                                } else {
+                                    return false
+                                }
+                            }
+
+
+                            
+                        }
+                        self.addPopUp.callBack = self
+                        self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
+                        self.view.window?.addSubview(self.addPopUp)
+                        self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
+                        self.addPopUp.designScreen(screenWidth: ScreenWidth)
+                        
+                        
+                    })
+                }            }
+        }) { (error) in
+            app_delegate.removeloder()
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Promotions.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
 
         }
+
+
+    }
+    
+    @objc func addNewVisitAction()
+    {
+        addPopUp.removeFromSuperview()
+        let addNewVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewVisitViewController") as! AddNewVisitViewController
+        self.navigationController?.pushViewController(addNewVisitVC, animated: true)
+    }
+    
+    func btnViewMoreClicked(sender: UIButton)
+    {
+        addPopUp.removeFromSuperview()
+        let promotionListViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
+        self.navigationController?.pushViewController(promotionListViewController, animated: true)
+    }
+    func AddPoupCollectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        
+        addPopUp.removeFromSuperview()
+        let addPromotionViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddPromotionViewController") as! AddPromotionViewController
+        addPromotionViewController.promotionBO = addPopUp.arrPromotion[indexPath.row]
+        self.navigationController?.pushViewController(addPromotionViewController, animated: true)
 
     }
     
@@ -339,5 +474,121 @@ class BaseViewController: UIViewController {
         label.backgroundColor = UIColor.clear
         return label
     }
+    
+}
+extension String {
+    
+    public func heightForHtmlString(_ text: NSMutableAttributedString, font:UIFont, labelWidth:CGFloat) -> CGFloat
+    {
+        let label:UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.attributedText = text as NSAttributedString
+        label.sizeToFit()
+        return label.frame.height
+    }
+    
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+}
+extension UIView {
+    
+    /**
+     Rounds the given set of corners to the specified radius
+     
+     - parameter corners: Corners to round
+     - parameter radius:  Radius to round to
+     */
+    func round(corners: UIRectCorner, radius: CGFloat) {
+        _ = _round(corners: corners, radius: radius)
+    }
+    
+    /**
+     Rounds the given set of corners to the specified radius with a border
+     
+     - parameter corners:     Corners to round
+     - parameter radius:      Radius to round to
+     - parameter borderColor: The border color
+     - parameter borderWidth: The border width
+     */
+    func round(corners: UIRectCorner, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        let mask = _round(corners: corners, radius: radius)
+        addBorder(mask: mask, borderColor: borderColor, borderWidth: borderWidth)
+    }
+    
+    /**
+     Fully rounds an autolayout view (e.g. one with no known frame) with the given diameter and border
+     
+     - parameter diameter:    The view's diameter
+     - parameter borderColor: The border color
+     - parameter borderWidth: The border width
+     */
+    func fullyRound(diameter: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = diameter / 2
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor;
+    }
+    
+    func setShadowOfColor( _ color: UIColor, andShadowOffset offSet: CGSize, andShadowOpacity opacity: Float, andShadowRadius radius: Float)
+    {
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = offSet
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = CGFloat(radius)
+        self.clipsToBounds = true
+        self.layer.masksToBounds = false
+    }
+}
 
+private extension UIView {
+    
+    @discardableResult func _round(corners: UIRectCorner, radius: CGFloat) -> CAShapeLayer {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+        return mask
+    }
+    
+    func addBorder(mask: CAShapeLayer, borderColor: UIColor, borderWidth: CGFloat) {
+        let borderLayer = CAShapeLayer()
+        borderLayer.path = mask.path
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.lineWidth = borderWidth
+        borderLayer.frame = bounds
+        layer.addSublayer(borderLayer)
+    }
+    
+}
+
+extension UITextField
+{
+    
+    func textRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect
+    {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+        
+    }
+    
+     func placeholderRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
+    
+     func editingRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
 }

@@ -15,7 +15,8 @@ class VisitsViewController: BaseViewController {
     @IBOutlet weak var btnToday: UIButton!
     @IBOutlet weak var tblVisitEvents: UITableView!
     @IBOutlet weak var calender: FSCalendar!
-    
+    @IBOutlet weak var lblNoVisits: UILabel!
+    var arrVisits = [VisitsBO]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,38 @@ class VisitsViewController: BaseViewController {
         setSelectedButtonAtIndex(3)
         self.calender.scope = .week
         self.calender.adjustMonthPosition()
-        
+        calender.select(Date(), scrollToDate: true)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: Date())
+        self.getVisitsFor(date: strDate)
         // Do any additional setup after loading the view.
+    }
+    func getVisitsFor(date : String)
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        
+        layer.getVisitsFor(date: date, username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
+            
+            DispatchQueue.main.async {
+                 self.arrVisits.removeAll()
+                self.arrVisits.append(contentsOf: response as! [VisitsBO])
+                if self.arrVisits.count > 0
+                {
+                    self.lblNoVisits.isHidden = true
+                }
+                else
+                {
+                    self.lblNoVisits.isHidden = false
+                }
+                self.tblVisitEvents.reloadData()
+                app_delegate.removeloder()
+            }
+            
+        }) { (error) in
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,6 +81,11 @@ class VisitsViewController: BaseViewController {
     @IBAction func btnTodayAction(_ sender: UIButton)
     {
         calender.select(Date(), scrollToDate: true)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: Date())
+        self.getVisitsFor(date: strDate)
+        
     }
     
     /*
@@ -83,7 +119,7 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 10
+        return arrVisits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -91,9 +127,20 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "VisitsEventTableViewCell", for: indexPath) as?VisitsEventTableViewCell
         cell?.delegate = self
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        // cell?.lblName.text = "vc"
+        let objVisits = arrVisits[indexPath.section]
+        cell?.lblName.text = objVisits.name
+        cell?.lblAge.text = objVisits.age
+        cell?.lblDrName.text = objVisits.resname
+        cell?.lblTime.text = objVisits.displayStarttime
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
+        detailVisitVC.objVisits = arrVisits[indexPath.row]
+        self.navigationController?.pushViewController(detailVisitVC, animated: true)
     }
 }
 
@@ -111,13 +158,35 @@ extension VisitsViewController : SwipeTableViewCellDelegate
         let deleteAction = SwipeAction(style: .default, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
             // Update model
-            //        self.emails.remove(at: indexPath.row)
-            //
-            //        // Coordinate table view update animations
-            //        self.tableView.beginUpdates()
-            //        self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
-            //        action.fulfill(with: .delete)
-            //        self.tableView.endUpdates()
+            
+            app_delegate.showLoader(message: "Loading. . .")
+            let layer = ServiceLayer()
+            let objVisit = self.arrVisits[indexPath.section]
+            
+            layer.deletVisitsWithID(visitID: objVisit.visitId, username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    if let status = response as? String
+                    {
+                        if status == "OK"
+                        {
+                            self.arrVisits.remove(at: indexPath.section)
+                            self.tblVisitEvents.reloadData()
+                            // Coordinate table view update animations
+//                            self.tblVisitEvents.beginUpdates()
+//                            self.tblVisitEvents.deleteRows(at: [IndexPath(row: 0, section: indexPath.section)], with: .automatic)
+//                            action.fulfill(with: .delete)
+//                            self.tblVisitEvents.endUpdates()
+                        }
+                    }
+                    app_delegate.removeloder()
+                    
+                }
+                
+            }, failureMessage: { (error) in
+                
+            })
+            
             //
         }
         
@@ -146,6 +215,14 @@ extension VisitsViewController : FSCalendarDataSource, FSCalendarDelegate
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool)
     {
         self.viewWillLayoutSubviews()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition)
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: date)
+        self.getVisitsFor(date: strDate)
     }
 }
 

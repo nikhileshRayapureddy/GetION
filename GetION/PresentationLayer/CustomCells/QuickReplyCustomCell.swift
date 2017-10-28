@@ -2,8 +2,8 @@
 //  QuickReplyCustomCell.swift
 //  Queries
 //
-//  Created by Kiran Kumar on 16/10/17.
-//  Copyright © 2017 Kiran Kumar. All rights reserved.
+//  Created by Nikhilesh on 16/10/17.
+//  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import UIKit
 class QuickReplyCustomCell: UITableViewCell {
 
     @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var lblReplyMessage: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
