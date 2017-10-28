@@ -18,6 +18,7 @@ let Password = "Password"
 let Auth = "Auth"
 let Publishid = "Publishid"
 let TeamId = "TeamId"
+let CatId = "CatId"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -113,11 +114,32 @@ class GetIONUserDefaults: NSObject {
         }
     }
     
+    class func setCatID(object : String)
+    {
+        UserDefaults.standard.set(object, forKey: CatId)
+        UserDefaults.standard.synchronize()
+    }
+    class func getCatID () -> String
+    {
+        if UserDefaults.standard.object(forKey: CatId) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: CatId) as! String
+            
+        }
+    }
+    
     class func setPassword (object : String)
     {
         UserDefaults.standard.set(object, forKey: Password)
         UserDefaults.standard.synchronize()
     }
+    
+    
+    
     class func getPassword () -> String
     {
         if UserDefaults.standard.object(forKey: Password) as? String == nil

@@ -320,11 +320,7 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         button.isSelected = true
     }
 
-    @objc func addNewVisitAction()
-    {
-         let addNewVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewVisitViewController") as! AddNewVisitViewController
-        self.navigationController?.pushViewController(addNewVisitVC, animated: true)
-    }
+   
     
     @objc func btnPlusClicked(_ sender: UIButton)
     {
@@ -387,6 +383,14 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
 
 
     }
+    
+    @objc func addNewVisitAction()
+    {
+        addPopUp.removeFromSuperview()
+        let addNewVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewVisitViewController") as! AddNewVisitViewController
+        self.navigationController?.pushViewController(addNewVisitVC, animated: true)
+    }
+    
     func btnViewMoreClicked(sender: UIButton)
     {
         addPopUp.removeFromSuperview()
@@ -569,4 +573,22 @@ private extension UIView {
         layer.addSublayer(borderLayer)
     }
     
+}
+
+extension UITextField
+{
+    
+    func textRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect
+    {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+        
+    }
+    
+     func placeholderRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
+    
+     func editingRect(forBounds bounds: CGRect, padding:UIEdgeInsets) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
 }
