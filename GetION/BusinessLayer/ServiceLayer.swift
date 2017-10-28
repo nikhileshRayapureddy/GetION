@@ -68,6 +68,11 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setRole(object: role)
                         }
+                        if let catID = obj.parsedDataDict["parent_category_id"] as? String
+                        {
+                            GetIONUserDefaults.setCatID(object: catID)
+                        }
+                        
                         successMessage("Success")
                     }
                     else
@@ -1122,6 +1127,101 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    
+    public func getCatagoryForVisitsWithCatID(CatID:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+       // http://staging.etion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_categories&usr=ramesh&pwd=cmFtZXNo&encode=true&cat_id={paren_category_id(LoginResponse)}&sc=1
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_categories&usr=\(username)&pwd=\(password)&encode=true&cat_id=\(CatID)&sc=1"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                var arrCatData = [CatagoryBO]()
+                if let data = obj.parsedDataDict["data"] as? [[String : AnyObject]]
+                {
+                    for item in data
+                    {
+                        let objCat = CatagoryBO()
+                        if let id_categories = item["id_categories"] as?  String
+                        {
+                            objCat.id_categories = id_categories
+                        }
+                        if let name = item["name"] as?  String
+                        {
+                            objCat.name = name
+                        }
+                        if let description = item["description"] as?  String
+                        {
+                            objCat.catDescription = description
+                        }
+                        if let parent_category = item["parent_category"] as?  String
+                        {
+                            objCat.parent_category = parent_category
+                        }
+                        if let group_scope = item["group_scope"] as?  String
+                        {
+                            objCat.group_scope = group_scope
+                        }
+                        if let mail_id = item["mail_id"] as?  String
+                        {
+                            objCat.mail_id = mail_id
+                        }
+                        if let category_duration = item["category_duration"] as?  String
+                        {
+                            objCat.category_duration = category_duration
+                        }
+                        if let category_duration_unit = item["category_duration_unit"] as?  String
+                        {
+                            objCat.category_duration_unit = category_duration_unit
+                        }
+                        if let ddslick_image_path = item["ddslick_image_path"] as?  String
+                        {
+                            objCat.ddslick_image_path = ddslick_image_path
+                        }
+                        if let ddslick_image_text = item["ddslick_image_text"] as?  String
+                        {
+                            objCat.ddslick_image_text = ddslick_image_text
+                        }
+                        if let checked_out = item["checked_out"] as?  String
+                        {
+                            objCat.checked_out = checked_out
+                        }
+                        if let checked_out_time = item["checked_out_time"] as?  String
+                        {
+                            objCat.checked_out_time = checked_out_time
+                        }
+                        if let ordering = item["ordering"] as?  String
+                        {
+                            objCat.ordering = ordering
+                        }
+                        if let published = item["published"] as?  String
+                        {
+                            objCat.published = published
+                        }
+                        
+                        arrCatData.append(objCat)
+                    }
+                    
+                    successMessage (arrCatData)
+                        
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+
     
     public func getAllPromotionsWith(parentId : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {

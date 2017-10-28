@@ -56,6 +56,8 @@
 		A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */; };
 		A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635A1F9273A9002CB4ED /* BlogBO.swift */; };
 		A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */; };
+		A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */; };
+		A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */; };
 		A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC11F8F608D00208FD9 /* Main.storyboard */; };
 		A7DFFAC61F8F608D00208FD9 /* GetION.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7DFFAC41F8F608D00208FD9 /* GetION.xcdatamodeld */; };
 		A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DFFAC71F8F608D00208FD9 /* Assets.xcassets */; };
@@ -158,6 +160,8 @@
 		A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesViewController.swift; sourceTree = "<group>"; };
 		A7C9635A1F9273A9002CB4ED /* BlogBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBO.swift; sourceTree = "<group>"; };
 		A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsBO.swift; sourceTree = "<group>"; };
+		A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupsViewController.swift; sourceTree = "<group>"; };
+		A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryBO.swift; sourceTree = "<group>"; };
 		A7DFFABA1F8F608D00208FD9 /* GetION.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetION.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DFFAC21F8F608D00208FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7DFFAC51F8F608D00208FD9 /* GetION.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GetION.xcdatamodel; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */,
 				A707DE231FA1CF1100320892 /* PromotionsBO.swift */,
 				A741E1311FA2008200963FBB /* TagSuggestionBO.swift */,
+				A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */,
 				A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */,
 				A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */,
+				A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */,
 				A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */,
 				A7164CA51F90F1B0003DB84D /* LoginViewController.swift */,
 				A7164CA71F90F1F2003DB84D /* ForgotPasswordViewController.swift */,
@@ -448,7 +454,7 @@
 				A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */,
 				A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */,
 				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
-				A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */,
+				A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
 				A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
+				A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */,
 				A7EAF6B71F9E366C00CB6622 /* AddCustomPopUpView.swift in Sources */,
 				A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */,
 				A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */,
@@ -690,6 +697,7 @@
 				A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */,
 				A71FFEF41F91E6610082BAF8 /* IQUITextFieldView+Additions.swift in Sources */,
 				A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */,
+				A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */,
 				CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */,
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
