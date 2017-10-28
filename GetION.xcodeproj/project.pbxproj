@@ -40,6 +40,7 @@
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
+		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
 		A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1311FA2008200963FBB /* TagSuggestionBO.swift */; };
 		A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */; };
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
@@ -140,6 +141,9 @@
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
+		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
+		A73117801FA4C52200CC9628 /* Publish+CoreDataClass copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		A73117811FA4C52200CC9628 /* Publish+CoreDataProperties copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		A741E1311FA2008200963FBB /* TagSuggestionBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionBO.swift; sourceTree = "<group>"; };
 		A741E13D1FA209FC00963FBB /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
 		A741E13E1FA209FC00963FBB /* KSTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
@@ -383,6 +387,24 @@
 			path = KSTokenView;
 			sourceTree = "<group>";
 		};
+		A74FA7C31FA4BB6A001DF55B /* DataAccessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */,
+				A74FA7C41FA4BB6A001DF55B /* Entites */,
+			);
+			path = DataAccessLayer;
+			sourceTree = "<group>";
+		};
+		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
+			isa = PBXGroup;
+			children = (
+				A73117811FA4C52200CC9628 /* Publish+CoreDataProperties copy.swift */,
+				A73117801FA4C52200CC9628 /* Publish+CoreDataClass copy.swift */,
+			);
+			path = Entites;
+			sourceTree = "<group>";
+		};
 		A7DFFAB11F8F608D00208FD9 = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +426,7 @@
 		A7DFFABC1F8F608D00208FD9 /* GetION */ = {
 			isa = PBXGroup;
 			children = (
+				A74FA7C31FA4BB6A001DF55B /* DataAccessLayer */,
 				A7DFFAD41F8F61BB00208FD9 /* ApplicationLayer */,
 				A71FFF181F91E6AB0082BAF8 /* BusinessLayer */,
 				A7DFFAD61F8F61BB00208FD9 /* PresentationLayer */,
@@ -722,6 +745,7 @@
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
+				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
