@@ -2968,7 +2968,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-zN-Rhq">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-zN-Rhq">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="j9Q-ON-zM6"/>
@@ -3015,7 +3015,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr.Arjun Kumar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eir-zr-2x1">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr.Arjun Kumar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eir-zr-2x1">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="e6s-Pb-ZnZ"/>
@@ -3063,7 +3063,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07, Aug, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-Km-iKc">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07, Aug, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-Km-iKc">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="795-O6-BE8"/>
@@ -3110,7 +3110,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCI-dM-BmV">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCI-dM-BmV">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="5ln-6Y-bc4"/>
@@ -3150,14 +3150,14 @@ Please enter your Email-Id below :</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3E-ex-M5A">
                                                 <rect key="frame" x="18" y="304" width="339" height="54"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="appointment status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ave-xE-XpX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="APPOINTMENT STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ave-xE-XpX">
                                                         <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accepted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgG-FD-rgJ">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accepted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgG-FD-rgJ">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="2il-Ru-kpS"/>
@@ -3173,22 +3173,12 @@ Please enter your Email-Id below :</string>
                                                             <constraint firstAttribute="height" constant="20" id="co4-Za-Atx"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkb-92-KnC">
-                                                        <rect key="frame" x="0.0" y="1" width="339" height="53"/>
-                                                        <connections>
-                                                            <action selector="btnAppointmentStatusAction:" destination="zNe-GO-7KS" eventType="touchUpInside" id="A6Z-bm-1au"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="pkb-92-KnC" secondAttribute="bottom" id="2s7-l7-J0G"/>
-                                                    <constraint firstItem="pkb-92-KnC" firstAttribute="leading" secondItem="b3E-ex-M5A" secondAttribute="leading" id="F9A-2o-YWf"/>
                                                     <constraint firstItem="DXZ-yR-EdD" firstAttribute="leading" secondItem="WgG-FD-rgJ" secondAttribute="trailing" constant="25" id="OXP-AD-HSw"/>
                                                     <constraint firstItem="WgG-FD-rgJ" firstAttribute="leading" secondItem="b3E-ex-M5A" secondAttribute="leading" constant="12" id="Pwv-gD-A94"/>
                                                     <constraint firstItem="DXZ-yR-EdD" firstAttribute="top" secondItem="b3E-ex-M5A" secondAttribute="top" constant="17" id="bZW-gN-xlj"/>
-                                                    <constraint firstItem="pkb-92-KnC" firstAttribute="top" secondItem="b3E-ex-M5A" secondAttribute="top" constant="1" id="d4I-NL-EwX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pkb-92-KnC" secondAttribute="trailing" id="gxw-Yb-zqx"/>
                                                     <constraint firstAttribute="trailing" secondItem="DXZ-yR-EdD" secondAttribute="trailing" constant="23" id="hNG-4x-Mlj"/>
                                                     <constraint firstAttribute="height" constant="54" id="pad-JQ-Fjv"/>
                                                     <constraint firstAttribute="bottom" secondItem="WgG-FD-rgJ" secondAttribute="bottom" constant="8" id="wap-wd-ld2"/>
@@ -3349,7 +3339,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07, Aug, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-BR-orj">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07, Aug, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-BR-orj">
                                                         <rect key="frame" x="12" y="25" width="259" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Agb-Bs-gwn"/>
@@ -3365,23 +3355,13 @@ Please enter your Email-Id below :</string>
                                                             <constraint firstAttribute="width" constant="20" id="MWI-Dx-klw"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6M-al-1tG">
-                                                        <rect key="frame" x="0.0" y="1" width="339" height="53"/>
-                                                        <connections>
-                                                            <action selector="btnDOBAction:" destination="zNe-GO-7KS" eventType="touchUpInside" id="qrC-St-pF1"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="AmM-BR-orj" secondAttribute="bottom" constant="8" id="5ao-hn-gDJ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="W6M-al-1tG" secondAttribute="bottom" id="5e6-t0-uOm"/>
                                                     <constraint firstItem="Q6u-y4-K1m" firstAttribute="top" secondItem="Pzs-qg-yf7" secondAttribute="top" constant="17" id="9mn-H0-0wy"/>
                                                     <constraint firstItem="AmM-BR-orj" firstAttribute="leading" secondItem="Pzs-qg-yf7" secondAttribute="leading" constant="12" id="D6c-LD-OyL"/>
-                                                    <constraint firstItem="W6M-al-1tG" firstAttribute="leading" secondItem="Pzs-qg-yf7" secondAttribute="leading" id="F5o-DX-BxG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="W6M-al-1tG" secondAttribute="trailing" id="VrZ-Rl-XKK"/>
                                                     <constraint firstItem="Q6u-y4-K1m" firstAttribute="leading" secondItem="AmM-BR-orj" secondAttribute="trailing" constant="25" id="s4c-FD-0kc"/>
-                                                    <constraint firstItem="W6M-al-1tG" firstAttribute="top" secondItem="Pzs-qg-yf7" secondAttribute="top" constant="1" id="wEb-SR-tZv"/>
                                                     <constraint firstAttribute="height" constant="54" id="yf1-pX-BhR"/>
                                                     <constraint firstAttribute="trailing" secondItem="Q6u-y4-K1m" secondAttribute="trailing" constant="23" id="z94-Ta-bvt"/>
                                                 </constraints>
@@ -3434,6 +3414,71 @@ Please enter your Email-Id below :</string>
                                                     <constraint firstAttribute="height" constant="85" id="Hdc-oP-7KC"/>
                                                 </constraints>
                                             </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Select Speciality" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMF-R4-bYc">
+                                                <rect key="frame" x="29" y="79" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="K68-Co-UO3"/>
+                                                    <constraint firstAttribute="height" constant="30" id="TOE-ii-BUW"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="Ocq-jS-iLb"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Select Doctor" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-Eq-vjz">
+                                                <rect key="frame" x="29" y="138" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="fhb-Ih-Gkm"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="vUm-dB-kkJ"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="H3Y-Uj-Fqy"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Select Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-0t-3MY">
+                                                <rect key="frame" x="29" y="198" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Ba6-2k-GDK"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="uMH-4N-bLj"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="NHA-R7-jDC"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Select Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWF-Lo-SZM">
+                                                <rect key="frame" x="29" y="258" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Yd5-SA-dXt"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="fIZ-sq-6qa"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="W6X-38-pIs"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Appointment Status" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o2p-KJ-DoJ">
+                                                <rect key="frame" x="29" y="318" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="3ns-h3-2f5"/>
+                                                    <constraint firstAttribute="height" constant="30" id="khb-3g-22c"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="wps-iO-Bhc"/>
+                                                </connections>
+                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Amount Paid" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FfA-xf-xZ0">
                                                 <rect key="frame" x="29" y="379" width="324" height="30"/>
                                                 <constraints>
@@ -3442,6 +3487,9 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="aHO-mq-C0T"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="First Name" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-0y-5nH">
                                                 <rect key="frame" x="29" y="638" width="324" height="30"/>
@@ -3451,6 +3499,9 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="OiS-S2-FVh"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhj-NK-BSz">
                                                 <rect key="frame" x="29" y="698" width="324" height="30"/>
@@ -3460,6 +3511,22 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="1bD-XD-Cmm"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Date of birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzI-0a-dhI">
+                                                <rect key="frame" x="29" y="823" width="324" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="KAJ-vN-moM"/>
+                                                    <constraint firstAttribute="height" constant="30" id="f05-FY-jPn"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="glo-CM-12S"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H79-nh-0SI">
                                                 <rect key="frame" x="29" y="881" width="324" height="30"/>
@@ -3469,6 +3536,9 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="k79-V5-xTy"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hd0-hU-a43">
                                                 <rect key="frame" x="29" y="939" width="324" height="30"/>
@@ -3478,6 +3548,9 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="wWv-tr-Pke"/>
+                                                </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-Ew-8Wh">
                                                 <rect key="frame" x="28" y="1016" width="319" height="47"/>
@@ -3488,6 +3561,9 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="zNe-GO-7KS" id="8U1-gT-CJ7"/>
+                                                </connections>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TM9-Mk-FbZ">
                                                 <rect key="frame" x="47" y="1102" width="212" height="39"/>
@@ -3536,10 +3612,14 @@ Please enter your Email-Id below :</string>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="s73-yv-Jyq" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="0eU-XK-Gfj"/>
+                                            <constraint firstAttribute="trailing" secondItem="QsX-0t-3MY" secondAttribute="trailing" constant="22" id="15D-0v-9oJ"/>
                                             <constraint firstItem="TM9-Mk-FbZ" firstAttribute="top" secondItem="mch-4L-Xyv" secondAttribute="bottom" constant="30" id="176-Bt-k58"/>
                                             <constraint firstItem="BLq-2U-QhL" firstAttribute="top" secondItem="YrR-YC-oAt" secondAttribute="bottom" constant="26" id="1cO-8d-T1A"/>
                                             <constraint firstItem="Hd0-hU-a43" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="3UK-Hm-VV8"/>
                                             <constraint firstItem="kuj-3K-oaE" firstAttribute="top" secondItem="mch-4L-Xyv" secondAttribute="bottom" constant="30" id="44i-LL-cXY"/>
+                                            <constraint firstItem="uzI-0a-dhI" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="4r8-Ln-0zF"/>
+                                            <constraint firstAttribute="trailing" secondItem="UW1-Eq-vjz" secondAttribute="trailing" constant="22" id="54y-FN-GaG"/>
+                                            <constraint firstItem="o2p-KJ-DoJ" firstAttribute="top" secondItem="Drp-Lm-tyQ" secondAttribute="bottom" constant="20" id="56d-Nq-ZJT"/>
                                             <constraint firstItem="o4f-Xb-MQQ" firstAttribute="top" secondItem="Iab-0y-o7c" secondAttribute="bottom" constant="6" id="6Rc-vt-V2D"/>
                                             <constraint firstAttribute="trailing" secondItem="CvL-JT-YrC" secondAttribute="trailing" constant="41" id="6gj-zT-VZo"/>
                                             <constraint firstAttribute="trailing" secondItem="APN-08-x09" secondAttribute="trailing" constant="18" id="6hE-8J-M7X"/>
@@ -3566,16 +3646,22 @@ Please enter your Email-Id below :</string>
                                             <constraint firstItem="Uhj-NK-BSz" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="Idv-T0-oGF"/>
                                             <constraint firstAttribute="trailing" secondItem="7Xz-P0-TST" secondAttribute="trailing" constant="18" id="Ipk-u9-iEE"/>
                                             <constraint firstItem="TM9-Mk-FbZ" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="47" id="JJP-es-69p"/>
+                                            <constraint firstItem="QsX-0t-3MY" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="JmU-MU-hSK"/>
                                             <constraint firstItem="Hd0-hU-a43" firstAttribute="top" secondItem="GDq-69-nZ5" secondAttribute="bottom" constant="-42" id="KC5-e3-UVp"/>
                                             <constraint firstAttribute="trailing" secondItem="Pzs-qg-yf7" secondAttribute="trailing" constant="18" id="Lig-fi-7bp"/>
+                                            <constraint firstAttribute="trailing" secondItem="uzI-0a-dhI" secondAttribute="trailing" constant="22" id="Lq4-iy-wtx"/>
                                             <constraint firstItem="7Xz-P0-TST" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="Mh9-hP-aew"/>
+                                            <constraint firstAttribute="trailing" secondItem="o2p-KJ-DoJ" secondAttribute="trailing" constant="22" id="NAX-rt-kIy"/>
                                             <constraint firstAttribute="trailing" secondItem="FfA-xf-xZ0" secondAttribute="trailing" constant="22" id="NLI-58-hQJ"/>
                                             <constraint firstItem="qzi-Ew-8Wh" firstAttribute="top" secondItem="mch-4L-Xyv" secondAttribute="bottom" constant="-56" id="NnG-n8-R7Y"/>
                                             <constraint firstAttribute="trailing" secondItem="mch-4L-Xyv" secondAttribute="trailing" constant="18" id="OGO-dT-Fja"/>
                                             <constraint firstItem="oar-lc-3o8" firstAttribute="leading" secondItem="BLq-2U-QhL" secondAttribute="trailing" constant="30" id="RF2-FB-srB"/>
                                             <constraint firstItem="GDq-69-nZ5" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="Rly-lq-4aY"/>
                                             <constraint firstItem="Iab-0y-o7c" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="TWf-UW-vau"/>
+                                            <constraint firstItem="zWF-Lo-SZM" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="U5g-cZ-jYK"/>
+                                            <constraint firstItem="QsX-0t-3MY" firstAttribute="top" secondItem="Iab-0y-o7c" secondAttribute="bottom" constant="20" id="UXu-Fo-6UR"/>
                                             <constraint firstItem="Drp-Lm-tyQ" firstAttribute="top" secondItem="o4f-Xb-MQQ" secondAttribute="bottom" constant="6" id="Uq6-SH-p3h"/>
+                                            <constraint firstAttribute="trailing" secondItem="zWF-Lo-SZM" secondAttribute="trailing" constant="22" id="VkA-fM-7p3"/>
                                             <constraint firstItem="BLq-2U-QhL" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="50" id="WXE-oQ-SFd"/>
                                             <constraint firstItem="H79-nh-0SI" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="XRL-32-UMT"/>
                                             <constraint firstItem="OjV-Kj-F3u" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="YzC-nO-8zm"/>
@@ -3583,11 +3669,14 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="trailing" secondItem="b3E-ex-M5A" secondAttribute="trailing" constant="18" id="a5n-FZ-md7"/>
                                             <constraint firstItem="CvL-JT-YrC" firstAttribute="top" secondItem="APN-08-x09" secondAttribute="bottom" constant="20" id="aGC-sa-GHX"/>
                                             <constraint firstItem="COH-ig-4Ww" firstAttribute="top" secondItem="APN-08-x09" secondAttribute="bottom" constant="25" id="aQO-JO-CPd"/>
+                                            <constraint firstAttribute="trailing" secondItem="TMF-R4-bYc" secondAttribute="trailing" constant="22" id="auh-l3-ckW"/>
                                             <constraint firstAttribute="trailing" secondItem="Drp-Lm-tyQ" secondAttribute="trailing" constant="18" id="bUv-94-XgD"/>
                                             <constraint firstItem="FfA-xf-xZ0" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="bYK-fF-gn8"/>
+                                            <constraint firstItem="UW1-Eq-vjz" firstAttribute="top" secondItem="7Xz-P0-TST" secondAttribute="bottom" constant="20" id="be9-6u-5bQ"/>
                                             <constraint firstItem="XUb-0y-5nH" firstAttribute="top" secondItem="OjV-Kj-F3u" secondAttribute="bottom" constant="-39" id="bwQ-V5-QM3"/>
                                             <constraint firstAttribute="height" constant="1177" id="cVC-hW-svE"/>
                                             <constraint firstItem="CvL-JT-YrC" firstAttribute="leading" secondItem="GRZ-8z-Yef" secondAttribute="trailing" constant="24" id="cXT-ke-g4k"/>
+                                            <constraint firstItem="TMF-R4-bYc" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="d6o-uM-RTM"/>
                                             <constraint firstItem="Uhj-NK-BSz" firstAttribute="top" secondItem="APN-08-x09" secondAttribute="bottom" constant="-39" id="dTH-nq-uZE"/>
                                             <constraint firstAttribute="trailing" secondItem="o4f-Xb-MQQ" secondAttribute="trailing" constant="18" id="ecD-g0-bnX"/>
                                             <constraint firstAttribute="trailing" secondItem="Hx4-FY-ACh" secondAttribute="trailing" constant="18" id="etJ-bf-CqI"/>
@@ -3598,6 +3687,8 @@ Please enter your Email-Id below :</string>
                                             <constraint firstItem="mch-4L-Xyv" firstAttribute="top" secondItem="GDq-69-nZ5" secondAttribute="bottom" constant="6" id="isP-CC-zDB"/>
                                             <constraint firstAttribute="trailing" secondItem="QNk-Hs-XPy" secondAttribute="trailing" id="ivF-Fj-gLB"/>
                                             <constraint firstItem="s73-yv-Jyq" firstAttribute="top" secondItem="b3E-ex-M5A" secondAttribute="bottom" constant="6" id="jUK-Q9-o2p"/>
+                                            <constraint firstItem="TMF-R4-bYc" firstAttribute="top" secondItem="195-O4-fRF" secondAttribute="bottom" constant="31" id="jXK-Hq-fck"/>
+                                            <constraint firstItem="uzI-0a-dhI" firstAttribute="top" secondItem="GRZ-8z-Yef" secondAttribute="bottom" constant="36" id="kMq-g1-0cg"/>
                                             <constraint firstItem="APN-08-x09" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="kVq-wW-rnh"/>
                                             <constraint firstItem="8yn-ce-ZPe" firstAttribute="top" secondItem="kfw-Nu-sUm" secondAttribute="top" constant="32" id="m9S-Vw-M99"/>
                                             <constraint firstItem="Hx4-FY-ACh" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="mEA-T2-YPc"/>
@@ -3608,9 +3699,12 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="trailing" secondItem="Iab-0y-o7c" secondAttribute="trailing" constant="18" id="q2g-E5-fFY"/>
                                             <constraint firstAttribute="trailing" secondItem="XUb-0y-5nH" secondAttribute="trailing" constant="22" id="qGd-xD-zxX"/>
                                             <constraint firstItem="Iab-0y-o7c" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="rEA-6k-1zP"/>
+                                            <constraint firstItem="zWF-Lo-SZM" firstAttribute="top" secondItem="o4f-Xb-MQQ" secondAttribute="bottom" constant="20" id="rd7-gC-xI3"/>
                                             <constraint firstItem="FfA-xf-xZ0" firstAttribute="top" secondItem="s73-yv-Jyq" secondAttribute="bottom" constant="-39" id="rjL-Em-eGe"/>
+                                            <constraint firstItem="UW1-Eq-vjz" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="rjR-wS-N92"/>
                                             <constraint firstItem="APN-08-x09" firstAttribute="top" secondItem="OjV-Kj-F3u" secondAttribute="bottom" constant="6" id="sVl-d7-FuD"/>
                                             <constraint firstItem="mch-4L-Xyv" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="sbh-8q-Oel"/>
+                                            <constraint firstItem="o2p-KJ-DoJ" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="29" id="spe-gu-e7o"/>
                                             <constraint firstItem="Drp-Lm-tyQ" firstAttribute="leading" secondItem="kfw-Nu-sUm" secondAttribute="leading" constant="18" id="t9L-WY-fVL"/>
                                             <constraint firstItem="H79-nh-0SI" firstAttribute="top" secondItem="Hx4-FY-ACh" secondAttribute="bottom" constant="-40" id="tZc-DF-mBl"/>
                                             <constraint firstItem="YrR-YC-oAt" firstAttribute="top" secondItem="s73-yv-Jyq" secondAttribute="bottom" constant="34" id="vaX-BV-vGh"/>
@@ -3657,10 +3751,16 @@ Please enter your Email-Id below :</string>
                         <outlet property="lblTime" destination="dCI-dM-BmV" id="WaA-34-Zsz"/>
                         <outlet property="scrlViewMain" destination="p7D-fB-pcY" id="sTE-F0-UtQ"/>
                         <outlet property="txtAmountPaid" destination="FfA-xf-xZ0" id="Ljl-U6-0Kc"/>
+                        <outlet property="txtAppointmentStatus" destination="o2p-KJ-DoJ" id="aTu-Oo-Ei2"/>
+                        <outlet property="txtDOB" destination="uzI-0a-dhI" id="fEG-IP-pyt"/>
                         <outlet property="txtEmail" destination="Hd0-hU-a43" id="hWI-0h-Nr0"/>
                         <outlet property="txtFirstName" destination="XUb-0y-5nH" id="J0Z-Rx-l7t"/>
                         <outlet property="txtLastName" destination="Uhj-NK-BSz" id="qQI-nG-Ik4"/>
                         <outlet property="txtPhone" destination="H79-nh-0SI" id="V1C-Xc-NGk"/>
+                        <outlet property="txtSelectDate" destination="QsX-0t-3MY" id="b3A-IZ-wqg"/>
+                        <outlet property="txtSelectDoctor" destination="UW1-Eq-vjz" id="Zig-3e-9ZK"/>
+                        <outlet property="txtSelectTime" destination="zWF-Lo-SZM" id="Hte-w7-vQt"/>
+                        <outlet property="txtSpeciality" destination="TMF-R4-bYc" id="xq7-F4-tTP"/>
                         <outlet property="txtVWAddMarks" destination="qzi-Ew-8Wh" id="63i-ak-0qm"/>
                         <outlet property="vwMain" destination="kfw-Nu-sUm" id="ahI-Hn-qw1"/>
                     </connections>

@@ -30,6 +30,8 @@ class UpdateVisitsViewController: BaseViewController
     @IBOutlet weak var vwAppointmentDetails: UIView!
     @IBOutlet weak var lblAppointmentDate: UILabel!
     @IBOutlet weak var lblAppointmentTime: UILabel!
+
+    
     @IBOutlet weak var lblDocName: UILabel!
     @IBOutlet weak var btnAccept: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
