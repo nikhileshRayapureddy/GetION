@@ -24,7 +24,10 @@ class QueryReplyViewController: BaseViewController {
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
     var currentImage = 0
-
+    var strPrivate = "0"
+    var isQueryTemplate = false
+    var strMessage = ""
+    var vwGalleryView : GallaryView!
     override func viewDidLoad() {
         super.viewDidLoad()
         designNavigationBar()
@@ -50,7 +53,6 @@ class QueryReplyViewController: BaseViewController {
         layer.getQueryDetailsWithId(id: queryBO.id, successMessage: { (response) in
             DispatchQueue.main.async {
                 self.arrQueries = response as! [QueriesBO]
-                self.arrQueries[self.arrQueries.count - 2].arrImages = [#imageLiteral(resourceName: "close"), #imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "promotion"), #imageLiteral(resourceName: "settings")]
                 app_delegate.removeloder()
                 self.bindData()
             }
@@ -73,16 +75,59 @@ class QueryReplyViewController: BaseViewController {
     
     @IBAction func btnPublishOnWebsiteCheckboxClicked(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        isQueryTemplate = sender.isSelected
+        if sender.isSelected
+        {
+            strPrivate = "0"
+        }
+        else
+        {
+            strPrivate = "1"
+        }
+
     }
     
     @IBAction func btnAddToQuickReplyCheckboxClicked(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        isQueryTemplate = sender.isSelected
     }
+
     @IBAction func btnAddImageAction(_ sender: UIButton)
     {
-        imagePicker.modalPresentationStyle = UIModalPresentationStyle.currentContext
-        imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Select an Image to Upload", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("camera not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("photoLibrary not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @objc func removeImageAction(sender : UIButton)
@@ -107,6 +152,8 @@ class QueryReplyViewController: BaseViewController {
             vwGallery.frame = CGRect (x: 0, y: 20, width: (self.view.window?.bounds.width)!, height: (self.view.window?.bounds.height)! - 20)
             vwGallery.arrImages.append(contentsOf: arrQueries[tag].arrImages)
             vwGallery.loadGalleryWithImages()
+            vwGallery.delegate = self
+            vwGalleryView = vwGallery
             self.view.window?.addSubview(vwGallery)
         }
     }
@@ -122,11 +169,16 @@ class QueryReplyViewController: BaseViewController {
         }
         else
         {
+            strMessage = txtViewMessage.text!
             if arrImages.count == 0
             {
                 app_delegate.showLoader(message: "Sending message. . .")
                 let layer = ServiceLayer()
-                layer.addReplyForQuestion(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", successMessage: { (response) in
+                layer.addReplyForQuestion(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: strPrivate, successMessage: { (response) in
+                    if self.isQueryTemplate
+                    {
+                        self.addToQueryTemplate()
+                    }
                     DispatchQueue.main.async {
                         app_delegate.removeloder()
                         self.txtViewMessage.text = ""
@@ -157,6 +209,21 @@ class QueryReplyViewController: BaseViewController {
             else
             {
                 self.uploadImages()
+            }
+        }
+    }
+    func addToQueryTemplate()
+    {
+        let layer = ServiceLayer()
+        layer.addQueryTemplateWith(message: strMessage, successMessage: { (success) in
+            
+        }) { (error) in
+            DispatchQueue.main.async {
+                
+                let alert = UIAlertController(title: "Alert!", message: "Unable to add as Template.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -199,7 +266,13 @@ class QueryReplyViewController: BaseViewController {
     {
         app_delegate.showLoader(message: "Sending message. . .")
         let layer = ServiceLayer()
-        layer.addReplyForQuestionWithAttachmentsFor(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: "0", withAttachments: self.arrImageUrls, successMessage: { (response) in
+        layer.addReplyForQuestionWithAttachmentsFor(id: queryBO.id, withMessage: txtViewMessage.text, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), withPrivacy: strPrivate, withAttachments: self.arrImageUrls, successMessage: { (response) in
+            if self.isQueryTemplate
+            {
+                self.addToQueryTemplate()
+            }
+
+            
             DispatchQueue.main.async {
                 app_delegate.removeloder()
                 let message = response as? String
@@ -301,7 +374,7 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let queryDetailBO = arrQueries[indexPath.row]
-        queryDetailBO.content = queryDetailBO.content.removingPercentEncoding!
+//        queryDetailBO.content = queryDetailBO.content.removingPercentEncoding!
         if queryDetailBO.user_id == "0"
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
@@ -317,8 +390,10 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             {
                 cell.constrtVwImagesHeight.constant = 76
                 cell.img1.isHidden = false
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img1.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
                 cell.img2.isHidden = true
                 cell.img3.isHidden = true
                 cell.btn4thImage.isHidden = true
@@ -328,9 +403,13 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.constrtVwImagesHeight.constant = 76
                 cell.img1.isHidden = false
                 cell.img2.isHidden = false
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
                 cell.img3.isHidden = true
                 cell.btn4thImage.isHidden = true
             }
@@ -340,11 +419,16 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.img1.isHidden = false
                 cell.img2.isHidden = false
                 cell.img3.isHidden = false
-                
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
-                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+                cell.img3.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
+                let url2 = URL(string: queryDetailBO.arrImages[2])
+                cell.img3.kf.setImage(with: url2)
                 cell.btn4thImage.isHidden = true
             }
             else if queryDetailBO.arrImages.count > 3
@@ -353,12 +437,17 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.img1.isHidden = false
                 cell.img2.isHidden = false
                 cell.img3.isHidden = false
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+                cell.img3.kf.indicatorType = .activity
+
                 cell.btn4thImage.isHidden = false
-                
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
-                cell.img3.image = queryDetailBO.arrImages[2]
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
+                let url2 = URL(string: queryDetailBO.arrImages[2])
+                cell.img3.kf.setImage(with: url2)
                 cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
                 
             }
@@ -388,8 +477,10 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
             {
                 cell.constrtVwImagesHeight.constant = 76
                 cell.img1.isHidden = false
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
+                cell.img1.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
                 cell.img2.isHidden = true
                 cell.img3.isHidden = true
                 cell.btn4thImage.isHidden = true
@@ -399,9 +490,13 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.constrtVwImagesHeight.constant = 76
                 cell.img1.isHidden = false
                 cell.img2.isHidden = false
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
                 cell.img3.isHidden = true
                 cell.btn4thImage.isHidden = true
             }
@@ -411,11 +506,16 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.img1.isHidden = false
                 cell.img2.isHidden = false
                 cell.img3.isHidden = false
-                
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
-                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+                cell.img3.kf.indicatorType = .activity
+
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
+                let url2 = URL(string: queryDetailBO.arrImages[0])
+                cell.img3.kf.setImage(with: url2)
                 cell.btn4thImage.isHidden = true
             }
             else if queryDetailBO.arrImages.count > 3
@@ -426,10 +526,15 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 cell.img3.isHidden = false
                 cell.btn4thImage.isHidden = false
                 
-                
-                cell.img1.image = queryDetailBO.arrImages[0]
-                cell.img2.image = queryDetailBO.arrImages[1]
-                cell.img3.image = queryDetailBO.arrImages[2]
+                cell.img1.kf.indicatorType = .activity
+                cell.img2.kf.indicatorType = .activity
+                cell.img3.kf.indicatorType = .activity
+                let url = URL(string: queryDetailBO.arrImages[0])
+                cell.img1.kf.setImage(with: url)
+                let url1 = URL(string: queryDetailBO.arrImages[1])
+                cell.img2.kf.setImage(with: url1)
+                let url2 = URL(string: queryDetailBO.arrImages[0])
+                cell.img3.kf.setImage(with: url2)
                 cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
                 
             }
@@ -457,12 +562,12 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
                 options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             
-            height = Int(queryDetailBO.content.heightForHtmlString(attrDescription, font: UIFont.systemFont(ofSize: 17.0), labelWidth: self.view.frame.size.width - 45))
+            height = Int(queryDetailBO.content.heightForHtmlString(attrDescription, font: UIFont.myridFontOfSize(size: 17), labelWidth: self.view.frame.size.width - 45))
             height = height + 50
         }
         else
         {
-            height = Int(queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.systemFont(ofSize: 17.0)))
+            height = Int(queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.myridFontOfSize(size: 17)))
             height = height + 60
         }
         
@@ -474,9 +579,29 @@ extension QueryReplyViewController: UITableViewDataSource, UITableViewDelegate
         
     }
     
-   
-    
   
     
 }
-
+extension QueryReplyViewController : GallaryView_Delegate
+{
+    func downloadImage(sender : UIButton)
+    {
+        let cell = vwGalleryView.collctView.cellForItem(at: IndexPath(item: sender.tag - 2000, section: 0)) as! GalleryCollectionViewCell
+        UIImageWriteToSavedPhotosAlbum(cell.imgVw.image! , self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+    }
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
+    
+}
