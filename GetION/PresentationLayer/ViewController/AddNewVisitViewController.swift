@@ -62,7 +62,9 @@ class AddNewVisitViewController: BaseViewController {
     @IBOutlet weak var btnMale: UIButton!
     @IBOutlet weak var btnFemale: UIButton!
     
-    ///////////
+    
+    //////////
+    var imagePicker = UIImagePickerController()
     var selectedPickerRow = 0
     let picker = UIPickerView()
     let datePicker = UIDatePicker()
@@ -76,6 +78,7 @@ class AddNewVisitViewController: BaseViewController {
     var selectedDoc = DoctorDetailBO()
     var selectedTimeSlot = TimeSlotsBO()
     var selectedDate = Date()
+    var selectedProfilePicUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +104,13 @@ class AddNewVisitViewController: BaseViewController {
     
     func setUpView()
     {
+        self.btnMale.isSelected = true
         txtSpeciality.inputView = picker
         txtSelectDoctor.inputView = picker
         txtSelectDate.inputView = datePicker
         txtSelectTime.inputView = picker
         txtAppointmentStatus.inputView = picker
         txtDOB.inputView = datePicker
-
     }
     
     
@@ -197,10 +200,56 @@ class AddNewVisitViewController: BaseViewController {
     @IBAction func btnAppointmentStatusAction(_ sender: UIButton) {
     }
     
-    @IBAction func btnAddPatientPhotoAction(_ sender: UIButton) {
+    @IBAction func btnAddPatientPhotoAction(_ sender: UIButton)
+    {
+        let alert = UIAlertController(title: "Select an Image to Upload", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("camera not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("photoLibrary not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
-    @IBAction func btnGenderAction(_ sender: UIButton) {
+    @IBAction func btnGenderAction(_ sender: UIButton)
+    {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.tag == 500
+        {
+            self.btnFemale.isSelected = false
+        }
+        else
+        {
+            self.btnMale.isSelected = false
+        }
     }
     
     @IBAction func btnDOBAction(_ sender: UIButton) {
@@ -303,6 +352,31 @@ class AddNewVisitViewController: BaseViewController {
 
         
         
+        
+    }
+    
+    
+    
+    func uploadImages()
+    {
+        let imageData = UIImagePNGRepresentation(self.imgProfile.image!)
+        app_delegate.showLoader(message: "Uploading...")
+        let layer = ServiceLayer()
+        layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
+            app_delegate.removeloder()
+            if isSuccess
+            {
+                self.selectedProfilePicUrl = dict["url"] as! String
+                print("response : \(dict.description)")
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
         
     }
     
@@ -485,4 +559,29 @@ extension AddNewVisitViewController : UIPickerViewDelegate, UIPickerViewDataSour
     }
 }
 
+extension AddNewVisitViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        
+        self.dismiss(animated: true) {
+            DispatchQueue.main.async {
+                
+                self.imgProfile.image = tempImage
+                self.uploadImages()
+            }
+            
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
 

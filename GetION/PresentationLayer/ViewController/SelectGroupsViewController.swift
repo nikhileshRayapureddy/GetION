@@ -12,7 +12,7 @@ import UIKit
 
 class SelectGroupsViewController: UIViewController {
 
-    var item = [groupTags]()
+    var item = [TagSuggestionBO]()
     var tagSelect = String()
     var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
     
@@ -20,6 +20,7 @@ class SelectGroupsViewController: UIViewController {
     @IBOutlet weak var groupLayout: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var isfromUpdateVisits = false
     var tokenString = [String]()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,28 +39,27 @@ class SelectGroupsViewController: UIViewController {
             var currentBtnWidth = 0
             var reminigXSpace = 0
             let screenSize = UIScreen.main.bounds
-            let screenWidth = screenSize.width
+            let screenWidth = screenSize.width - 15
             print(self.item.count)
             if(self.item.count > 0){
                 for i in 0...self.item.count - 1
                 {
                     let btn = UIButton(type: UIButtonType.custom) as UIButton
                     
-                    if(self.tokenString.contains(self.item[i].tagName))
+                    if(self.tokenString.contains(self.item[i].title))
                     {
                         btn.backgroundColor = self.ionColor
                     }
                     else
                     {
-                        btn.backgroundColor = UIColor (displayP3Red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
+                         btn.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
                     }
-                    btn.setTitle("\(self.item[i].tagName)", for: UIControlState.normal)
-                    btn.setTitleColor(UIColor.black, for: UIControlState.normal)
-                    btn.titleLabel!.font =  UIFont(name: "HelveticaNeue-Regular", size: 15)
-                    btn.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
-                    btn.layer.borderWidth = 0.5
-                    btn.layer.borderColor = UIColor.black.cgColor
-                    btn.layer.cornerRadius = 10.0
+                    btn.setTitle("\(self.item[i].title)", for: UIControlState.normal)
+                    btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+                    btn.titleLabel!.font = UIFont.myridFontOfSize(size: 16)
+                    btn.contentEdgeInsets = UIEdgeInsetsMake(8,5,5,8)
+                    btn.sizeToFit()
+                    btn.layer.cornerRadius = 10
                     
                     btn.sizeToFit()
                     print("\(btn.frame.size.width)")
@@ -77,12 +77,10 @@ class SelectGroupsViewController: UIViewController {
                         {
                             xAxis = xAxis + btnWidth + 10
                             btnWidth = Int(btn.frame.size.width)
-                        }
-                        else
-                        {
+                        } else {
                             xAxis = 8
                             btnWidth = Int(btn.frame.size.width)
-                            yAxis = yAxis + 20 + 10
+                            yAxis = yAxis + 50
                         }
                     }
                     print(xAxis)
@@ -92,9 +90,35 @@ class SelectGroupsViewController: UIViewController {
                     self.groupView.sizeToFit()
                     self.groupLayout.constant = CGFloat(yAxis)
                 }
+                yAxis += 60
+
             }
         })
     }
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        arrSelectedGroups.removeAll()
+        if isfromUpdateVisits == true
+        {
+            for selectedTag in tokenString
+            {
+                let arrTmp = item.filter({ (objTag) -> Bool in
+                    if objTag.title == selectedTag
+                    {
+                        return true
+                    }
+                    return false
+                })
+                
+                if arrTmp.count > 0
+                {
+                    arrSelectedGroups.append(arrTmp[0])
+                }
+                
+            }
+        }
+    }
+    
 
 //    fileprivate func getJSON(){
 //        /* Your UI code */
@@ -133,15 +157,18 @@ class SelectGroupsViewController: UIViewController {
     
     @objc func clickMe(sender:UIButton!)
     {
-        if(sender.backgroundColor == UIColor.white){
+        if(sender.backgroundColor == UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1))
+        {
             sender.backgroundColor = self.ionColor
             var btnTxt = ""
             if let temp = sender.currentTitle {
                 btnTxt = temp
             }
             self.tokenString.insert(btnTxt, at:0)
-        } else {
-            sender.backgroundColor = UIColor.white
+        }
+        else
+        {
+            sender.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
             var btnTxt = ""
             if let temp = sender.currentTitle {
                 btnTxt = temp
