@@ -57,6 +57,8 @@
 		A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */; };
 		A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635A1F9273A9002CB4ED /* BlogBO.swift */; };
 		A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */; };
+		A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D289601FA60E6C005E7CC3 /* PromoSuccessCustomView.swift */; };
+		A7D289631FA60E76005E7CC3 /* PromoSuccessCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D289621FA60E76005E7CC3 /* PromoSuccessCustomView.xib */; };
 		A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */; };
 		A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */; };
 		A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */; };
@@ -166,6 +168,8 @@
 		A7C60D201F90ABD400DCDFFD /* QueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesViewController.swift; sourceTree = "<group>"; };
 		A7C9635A1F9273A9002CB4ED /* BlogBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogBO.swift; sourceTree = "<group>"; };
 		A7C9635C1F9284AF002CB4ED /* FeedsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsBO.swift; sourceTree = "<group>"; };
+		A7D289601FA60E6C005E7CC3 /* PromoSuccessCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoSuccessCustomView.swift; sourceTree = "<group>"; };
+		A7D289621FA60E76005E7CC3 /* PromoSuccessCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoSuccessCustomView.xib; sourceTree = "<group>"; };
 		A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupsViewController.swift; sourceTree = "<group>"; };
 		A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryBO.swift; sourceTree = "<group>"; };
 		A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailBO.swift; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 				CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */,
 				CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */,
 				CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */,
+				A7D289601FA60E6C005E7CC3 /* PromoSuccessCustomView.swift */,
+				A7D289621FA60E76005E7CC3 /* PromoSuccessCustomView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -599,6 +605,7 @@
 				A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */,
 				A7164CAE1F90FA34003DB84D /* Myriad_Pro_Bold.ttf in Resources */,
 				A7DFFAC31F8F608D00208FD9 /* Main.storyboard in Resources */,
+				A7D289631FA60E76005E7CC3 /* PromoSuccessCustomView.xib in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
 				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
@@ -710,6 +717,7 @@
 				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
+				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,

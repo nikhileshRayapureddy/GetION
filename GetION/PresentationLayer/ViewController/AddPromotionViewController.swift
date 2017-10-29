@@ -20,6 +20,8 @@ class AddPromotionViewController: BaseViewController {
     @IBOutlet weak var collctView: UICollectionView!
     @IBOutlet weak var lblPromo: UILabel!
     @IBOutlet weak var imgVwPromo: UIImageView!
+    var promoSuccessCustomView: PromoSuccessCustomView!
+
     var promotionBO = PromotionsBO()
     var currentImage = 0
     var arrImages = [UIImage]()
@@ -186,14 +188,14 @@ class AddPromotionViewController: BaseViewController {
         layer.addPromotionWith(dict: dict, successMessage: { (reponse) in
             app_delegate.removeloder()
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Success!", message: "Promotion added Succesfully.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }))
-                self.present(alert, animated: true, completion: nil)
-                
+                if let popup = Bundle.main.loadNibNamed("PromoSuccessCustomView", owner: nil, options: nil)![0] as? PromoSuccessCustomView
+                {
+                    popup.delegate = self
+                    self.promoSuccessCustomView = popup
+                    popup.frame = self.view.bounds
+                    self.view.addSubview(popup)
+                }
+
             }
 
             
@@ -326,4 +328,11 @@ extension AddPromotionViewController: KSTokenViewDelegate {
         return true
     }
 }
-
+extension AddPromotionViewController : PromoSuccessCustomView_Delegate
+{
+    func closeClicked(sender:UIButton)
+    {
+        promoSuccessCustomView.removeFromSuperview()
+        self.navigationController?.popViewController(animated: true)
+    }
+}
