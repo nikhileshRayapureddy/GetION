@@ -8,15 +8,11 @@
 
 import UIKit
 
-struct groupTags
-{
-    var tagId = String()
-    var tagName = String()
-}
+var arrSelectedGroups = [TagSuggestionBO]()
 
 class UpdateVisitsViewController: BaseViewController
 {
-    var arrGroupItems = [groupTags]()
+    var arrGroupItems = [TagSuggestionBO]()
     var tokenString = [String]()
 
 
@@ -55,32 +51,55 @@ class UpdateVisitsViewController: BaseViewController
     @IBOutlet weak var btnGroup: UIButton!
     @IBOutlet weak var constrtVwGroupHeight: NSLayoutConstraint!
     
-    
+    ///////
+    var arrSuggestions = [TagSuggestionBO]()
     var objVisits = VisitsBO()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(3)
         
-        let group = groupTags (tagId: "20", tagName: "Hydrabad")
-        let group1 = groupTags (tagId: "20", tagName: "Hyd")
-        let group2 = groupTags (tagId: "20", tagName: "Hydrabad dr")
-        let group3 = groupTags (tagId: "20", tagName: "Dr surya")
-        let group4 = groupTags (tagId: "20", tagName: "Dj")
-        arrGroupItems = [group4,group,group1,group2,group,group,group,group3,group,group,group3,group,group,group3,group2,group2,group,group4,group2,group,group,group2]
+   
+//        arrGroupItems = [group4,group,group1,group2,group,group,group,group3,group,group,group3,group,group,group3,group2,group2,group,group4,group2,group,group,group2]
         
         self.vwAppointmentDetails.layer.borderColor = UIColor.lightGray.cgColor
         self.vwAppointmentDetails.layer.borderWidth = 0.8
         
+        self.getSuggestions()
         self.bindData()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        arrGroupItems = arrSelectedGroups
+        self.setGroups()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getSuggestions()
+    {
+        app_delegate.showLoader(message: "Loading...")
+        let layer = ServiceLayer()
+        layer.getAllTagSuggestion(successMessage: { (response) in
+            app_delegate.removeloder()
+            self.arrSuggestions = response as! [TagSuggestionBO]
+            
+        }) { (error) in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     
     func setEditablesWithBool(isEditiable : Bool)
     {
@@ -97,6 +116,7 @@ class UpdateVisitsViewController: BaseViewController
         self.txtSource.isUserInteractionEnabled = isEditiable
         self.txtVwRemarks.isUserInteractionEnabled = isEditiable
         btnGroup.isUserInteractionEnabled = isEditiable
+        
     }
     
     func bindData()
@@ -130,12 +150,26 @@ class UpdateVisitsViewController: BaseViewController
         self.txtVwRemarks.text = objVisits.remarks
         self.setGroups()
 
+
     }
     
     
     func setGroups()
     {
             DispatchQueue.main.async(execute: {
+                for subview in  self.vwGroups.subviews
+                {
+                    if subview is UIButton
+                    {
+                        let btn = subview as! UIButton
+                        if btn.tag == 1000
+                        {
+                            btn.removeFromSuperview()
+
+                        }
+                    }
+                }
+            
                 var xAxis = 0
                 var yAxis = 0
                 var btnWidth = 0
@@ -149,12 +183,13 @@ class UpdateVisitsViewController: BaseViewController
                     {
                         let btn = UIButton(type: UIButtonType.custom) as UIButton
                         btn.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
-                        btn.setTitle("\(self.arrGroupItems[i].tagName)", for: UIControlState.normal)
+                        btn.setTitle("\(self.arrGroupItems[i].title)", for: UIControlState.normal)
                         btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
                         btn.titleLabel!.font = UIFont.myridFontOfSize(size: 16)
                         btn.contentEdgeInsets = UIEdgeInsetsMake(8,5,5,8)
                         btn.sizeToFit()
                         btn.layer.cornerRadius = 10
+                        btn.tag = 1000
 
                         print("\(btn.frame.size.width)")
                         if(i == 0){
@@ -188,14 +223,25 @@ class UpdateVisitsViewController: BaseViewController
                     self.scrlVwGroups.contentSize = CGSize (width: 0, height: CGFloat(yAxis))
                     self.viewDidLayoutSubviews()
                 }
+                self.vwGroups.bringSubview(toFront: self.btnGroup)
             })
         
     }
-    
+
     
     @IBAction func btnGroupEditAction(_ sender: UIButton)
     {
-        
+        if arrSuggestions.count > 0
+        {
+            let groupVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SelectGroupsViewController") as! SelectGroupsViewController
+            for selectedTag in arrGroupItems
+            {
+                groupVC.tokenString.append(selectedTag.title)
+            }
+            groupVC.item = arrSuggestions
+            groupVC.isfromUpdateVisits = true
+            self.navigationController?.pushViewController(groupVC, animated: true)
+        }
     }
     
     @IBAction func btnCallAction(_ sender: UIButton) {
