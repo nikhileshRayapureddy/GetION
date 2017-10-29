@@ -14,12 +14,17 @@ class AddPromotionViewController: BaseViewController {
     
     @IBOutlet weak var btnIonize: UIButton!
     
-    @IBOutlet weak var vwSuggestionsBase: KSTokenView!
+    @IBOutlet weak var vwSuggestionsBase: UIView!
     @IBOutlet weak var constVwTagsBaseHeight: NSLayoutConstraint!
     @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
     @IBOutlet weak var collctView: UICollectionView!
     @IBOutlet weak var lblPromo: UILabel!
     @IBOutlet weak var imgVwPromo: UIImageView!
+    
+    @IBOutlet weak var btnWebSite: UIButton!
+    @IBOutlet weak var btnSocialMedia: UIButton!
+    @IBOutlet weak var btnEmail: UIButton!
+
     var promoSuccessCustomView: PromoSuccessCustomView!
 
     var promotionBO = PromotionsBO()
@@ -32,27 +37,20 @@ class AddPromotionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBarWithBackAnd(strTitle: "Add Promotions")
-//        btnWebSite.layer.cornerRadius = 15.0
-//        btnWebSite.layer.masksToBounds = true
-//        btnWebSite.layer.borderColor = THEME_COLOR.cgColor
-//        btnWebSite.layer.borderWidth = 1.0
-
-//        btnWebSite.backgroundColor = UIColor.white
-//        btnWebSite.setTitleColor(THEME_COLOR, for: .normal)
-//        btnSocialMedia.backgroundColor = UIColor.white
-//        btnSocialMedia.setTitleColor(THEME_COLOR, for: .normal)
-
-        vwSuggestionsBase.delegate = self
-        vwSuggestionsBase.promptText = ""
-        vwSuggestionsBase.placeholder = "Any Other"
-        vwSuggestionsBase.descriptionText = "Tags"
-        vwSuggestionsBase.maxTokenLimit = 10 //default is -1 for unlimited number of tokens
-        vwSuggestionsBase.style = .squared
-
-        vwSuggestionsBase.layer.cornerRadius = 5.0
-        vwSuggestionsBase.layer.masksToBounds = true
-        vwSuggestionsBase.layer.borderColor = THEME_COLOR.cgColor
-        vwSuggestionsBase.layer.borderWidth = 1.0
+        btnWebSite.layer.cornerRadius = 15.0
+        btnWebSite.layer.masksToBounds = true
+        btnWebSite.layer.borderColor = THEME_COLOR.cgColor
+        btnWebSite.layer.borderWidth = 1.0
+        
+        btnSocialMedia.layer.cornerRadius = 15.0
+        btnSocialMedia.layer.masksToBounds = true
+        btnSocialMedia.layer.borderColor = THEME_COLOR.cgColor
+        btnSocialMedia.layer.borderWidth = 1.0
+        
+        btnEmail.layer.cornerRadius = 15.0
+        btnEmail.layer.masksToBounds = true
+        btnEmail.layer.borderColor = THEME_COLOR.cgColor
+        btnEmail.layer.borderWidth = 1.0
 
         txtVwDesignBrief.layer.cornerRadius = 5.0
         txtVwDesignBrief.layer.masksToBounds = true
@@ -71,7 +69,10 @@ class AddPromotionViewController: BaseViewController {
         let url = URL(string: promotionBO.avatar)
         imgVwPromo.kf.setImage(with: url)
         self.getSuggestions()
+        self.btnWebSiteClicked(btnWebSite)
+
     }
+    
     func getSuggestions()
     {
         app_delegate.showLoader(message: "Loading...")
@@ -141,18 +142,6 @@ class AddPromotionViewController: BaseViewController {
             {
                 strImage = self.arrImageUrls[0]
             }
-        }
-        for str in vwSuggestionsBase.tokens()!
-        {
-            if strTag == ""
-            {
-                strTag.append(str.title)
-            }
-            else
-            {
-                strTag.append(",\(str.title)")
-            }
-            
         }
         
         let formatter = DateFormatter()
@@ -237,6 +226,32 @@ class AddPromotionViewController: BaseViewController {
         }
         
 
+    }
+    @IBAction func btnWebSiteClicked(_ sender: UIButton) {
+        sender.backgroundColor = THEME_COLOR
+        sender.setTitleColor(UIColor.white, for: .normal)
+        btnEmail.backgroundColor = UIColor.white
+        btnEmail.setTitleColor(THEME_COLOR, for: .normal)
+        btnSocialMedia.backgroundColor = UIColor.white
+        btnSocialMedia.setTitleColor(THEME_COLOR, for: .normal)
+    }
+    @IBAction func btnSocialMediaClicked(_ sender: UIButton) {
+        sender.backgroundColor = THEME_COLOR
+        sender.setTitleColor(UIColor.white, for: .normal)
+        btnEmail.backgroundColor = UIColor.white
+        btnEmail.setTitleColor(THEME_COLOR, for: .normal)
+        btnWebSite.backgroundColor = UIColor.white
+        btnWebSite.setTitleColor(THEME_COLOR, for: .normal)
+    }
+    
+    @IBAction func btnEmailClicked(_ sender: UIButton) {
+        sender.backgroundColor = THEME_COLOR
+        sender.setTitleColor(UIColor.white, for: .normal)
+        btnWebSite.backgroundColor = UIColor.white
+        btnWebSite.setTitleColor(THEME_COLOR, for: .normal)
+        btnSocialMedia.backgroundColor = UIColor.white
+        btnSocialMedia.setTitleColor(THEME_COLOR, for: .normal)
+        
     }
 
     override func didReceiveMemoryWarning() {

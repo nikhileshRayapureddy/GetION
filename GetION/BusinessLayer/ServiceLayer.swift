@@ -1569,9 +1569,128 @@ class ServiceLayer: NSObject {
             {
                 if let postid = obj.parsedDataDict["postid"] as? String
                 {
+                    let blog = obj.parsedDataDict
+
                     if postid != ""
                     {
-                        successMessage("Success")
+                        let bo = BlogBO()
+                        if let postid = blog!["postid"] as? String
+                        {
+                            bo.postId = postid
+                        }
+                        if let title = blog!["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let textplain = blog!["textplain"] as? String
+                        {
+                            bo.textplain = textplain
+                        }
+                        if let image = blog!["image"] as? [String:AnyObject]
+                        {
+                            if let url = image["url"] as? String
+                            {
+                                bo.imageURL = url
+                            }
+                        }
+                        if let created_date = blog!["created_date"] as? String
+                        {
+                            bo.created_date = created_date
+                        }
+                        if let created_date_elapsed = blog!["created_date_elapsed"] as? String
+                        {
+                            bo.created_date_elapsed = created_date_elapsed
+                        }
+                        if let updated_date = blog!["updated_date"] as? String
+                        {
+                            bo.updated_date = updated_date
+                        }
+                        if let author = blog!["author"] as? [String:AnyObject]
+                        {
+                            if let name = author["name"] as? String
+                            {
+                                bo.authorName = name
+                            }
+                            if let email = author["email"] as? String
+                            {
+                                bo.authorEmail = email
+                            }
+                            if let photo = author["photo"] as? String
+                            {
+                                bo.authorPhoto = photo
+                            }
+                            if let website = author["website"] as? String
+                            {
+                                bo.authorWebsite = website
+                            }
+                            if let bio = author["bio"] as? String
+                            {
+                                bo.authorBio = bio
+                            }
+                        }
+                        if let comments = blog!["comments"] as? String
+                        {
+                            bo.comments = comments
+                        }
+                        if let url = blog!["url"] as? String
+                        {
+                            bo.url = url
+                        }
+                        if let tags = blog!["tags"] as? [[String:AnyObject]]
+                        {
+                            bo.tags = tags as [AnyObject]
+                        }
+                        if let rating = blog!["rating"] as? String
+                        {
+                            bo.rating = rating
+                        }
+                        if let rate = blog!["rate"] as? [String:AnyObject]
+                        {
+                            if let ratings = rate["ratings"] as? NSNumber
+                            {
+                                bo.ratings = Int(truncating: ratings)
+                            }
+                            if let total = rate["total"] as? String
+                            {
+                                bo.ratingTotal = total
+                            }
+                        }
+                        if let category = blog!["category"] as? [String:AnyObject]
+                        {
+                            if let categoryid = category["categoryid"] as? String
+                            {
+                                bo.categoryId = categoryid
+                            }
+                            if let title = category["title"] as? String
+                            {
+                                bo.categoryTitle = title
+                            }
+                            if let description = category["description"] as? String
+                            {
+                                bo.categoryDescription = description
+                            }
+                            if let created_date = category["created_date"] as? String
+                            {
+                                bo.categoryCreated_date = created_date
+                            }
+                            if let updated_date = category["updated_date"] as? String
+                            {
+                                bo.categoryUpdated_date = updated_date
+                            }
+                            if let scope = category["scope"] as? String
+                            {
+                                bo.categoryScope = scope
+                            }
+                        }
+                        if let permalink = blog!["permalink"] as? String
+                        {
+                            bo.permalink = permalink
+                        }
+                        if let modified_date = blog!["modified_date"] as? String
+                        {
+                            bo.modified_date = modified_date
+                        }
+                        successMessage(bo)
                     }
                     else
                     {
