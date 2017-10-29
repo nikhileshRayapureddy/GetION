@@ -457,7 +457,7 @@ What would you like to start today?</string>
         <image name="Blog" width="34" height="46"/>
         <image name="addVisit" width="39" height="38"/>
         <image name="arr" width="29" height="12"/>
-        <image name="close" width="127" height="124"/>
+        <image name="close" width="75" height="69"/>
         <image name="megaphone" width="44" height="39"/>
     </resources>
 </document>

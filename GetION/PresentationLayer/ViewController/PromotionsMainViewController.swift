@@ -19,13 +19,12 @@ class PromotionsMainViewController: BaseViewController {
     var arrBlogs = [BlogBO]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
+        self.designNavigationBarWithBackAnd(strTitle: "Promotions")
         clVwPromo.register(UINib(nibName: "PromoCustomCell", bundle: nil), forCellWithReuseIdentifier: "PromoCustomCell")
-        
             app_delegate.showLoader(message: "Loading Promotions...")
-            
+        
             let layer = ServiceLayer()
-        layer.getIonizedBlogsWith(successMessage: { (response) in
+            layer.getIonizedBlogsWith(successMessage: { (response) in
             self.arrBlogs = response as! [BlogBO]
             layer.getAllPromotionsWith(parentId: "87", successMessage: { (reponse) in
                 
@@ -79,11 +78,13 @@ class PromotionsMainViewController: BaseViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        
-            
-        // Do any additional setup after loading the view.
     }
-
+    override func btnBackClicked(sender: UIButton) {
+        let homeViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        navController = UINavigationController(rootViewController: homeViewController)
+        self.sideMenuViewController!.setContentViewController(navController!, animated: true)
+        self.sideMenuViewController!.hideMenuViewController()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

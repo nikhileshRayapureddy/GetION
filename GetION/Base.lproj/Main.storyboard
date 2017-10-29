@@ -1835,7 +1835,7 @@ Please enter your Email-Id below :</string>
                                     <outlet property="delegate" destination="lg4-cH-cPL" id="MXj-Rl-V52"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
                                 <rect key="frame" x="278" y="270" width="89" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1843,7 +1843,7 @@ Please enter your Email-Id below :</string>
                                     <constraint firstAttribute="height" constant="40" id="guF-Lx-vig"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
-                                <state key="normal" title="View more &gt;"/>
+                                <state key="normal" title="View more  " image="viewall_arrow"/>
                                 <connections>
                                     <action selector="btnViewMoreClicked:" destination="lg4-cH-cPL" eventType="touchUpInside" id="0ca-AN-yNt"/>
                                 </connections>
@@ -1906,13 +1906,13 @@ Please enter your Email-Id below :</string>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCz-vW-guM">
-                                                            <rect key="frame" x="312" y="8" width="35" height="35"/>
+                                                            <rect key="frame" x="307" y="8" width="40" height="40"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="35" id="SK1-YE-VN7"/>
-                                                                <constraint firstAttribute="height" constant="35" id="mTN-4w-MrT"/>
+                                                                <constraint firstAttribute="width" constant="40" id="SK1-YE-VN7"/>
+                                                                <constraint firstAttribute="height" constant="40" id="mTN-4w-MrT"/>
                                                             </constraints>
-                                                            <state key="normal" image="arr">
+                                                            <state key="normal" image="download">
                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
@@ -4658,12 +4658,13 @@ Please enter your Email-Id below :</string>
         <image name="Publish_UnSelected" width="19" height="25"/>
         <image name="Queries_UnSelected" width="26" height="27"/>
         <image name="Visit_UnSelected" width="26" height="26"/>
-        <image name="arr" width="29" height="12"/>
         <image name="background" width="414" height="736"/>
         <image name="dotsImage" width="25" height="25"/>
+        <image name="download" width="39" height="39"/>
         <image name="logo" width="224" height="130"/>
         <image name="menuBg2X" width="781" height="545"/>
         <image name="password" width="20" height="20"/>
         <image name="user" width="20" height="20"/>
+        <image name="viewall_arrow" width="5" height="9"/>
     </resources>
 </document>
