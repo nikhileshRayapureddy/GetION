@@ -123,7 +123,7 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         btnPatient.addTarget(self, action: #selector(self.btnPatientClicked(sender:)), for: UIControlEvents.touchUpInside)
         let rightBarButtonItem3: UIBarButtonItem = UIBarButtonItem(customView: btnPatient)
         
-        self.navigationItem.rightBarButtonItems = [negativeSpacer,rightBarButtonItem2, rightBarButtonItem]
+        self.navigationItem.rightBarButtonItems = [negativeSpacer,rightBarButtonItem3,rightBarButtonItem2]
         
         let btnBack = UIButton(type: UIButtonType.custom)
         btnBack.frame = CGRect(x: 0, y: 0  , width: 200 , height: 30)
