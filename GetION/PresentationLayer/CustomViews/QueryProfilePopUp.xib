@@ -115,10 +115,13 @@
                         <constraint firstAttribute="height" constant="300" id="O4Q-Ul-zsX"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-4v-XNF">
-                    <rect key="frame" x="164" y="454" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="X">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-4v-XNF">
+                    <rect key="frame" x="158" y="440" width="59" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="Yoj-56-xqQ"/>
+                        <constraint firstAttribute="width" constant="59" id="swa-oy-Ma4"/>
+                    </constraints>
+                    <state key="normal" image="popup_close">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -128,11 +131,13 @@
                 <constraint firstItem="hOo-3b-Onb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="8HF-CX-JZn"/>
                 <constraint firstItem="jXB-ZE-Y8L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ANW-f1-rr8"/>
                 <constraint firstItem="hOo-3b-Onb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FTq-wZ-PAu"/>
+                <constraint firstItem="UU5-4v-XNF" firstAttribute="top" secondItem="jXB-ZE-Y8L" secondAttribute="bottom" constant="20" id="NSD-IH-kEN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hOo-3b-Onb" secondAttribute="bottom" id="Tbf-J6-hl9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jXB-ZE-Y8L" secondAttribute="trailing" constant="30" id="VPY-r8-POu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hOo-3b-Onb" secondAttribute="trailing" id="XQV-LZ-w3g"/>
                 <constraint firstItem="jXB-ZE-Y8L" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="hT5-SY-H9b"/>
                 <constraint firstItem="jXB-ZE-Y8L" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="yYq-qZ-gaT"/>
+                <constraint firstItem="UU5-4v-XNF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ykW-ma-WY3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
@@ -143,4 +148,7 @@
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="popup_close" width="59" height="59"/>
+    </resources>
 </document>

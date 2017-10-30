@@ -284,6 +284,8 @@ class QueriesViewController: BaseViewController {
     @objc func btnReplyClicked(_ sender: UIButton)
     {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+        let queryBO = arrQueries[sender.tag-500]
+        vc.queryBO = queryBO
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -311,6 +313,7 @@ extension QueriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.lblNameWidthConstraint.constant = (cell.lblName.text?.width(withConstraintedHeight: cell.lblName.frame.size.height, font: UIFont.systemFont(ofSize: 17)))! + 5
         cell.btnQuickReply.tag = indexPath.row + 100
         cell.btnQuickReply.addTarget(self, action: #selector(btnQuickReplyClikced(_:)), for: .touchUpInside)
+        cell.btnReply.tag = indexPath.row + 500
         cell.btnReply.addTarget(self, action: #selector(btnReplyClicked(_:)), for: .touchUpInside)
         cell.viewBackground.layer.cornerRadius = 10.0
         cell.viewBackground.clipsToBounds = true
