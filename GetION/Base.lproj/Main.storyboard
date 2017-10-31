@@ -2220,7 +2220,7 @@ Please enter your Email-Id below :</string>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun Singh  " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-zR-DPs">
-                                                            <rect key="frame" x="25" y="15" width="109.5" height="30"/>
+                                                            <rect key="frame" x="25" y="15" width="119" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="eY1-v4-P5a"/>
                                                             </constraints>
@@ -2229,7 +2229,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Male" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-cB-5My">
-                                                            <rect key="frame" x="135.5" y="18" width="41" height="23"/>
+                                                            <rect key="frame" x="145" y="18" width="41" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="9fC-cy-CO2"/>
                                                                 <constraint firstAttribute="width" constant="41" id="TSJ-Zh-gZA"/>
