@@ -30,8 +30,8 @@ class QueryReplyViewController: BaseViewController {
     var vwGalleryView : GallaryView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        designNavigationBar()
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 51.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+        let strTitle = "\(queryBO.poster_name),\(queryBO.age),\(queryBO.gender)"
+        self.designQueriesNavigationBarWith(strTitle: strTitle)
         getQueryDetails()
         lblMessage.text = queryBO.content
         constrtImgVwHeight.constant = 0
