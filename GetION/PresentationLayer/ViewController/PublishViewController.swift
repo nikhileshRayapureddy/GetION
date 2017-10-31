@@ -15,7 +15,6 @@ class PublishViewController: BaseViewController {
     @IBOutlet weak var btnOnline: UIButton!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var selectedImageView: UIImageView!
-    @IBOutlet weak var selectedImageLeadingConstraint: NSLayoutConstraint!
     
     var selectedIndex = 1
     override func viewDidLoad() {
@@ -63,6 +62,7 @@ class PublishViewController: BaseViewController {
         selectedIndex = 1
         btnDrafts.setTitleColor(UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0), for: .normal)
         UIView.animate(withDuration: 0.3) {
+            self.selectedImageView.backgroundColor = UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0)
             self.selectedImageView.frame = CGRect(x: 0, y: sender.frame.size.height - 2, width:((ScreenWidth - 10)/3), height: 2.0)
         }
         tblView.reloadData()
@@ -70,8 +70,9 @@ class PublishViewController: BaseViewController {
     @IBAction func btnPublishedClicked(_ sender: UIButton) {
         resetTopButtons()
         selectedIndex = 2
-        btnPublished.setTitleColor(UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0), for: .normal)
+        btnPublished.setTitleColor(UIColor.init(red: 0/255.0, green: 211.0/255.0, blue: 208.0/255.0, alpha: 1.0), for: .normal)
         UIView.animate(withDuration: 0.3) {
+            self.selectedImageView.backgroundColor = UIColor.init(red: 0/255.0, green: 211.0/255.0, blue: 208.0/255.0, alpha: 1.0)
             self.selectedImageView.frame = CGRect(x: ((ScreenWidth - 10)/3), y: sender.frame.size.height - 2, width:((ScreenWidth - 10)/3), height: 2.0)
         }
         tblView.reloadData()
@@ -81,6 +82,7 @@ class PublishViewController: BaseViewController {
         selectedIndex = 3
         btnOnline.setTitleColor(UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0), for: .normal)
         UIView.animate(withDuration: 0.3) {
+            self.selectedImageView.backgroundColor = UIColor.black
             self.selectedImageView.frame = CGRect(x: ((ScreenWidth - 10)/3) * 2, y: sender.frame.size.height - 2, width:((ScreenWidth - 10)/3), height: 2.0)
         }
     }

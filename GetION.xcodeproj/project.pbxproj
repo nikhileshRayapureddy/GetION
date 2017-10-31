@@ -110,6 +110,7 @@
 		CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */; };
 		CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */; };
 		CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */; };
+		CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +223,7 @@
 		CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsCustomCell.swift; sourceTree = "<group>"; };
 		CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCustomCell.swift; sourceTree = "<group>"; };
 		CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineCustomCell.swift; sourceTree = "<group>"; };
+		CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailsViewController.swift; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -497,6 +499,7 @@
 				A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */,
 				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
 				A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */,
+				CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
+				CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */,
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
