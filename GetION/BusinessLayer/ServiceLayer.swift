@@ -2341,6 +2341,40 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    public func congratulateFeedWith(Id: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?action=post&module=feeds&resource=feedaction&userid=\(GetIONUserDefaults.getUserId())&feed_id=\(Id)&feedaction=Congratulate"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    
+                    if code == "ok"
+                    {
+                        print(obj.parsedDataDict)
+                        successMessage(obj.parsedDataDict)
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
 
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {

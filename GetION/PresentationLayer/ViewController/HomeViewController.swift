@@ -276,6 +276,44 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+            let bo = arrFeeds[indexPath.row]
+            if bo.action == "Reply"
+            {
+            }
+            else if bo.action == "Congratulated"
+            {
+            }
+            else if bo.action == "View"
+            {
+            }
+            else
+            {
+                app_delegate.showLoader(message:"Fetching data....")
+                let layer = ServiceLayer()
+                layer.congratulateFeedWith(Id: bo.id as String,
+                                   successMessage: { (success) in
+                                    let bo = success as! Dictionary<String, AnyObject>
+                                    DispatchQueue.main.async {
+                                        app_delegate.removeloder()
+                                        let message: String = bo["description"] as! String
+                                        let alert = UIAlertController(title: "Alert!", message:
+                                            message, preferredStyle: UIAlertControllerStyle.alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style:
+                                            .default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                }) { (failure) in
+                    DispatchQueue.main.async {
+                        app_delegate.removeloder()
+                        let alert = UIAlertController(title: "Alert!", message:
+                            "Unable to Congratulate.", preferredStyle:
+                            UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style:
+                            .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+        }
     }
     
 }
