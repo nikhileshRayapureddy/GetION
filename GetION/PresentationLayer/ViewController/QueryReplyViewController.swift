@@ -28,6 +28,8 @@ class QueryReplyViewController: BaseViewController {
     var isQueryTemplate = false
     var strMessage = ""
     var vwGalleryView : GallaryView!
+    
+    var profilePopUp: QueryProfilePopUp!
     override func viewDidLoad() {
         super.viewDidLoad()
         let strTitle = "\(queryBO.poster_name),\(queryBO.age),\(queryBO.gender)"
@@ -85,6 +87,17 @@ class QueryReplyViewController: BaseViewController {
             strPrivate = "1"
         }
 
+    }
+    
+    override func btnPatientClicked(sender: UIButton) {
+        if let profilePop = Bundle.main.loadNibNamed("QueryProfilePopUp", owner: nil, options: nil)![0] as? QueryProfilePopUp
+        {
+            profilePop.frame = self.view.bounds
+            profilePop.resizeViews()
+            profilePop.delegate = self
+            profilePopUp = profilePop
+            self.view.addSubview(profilePop)
+        }
     }
     
     @IBAction func btnAddToQuickReplyCheckboxClicked(_ sender: UIButton) {
@@ -604,4 +617,28 @@ extension QueryReplyViewController : GallaryView_Delegate
     }
     
     
+}
+
+extension QueryReplyViewController: QueryProfilePopUp_Delegate
+{
+    func closeProfilePopUp() {
+        profilePopUp.removeFromSuperview()
+    }
+    
+    func smsButtonClicked() {
+        if let url = URL(string: "sms:9542121331") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)            
+        }
+    }
+    
+    func callButtonClicked() {
+        let phoneNumber = "+919542121331"
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
 }
