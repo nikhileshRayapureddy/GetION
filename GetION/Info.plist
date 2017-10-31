@@ -25,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This app will use camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Get photos from library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Myriad_Pro_Bold.ttf</string>
@@ -32,8 +36,6 @@
 		<string>Myriad_Pro_Regular.ttf</string>
 		<string>Quicksand-Bold.ttf</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,9 +53,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>This app will use camera.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Get photos from library</string>
 </dict>
 </plist>
