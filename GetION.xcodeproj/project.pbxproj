@@ -110,6 +110,10 @@
 		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
 		CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */; };
 		CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */; };
+		CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */; };
+		CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */; };
+		CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */; };
+		CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +226,10 @@
 		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
 		CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQueryPopUpView.swift; sourceTree = "<group>"; };
 		CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQueryPopUpView.xib; sourceTree = "<group>"; };
+		CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsCustomCell.swift; sourceTree = "<group>"; };
+		CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCustomCell.swift; sourceTree = "<group>"; };
+		CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineCustomCell.swift; sourceTree = "<group>"; };
+		CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailsViewController.swift; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +272,9 @@
 				A7EAF6BA1F9E727800CB6622 /* PromoCustomCell.xib */,
 				A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */,
 				A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */,
+				CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */,
+				CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */,
+				CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -497,6 +508,7 @@
 				A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */,
 				A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */,
 				A759B0E01FA8E70E00A8CC26 /* SMSViewController.swift */,
+				CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -718,6 +730,7 @@
 				A7F7D4651F8FB31E00FA108F /* ContentViewController.swift in Sources */,
 				A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */,
 				A71FFEF71F91E6610082BAF8 /* IQUIWindow+Hierarchy.swift in Sources */,
+				CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */,
 				CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
@@ -732,6 +745,7 @@
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
+				CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
@@ -769,8 +783,10 @@
 				CCB0E2B61F964949004DD3A8 /* ToMessageCustomCell.swift in Sources */,
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
 				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
+				CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
+				CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */,
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
