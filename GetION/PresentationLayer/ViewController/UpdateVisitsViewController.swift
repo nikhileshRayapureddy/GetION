@@ -253,29 +253,16 @@ class UpdateVisitsViewController: BaseViewController
     {
          let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
         self.navigationController?.pushViewController(smsVC, animated: true)
-
     }
+    
     @IBAction func btnOSMessageAction(_ sender: UIButton)
     {
           let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
         self.navigationController?.pushViewController(smsVC, animated: true)
-
     }
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
     {
         self.setEditablesWithBool(isEditiable: true)
-
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
