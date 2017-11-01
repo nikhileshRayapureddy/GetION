@@ -100,6 +100,9 @@
 		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
 		CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */; };
 		CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */; };
+		CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */; };
+		CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */; };
+		CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */; };
 		CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */; };
 		CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */; };
 		CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */; };
@@ -220,6 +223,9 @@
 		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
 		CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyTemplateEditPopUp.swift; sourceTree = "<group>"; };
 		CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyTemplateEditPopUp.xib; sourceTree = "<group>"; };
+		CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopUp.swift; sourceTree = "<group>"; };
+		CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesPopUp.xib; sourceTree = "<group>"; };
+		CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBO.swift; sourceTree = "<group>"; };
 		CCB0E2AB1F964883004DD3A8 /* QuickReplyPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyPopUp.xib; sourceTree = "<group>"; };
 		CCB0E2AC1F964883004DD3A8 /* QuickReplyPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyPopUp.swift; sourceTree = "<group>"; };
 		CCB0E2AF1F964905004DD3A8 /* QueriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueriesCustomCell.swift; sourceTree = "<group>"; };
@@ -411,6 +417,7 @@
 				A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */,
 				A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */,
 				A73F00621FAA06C200824BC8 /* LeadsBO.swift */,
+				CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -565,6 +572,8 @@
 				CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */,
 				A7D289601FA60E6C005E7CC3 /* PromoSuccessCustomView.swift */,
 				A7D289621FA60E76005E7CC3 /* PromoSuccessCustomView.xib */,
+				CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */,
+				CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -643,6 +652,7 @@
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
 				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
+				CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
 				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
@@ -755,6 +765,7 @@
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */,
+				CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */,
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
@@ -811,6 +822,7 @@
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
 				A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */,
 				CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */,
+				CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
