@@ -59,6 +59,8 @@ class VisitsViewController: BaseViewController {
         }
     }
     
+    @IBAction func btnBlockAction(_ sender: UIButton) {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,6 +156,9 @@ extension VisitsViewController : SwipeTableViewCellDelegate
         }
         let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
             // handle action by updating model with deletion
+            
+            let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            self.navigationController?.pushViewController(smsVC, animated: true)
         }
         let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
             // handle action by updating model with deletion
