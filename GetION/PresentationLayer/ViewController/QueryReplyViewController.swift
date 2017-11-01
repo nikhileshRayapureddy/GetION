@@ -92,6 +92,7 @@ class QueryReplyViewController: BaseViewController {
     override func btnPatientClicked(sender: UIButton) {
         if let profilePop = Bundle.main.loadNibNamed("QueryProfilePopUp", owner: nil, options: nil)![0] as? QueryProfilePopUp
         {
+            profilePop.queryBO = queryBO
             profilePop.frame = self.view.bounds
             profilePop.resizeViews()
             profilePop.delegate = self
