@@ -1387,7 +1387,7 @@ class ServiceLayer: NSObject {
         }
     }
     
-    public func addVisit(DocID:String, name:String, email:String, phone:String, startdate:String, enddate:String, starttime:String, endtime:String, bookingDeposit:String, bookingTotal:String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    public func addVisit(DocID:String, name:String, email:String, phone:String, startdate:String, enddate:String, starttime:String, endtime:String, bookingDeposit:String, bookingTotal:String, Udfvalues : String, imageUrl : String,  successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         
      //  http://www.staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=insertBooking&res_id=8&ce_id=74353&name=Nikhilesh Naga&email=naga.nikhil65@gmail.com&phone=9542121331&startdate=2017-10-27&starttime=08:00:00&enddate=2017-05-06&endtime=08:15:00&booked_seats=1&comment=&coupon_used=&credit_used=0&booking_deposit=2&booking_total=250&request_status=accepted&fa=No&user_id=180
@@ -1395,7 +1395,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Vists.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=insertBooking&res_id=\(DocID)&ce_id=74353&name=\(name)&email=\(email)&phone=\(phone)&startdate=\(startdate)&starttime=\(starttime)&enddate=\(enddate)&endtime=\(endtime)&booked_seats=1&comment=&coupon_used=&credit_used=0&booking_deposit=\(bookingDeposit)&booking_total=\(bookingTotal)&request_status=accepted&fa=No&user_id=\(GetIONUserDefaults.getUserId())"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=insertBooking&res_id=\(DocID)&ce_id=74353&name=\(name)&email=\(email)&phone=\(phone)&startdate=\(startdate)&starttime=\(starttime)&enddate=\(enddate)&endtime=\(endtime)&booked_seats=1&comment=&coupon_used=&credit_used=0&booking_deposit=\(bookingDeposit)&booking_total=\(bookingTotal)&request_status=accepted&fa=No&user_id=\(GetIONUserDefaults.getUserId())&image=\(imageUrl)&udf_values_info=\(Udfvalues)"
         
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in

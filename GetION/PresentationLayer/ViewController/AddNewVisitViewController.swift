@@ -83,13 +83,18 @@ class AddNewVisitViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        
+        imgProfile.layer.cornerRadius =  imgProfile.bounds.width/2
         for subView in self.vwMain.subviews
         {
-            if subView.bounds.height > 50 && subView.bounds.height < 90
+            if subView.bounds.height > 50 && subView.bounds.height < 86
             {
-                subView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-                subView.layer.borderWidth = 0.6
-                subView.layer.cornerRadius = 8
+                if !(subView is UITextView)
+                {
+                    subView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+                    subView.layer.borderWidth = 0.6
+                    subView.layer.cornerRadius = 8
+                }
             }
             
         }
@@ -320,8 +325,36 @@ class AddNewVisitViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
+        
+        // Declare
+        let dayofbirth = self.txtDOB.text
+        var Gender = ""
+        let patAge = ""
+        var udf = ""
+
+        if btnMale.isSelected == true
+        {
+            Gender = "Male"
+        }
+        else
+        {
+            Gender = "Female"
+        }
+        
+        if(Gender != ""){
+            udf = "\(udf)2;\(Gender)~"
+        }
+        if(dayofbirth != ""){
+            udf = "\(udf)3;\(String(describing: dayofbirth))~"
+        }
+        if(patAge != ""){
+            udf = "\(udf)4;\(patAge)~"
+        }
+
+
+
         let layer = ServiceLayer()
-        layer.addVisit(DocID: selectedDoc.id_resources, name: txtFirstName.text! + " " + txtLastName.text! , email: txtEmail.text!, phone: txtPhone.text!, startdate: dateFormatter.string(from: selectedDate), enddate: dateFormatter.string(from: selectedDate), starttime: selectedTimeSlot.timeslot_starttime, endtime: selectedTimeSlot.timeslot_endtime, bookingDeposit: txtAmountPaid.text!, bookingTotal: selectedDoc.rate, successMessage: { (response) in
+        layer.addVisit(DocID: selectedDoc.id_resources, name: txtFirstName.text! + " " + txtLastName.text! , email: txtEmail.text!, phone: txtPhone.text!, startdate: dateFormatter.string(from: selectedDate), enddate: dateFormatter.string(from: selectedDate), starttime: selectedTimeSlot.timeslot_starttime, endtime: selectedTimeSlot.timeslot_endtime, bookingDeposit: txtAmountPaid.text!, bookingTotal: selectedDoc.rate, Udfvalues: udf, imageUrl: self.selectedProfilePicUrl, successMessage: { (response) in
             
             app_delegate.removeloder()
             
