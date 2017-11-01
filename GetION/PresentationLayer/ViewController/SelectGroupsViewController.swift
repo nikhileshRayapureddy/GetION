@@ -20,7 +20,6 @@ class SelectGroupsViewController: UIViewController {
     @IBOutlet weak var groupLayout: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var isfromUpdateVisits = false
     var tokenString = [String]()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -98,25 +97,24 @@ class SelectGroupsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool)
     {
         arrSelectedGroups.removeAll()
-        if isfromUpdateVisits == true
+        
+        for selectedTag in tokenString
         {
-            for selectedTag in tokenString
-            {
-                let arrTmp = item.filter({ (objTag) -> Bool in
-                    if objTag.title == selectedTag
-                    {
-                        return true
-                    }
-                    return false
-                })
-                
-                if arrTmp.count > 0
+            let arrTmp = item.filter({ (objTag) -> Bool in
+                if objTag.title == selectedTag
                 {
-                    arrSelectedGroups.append(arrTmp[0])
+                    return true
                 }
-                
+                return false
+            })
+            
+            if arrTmp.count > 0
+            {
+                arrSelectedGroups.append(arrTmp[0])
             }
+            
         }
+        
     }
     
 

@@ -149,13 +149,13 @@ extension VisitsViewController : SwipeTableViewCellDelegate
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let callAction = SwipeAction(style: .default, title: "Call") { action, indexPath in
+        let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
             // handle action by updating model with deletion
         }
-        let smsAction = SwipeAction(style: .default, title: "Sms") { action, indexPath in
+        let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
             // handle action by updating model with deletion
         }
-        let deleteAction = SwipeAction(style: .default, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
             // handle action by updating model with deletion
             // Update model
             
@@ -191,13 +191,13 @@ extension VisitsViewController : SwipeTableViewCellDelegate
         }
         
         // customize the action appearance
-        callAction.image = #imageLiteral(resourceName: "Visit_UnSelected")
+        callAction.image = #imageLiteral(resourceName: "call")
         callAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
-        smsAction.image = #imageLiteral(resourceName: "Publish_UnSelected")
+        smsAction.image = #imageLiteral(resourceName: "sms")
         smsAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
-        deleteAction.image = #imageLiteral(resourceName: "HomeIcon_Unselected")
+        deleteAction.image = #imageLiteral(resourceName: "delete")
         deleteAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
         return [deleteAction, smsAction, callAction]

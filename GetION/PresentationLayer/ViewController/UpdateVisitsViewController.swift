@@ -77,7 +77,10 @@ class UpdateVisitsViewController: BaseViewController
         arrGroupItems = arrSelectedGroups
         self.setGroups()
     }
-
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        arrSelectedGroups.removeAll()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -239,7 +242,6 @@ class UpdateVisitsViewController: BaseViewController
                 groupVC.tokenString.append(selectedTag.title)
             }
             groupVC.item = arrSuggestions
-            groupVC.isfromUpdateVisits = true
             self.navigationController?.pushViewController(groupVC, animated: true)
         }
     }
@@ -247,9 +249,17 @@ class UpdateVisitsViewController: BaseViewController
     @IBAction func btnCallAction(_ sender: UIButton) {
     }
     
-    @IBAction func btnServerMessageAction(_ sender: UIButton) {
+    @IBAction func btnServerMessageAction(_ sender: UIButton)
+    {
+         let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        self.navigationController?.pushViewController(smsVC, animated: true)
+
     }
-    @IBAction func btnOSMessageAction(_ sender: UIButton) {
+    @IBAction func btnOSMessageAction(_ sender: UIButton)
+    {
+          let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        self.navigationController?.pushViewController(smsVC, animated: true)
+
     }
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
