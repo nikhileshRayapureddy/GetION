@@ -41,6 +41,9 @@
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
+		A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */; };
+		A73F00611FAA015B00824BC8 /* LeadMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */; };
+		A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00621FAA06C200824BC8 /* LeadsBO.swift */; };
 		A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1311FA2008200963FBB /* TagSuggestionBO.swift */; };
 		A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A759B0DC1FA8DD6F00A8CC26 /* FloatLabelTextField.swift */; };
 		A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A759B0DD1FA8DD6F00A8CC26 /* FloatLabelTextView.swift */; };
@@ -155,6 +158,9 @@
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
 		A73117801FA4C52200CC9628 /* Publish+CoreDataClass copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		A73117811FA4C52200CC9628 /* Publish+CoreDataProperties copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
+		A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsMainViewController.swift; sourceTree = "<group>"; };
+		A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadMainTableViewCell.swift; sourceTree = "<group>"; };
+		A73F00621FAA06C200824BC8 /* LeadsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsBO.swift; sourceTree = "<group>"; };
 		A741E1311FA2008200963FBB /* TagSuggestionBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionBO.swift; sourceTree = "<group>"; };
 		A741E13D1FA209FC00963FBB /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
 		A741E13E1FA209FC00963FBB /* KSTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 				CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */,
 				CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */,
 				CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */,
+				A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -401,6 +408,7 @@
 				A7D586171FA4A1F000B1BD4A /* CatagoryBO.swift */,
 				A7D586191FA4B16600B1BD4A /* DoctorDetailBO.swift */,
 				A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */,
+				A73F00621FAA06C200824BC8 /* LeadsBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +517,7 @@
 				A7D586151FA4880D00B1BD4A /* SelectGroupsViewController.swift */,
 				A759B0E01FA8E70E00A8CC26 /* SMSViewController.swift */,
 				CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */,
+				A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */,
 				A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */,
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
 				A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
@@ -789,9 +799,11 @@
 				CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */,
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
+				A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
+				A73F00611FAA015B00824BC8 /* LeadMainTableViewCell.swift in Sources */,
 				A71FFEF31F91E6610082BAF8 /* IQUIScrollView+Additions.swift in Sources */,
 				A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */,
 				CC2519BC1F9F7678007A6F30 /* QuickReplyBO.swift in Sources */,
