@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GetION/PresentationLayer/ViewController/AddNewVisitViewController.swift"
-            timestampString = "531251183.540029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "checkAllFields()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GetION/PresentationLayer/ViewController/SelectGroupsViewController.swift"
             timestampString = "531171523.260021"
             startingColumnNumber = "9223372036854775807"
@@ -42,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GetION/PresentationLayer/ViewController/AddNewVisitViewController.swift"
-            timestampString = "531251268.784213"
+            timestampString = "531255903.317641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "checkAllFields()"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GetION/BusinessLayer/ServiceLayer.swift"
-            timestampString = "531252061.581952"
+            filePath = "GetION/PresentationLayer/ViewController/AddNewVisitViewController.swift"
+            timestampString = "531255903.318821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1395"
-            endingLineNumber = "1395"
-            landmarkName = "addVisit(DocID:name:email:phone:startdate:enddate:starttime:endtime:bookingDeposit:bookingTotal:Udfvalues:imageUrl:successMessage:failureMessage:)"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "checkAllFields()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

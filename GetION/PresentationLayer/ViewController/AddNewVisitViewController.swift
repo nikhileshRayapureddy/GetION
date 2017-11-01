@@ -84,7 +84,6 @@ class AddNewVisitViewController: BaseViewController {
         super.viewDidLoad()
         picker.delegate = self
         
-        imgProfile.layer.cornerRadius =  imgProfile.bounds.width/2
         for subView in self.vwMain.subviews
         {
             if subView.bounds.height > 50 && subView.bounds.height < 86
@@ -122,7 +121,7 @@ class AddNewVisitViewController: BaseViewController {
     
     func getCat()
     {
-        app_delegate.showLoader(message: "Authenticating...")
+        app_delegate.showLoader(message: "Loading...")
         let layer = ServiceLayer()
         layer.getCatagoryForVisitsWithCatID(CatID: GetIONUserDefaults.getCatID(), username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
              DispatchQueue.main.async {
@@ -140,7 +139,7 @@ class AddNewVisitViewController: BaseViewController {
     func getDocs()
     {
 
-        app_delegate.showLoader(message: "Authenticating...")
+        app_delegate.showLoader(message: "Loading...")
         let layer = ServiceLayer()
         layer.getDoctorsWithSelectedCatID(CatID: "40", username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
             
@@ -159,12 +158,41 @@ class AddNewVisitViewController: BaseViewController {
     
     func getTimeSlots(date : String)
     {
-        app_delegate.showLoader(message: "Authenticating...")
+        app_delegate.showLoader(message: "Loading...")
         let layer = ServiceLayer()
         layer.getTimeSlotsWithSelectedDocAndDate(DocID: selectedDoc.id_resources,Date:date , username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
              DispatchQueue.main.async {
+                
+                var arrTmpSlots = response as! [TimeSlotsBO]
+               
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let strCurrentDate = dateFormatter.string(from: Date())
+                
+                if dateFormatter.date(from: strCurrentDate)?.compare(dateFormatter.date(from: date)!) == .orderedSame
+                {
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let tmpTime = dateFormatter.string(from: Date())
+                   let currentTime = dateFormatter.date(from: tmpTime)
+                    
+                    arrTmpSlots = arrTmpSlots.filter({ (objTimeSlots) -> Bool in
+                        
+                        let tmpCheckTime = strCurrentDate + " " + objTimeSlots.timeslot_starttime
+                        let checkTime = dateFormatter.date(from: tmpCheckTime)
+                        
+                        if checkTime?.compare(currentTime!) == .orderedDescending
+                        {
+                            return true
+                        }
+                        return false
+                    })
+                    
+                    
+                }
+                
             self.arrTimeSlots.removeAll()
-            self.arrTimeSlots.append(contentsOf: response as! [TimeSlotsBO])
+            self.arrTimeSlots.append(contentsOf: arrTmpSlots)
             self.txtSelectTime.becomeFirstResponder()
             app_delegate.removeloder()
             }
@@ -268,6 +296,19 @@ class AddNewVisitViewController: BaseViewController {
     @IBAction func btnCancelAction(_ sender: UIButton) {
     }
     
+    func validateUserEmail(emailAdd : String) -> Bool
+    {
+        let emailRegex : String = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest =  NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: emailAdd)
+    }
+    
+    func validateUserMobile(phoneNum :String) -> Bool
+    {
+        let phoneRegex : String = "[0-9]{6,10}$"
+        let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: phoneNum)
+    }
     
     func checkAllFields()
     {
@@ -311,7 +352,7 @@ class AddNewVisitViewController: BaseViewController {
         {
             return
         }
-        else if txtEmail.text == ""
+        else if txtEmail.text! == "" || !self.validateUserEmail(emailAdd: txtEmail.text!)
         {
             return
         }
@@ -327,7 +368,9 @@ class AddNewVisitViewController: BaseViewController {
         
         
         // Declare
-        let dayofbirth = self.txtDOB.text
+        var dayofbirth = ""
+        let tmpDate = dateFormatter.date(from: self.txtDOB.text!)
+        dayofbirth = dateFormatter.string(from: tmpDate!)
         var Gender = ""
         let patAge = ""
         var udf = ""
@@ -345,7 +388,7 @@ class AddNewVisitViewController: BaseViewController {
             udf = "\(udf)2;\(Gender)~"
         }
         if(dayofbirth != ""){
-            udf = "\(udf)3;\(String(describing: dayofbirth))~"
+            udf = "\(udf)3;\(dayofbirth)~"
         }
         if(patAge != ""){
             udf = "\(udf)4;\(patAge)~"
@@ -570,6 +613,7 @@ extension AddNewVisitViewController : UITextFieldDelegate
         }
         
     }
+    
 }
 
 extension AddNewVisitViewController : UIPickerViewDelegate, UIPickerViewDataSource

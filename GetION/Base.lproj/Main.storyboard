@@ -2084,7 +2084,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="1" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nso-8S-DvT" id="E88-98-mMY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-ml-BlP">
@@ -2308,7 +2308,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hxb-cM-1o6" id="os8-qz-GPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-DB-x9c">
@@ -4006,7 +4006,7 @@ Please enter your Email-Id below :</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="BLq-2U-QhL">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="BLq-2U-QhL">
                                                 <rect key="frame" x="50" y="508" width="96" height="96"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
