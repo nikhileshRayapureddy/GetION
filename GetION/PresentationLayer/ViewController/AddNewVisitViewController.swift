@@ -108,6 +108,7 @@ class AddNewVisitViewController: BaseViewController {
     
     func setUpView()
     {
+        datePicker.minimumDate = Date()
         self.btnMale.isSelected = true
         txtSpeciality.inputView = picker
         txtSelectDoctor.inputView = picker
