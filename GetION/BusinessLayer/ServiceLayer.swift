@@ -2147,6 +2147,72 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    func transferQueryWithId(id: String, toCategory category: String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=put&resource=update&id=%@&username=%@&pwd=%@&encode=true&category_id=%@", BASE_URL,id,GetIONUserDefaults.getUserName(),GetIONUserDefaults.getPassword(), category)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["status"] as? String
+                {
+                    if posts.caseInsensitiveCompare("ok") == .orderedSame
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+            }
+        }
+    }
+    
+    func getCategoriesForTransfer(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=get&resource=getcategories&userid=%@", BASE_URL,GetIONUserDefaults.getUserId())
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                {
+                    var arrCategories = [CategoryBO]()
+                    for blog in data
+                    {
+                        let category = CategoryBO()
+                        if let id = blog["id"] as? String
+                        {
+                            category.id = id
+                        }
+                        if let category_name = blog["category_name"] as? String
+                        {
+                            category.category_name = category_name
+                        }
+                        arrCategories.append(category)
+                    }
+                    successMessage(arrCategories)
+                }
+            }
+        }
+    }
+    
     func getAllPublishData(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=latest&user_id=65&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&limitstart=0&limit=20&Status=1

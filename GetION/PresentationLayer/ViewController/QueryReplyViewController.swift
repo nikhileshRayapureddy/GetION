@@ -30,6 +30,7 @@ class QueryReplyViewController: BaseViewController {
     var vwGalleryView : GallaryView!
     
     var profilePopUp: QueryProfilePopUp!
+    var categoriesSelectionView: CategoriesPopUp!
     override func viewDidLoad() {
         super.viewDidLoad()
         let strTitle = "\(queryBO.poster_name),\(queryBO.age),\(queryBO.gender)"
@@ -87,6 +88,47 @@ class QueryReplyViewController: BaseViewController {
             strPrivate = "1"
         }
 
+    }
+    
+    func getTransferCategories()
+    {
+        app_delegate.showLoader(message: "Getting available categories. . .")
+        let layer = ServiceLayer()
+        layer.getCategoriesForTransfer(successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                self.showCategoriesPopUp(response as! [CategoryBO])
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
+    
+    func showCategoriesPopUp(_ categories: [CategoryBO])
+    {
+        if let view = Bundle.main.loadNibNamed("CategoriesPopUp", owner: nil, options: nil)![0] as? CategoriesPopUp
+        {
+            view.arrCategories = categories
+            view.delegate = self
+            categoriesSelectionView = view
+            view.frame = self.view.bounds
+            if categories.count > 5
+            {
+                view.viewBackgroundHeightConstraint.constant = 5 * 44
+            }
+            else
+            {
+                view.viewBackgroundHeightConstraint.constant = CGFloat(categories.count * 44)
+            }
+            view.resizeViews()
+            self.view.addSubview(view)
+        }
+    }
+    
+    override func btnDocClicked(sender: UIButton) {
+        getTransferCategories()
     }
     
     override func btnPatientClicked(sender: UIButton) {
@@ -639,6 +681,33 @@ extension QueryReplyViewController: QueryProfilePopUp_Delegate
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
                 application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+}
+
+extension QueryReplyViewController: CategoriesPopUp_Delegate
+{
+    func closeCategoriesPopUp() {
+        categoriesSelectionView.removeFromSuperview()
+    }
+    
+    func selectedCategoryWithId(_ category_Id: String) {
+        app_delegate.showLoader(message: "Transferring Query. . .")
+        let layer = ServiceLayer()
+        layer.transferQueryWithId(id: queryBO.id, toCategory: category_Id, successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let alert = UIAlertController(title: "Alert!", message: "Query transferred successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    self.closeCategoriesPopUp()
+                }))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
             }
         }
     }
