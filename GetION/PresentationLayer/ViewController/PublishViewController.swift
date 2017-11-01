@@ -80,7 +80,7 @@ class PublishViewController: BaseViewController {
     @IBAction func btnOnlineClicked(_ sender: UIButton) {
         resetTopButtons()
         selectedIndex = 3
-        btnOnline.setTitleColor(UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0), for: .normal)
+        btnOnline.setTitleColor(UIColor.black, for: .normal)
         UIView.animate(withDuration: 0.3) {
             self.selectedImageView.backgroundColor = UIColor.black
             self.selectedImageView.frame = CGRect(x: ((ScreenWidth - 10)/3) * 2, y: sender.frame.size.height - 2, width:((ScreenWidth - 10)/3), height: 2.0)
