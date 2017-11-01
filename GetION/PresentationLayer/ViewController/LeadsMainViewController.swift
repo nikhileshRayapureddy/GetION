@@ -20,7 +20,7 @@ class LeadsMainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBarWithBackAnd(strTitle: "Leads")
+        self.designNavigationBar()
         
         for item in arrItems
         {
@@ -29,11 +29,12 @@ class LeadsMainViewController: BaseViewController {
             bo.strName = item
             arrBO.append(bo)
         }
-        arrItems = arrItems.sorted{$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending}
+        
+        arrBO = arrBO.sorted{(($0).strName).localizedCaseInsensitiveCompare(($1).strName) == ComparisonResult.orderedAscending}
         for alphabet in arrAlphabets
         {
-            let filteredArray = arrItems.filter(){
-                return $0.characters.first == alphabet.characters.first
+            let filteredArray = arrBO.filter(){
+                return $0.strName.characters.first == alphabet.characters.first
             }
             if filteredArray.count>0
             {
@@ -41,23 +42,21 @@ class LeadsMainViewController: BaseViewController {
             }
         }
         tblLeads.sectionIndexColor = THEME_COLOR
-        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
-        longPressGesture.minimumPressDuration = 1.0 // 1 second press
-        longPressGesture.delegate = self as? UIGestureRecognizerDelegate
-        self.tblLeads.addGestureRecognizer(longPressGesture)
-
     }
-    @objc func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
-            let touchPoint = longPressGestureRecognizer.location(in: self.view)
-            if let indexPath = tblLeads.indexPathForRow(at: touchPoint) {
-                print("indexPath=\(indexPath.row - 2)")
-                isLongPressed = true
-                tblLeads.reloadData()
-            }
+    
+    @IBAction func btnRemoveAllSelectedClicked(_ sender: UIButton) {
+        for item in arrItems
+        {
+            let bo = LeadsBO()
+            bo.isSelected = false
+            bo.strName = item
+            arrBO.append(bo)
         }
-    }
+        isLongPressed = false
+        tblLeads.reloadData()
+        vwTopSelected.isHidden = true
 
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,11 +67,12 @@ class LeadsMainViewController: BaseViewController {
 extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrItems.count
+        return arrBO.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeadMainTableViewCell", for: indexPath) as! LeadMainTableViewCell
-        cell.lblLead.text = arrItems[indexPath.row]
+        let bo = arrBO[indexPath.row]
+        cell.lblLead.text = bo.strName
         cell.imgVwLead.layer.cornerRadius = cell.imgVwLead.frame.size.width/2
         cell.imgVwLead.layer.masksToBounds = true
         cell.imgVwLead.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
@@ -81,12 +81,23 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
         cell.btnSel.addTarget(self, action: #selector(self.btnSelectClicked(sender:)), for: .touchUpInside)
         if isLongPressed
         {
+            if bo.isSelected
+            {
+               cell.btnSel.isSelected = true
+            }
+            else
+            {
+                cell.btnSel.isSelected = false
+            }
             cell.constBtnSelWidth.constant = 40
         }
         else
         {
             cell.constBtnSelWidth.constant = 0
         }
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        cell.addGestureRecognizer(longGesture)
+
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,7 +119,25 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     @objc func btnSelectClicked(sender:UIButton)
     {
-        
+        let bo = arrBO[sender.tag - 9700]
+        bo.isSelected = true
+        tblLeads.reloadData()
     }
+    @objc func longTap(gestureReconizer: UILongPressGestureRecognizer) {
+        
+        print("Long tap")
+        
+        let longPress = gestureReconizer as UILongPressGestureRecognizer
+        let locationInView = longPress.location(in: tblLeads)
+        let indexPath = tblLeads.indexPathForRow(at: locationInView)
+        isLongPressed = true
+        let bo = arrBO[(indexPath?.row)!]
+        bo.isSelected = true
+        tblLeads.reloadData()
+        vwTopSelected.isHidden = false
+        print("indexPath=\(String(describing: indexPath?.row))")
+
+    }
+
     
 }

@@ -26,12 +26,21 @@ class QueryProfilePopUp: UIView {
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var lblMobileNumber: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
+    
+    var queryBO = QueriesBO()
     var delegate: QueryProfilePopUp_Delegate!
     func resizeViews()
     {
         viewBackground.layer.cornerRadius = 10.0
         btnCall.layer.cornerRadius = 20.0
         btnSMS.layer.cornerRadius = 20.0
+        
+        lblName.text = queryBO.poster_name
+        lblEmail.text = queryBO.poster_email
+        lblGender.text = queryBO.gender
+        lblMobileNumber.text = queryBO.mobile
+        lblAge.text = queryBO.age
+        
     }
     
     @IBAction func btnCallClicked(_ sender: UIButton) {
