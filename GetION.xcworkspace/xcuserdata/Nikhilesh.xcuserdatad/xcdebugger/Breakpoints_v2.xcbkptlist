@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GetION/PresentationLayer/ViewController/AddNewVisitViewController.swift"
-            timestampString = "531255903.317641"
+            timestampString = "531256381.773813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "checkAllFields()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GetION/PresentationLayer/ViewController/AddNewVisitViewController.swift"
-            timestampString = "531255903.318821"
+            timestampString = "531256381.775981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "checkAllFields()"
             landmarkType = "7">
          </BreakpointContent>
