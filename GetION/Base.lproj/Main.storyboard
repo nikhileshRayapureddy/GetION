@@ -2366,10 +2366,228 @@ Please enter your Email-Id below :</string>
                                     <outlet property="delegate" destination="gc8-7a-ti5" id="lba-Cn-9TM"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha8-EC-qwZ">
+                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94j-XO-tHQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4t-IJ-DFa">
+                                                <rect key="frame" x="50" y="34" width="275" height="104"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-pL-hBJ">
+                                                        <rect key="frame" x="23" y="14" width="242" height="74"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3A-58-fSJ">
+                                                                <rect key="frame" x="7" y="22" width="229" height="49"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMS Preview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-Wl-gGq">
+                                                                <rect key="frame" x="8" y="3" width="216" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.001862371224" green="0.44868326190000002" blue="0.73522150519999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="104" id="FV2-f3-dU4"/>
+                                                    <constraint firstAttribute="width" constant="275" id="XME-Hg-Kj5"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Preview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geW-ra-7Se">
+                                                <rect key="frame" x="89" y="6" width="198" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="198" id="7B0-cu-EjY"/>
+                                                    <constraint firstAttribute="height" constant="21" id="Izo-iK-Red"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.11083289239999999" green="0.88488888740000005" blue="0.82979142669999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="geW-ra-7Se" firstAttribute="centerX" secondItem="94j-XO-tHQ" secondAttribute="centerX" id="NGE-Fu-whU"/>
+                                            <constraint firstItem="geW-ra-7Se" firstAttribute="top" secondItem="94j-XO-tHQ" secondAttribute="top" constant="6" id="k6e-CG-Grg"/>
+                                            <constraint firstAttribute="height" constant="150" id="mq9-sv-wt7"/>
+                                            <constraint firstItem="H4t-IJ-DFa" firstAttribute="centerX" secondItem="94j-XO-tHQ" secondAttribute="centerX" id="pIP-Vi-1xi"/>
+                                            <constraint firstItem="H4t-IJ-DFa" firstAttribute="top" secondItem="geW-ra-7Se" secondAttribute="bottom" constant="7" id="wlv-dd-WJA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aI4-de-w7f">
+                                        <rect key="frame" x="28" y="178" width="318" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120/1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-C6-Fwb">
+                                                <rect key="frame" x="229" y="91" width="81" height="21"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="81" id="4H4-jT-ndd"/>
+                                                    <constraint firstAttribute="height" constant="21" id="LR8-ns-nt2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T22-DS-foY" customClass="FloatLabelTextView" customModule="GetION" customModuleProvider="target">
+                                                <rect key="frame" x="4" y="4" width="310" height="86"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="86" id="ucW-Ia-xiZ"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Type your SMS here"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="gc8-7a-ti5" id="vMI-iV-uxj"/>
+                                                </connections>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="4pQ-qE-hy1"/>
+                                            <constraint firstItem="T22-DS-foY" firstAttribute="top" secondItem="aI4-de-w7f" secondAttribute="top" constant="4" id="8qP-Ag-dpS"/>
+                                            <constraint firstAttribute="trailing" secondItem="T22-DS-foY" secondAttribute="trailing" constant="4" id="C0F-Iu-A28"/>
+                                            <constraint firstItem="T22-DS-foY" firstAttribute="leading" secondItem="aI4-de-w7f" secondAttribute="leading" constant="4" id="SeN-VW-bhQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Chi-C6-Fwb" secondAttribute="bottom" constant="8" id="XX8-RK-w3K"/>
+                                            <constraint firstAttribute="trailing" secondItem="Chi-C6-Fwb" secondAttribute="trailing" constant="8" id="eOC-2q-EGl"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Numbers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3K-cD-fsn">
+                                        <rect key="frame" x="35" y="306" width="198" height="28"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="FjP-Rd-h7a"/>
+                                            <constraint firstAttribute="width" constant="198" id="wrk-Aa-R7z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPU-7R-DQG">
+                                        <rect key="frame" x="28" y="348" width="318" height="116"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-a5-HLB">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="126"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="126" id="i55-3X-Dr0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="sUj-a5-HLB" firstAttribute="leading" secondItem="uPU-7R-DQG" secondAttribute="leading" id="6tR-3t-2ii"/>
+                                            <constraint firstItem="sUj-a5-HLB" firstAttribute="top" secondItem="uPU-7R-DQG" secondAttribute="top" id="AWe-eM-wQd"/>
+                                            <constraint firstItem="sUj-a5-HLB" firstAttribute="centerX" secondItem="uPU-7R-DQG" secondAttribute="centerX" id="CiA-Yf-9dq"/>
+                                            <constraint firstAttribute="bottom" secondItem="sUj-a5-HLB" secondAttribute="bottom" id="Ibq-5z-Uoq"/>
+                                            <constraint firstAttribute="trailing" secondItem="sUj-a5-HLB" secondAttribute="trailing" id="KcP-fF-hk1"/>
+                                            <constraint firstAttribute="height" constant="116" id="WHS-Ci-csD"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="XG3-5B-M5N"/>
+                                        </constraints>
+                                    </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRF-us-rY9">
+                                        <rect key="frame" x="52" y="480" width="120" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Ueg-mj-q8W"/>
+                                            <constraint firstAttribute="height" constant="22" id="rv5-Tz-6cY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" title="OS SMS" image="radio_deselcted">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="radio_selected"/>
+                                        <connections>
+                                            <action selector="btnOSSMSAction:" destination="lg4-cH-cPL" eventType="touchUpInside" id="9ty-Su-5Mg"/>
+                                            <action selector="btnOSSMSAction:" destination="gc8-7a-ti5" eventType="touchUpInside" id="MoW-Ir-K6z"/>
+                                            <action selector="btnOSSMSAction:" destination="rK2-ke-yNB" eventType="touchUpInside" id="RvR-bQ-aHt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdq-8k-9Wx">
+                                        <rect key="frame" x="204" y="480" width="120" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="IZ0-tG-t2t"/>
+                                            <constraint firstAttribute="height" constant="22" id="xPw-9s-cSd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" title="Server SMS" image="radio_deselcted">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="radio_selected"/>
+                                        <connections>
+                                            <action selector="btnServerSMSAction:" destination="gc8-7a-ti5" eventType="touchUpInside" id="jvG-2k-dZe"/>
+                                            <action selector="btnServerSMSAction:" destination="lg4-cH-cPL" eventType="touchUpInside" id="pjV-4V-hha"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-P2-KBt">
+                                        <rect key="frame" x="103" y="519" width="170" height="50"/>
+                                        <color key="backgroundColor" red="0.2013909519" green="0.79743796590000005" blue="0.79981267450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="ZEn-mz-1Nu"/>
+                                            <constraint firstAttribute="height" constant="50" id="bml-VM-uEd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="23"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="SEND">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnIonizeAction:" destination="rK2-ke-yNB" eventType="touchUpInside" id="O8t-Qz-uRM"/>
+                                            <action selector="btnIonizeAction:" destination="lg4-cH-cPL" eventType="touchUpInside" id="j25-kv-xlO"/>
+                                            <action selector="btnSendAction:" destination="gc8-7a-ti5" eventType="touchUpInside" id="ja0-cX-Sm6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aI4-de-w7f" secondAttribute="trailing" constant="29" id="3fa-ex-9k5"/>
+                                    <constraint firstItem="k3K-cD-fsn" firstAttribute="leading" secondItem="Ha8-EC-qwZ" secondAttribute="leading" constant="35" id="EFs-Wl-Qs4"/>
+                                    <constraint firstItem="uPU-7R-DQG" firstAttribute="top" secondItem="k3K-cD-fsn" secondAttribute="bottom" constant="14" id="GSo-qv-HZp"/>
+                                    <constraint firstItem="Mev-P2-KBt" firstAttribute="centerX" secondItem="Ha8-EC-qwZ" secondAttribute="centerX" id="Kor-0u-LEM"/>
+                                    <constraint firstAttribute="height" constant="585" id="Ngh-3g-zPe"/>
+                                    <constraint firstAttribute="trailing" secondItem="uPU-7R-DQG" secondAttribute="trailing" constant="29" id="OrH-vC-chm"/>
+                                    <constraint firstItem="sdq-8k-9Wx" firstAttribute="top" secondItem="uPU-7R-DQG" secondAttribute="bottom" constant="16" id="PY4-7o-OzN"/>
+                                    <constraint firstItem="aI4-de-w7f" firstAttribute="top" secondItem="94j-XO-tHQ" secondAttribute="bottom" constant="28" id="VQQ-bQ-Jog"/>
+                                    <constraint firstItem="94j-XO-tHQ" firstAttribute="leading" secondItem="Ha8-EC-qwZ" secondAttribute="leading" id="XL6-FG-MnG"/>
+                                    <constraint firstItem="94j-XO-tHQ" firstAttribute="top" secondItem="Ha8-EC-qwZ" secondAttribute="top" id="cnb-rn-gGM"/>
+                                    <constraint firstItem="NRF-us-rY9" firstAttribute="top" secondItem="uPU-7R-DQG" secondAttribute="bottom" constant="16" id="eqy-V9-l7g"/>
+                                    <constraint firstItem="sdq-8k-9Wx" firstAttribute="centerX" secondItem="Ha8-EC-qwZ" secondAttribute="centerX" constant="76.5" id="fQl-ge-uHq"/>
+                                    <constraint firstItem="k3K-cD-fsn" firstAttribute="top" secondItem="aI4-de-w7f" secondAttribute="bottom" constant="8" id="hiZ-1G-C2U"/>
+                                    <constraint firstAttribute="trailing" secondItem="94j-XO-tHQ" secondAttribute="trailing" id="mPV-9g-Ois"/>
+                                    <constraint firstItem="Mev-P2-KBt" firstAttribute="top" secondItem="NRF-us-rY9" secondAttribute="bottom" constant="17" id="nEc-wP-Xjq"/>
+                                    <constraint firstItem="aI4-de-w7f" firstAttribute="leading" secondItem="Ha8-EC-qwZ" secondAttribute="leading" constant="28" id="oj2-dO-6Cq"/>
+                                    <constraint firstItem="NRF-us-rY9" firstAttribute="centerX" secondItem="Ha8-EC-qwZ" secondAttribute="centerX" constant="-75.5" id="sgU-He-3br"/>
+                                    <constraint firstItem="uPU-7R-DQG" firstAttribute="leading" secondItem="Ha8-EC-qwZ" secondAttribute="leading" constant="28" id="uMS-Xr-3El"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.87049323320000005" green="0.87064296009999997" blue="0.8704838157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vjU-Ae-G80" firstAttribute="bottom" secondItem="nND-Ot-2TQ" secondAttribute="bottom" id="0j2-n9-NCR"/>
+                            <constraint firstItem="Ha8-EC-qwZ" firstAttribute="trailing" secondItem="nND-Ot-2TQ" secondAttribute="trailing" id="2If-ig-ybE"/>
                             <constraint firstItem="vjU-Ae-G80" firstAttribute="leading" secondItem="nND-Ot-2TQ" secondAttribute="leading" id="62b-fG-SAq"/>
                             <constraint firstItem="vjU-Ae-G80" firstAttribute="trailing" secondItem="nND-Ot-2TQ" secondAttribute="trailing" id="BIG-8o-RSI"/>
                             <constraint firstItem="CRp-Lp-tYN" firstAttribute="leading" secondItem="nND-Ot-2TQ" secondAttribute="leading" id="DUH-73-SXg"/>
@@ -2382,14 +2600,29 @@ Please enter your Email-Id below :</string>
                             <constraint firstItem="KNt-xe-bTO" firstAttribute="leading" secondItem="nND-Ot-2TQ" secondAttribute="leading" id="are-Fe-vkM"/>
                             <constraint firstItem="vjU-Ae-G80" firstAttribute="top" secondItem="Uhs-bR-1wa" secondAttribute="bottom" id="cQq-5B-JiC"/>
                             <constraint firstItem="nND-Ot-2TQ" firstAttribute="bottom" secondItem="KNt-xe-bTO" secondAttribute="bottom" id="d6z-hW-FlG"/>
+                            <constraint firstItem="Ha8-EC-qwZ" firstAttribute="top" secondItem="CRp-Lp-tYN" secondAttribute="bottom" id="dth-E1-nYs"/>
                             <constraint firstItem="Uhs-bR-1wa" firstAttribute="top" secondItem="CRp-Lp-tYN" secondAttribute="bottom" constant="8" id="gSb-hj-2Gr"/>
+                            <constraint firstItem="Ha8-EC-qwZ" firstAttribute="leading" secondItem="nND-Ot-2TQ" secondAttribute="leading" id="zT7-HT-U13"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nND-Ot-2TQ"/>
                     </view>
                     <connections>
+                        <outlet property="btnOSSMS" destination="NRF-us-rY9" id="lNB-wV-Sa7"/>
                         <outlet property="btnPromotions" destination="Yik-SO-MXC" id="FWK-8f-7gu"/>
                         <outlet property="btnSMSCampaign" destination="nAX-Cf-jvB" id="dG5-sm-h0d"/>
+                        <outlet property="btnSend" destination="Mev-P2-KBt" id="8BM-dn-qYC"/>
+                        <outlet property="btnServerSMS" destination="sdq-8k-9Wx" id="7qC-k1-5IE"/>
+                        <outlet property="constrtVwContactHeight" destination="i55-3X-Dr0" id="dBj-Qf-imL"/>
+                        <outlet property="lblCharCount" destination="Chi-C6-Fwb" id="is9-UN-mwa"/>
+                        <outlet property="lblMsgPreview" destination="L3A-58-fSJ" id="acf-ys-WPZ"/>
+                        <outlet property="scrlVwContacts" destination="uPU-7R-DQG" id="Aig-CF-Xbs"/>
                         <outlet property="tblPromotions" destination="vjU-Ae-G80" id="1GH-LA-7wD"/>
+                        <outlet property="txtVwMessage" destination="T22-DS-foY" id="wVL-Jc-ZZV"/>
+                        <outlet property="vwContact" destination="sUj-a5-HLB" id="as3-zH-aVr"/>
+                        <outlet property="vwMessage" destination="aI4-de-w7f" id="AcL-HF-bkX"/>
+                        <outlet property="vwSMSCampaign" destination="Ha8-EC-qwZ" id="qPw-7Y-CHW"/>
+                        <outlet property="vwSMSPreviewHeader" destination="hId-Wl-gGq" id="17p-r4-8Wx"/>
+                        <outlet property="vwSmsPreview" destination="94j-XO-tHQ" id="M3S-Nx-lPP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqC-3J-lgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2663,7 +2896,7 @@ Please enter your Email-Id below :</string>
                                     <outlet property="delegate" destination="lg4-cH-cPL" id="zJ0-WM-vfC"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffb-Pg-3dG">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffb-Pg-3dG">
                                 <rect key="frame" x="0.0" y="80" width="375" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c27-Ha-ydy">
