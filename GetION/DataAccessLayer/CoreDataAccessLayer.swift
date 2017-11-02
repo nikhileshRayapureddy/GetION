@@ -101,7 +101,6 @@ class CoreDataAccessLayer: NSObject {
     }
 
     
-    // with using Varient for fav
     func getPublishItemsWith(postId : String) -> [BlogBO]
     {
         let arrPublish  =  self.checkAvaibleVersionIs10() ? self.getDataForPublish(strFetcher:"postId == '" +  postId + "'")  : self.getListDataForEntity(strclass: "Publish",strFormat:"postId == '" +  postId + "'")
@@ -206,10 +205,146 @@ class CoreDataAccessLayer: NSObject {
         }
         
     }
+    //MARK:- Lead methods
+    public func getDataForLead(strFetcher:String) -> [NSManagedObject]?
+    {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Lead",
+                                                           in: managedObjectContext)
+        
+        let request: NSFetchRequest<Lead> = Lead.fetchRequest()
+        request.entity = entityDescription
+        
+        if strFetcher.characters.count > 0
+        {
+            let resultPredicate = NSPredicate(format: strFetcher as String)
+            request.predicate = resultPredicate
+        }
+        
+        do
+        {
+            let results = try  managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>)
+            
+            return results as? [NSManagedObject]
+        }
+        catch _
+        {
+            
+        }
+        return[]
+        
+    }
+
+    func getAllLeadsFromLocalDB() -> [LeadsBO]
+    {
+        let arrLead = self.getListDataForEntity(strclass: "Lead",strFormat:"")
+        if arrLead == nil || arrLead?.count == 0
+        {
+            return [LeadsBO]()
+        }
+        
+        if arrLead!.count > 0
+        {
+            return self.convertLeadArrayToLeadsBOArray(arr: arrLead as! [Lead])
+        }
+        else
+        {
+            return [LeadsBO]()
+        }
+        
+    }
     
     
+    func getLeadItemsWith(leadId : String) -> [LeadsBO]
+    {
+        let arrLead  =  self.checkAvaibleVersionIs10() ? self.getDataForPublish(strFetcher:"id == '" +  leadId + "'")  : self.getListDataForEntity(strclass: "Lead",strFormat:"id == '" +  leadId + "'")
+        
+        if arrLead == nil
+        {
+            return [LeadsBO]()
+        }
+        if arrLead!.count > 0
+        {
+            return self.convertLeadArrayToLeadsBOArray(arr: arrLead as! [Lead])
+        }
+        else {
+            return [LeadsBO]()
+        }
+    }
+    func saveAllItemsIntoLeadTableInLocalDB( arrTmpItems : [LeadsBO])
+    {
+        for tmpItem in arrTmpItems
+        {
+            self.saveItemIntoLeadTableInLocalDB(tmpItem: tmpItem)
+        }
+    }
+    
+    func saveItemIntoLeadTableInLocalDB( tmpItem : LeadsBO)
+    {
+        
+        let entity =  NSEntityDescription.entity(forEntityName: "Lead",in:managedObjectContext)
+        
+        let leadItem = NSManagedObject(entity: entity!,insertInto: managedObjectContext) as! Lead
+        
+        leadItem.id = tmpItem.id
+        leadItem.department = tmpItem.department
+        leadItem.age = tmpItem.age
+        leadItem.firstname = tmpItem.firstname
+        leadItem.surname = tmpItem.surname
+        leadItem.mobile = tmpItem.mobile
+        leadItem.email = tmpItem.email
+        leadItem.birthday = tmpItem.birthday
+        leadItem.sex = tmpItem.sex
+        leadItem.purpose = tmpItem.purpose
+        leadItem.area = tmpItem.area
+        leadItem.city = tmpItem.city
+        leadItem.pincode = tmpItem.pincode
+        leadItem.remarks = tmpItem.remarks
+        leadItem.login_id = tmpItem.login_id
+        leadItem.lastupdated = tmpItem.lastupdated
+        leadItem.flag = tmpItem.flag
+        leadItem.image = tmpItem.image
+        leadItem.source = tmpItem.source
+        leadItem.imgTag = tmpItem.imgTag
+        leadItem.leadsTags = tmpItem.leadsTags
+        do {
+            try managedObjectContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func removePublishItemFromLocalDBWith(leadId : String)
+    {
+        
+        var results : [Lead]!
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Lead")
+        let predicate = NSPredicate(format: "id == %@", leadId)
+        request.predicate = predicate
+        do{
+            
+            
+            results = try managedObjectContext.fetch(request) as! [Lead]
+            if (results.count > 0) {
+                managedObjectContext.delete( results[0])
+                
+            } else {
+                
+            }
+        } catch let error as NSError {
+            
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        do {
+            try managedObjectContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
+
     //MARK: - Utiltiy Method
-    
     func  convertPublishArrayToBlogBOArray (arr : [Publish]) -> [BlogBO]
     {
         var arrblogItems = [BlogBO]()
@@ -255,6 +390,39 @@ class CoreDataAccessLayer: NSObject {
             arrblogItems.append(blogItem)
         }
         return arrblogItems
+        
+    }
+
+    func  convertLeadArrayToLeadsBOArray (arr : [Lead]) -> [LeadsBO]
+    {
+        var arrLeadItems = [LeadsBO]()
+        for tmpItem in arr
+        {
+            let leadItem = LeadsBO()
+            leadItem.id = tmpItem.id!
+            leadItem.department = tmpItem.department!
+            leadItem.age = tmpItem.age!
+            leadItem.firstname = tmpItem.firstname!
+            leadItem.surname = tmpItem.surname!
+            leadItem.mobile = tmpItem.mobile!
+            leadItem.email = tmpItem.email!
+            leadItem.birthday = tmpItem.birthday!
+            leadItem.sex = tmpItem.sex!
+            leadItem.purpose = tmpItem.purpose!
+            leadItem.area = tmpItem.area!
+            leadItem.city = tmpItem.city!
+            leadItem.pincode = tmpItem.pincode!
+            leadItem.remarks = tmpItem.remarks!
+            leadItem.login_id = tmpItem.login_id!
+            leadItem.lastupdated = tmpItem.lastupdated!
+            leadItem.flag = tmpItem.flag!
+            leadItem.image = tmpItem.image!
+            leadItem.source = tmpItem.source!
+            leadItem.imgTag = tmpItem.imgTag!
+            leadItem.leadsTags = tmpItem.leadsTags!
+            arrLeadItems.append(leadItem)
+        }
+        return arrLeadItems
         
     }
     

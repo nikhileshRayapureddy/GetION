@@ -1,8 +1,9 @@
 //
 //  Publish+CoreDataProperties.swift
-//  
+//  GetION
 //
-//  Created by NIKHILESH on 28/10/17.
+//  Created by Nikhilesh on 02/11/17.
+//  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 //
 

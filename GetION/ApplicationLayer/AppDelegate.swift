@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
-        
+        self.getAllPublishData()
         return true
     }
 
@@ -63,7 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        self.getAllPublishData()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -81,12 +80,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         app_delegate.showLoader(message: "Fetching...")
         let layer = ServiceLayer()
         layer.getAllPublishData(successMessage: { (response) in
-            self.getAllQueries()
+            DispatchQueue.main.async {
+                self.getAllLeads()
+            }
         }) { (erro) in
             DispatchQueue.main.async {
-                self.getAllQueries()
+                self.getAllLeads()
             }
         }
+    }
+    func getAllLeads()
+    {
+        let layer = ServiceLayer()
+        layer.getAllLeads(successMessage: { (reponse) in
+            app_delegate.removeloder()
+            let arrLeads = reponse as! [LeadsBO]
+            DispatchQueue.main.async {
+                let dataLayer = CoreDataAccessLayer()
+               dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+            }
+        }) { (error) in
+            app_delegate.removeloder()
+            
+        }
+        
     }
     func getAllQueries()
     {

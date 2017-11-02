@@ -2396,7 +2396,10 @@ class ServiceLayer: NSObject {
                         }
                         arrBlogs.append(bo)
                     }
+                    DispatchQueue.main.async {
                     self.data_layer.saveAllItemsIntoPublishTableInLocalDB(arrTmpItems: arrBlogs)
+                    }
+
                     successMessage(arrBlogs)
                 }
                 else
@@ -2441,7 +2444,138 @@ class ServiceLayer: NSObject {
             }
         }
     }
-
+    public func getAllLeads(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&source=leads,query"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrLeads = [LeadsBO]()
+                            for lead in description
+                            {
+                                let bo = LeadsBO()
+                                
+                                if let id = lead["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let department = lead["department"] as? String
+                                {
+                                    bo.department = department
+                                }
+                                if let age = lead["age"] as? String
+                                {
+                                    bo.age = age
+                                }
+                                if let firstname = lead["firstname"] as? String
+                                {
+                                    bo.firstname = firstname
+                                }
+                                if let surname = lead["surname"] as? String
+                                {
+                                    bo.surname = surname
+                                }
+                                if let mobile = lead["mobile"] as? String
+                                {
+                                    bo.mobile = mobile
+                                }
+                                if let email = lead["email"] as? String
+                                {
+                                    bo.email = email
+                                }
+                                if let birthday = lead["birthday"] as? String
+                                {
+                                    bo.birthday = birthday
+                                }
+                                if let sex = lead["sex"] as? String
+                                {
+                                    bo.sex = sex
+                                }
+                                if let purpose = lead["purpose"] as? String
+                                {
+                                    bo.purpose = purpose
+                                }
+                                if let area = lead["area"] as? String
+                                {
+                                    bo.area = area
+                                }
+                                if let city = lead["city"] as? String
+                                {
+                                    bo.city = city
+                                }
+                                if let pincode = lead["pincode"] as? String
+                                {
+                                    bo.pincode = pincode
+                                }
+                                if let remarks = lead["remarks"] as? String
+                                {
+                                    bo.remarks = remarks
+                                }
+                                if let login_id = lead["login_id"] as? String
+                                {
+                                    bo.login_id = login_id
+                                }
+                                if let lastupdated = lead["lastupdated"] as? String
+                                {
+                                    bo.lastupdated = lastupdated
+                                }
+                                if let flag = lead["flag"] as? String
+                                {
+                                    bo.flag = flag
+                                }
+                                if let image = lead["image"] as? String
+                                {
+                                    bo.image = image
+                                }
+                                if let source = lead["source"] as? String
+                                {
+                                    bo.source = source
+                                }
+                                if let imgTag = lead["imgTag"] as? String
+                                {
+                                    bo.imgTag = imgTag
+                                }
+                                if let leadsTags = lead["leadsTags"] as? String
+                                {
+                                    bo.leadsTags = leadsTags
+                                }
+                                arrLeads.append(bo)
+                            }
+                            
+                            successMessage(arrLeads)
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
