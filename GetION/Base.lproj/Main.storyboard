@@ -2084,7 +2084,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="1" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nso-8S-DvT" id="E88-98-mMY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-ml-BlP">
@@ -2308,7 +2308,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hxb-cM-1o6" id="os8-qz-GPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-DB-x9c">
@@ -5829,10 +5829,6 @@ Please enter your Email-Id below :</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="EsT-GJ-59w" id="ezd-lk-rkY"/>
-                                    <outlet property="delegate" destination="EsT-GJ-59w" id="Xkh-rj-ERN"/>
-                                </connections>
                             </tableView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US4-0x-aux">
                                 <rect key="frame" x="10" y="537" width="355" height="80"/>
@@ -5883,10 +5879,6 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="EsT-GJ-59w" id="XeJ-pk-8W3"/>
-                                            <outlet property="delegate" destination="EsT-GJ-59w" id="GGu-Db-HPV"/>
-                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5903,9 +5895,6 @@ Please enter your Email-Id below :</string>
                                         <state key="normal" image="AddIcon">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="btnAddImageAction:" destination="EsT-GJ-59w" eventType="touchUpInside" id="nZH-8S-Yyt"/>
-                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZYL-9A-kit">
                                         <rect key="frame" x="40" y="5" width="275" height="40"/>
@@ -5918,9 +5907,6 @@ Please enter your Email-Id below :</string>
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="EsT-GJ-59w" id="QsY-WS-L09"/>
-                                        </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8D-Ic-Hdg">
                                         <rect key="frame" x="325" y="10" width="40" height="30"/>
@@ -5959,15 +5945,18 @@ Please enter your Email-Id below :</string>
                         <viewLayoutGuide key="safeArea" id="e5M-rj-XED"/>
                     </view>
                     <connections>
-                        <outlet property="collctView" destination="f7I-4v-ZkT" id="If8-Bl-B4j"/>
-                        <outlet property="tblView" destination="msZ-nX-Mqa" id="70m-25-Dhw"/>
-                        <outlet property="txtViewMessage" destination="ZYL-9A-kit" id="O2g-ki-rwc"/>
-                        <outlet property="viewTop" destination="zul-wI-UuR" id="2Qs-RN-vwt"/>
+                        <outlet property="btnSendComment" destination="Z8D-Ic-Hdg" id="q3e-CD-oGp"/>
+                        <outlet property="collctView" destination="f7I-4v-ZkT" id="xFl-XS-EeQ"/>
+                        <outlet property="lblMessage" destination="02k-CX-Bdp" id="INJ-9P-Bru"/>
+                        <outlet property="lblTitle" destination="oLP-4P-TzN" id="UmC-hz-LSu"/>
+                        <outlet property="tblView" destination="msZ-nX-Mqa" id="9he-nT-vKg"/>
+                        <outlet property="txtViewMessage" destination="ZYL-9A-kit" id="iIp-1U-8rZ"/>
+                        <outlet property="viewTop" destination="zul-wI-UuR" id="Ve8-H2-0VO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wu9-PX-T7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="801.0494752623689"/>
+            <point key="canvasLocation" x="2201" y="801"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eqb-lP-8xh">
