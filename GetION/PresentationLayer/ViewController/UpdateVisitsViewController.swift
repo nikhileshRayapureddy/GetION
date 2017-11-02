@@ -51,6 +51,7 @@ class UpdateVisitsViewController: BaseViewController
     @IBOutlet weak var btnGroup: UIButton!
     @IBOutlet weak var constrtVwGroupHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var btnUpdateVisit: UIButton!
     ///////
     var arrSuggestions = [TagSuggestionBO]()
     var objVisits = VisitsBO()
@@ -265,4 +266,10 @@ class UpdateVisitsViewController: BaseViewController
     {
         self.setEditablesWithBool(isEditiable: true)
     }
+    
+    @IBAction func btnCancelAction(_ sender: UIButton) {
+    }
+    @IBAction func btnUpdateVisitAction(_ sender: UIButton) {
+    }
+    
 }
