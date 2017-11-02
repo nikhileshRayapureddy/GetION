@@ -13,39 +13,36 @@ class LeadsMainViewController: BaseViewController {
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
     var isLongPressed = false
-    var arrItems = ["Nikhil","Naga","Aravind","Raghu","Kiran","Thiran","Thumar","selvam","Pannir","Siva","Raju","test","superr","hmm","Nikhil","Naga","Aravind","Raghu","Kiran","Thiran","Thumar","selvam","Pannir","Siva","Raju","test","superr","hmm"]
     var arrAlphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    var arrSections = [String:AnyObject]()
-    var arrBO = [LeadsBO]()
+    var arrSections = [String:[LeadsBO]]()
+    var arrLeads = [LeadsBO]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
         
-        for item in arrItems
-        {
-            let bo = LeadsBO()
-            bo.isSelected = false
-            bo.strName = item
-            arrBO.append(bo)
-        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        arrBO = arrBO.sorted{(($0).strName).localizedCaseInsensitiveCompare(($1).strName) == ComparisonResult.orderedAscending}
-        for alphabet in arrAlphabets
+        let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+        self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
+        for alphabet in self.arrAlphabets
         {
-            let filteredArray = arrBO.filter(){
-                return $0.strName.characters.first == alphabet.characters.first
+            let filteredArray = self.arrLeads.filter(){
+                return $0.firstname.uppercased().characters.first == alphabet.characters.first
             }
             if filteredArray.count>0
             {
-                arrSections[alphabet] = filteredArray as AnyObject
+                self.arrSections[alphabet] = filteredArray
             }
         }
-        tblLeads.sectionIndexColor = THEME_COLOR
+        self.tblLeads.sectionIndexColor = THEME_COLOR
+        self.tblLeads.reloadData()
+
     }
-    
     @IBAction func btnRemoveAllSelectedClicked(_ sender: UIButton) {
-        for bo in arrBO
+        for bo in arrLeads
         {
             bo.isSelected = false
         }
@@ -64,12 +61,12 @@ class LeadsMainViewController: BaseViewController {
 extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrBO.count
+        return arrLeads.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeadMainTableViewCell", for: indexPath) as! LeadMainTableViewCell
-        let bo = arrBO[indexPath.row]
-        cell.lblLead.text = bo.strName
+        let bo = arrLeads[indexPath.row]
+        cell.lblLead.text = bo.firstname + " " + bo.surname
         cell.imgVwLead.layer.cornerRadius = cell.imgVwLead.frame.size.width/2
         cell.imgVwLead.layer.masksToBounds = true
         cell.imgVwLead.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
@@ -94,6 +91,9 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
         }
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
         cell.addGestureRecognizer(longGesture)
+        let url = URL(string: bo.image)
+        cell.imgVwLead.kf.indicatorType = .activity
+        cell.imgVwLead.kf.setImage(with: url)
 
         return cell
     }
@@ -105,9 +105,9 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         
-        if let arrtemp = arrSections[title] as? [String]
+        if let arrtemp = arrSections[title]
         {
-            if let index = arrItems.index(of: arrtemp[0])
+            if let index = arrLeads.index(of: arrtemp[0])
             {
                 tblLeads.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
             }
@@ -117,7 +117,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     @objc func btnSelectClicked(sender:UIButton)
     {
         sender.isSelected = !sender.isSelected
-        let bo = arrBO[sender.tag - 9700]
+        let bo = arrLeads[sender.tag - 9700]
         bo.isSelected = sender.isSelected
         tblLeads.reloadData()
     }
@@ -129,7 +129,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
         let locationInView = longPress.location(in: tblLeads)
         let indexPath = tblLeads.indexPathForRow(at: locationInView)
         isLongPressed = true
-        let bo = arrBO[(indexPath?.row)!]
+        let bo = arrLeads[(indexPath?.row)!]
         bo.isSelected = true
         tblLeads.reloadData()
         vwTopSelected.isHidden = false
