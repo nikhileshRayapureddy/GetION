@@ -57,6 +57,7 @@
 		A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */; };
 		A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */; };
 		A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */; };
+		A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */; };
 		A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */; };
 		A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */; };
 		A7C60D1F1F90ABB600DCDFFD /* VisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */; };
@@ -181,6 +182,7 @@
 		A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsMainViewController.swift; sourceTree = "<group>"; };
 		A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoIonizedCustomCell.swift; sourceTree = "<group>"; };
 		A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionViewController.swift; sourceTree = "<group>"; };
+		A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCalendarViewController.swift; sourceTree = "<group>"; };
 		A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisitViewController.swift; sourceTree = "<group>"; };
 		A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		A7C60D1E1F90ABB600DCDFFD /* VisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsViewController.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				A759B0E01FA8E70E00A8CC26 /* SMSViewController.swift */,
 				CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */,
 				A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */,
+				A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */,
+				A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,

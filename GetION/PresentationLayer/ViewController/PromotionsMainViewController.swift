@@ -17,9 +17,45 @@ class PromotionsMainViewController: BaseViewController {
     @IBOutlet weak var clVwPromo: UICollectionView!
     var arrPromos = [PromotionsBO]()
     var arrBlogs = [BlogBO]()
+    @IBOutlet weak var vwSMSCampaign: UIView!
+    @IBOutlet weak var vwSmsPreview: UIView!
+    @IBOutlet weak var vwSMSPreviewHeader: UILabel!
+    @IBOutlet weak var vwMessage: UIView!
+    
+    @IBOutlet weak var lblMsgPreview: UILabel!
+    @IBOutlet weak var txtVwMessage: FloatLabelTextView!
+    @IBOutlet weak var lblCharCount: UILabel!
+    @IBOutlet weak var scrlVwContacts: UIScrollView!
+    @IBOutlet weak var vwContact: UIView!
+    @IBOutlet weak var constrtVwContactHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnOSSMS: UIButton!
+    @IBOutlet weak var btnServerSMS: UIButton!
+    @IBOutlet weak var btnSend: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBarWithBackAnd(strTitle: "Promotions")
+        
+        
+        vwSmsPreview.round(corners: [.topLeft,.topRight,.bottomLeft], radius: 5)
+        
+        vwMessage.layer.cornerRadius = 8
+        vwMessage.layer.borderColor = UIColor (red: 49.0/255, green: 224.0/255, blue: 210.0/255, alpha: 1).cgColor
+        vwMessage.layer.borderWidth = 1.2
+        
+        scrlVwContacts.layer.cornerRadius = 5
+        scrlVwContacts.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+        scrlVwContacts.layer.borderWidth = 0.8
+        
+        btnSend.layer.cornerRadius = 5
+        btnSend.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+        btnSend.layer.borderWidth = 0.8
+
+        
+        
+        
+        
+        
         clVwPromo.register(UINib(nibName: "PromoCustomCell", bundle: nil), forCellWithReuseIdentifier: "PromoCustomCell")
             app_delegate.showLoader(message: "Loading Promotions...")
         
@@ -92,12 +128,14 @@ class PromotionsMainViewController: BaseViewController {
     @IBAction func btnPromotionsClicked(_ sender: UIButton) {
         btnSMSCampaign.isSelected = false
         sender.isSelected = true
+        vwSMSCampaign.isHidden = true
     }
     
     
     @IBAction func btnSMSCampaignClicked(_ sender: UIButton) {
         btnPromotions.isSelected = false
         sender.isSelected = true
+        vwSMSCampaign.isHidden = false
         
     }
 
@@ -106,6 +144,24 @@ class PromotionsMainViewController: BaseViewController {
         self.navigationController?.pushViewController(promotionListViewController, animated: true)
 
     }
+    @IBAction func btnOSSMSAction(_ sender: UIButton)
+    {
+        btnServerSMS.isSelected = false
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnServerSMSAction(_ sender: UIButton)
+    {
+        btnOSSMS.isSelected = false
+        sender.isSelected = true
+    }
+    
+    
+    @IBAction func btnIonizeAction(_ sender: UIButton)
+    {
+        
+    }
+
 }
 extension PromotionsMainViewController : UITableViewDelegate,UITableViewDataSource
 {
@@ -249,4 +305,18 @@ extension PromotionsMainViewController : UICollectionViewDelegate,UICollectionVi
         
     }
     
+}
+extension PromotionsMainViewController : UITextViewDelegate{
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        lblMsgPreview.text = textView.text + text
+        if (lblMsgPreview.text?.characters.count)! <= 120
+        {
+            lblCharCount.text = "120/\((lblMsgPreview.text?.characters.count)!)"
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 }

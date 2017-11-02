@@ -45,12 +45,9 @@ class LeadsMainViewController: BaseViewController {
     }
     
     @IBAction func btnRemoveAllSelectedClicked(_ sender: UIButton) {
-        for item in arrItems
+        for bo in arrBO
         {
-            let bo = LeadsBO()
             bo.isSelected = false
-            bo.strName = item
-            arrBO.append(bo)
         }
         isLongPressed = false
         tblLeads.reloadData()
@@ -119,8 +116,9 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     @objc func btnSelectClicked(sender:UIButton)
     {
+        sender.isSelected = !sender.isSelected
         let bo = arrBO[sender.tag - 9700]
-        bo.isSelected = true
+        bo.isSelected = sender.isSelected
         tblLeads.reloadData()
     }
     @objc func longTap(gestureReconizer: UILongPressGestureRecognizer) {

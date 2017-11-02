@@ -45,8 +45,8 @@ import UIKit
 			title.sizeToFit()
 		}
 	}
-	
-	var titleFont:UIFont = UIFont.systemFont(ofSize: 12.0) {
+	//systemFont(ofSize: 12.0)
+	var titleFont:UIFont = UIFont.myridFontOfSize(size: 18) {
 		didSet {
 			title.font = titleFont
 			title.sizeToFit()

@@ -141,7 +141,7 @@ class UpdateVisitsViewController: BaseViewController
         }
         
         lblDocName.text = objVisits.resname
-  
+        self.btnAccept.setTitle(objVisits.requestStatus.uppercased(), for: .normal)
         self.txtPhone.text = objVisits.mobile
         self.txtEmail.text = objVisits.email
         self.txtAmountDue.text = objVisits.bookingDue
