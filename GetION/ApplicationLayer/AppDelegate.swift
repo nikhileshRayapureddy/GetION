@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if GetIONUserDefaults.getLoginStatus() == "true"
         {
+            self.getAllPublishData()
             let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController"))
             
             let rightMenuViewController: RightMenuViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RightMenuViewController") as! RightMenuViewController
@@ -47,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
-        self.getAllPublishData()
         return true
     }
 
