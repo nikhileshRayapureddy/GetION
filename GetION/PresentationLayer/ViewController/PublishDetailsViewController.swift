@@ -17,9 +17,9 @@ class PublishDetailsViewController: UIViewController {
     @IBOutlet weak var viewTop: UIView!
     @IBOutlet weak var txtViewMessage: UITextView!
     @IBOutlet weak var collctView: UICollectionView!
-    @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
     @IBOutlet weak var btnSendComment: UIButton!
 
+    @IBOutlet weak var constrtImgVwHeight: NSLayoutConstraint!
     var arrImageUrls = [String]()
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
@@ -31,12 +31,73 @@ class PublishDetailsViewController: UIViewController {
 
         viewTop.layer.cornerRadius = 10.0
         viewTop.clipsToBounds = true
+        constrtImgVwHeight.constant = 0
+        getQueryDetails()
         // Do any additional setup after loading the view.
+    }
+
+    func getQueryDetails()
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        layer.getQueryDetailsWithId(id: "7149", successMessage: { (response) in
+            DispatchQueue.main.async {
+                self.arrQueries = response as! [QueriesBO]
+                app_delegate.removeloder()
+                self.bindData()
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
+    }
+
+    func bindData()
+    {
+        tblView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func btnAddImageAction(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Select an Image category to Upload", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("camera not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("photoLibrary not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @objc func removeImageAction(sender : UIButton)
@@ -324,7 +385,32 @@ extension PublishDetailsViewController: UITableViewDataSource, UITableViewDelega
         return CGFloat(height)
         
     }
+}
+
+extension PublishDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        
+        self.dismiss(animated: true) {
+            DispatchQueue.main.async {
+                
+                self.arrImages.append(tempImage)
+                self.constrtImgVwHeight.constant = 80
+                self.collctView.reloadData()
+            }
+            
+        }
+        
+    }
     
-    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
+
