@@ -150,7 +150,7 @@ class QueryReplyViewController: BaseViewController {
 
     @IBAction func btnAddImageAction(_ sender: UIButton)
     {
-        let alert = UIAlertController(title: "Select an Image to Upload", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select an Image category to Upload", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default) { action in
             // perhaps use action.title here
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
