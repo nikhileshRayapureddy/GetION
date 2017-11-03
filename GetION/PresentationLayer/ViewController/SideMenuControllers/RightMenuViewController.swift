@@ -101,7 +101,8 @@ extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
         }
         else
         {
-            let homeViewController: HomeViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let homeViewController: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
+            homeViewController.isLeadAdd = true
             navController = UINavigationController(rootViewController: homeViewController)
             self.sideMenuViewController!.setContentViewController(navController!, animated: true)
             self.sideMenuViewController!.hideMenuViewController()

@@ -15,12 +15,42 @@ class PromotionListViewController: BaseViewController {
     @IBOutlet weak var btnPromotions: UIButton!
     var arrPromotions = [PromotionsBO]()
     var arrTopPromos = [PromotionsBO]()
+    
+    @IBOutlet weak var vwSMSCampaign: UIView!
+    @IBOutlet weak var vwSmsPreview: UIView!
+    @IBOutlet weak var vwSMSPreviewHeader: UILabel!
+    @IBOutlet weak var vwMessage: UIView!
+    
+    @IBOutlet weak var lblMsgPreview: UILabel!
+    @IBOutlet weak var txtVwMessage: FloatLabelTextView!
+    @IBOutlet weak var lblCharCount: UILabel!
+    @IBOutlet weak var scrlVwContacts: UIScrollView!
+    @IBOutlet weak var vwContact: UIView!
+    @IBOutlet weak var constrtVwContactHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnOSSMS: UIButton!
+    @IBOutlet weak var btnServerSMS: UIButton!
+    @IBOutlet weak var btnSend: UIButton!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        vwSmsPreview.round(corners: [.topLeft,.topRight,.bottomLeft], radius: 5)
+        
+        vwMessage.layer.cornerRadius = 8
+        vwMessage.layer.borderColor = UIColor (red: 49.0/255, green: 224.0/255, blue: 210.0/255, alpha: 1).cgColor
+        vwMessage.layer.borderWidth = 1.2
+        
+        scrlVwContacts.layer.cornerRadius = 5
+        scrlVwContacts.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+        scrlVwContacts.layer.borderWidth = 0.8
+        
+        btnSend.layer.cornerRadius = 5
+        btnSend.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+        btnSend.layer.borderWidth = 0.8
+
         self.designNavigationBarWithBackAnd(strTitle: "Promotions")
         app_delegate.showLoader(message: "Loading Promotions...")
         let layer = ServiceLayer()
@@ -58,14 +88,33 @@ class PromotionListViewController: BaseViewController {
     @IBAction func btnPromotionsClicked(_ sender: UIButton) {
         btnSMSCampaign.isSelected = false
         sender.isSelected = true
+        vwSMSCampaign.isHidden = true
     }
     
     
     @IBAction func btnSMSCampaignClicked(_ sender: UIButton) {
         btnPromotions.isSelected = false
         sender.isSelected = true
+        vwSMSCampaign.isHidden = false
+    }
+    @IBAction func btnOSSMSAction(_ sender: UIButton)
+    {
+        btnServerSMS.isSelected = false
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnServerSMSAction(_ sender: UIButton)
+    {
+        btnOSSMS.isSelected = false
+        sender.isSelected = true
+    }
+    
+    
+    @IBAction func btnSendAction(_ sender: UIButton)
+    {
         
     }
+
 }
 extension PromotionListViewController : UITableViewDelegate,UITableViewDataSource
 {
@@ -139,3 +188,18 @@ extension PromotionListViewController : UICollectionViewDelegate,UICollectionVie
     }
 
 }
+extension PromotionListViewController : UITextViewDelegate{
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        lblMsgPreview.text = textView.text + text
+        if (lblMsgPreview.text?.characters.count)! <= 120
+        {
+            lblCharCount.text = "120/\((lblMsgPreview.text?.characters.count)!)"
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+}
+

@@ -55,6 +55,7 @@
 		A77F9CA21FAB25AF0032BA6A /* Lead+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */; };
 		A77F9CA31FAB25AF0032BA6A /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9F1FAB25AF0032BA6A /* Publish+CoreDataClass.swift */; };
 		A77F9CA41FAB25AF0032BA6A /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9CA01FAB25AF0032BA6A /* Publish+CoreDataProperties.swift */; };
+		A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */; };
 		A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61581F9E37F5002F8E8F /* MenuCell.swift */; };
 		A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */; };
 		A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */; };
@@ -184,6 +185,7 @@
 		A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lead+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A77F9C9F1FAB25AF0032BA6A /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A77F9CA01FAB25AF0032BA6A /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadAddAndUpdateViewController.swift; sourceTree = "<group>"; };
 		A78B61581F9E37F5002F8E8F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
 		A78B61601F9F379A002F8E8F /* PromoListCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoListCustomCell.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */,
 				A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */,
 				A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */,
+				A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */,
 				CCF11F461FAB84B10056C367 /* PublishIonizePopUp.swift in Sources */,
+				A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
 				A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */,
 				CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */,
