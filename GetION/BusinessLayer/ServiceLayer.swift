@@ -3720,16 +3720,9 @@ class ServiceLayer: NSObject {
             }
             else
             {
-                if let code = obj.parsedDataDict["status"] as? String
+                if let _ = obj.parsedDataDict["description"] as? [[String:AnyObject]]
                 {
-                    if code == "ok"
-                    {
-                        successMessage("Success")
-                    }
-                    else
-                    {
-                        failureMessage("Failure")
-                    }
+                    successMessage("Success")
                 }
                 else
                 {
