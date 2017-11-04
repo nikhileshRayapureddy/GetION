@@ -2,7 +2,7 @@
 //  Publish+CoreDataClass.swift
 //  GetION
 //
-//  Created by Nikhilesh on 02/11/17.
+//  Created by NIKHILESH on 04/11/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 //

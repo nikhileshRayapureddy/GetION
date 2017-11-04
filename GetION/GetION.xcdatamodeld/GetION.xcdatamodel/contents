@@ -53,6 +53,7 @@
         <attribute name="ratings" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ratingTotal" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="textplain" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -63,7 +64,7 @@
         <attribute name="vote" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Publish" positionX="-63" positionY="-18" width="128" height="600"/>
         <element name="Lead" positionX="-63" positionY="135" width="128" height="360"/>
+        <element name="Publish" positionX="-63" positionY="-18" width="128" height="615"/>
     </elements>
 </model>

@@ -99,6 +99,60 @@ class CoreDataAccessLayer: NSObject {
         }
         
     }
+    func getPublishBlogsFromLocalDB() -> [BlogBO]
+    {
+        let arrPublish = self.getListDataForEntity(strclass: "Publish",strFormat:"status == '1'")
+        if arrPublish == nil || arrPublish?.count == 0
+        {
+            return [BlogBO]()
+        }
+        
+        if arrPublish!.count > 0
+        {
+            return self.convertPublishArrayToBlogBOArray(arr: arrPublish as! [Publish])
+        }
+        else
+        {
+            return [BlogBO]()
+        }
+        
+    }
+    func getDraftBlogsFromLocalDB() -> [BlogBO]
+    {
+        let arrPublish = self.getListDataForEntity(strclass: "Publish",strFormat:"status == '3'")
+        if arrPublish == nil || arrPublish?.count == 0
+        {
+            return [BlogBO]()
+        }
+        
+        if arrPublish!.count > 0
+        {
+            return self.convertPublishArrayToBlogBOArray(arr: arrPublish as! [Publish])
+        }
+        else
+        {
+            return [BlogBO]()
+        }
+        
+    }
+    func getOnlineBlogsFromLocalDB() -> [BlogBO]
+    {
+        let arrPublish = self.getListDataForEntity(strclass: "Publish",strFormat:"status == '0'")
+        if arrPublish == nil || arrPublish?.count == 0
+        {
+            return [BlogBO]()
+        }
+        
+        if arrPublish!.count > 0
+        {
+            return self.convertPublishArrayToBlogBOArray(arr: arrPublish as! [Publish])
+        }
+        else
+        {
+            return [BlogBO]()
+        }
+        
+    }
 
     
     func getPublishItemsWith(postId : String) -> [BlogBO]
@@ -168,6 +222,7 @@ class CoreDataAccessLayer: NSObject {
         blogItem.created_date = tmpItem.created_date
         blogItem.postId = tmpItem.postId
         blogItem.isVoted = Int64(tmpItem.isVoted)
+        blogItem.status = tmpItem.status
         do {
             try managedObjectContext.save()
             
@@ -387,6 +442,7 @@ class CoreDataAccessLayer: NSObject {
             blogItem.created_date = tmpItem.created_date!
             blogItem.postId = tmpItem.postId!
             blogItem.isVoted = Int(tmpItem.isVoted)
+            blogItem.status = tmpItem.status!
             arrblogItems.append(blogItem)
         }
         return arrblogItems

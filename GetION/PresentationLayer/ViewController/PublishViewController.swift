@@ -6,6 +6,11 @@
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
+
+//0 - Online
+//1 - Publish
+//3 - Drafts
+
 import UIKit
 
 class PublishViewController: BaseViewController {
@@ -29,28 +34,7 @@ class PublishViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getAllPublishData()
     }
-    func getAllPublishData()
-    {
-        app_delegate.showLoader(message: "Fetching...")
-        let layer = ServiceLayer()
-        layer.getAllPublishData(successMessage: { (response) in
-            app_delegate.removeloder()
-            let arrItems = CoreDataAccessLayer.sharedInstance.getAllPublishFromLocalDB()
-            print(arrItems)
-
-        }) { (erroe) in
-            DispatchQueue.main.async {
-                app_delegate.removeloder()
-                let alert = UIAlertController(title: "Alert!", message: "Unable to retreive data.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-
-            }
-        }
-    }
-
     func resetTopButtons()
     {
         btnDrafts.setTitleColor(UIColor.init(red: 77.0/255.0, green: 77.0/255.0, blue: 77.0/255.0, alpha: 1.0), for: .normal)
@@ -111,6 +95,13 @@ class PublishViewController: BaseViewController {
         showIonizeOrPublishPopUP(isIonize: false)
     }
     
+    @objc func showAddInputsView()
+    {
+        let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
+        
+        self.present(addInputs, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -159,6 +150,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "DRAFTSCELL", for: indexPath) as! DraftsCustomCell
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnAddInputs.addTarget(self, action: #selector(showAddInputsView), for: .touchUpInside)
             cell.btnIonize.addTarget(self, action: #selector(showIonizePopUp(sender:)), for: .touchUpInside)
             return cell
         }

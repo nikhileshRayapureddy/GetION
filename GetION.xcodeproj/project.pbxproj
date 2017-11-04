@@ -39,6 +39,8 @@
 		A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */; };
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
+		A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */; };
+		A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
 		A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */; };
@@ -53,8 +55,6 @@
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
 		A77F9CA11FAB25AF0032BA6A /* Lead+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */; };
 		A77F9CA21FAB25AF0032BA6A /* Lead+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */; };
-		A77F9CA31FAB25AF0032BA6A /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9F1FAB25AF0032BA6A /* Publish+CoreDataClass.swift */; };
-		A77F9CA41FAB25AF0032BA6A /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9CA01FAB25AF0032BA6A /* Publish+CoreDataProperties.swift */; };
 		A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */; };
 		A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61581F9E37F5002F8E8F /* MenuCell.swift */; };
 		A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */; };
@@ -105,8 +105,10 @@
 		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
 		CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */; };
 		CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */; };
-		CC4238C31FADB45D00480A33 /* AddInputsCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */; };
-		CC4238C51FADB46900480A33 /* AddInputsCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */; };
+		CC4238C71FADCFA900480A33 /* AddInputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */; };
+		CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238C81FADD7B800480A33 /* InputCategoriesCustomCell.swift */; };
+		CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238CA1FADD9E500480A33 /* AddInputsSectionTitleView.swift */; };
+		CC4238CD1FADD9FB00480A33 /* AddInputsSectionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */; };
 		CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */; };
 		CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */; };
 		CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */; };
@@ -124,6 +126,8 @@
 		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
 		CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */; };
 		CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */; };
+		CCE274631FAE00BA00C12683 /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE274621FAE00BA00C12683 /* AddTopicView.swift */; };
+		CCE274651FAE00C300C12683 /* AddTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE274641FAE00C300C12683 /* AddTopicView.xib */; };
 		CCF11F461FAB84B10056C367 /* PublishIonizePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */; };
 		CCF11F481FAB84C00056C367 /* PublishIonizePopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF11F471FAB84C00056C367 /* PublishIonizePopUp.xib */; };
 		CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */; };
@@ -167,6 +171,8 @@
 		A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
+		A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
 		A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsMainViewController.swift; sourceTree = "<group>"; };
@@ -185,8 +191,6 @@
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
 		A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lead+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lead+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A77F9C9F1FAB25AF0032BA6A /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A77F9CA01FAB25AF0032BA6A /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadAddAndUpdateViewController.swift; sourceTree = "<group>"; };
 		A78B61581F9E37F5002F8E8F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		A78B615E1F9F22AC002F8E8F /* PromotionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
@@ -235,8 +239,10 @@
 		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
 		CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyTemplateEditPopUp.swift; sourceTree = "<group>"; };
 		CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyTemplateEditPopUp.xib; sourceTree = "<group>"; };
-		CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputsCustomView.swift; sourceTree = "<group>"; };
-		CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInputsCustomView.xib; sourceTree = "<group>"; };
+		CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputsViewController.swift; sourceTree = "<group>"; };
+		CC4238C81FADD7B800480A33 /* InputCategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCategoriesCustomCell.swift; sourceTree = "<group>"; };
+		CC4238CA1FADD9E500480A33 /* AddInputsSectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputsSectionTitleView.swift; sourceTree = "<group>"; };
+		CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInputsSectionTitleView.xib; sourceTree = "<group>"; };
 		CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopUp.swift; sourceTree = "<group>"; };
 		CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesPopUp.xib; sourceTree = "<group>"; };
 		CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBO.swift; sourceTree = "<group>"; };
@@ -254,6 +260,8 @@
 		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
 		CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQueryPopUpView.swift; sourceTree = "<group>"; };
 		CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQueryPopUpView.xib; sourceTree = "<group>"; };
+		CCE274621FAE00BA00C12683 /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
+		CCE274641FAE00C300C12683 /* AddTopicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTopicView.xib; sourceTree = "<group>"; };
 		CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishIonizePopUp.swift; sourceTree = "<group>"; };
 		CCF11F471FAB84C00056C367 /* PublishIonizePopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishIonizePopUp.xib; sourceTree = "<group>"; };
 		CCF7029D1FA8D981009AFB21 /* DraftsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsCustomCell.swift; sourceTree = "<group>"; };
@@ -306,6 +314,7 @@
 				CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */,
 				CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */,
 				A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */,
+				CC4238C81FADD7B800480A33 /* InputCategoriesCustomCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -461,10 +470,10 @@
 		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
+				A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */,
+				A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */,
 				A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */,
 				A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */,
-				A77F9C9F1FAB25AF0032BA6A /* Publish+CoreDataClass.swift */,
-				A77F9CA01FAB25AF0032BA6A /* Publish+CoreDataProperties.swift */,
 			);
 			path = Entites;
 			sourceTree = "<group>";
@@ -547,6 +556,7 @@
 				A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */,
 				A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */,
 				A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */,
+				CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -595,8 +605,10 @@
 				CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */,
 				CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */,
 				CCF11F471FAB84C00056C367 /* PublishIonizePopUp.xib */,
-				CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */,
-				CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */,
+				CC4238CA1FADD9E500480A33 /* AddInputsSectionTitleView.swift */,
+				CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */,
+				CCE274621FAE00BA00C12683 /* AddTopicView.swift */,
+				CCE274641FAE00C300C12683 /* AddTopicView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -667,6 +679,7 @@
 				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
+				CCE274651FAE00C300C12683 /* AddTopicView.xib in Resources */,
 				CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */,
 				A7DFFAC81F8F608D00208FD9 /* Assets.xcassets in Resources */,
 				A7164CAE1F90FA34003DB84D /* Myriad_Pro_Bold.ttf in Resources */,
@@ -674,7 +687,6 @@
 				A7D289631FA60E76005E7CC3 /* PromoSuccessCustomView.xib in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
-				CC4238C51FADB46900480A33 /* AddInputsCustomView.xib in Resources */,
 				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */,
@@ -683,6 +695,7 @@
 				A7EAF6B81F9E422D00CB6622 /* AddCustomPopUpView.xib in Resources */,
 				CCB0E2BE1F964A74004DD3A8 /* QuickReplyCustomCell.xib in Resources */,
 				A7164CB11F90FA34003DB84D /* Quicksand-Bold.ttf in Resources */,
+				CC4238CD1FADD9FB00480A33 /* AddInputsSectionTitleView.xib in Resources */,
 				CC2519C21F9F851B007A6F30 /* GalleryCollectionViewCell.xib in Resources */,
 				CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */,
 				A71FFF021F91E6610082BAF8 /* IQKeyboardManager.bundle in Resources */,
@@ -758,9 +771,12 @@
 			files = (
 				A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */,
 				A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */,
+				CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */,
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
+				A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */,
 				A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */,
+				CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
@@ -801,7 +817,6 @@
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
-				A77F9CA31FAB25AF0032BA6A /* Publish+CoreDataClass.swift in Sources */,
 				A71FFF011F91E6610082BAF8 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				A7FB4D4C1FA20C8C00CDE219 /* KSTokenField.swift in Sources */,
 				A71FFEFC1F91E6610082BAF8 /* IQTextView.swift in Sources */,
@@ -814,14 +829,12 @@
 				A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */,
 				A71FFEF41F91E6610082BAF8 /* IQUITextFieldView+Additions.swift in Sources */,
 				A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */,
-				A77F9CA41FAB25AF0032BA6A /* Publish+CoreDataProperties.swift in Sources */,
 				A7D586181FA4A1F000B1BD4A /* CatagoryBO.swift in Sources */,
 				CC2519C11F9F850D007A6F30 /* GalleryCollectionViewCell.swift in Sources */,
 				A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */,
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
 				CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
-				CC4238C31FADB45D00480A33 /* AddInputsCustomView.swift in Sources */,
 				A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */,
 				A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */,
 				A71FFEFA1F91E6610082BAF8 /* IQKeyboardManager.swift in Sources */,
@@ -829,6 +842,7 @@
 				CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */,
 				A7D5861C1FA4B2ED00B1BD4A /* TimeSlotsBO.swift in Sources */,
 				A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */,
+				A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */,
 				A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */,
 				A71FFEFE1F91E6610082BAF8 /* IQPreviousNextView.swift in Sources */,
 				A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */,
@@ -839,6 +853,7 @@
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
 				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */,
+				CCE274631FAE00BA00C12683 /* AddTopicView.swift in Sources */,
 				CCF11F461FAB84B10056C367 /* PublishIonizePopUp.swift in Sources */,
 				A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */,
 				A7F7D4661F8FB32100FA108F /* RightMenuViewController.swift in Sources */,
@@ -847,6 +862,7 @@
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */,
+				CC4238C71FADCFA900480A33 /* AddInputsViewController.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,

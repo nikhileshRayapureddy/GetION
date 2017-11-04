@@ -77,16 +77,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getAllPublishData()
     {
-        app_delegate.showLoader(message: "Fetching...")
+        self.showLoader(message: "Fetching...")
         let layer = ServiceLayer()
-        layer.getAllPublishData(successMessage: { (response) in
-            DispatchQueue.main.async {
-                self.getAllLeads()
-            }
-        }) { (erro) in
-            DispatchQueue.main.async {
-                self.getAllLeads()
-            }
+        layer.getAllDraftsBlog(successMessage: { (response) in
+                layer.getAllPublishBlog(successMessage: { (success) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
+                    
+                }, failureMessage: { (error) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
+
+                })
+        }) { (error) in
+            layer.getAllPublishBlog(successMessage: { (success) in
+                layer.getAllOnlineBlog(successMessage: { (success) in
+                    app_delegate.removeloder()
+                }, failureMessage: { (error) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
+                })
+                
+            }, failureMessage: { (error) in
+                layer.getAllOnlineBlog(successMessage: { (success) in
+                    app_delegate.removeloder()
+                }, failureMessage: { (error) in
+                    app_delegate.removeloder()
+                })
+
+            })
+
         }
     }
     func getAllLeads()
@@ -105,20 +134,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-    func getAllQueries()
-    {
-//        let layer = ServiceLayer()
-//        layer.getQueries(username: <#T##String#>, status: <#T##String#>, andIsPopular: <#T##Bool#>, successMessage: <#T##(Any) -> Void#>, failureMessage: <#T##(Any) -> Void#>)(successMessage: { (response) in
-//            self.getAllQueries()
-//        }) { (erro) in
-//            DispatchQueue.main.async {
-//                self.getAllQueries()
-//            }
-//        }
-
-        app_delegate.removeloder()
-    }
-
     //MARK:- Loader  methods
     func showLoader(message:String)
     {
