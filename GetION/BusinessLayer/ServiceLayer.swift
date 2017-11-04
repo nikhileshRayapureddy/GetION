@@ -2514,7 +2514,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&source=leads,query"
+        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -2633,6 +2633,345 @@ class ServiceLayer: NSObject {
                     {
                         failureMessage("Failure")
                     }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func getAllGroups(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request?module=contacts&action=searchTags&resource=contacts&user_id=180
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/?module=contacts&action=searchTags&resource=contacts&user_id=\(GetIONUserDefaults.getUserId())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let arrPromos = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrSuggestions = [TagSuggestionBO]()
+                            for promo in arrPromos
+                            {
+                                let bo = TagSuggestionBO()
+                                
+                                if let id = promo["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let title = promo["title"] as? String
+                                {
+                                    bo.title = title
+                                }
+                                if let created = promo["created"] as? String
+                                {
+                                    bo.created = created
+                                }
+                                arrSuggestions.append(bo)
+                            }
+                            successMessage(arrSuggestions)
+                        }
+                        else
+                        {
+                            failureMessage(self.SERVER_ERROR)
+                        }
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func deleteLeadWith(Id : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/delete/contacts/contacts?userid=180&username=ramesh&pwd=QFJhbWVzaDEyMyM=&encode=true&id=74361
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request/delete/contacts/contacts?userid=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())=&encode=true&id=\(Id)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let arrPromos = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrSuggestions = [TagSuggestionBO]()
+                            for promo in arrPromos
+                            {
+                                let bo = TagSuggestionBO()
+                                
+                                if let id = promo["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let title = promo["title"] as? String
+                                {
+                                    bo.title = title
+                                }
+                                if let created = promo["created"] as? String
+                                {
+                                    bo.created = created
+                                }
+                                arrSuggestions.append(bo)
+                            }
+                            successMessage(arrSuggestions)
+                        }
+                        else
+                        {
+                            failureMessage(self.SERVER_ERROR)
+                        }
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func addLeadToGroupsWith(strGroups : String,strLeads : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/delete/contacts/contacts?userid=180&username=ramesh&pwd=QFJhbWVzaDEyMyM=&encode=true&id=74361
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request/addTags/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&tags=\(strGroups)&contacts=\(strLeads)"
+ 
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    public func getFilteredLeadsWith(strSources :String,strEmail :String,strPhone :String,strAge :String,strGender :String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/get/contacts/contacts?user_id=180&username=ramesh&pwd=cmFtZXNo&encode=true&source=leads,query&withemail=1&withphone=1&age=20-30&gender=female
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&source=\(strSources)&withemail=\(strEmail)&withphone=\(strPhone)&age=\(strAge)&gender=\(strGender)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrLeads = [LeadsBO]()
+                            for lead in description
+                            {
+                                let bo = LeadsBO()
+                                
+                                if let id = lead["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let department = lead["department"] as? String
+                                {
+                                    bo.department = department
+                                }
+                                if let age = lead["age"] as? String
+                                {
+                                    bo.age = age
+                                }
+                                if let firstname = lead["firstname"] as? String
+                                {
+                                    bo.firstname = firstname
+                                }
+                                if let surname = lead["surname"] as? String
+                                {
+                                    bo.surname = surname
+                                }
+                                if let mobile = lead["mobile"] as? String
+                                {
+                                    bo.mobile = mobile
+                                }
+                                if let email = lead["email"] as? String
+                                {
+                                    bo.email = email
+                                }
+                                if let birthday = lead["birthday"] as? String
+                                {
+                                    bo.birthday = birthday
+                                }
+                                if let sex = lead["sex"] as? String
+                                {
+                                    bo.sex = sex
+                                }
+                                if let purpose = lead["purpose"] as? String
+                                {
+                                    bo.purpose = purpose
+                                }
+                                if let area = lead["area"] as? String
+                                {
+                                    bo.area = area
+                                }
+                                if let city = lead["city"] as? String
+                                {
+                                    bo.city = city
+                                }
+                                if let pincode = lead["pincode"] as? String
+                                {
+                                    bo.pincode = pincode
+                                }
+                                if let remarks = lead["remarks"] as? String
+                                {
+                                    bo.remarks = remarks
+                                }
+                                if let login_id = lead["login_id"] as? String
+                                {
+                                    bo.login_id = login_id
+                                }
+                                if let lastupdated = lead["lastupdated"] as? String
+                                {
+                                    bo.lastupdated = lastupdated
+                                }
+                                if let flag = lead["flag"] as? String
+                                {
+                                    bo.flag = flag
+                                }
+                                if let image = lead["image"] as? String
+                                {
+                                    bo.image = image
+                                }
+                                if let source = lead["source"] as? String
+                                {
+                                    bo.source = source
+                                }
+                                if let imgTag = lead["imgTag"] as? String
+                                {
+                                    bo.imgTag = imgTag
+                                }
+                                if let leadsTags = lead["leadsTags"] as? String
+                                {
+                                    bo.leadsTags = leadsTags
+                                }
+                                arrLeads.append(bo)
+                            }
+                            
+                            successMessage(arrLeads)
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func blockCalender(strDocId :String,strStartDate :String,strStartTime :String,strEndDate :String,strEndTime :String,strPublish :String,strFullDay :String,strDesc :String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_save_bookoff&res_id=8&bo_offdate=2017-11-02&bo_offdate2=2017-11-02&bo_starttime=14:00:00&bo_endtime=15:00:00&bo_pub=1&bo_fullday=yes&description=Disable By Ajit&usr=ramesh&pwd=cmFtZXNo&encode=true
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_save_bookoff&res_id=\(strDocId)&bo_offdate=\(strStartDate)&bo_offdate2=\(strEndDate)&bo_starttime=\(strStartTime)&bo_endtime=\(strEndTime)&bo_pub=1&bo_fullday=\(strFullDay)&description=\(strDesc)&usr=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    if data.count > 0
+                    {
+                        let res = data[0]
+                        if let msg = res["SaveResult"] as? String
+                        {
+                            if msg == "ok"
+                            {
+                                successMessage("success")
+                            }
+                            else
+                            {
+                                failureMessage("Failure")
+                            }
+                            
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                    
                 }
                 else
                 {
