@@ -3670,6 +3670,74 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func addTrendingTopic(strTitle:String,strCat:String,strDesc:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request?action=post&module=ionplanner&resource=planner&created_by=180&title=“TOPIC TITLE”&start_date=0000-00-00 00:00:00&color=red&description=“TOPIC TITLE”&end_date=0000-00-00 00:00:00"&tags=hello world2; hello world3
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request?action=post&module=ionplanner&resource=planner&created_by=\(GetIONUserDefaults.getUserId())&title=\(strTitle)&start_date=0000-00-00 00:00:00&color=red&description=\(strDesc)&end_date=0000-00-00 00:00:00&tags=\(strCat)"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func addCalenderTopic(strTopics:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=ionize&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&topics=97:2017-11-03,98:2017-11-01,100:2017-11-01
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=ionize&key=\(GetIONUserDefaults.getAuth())&topics=\(strTopics)"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
