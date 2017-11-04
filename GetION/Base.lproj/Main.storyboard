@@ -6483,6 +6483,10 @@ Please enter your Email-Id below :</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="EsT-GJ-59w" id="NZd-ql-SR2"/>
+                                    <outlet property="delegate" destination="EsT-GJ-59w" id="CNc-v1-kF1"/>
+                                </connections>
                             </tableView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US4-0x-aux">
                                 <rect key="frame" x="10" y="537" width="355" height="80"/>
@@ -6533,6 +6537,10 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="EsT-GJ-59w" id="J4O-hY-kha"/>
+                                            <outlet property="delegate" destination="EsT-GJ-59w" id="cRq-qt-S6N"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -6549,6 +6557,9 @@ Please enter your Email-Id below :</string>
                                         <state key="normal" image="AddIcon">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAddImageAction:" destination="EsT-GJ-59w" eventType="touchUpInside" id="Tp3-Qy-fdw"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZYL-9A-kit">
                                         <rect key="frame" x="40" y="5" width="275" height="40"/>
@@ -6601,6 +6612,7 @@ Please enter your Email-Id below :</string>
                     <connections>
                         <outlet property="btnSendComment" destination="Z8D-Ic-Hdg" id="q3e-CD-oGp"/>
                         <outlet property="collctView" destination="f7I-4v-ZkT" id="xFl-XS-EeQ"/>
+                        <outlet property="constrtImgVwHeight" destination="pqG-Kk-pmh" id="8Fj-RR-Ixg"/>
                         <outlet property="lblMessage" destination="02k-CX-Bdp" id="INJ-9P-Bru"/>
                         <outlet property="lblTitle" destination="oLP-4P-TzN" id="UmC-hz-LSu"/>
                         <outlet property="tblView" destination="msZ-nX-Mqa" id="9he-nT-vKg"/>

@@ -2,7 +2,7 @@
 //  DraftsCustomCell.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 31/10/17.
+//  Created by Nikhilesh on 31/10/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 

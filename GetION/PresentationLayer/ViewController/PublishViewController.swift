@@ -17,6 +17,7 @@ class PublishViewController: BaseViewController {
     @IBOutlet weak var selectedImageView: UIImageView!
     
     var selectedIndex = 1
+    var viewPublishIonizePopUp: PublishIonizePopUp!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
@@ -87,6 +88,29 @@ class PublishViewController: BaseViewController {
         }
     }
     
+    func showIonizeOrPublishPopUP(isIonize: Bool)
+    {
+        if let view = Bundle.main.loadNibNamed("PublishIonizePopUp", owner: nil, options: nil)![0] as? PublishIonizePopUp
+        {
+            view.isIonize = isIonize
+            viewPublishIonizePopUp = view
+            view.delegate = self
+            view.frame = self.view.bounds
+            view.resizeViews()
+            self.view.addSubview(view)
+        }
+    }
+    
+    @objc func showIonizePopUp(sender: UIButton)
+    {
+        showIonizeOrPublishPopUP(isIonize: true)
+    }
+    
+    @objc func showPublishPopUp(sender: UIButton)
+    {
+        showIonizeOrPublishPopUP(isIonize: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -135,6 +159,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "DRAFTSCELL", for: indexPath) as! DraftsCustomCell
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnIonize.addTarget(self, action: #selector(showIonizePopUp(sender:)), for: .touchUpInside)
             return cell
         }
         else if selectedIndex == 2
@@ -142,6 +167,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "PUBLISHCELL", for: indexPath) as! PublishCustomCell
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnPublish.addTarget(self, action: #selector(showPublishPopUp(sender:)), for: .touchUpInside)
             return cell
         }
         else
@@ -161,3 +187,13 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
+extension PublishViewController: PublishIonizePopUp_Delegate
+{
+    func closePublishIonizePopup() {
+        viewPublishIonizePopUp.removeFromSuperview()
+    }
+    
+    func ionizeOrPublishClicked() {
+        
+    }
+}

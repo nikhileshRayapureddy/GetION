@@ -2,7 +2,7 @@
 //  CategoriesPopUp.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 01/11/17.
+//  Created by Nikhilesh on 01/11/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
@@ -20,6 +20,7 @@ class CategoriesPopUp: UIView {
     @IBOutlet weak var viewBackgroundHeightConstraint: NSLayoutConstraint!
     var delegate: CategoriesPopUp_Delegate!
     var arrCategories = [CategoryBO]()
+   
     func resizeViews()
     {
         viewBackground.layer.cornerRadius = 10.0
