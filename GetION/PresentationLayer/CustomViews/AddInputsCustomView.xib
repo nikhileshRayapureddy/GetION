@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Myriad_Pro_Regular.ttf">
+            <string>MyriadPro-Regular</string>
+        </array>
+        <array key="Myriad_Pro_Semibold.ttf">
+            <string>MyriadPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.69999999999999996" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddInputsCustomView" customModule="GetION" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80e-6j-Hm6">
+                    <rect key="frame" x="10" y="30" width="355" height="627"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan your calender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-ck-7pE">
+                            <rect key="frame" x="0.0" y="20" width="355" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="0KA-1W-Ask"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAN-1J-BC6">
+                            <rect key="frame" x="97.5" y="50" width="160" height="30"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-Fo-gto">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="MdN-KC-U8l"/>
+                                    </constraints>
+                                    <state key="normal" image="CalenderClock"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOh-4D-fEt">
+                                    <rect key="frame" x="40" y="0.0" width="120" height="30"/>
+                                    <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="xT0-Fo-gto" secondAttribute="bottom" id="1Nw-cI-7hM"/>
+                                <constraint firstAttribute="width" constant="160" id="1gO-Sf-Asa"/>
+                                <constraint firstItem="xT0-Fo-gto" firstAttribute="top" secondItem="gAN-1J-BC6" secondAttribute="top" id="7pH-tN-Qfa"/>
+                                <constraint firstAttribute="bottom" secondItem="SOh-4D-fEt" secondAttribute="bottom" id="ChU-MF-I2j"/>
+                                <constraint firstAttribute="trailing" secondItem="SOh-4D-fEt" secondAttribute="trailing" id="JdC-QG-msL"/>
+                                <constraint firstItem="SOh-4D-fEt" firstAttribute="leading" secondItem="xT0-Fo-gto" secondAttribute="trailing" constant="10" id="OkZ-bO-vJE"/>
+                                <constraint firstItem="SOh-4D-fEt" firstAttribute="top" secondItem="gAN-1J-BC6" secondAttribute="top" id="UYj-PX-gBQ"/>
+                                <constraint firstAttribute="height" constant="30" id="rBW-SV-Vkb"/>
+                                <constraint firstItem="xT0-Fo-gto" firstAttribute="leading" secondItem="gAN-1J-BC6" secondAttribute="leading" id="uFQ-CH-fjD"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdw-1h-fgL">
+                            <rect key="frame" x="52.5" y="52.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="k3l-Om-Zg9"/>
+                                <constraint firstAttribute="width" constant="25" id="tal-eN-fcC"/>
+                            </constraints>
+                            <state key="normal" image="PreviousArrow"/>
+                            <connections>
+                                <action selector="btnPreviousMonthClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="h4c-4C-Dvz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8If-F9-6Cx">
+                            <rect key="frame" x="277.5" y="52.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="e7L-2f-Y2V"/>
+                                <constraint firstAttribute="width" constant="25" id="zzo-xV-Eed"/>
+                            </constraints>
+                            <state key="normal" image="NextArrow"/>
+                            <connections>
+                                <action selector="btnNextMonthClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="pUQ-Mi-QmD"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7e-D7-Ki5">
+                            <rect key="frame" x="0.0" y="90" width="355" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyO-vJ-GIz">
+                                    <rect key="frame" x="235" y="0.0" width="100" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="vP4-IF-abI"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBF-Gc-pE8">
+                                    <rect key="frame" x="234" y="5" width="1" height="30"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="1" id="qzi-v0-Y5U"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending Topics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMI-bw-YXe">
+                                    <rect key="frame" x="30" y="0.0" width="204" height="40"/>
+                                    <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.14509803921568626" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="OBF-Gc-pE8" firstAttribute="leading" secondItem="uMI-bw-YXe" secondAttribute="trailing" id="0Bx-Q3-Zzh"/>
+                                <constraint firstAttribute="height" constant="40" id="DTp-6e-tav"/>
+                                <constraint firstAttribute="bottom" secondItem="uMI-bw-YXe" secondAttribute="bottom" id="FAZ-1K-aCF"/>
+                                <constraint firstAttribute="bottom" secondItem="OBF-Gc-pE8" secondAttribute="bottom" constant="5" id="bfd-SN-Vv3"/>
+                                <constraint firstItem="wyO-vJ-GIz" firstAttribute="top" secondItem="Q7e-D7-Ki5" secondAttribute="top" id="c62-SK-RMS"/>
+                                <constraint firstItem="uMI-bw-YXe" firstAttribute="top" secondItem="Q7e-D7-Ki5" secondAttribute="top" id="gki-C7-tXi"/>
+                                <constraint firstItem="uMI-bw-YXe" firstAttribute="leading" secondItem="Q7e-D7-Ki5" secondAttribute="leading" constant="30" id="jQA-50-5oU"/>
+                                <constraint firstItem="wyO-vJ-GIz" firstAttribute="leading" secondItem="OBF-Gc-pE8" secondAttribute="trailing" id="njY-VT-FJs"/>
+                                <constraint firstAttribute="trailing" secondItem="wyO-vJ-GIz" secondAttribute="trailing" constant="20" id="sEW-nS-dej"/>
+                                <constraint firstItem="OBF-Gc-pE8" firstAttribute="top" secondItem="Q7e-D7-Ki5" secondAttribute="top" constant="5" id="sOb-t7-nlZ"/>
+                                <constraint firstAttribute="bottom" secondItem="wyO-vJ-GIz" secondAttribute="bottom" id="y2L-6d-H5N"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wS5-Q6-ahV">
+                            <rect key="frame" x="0.0" y="130" width="355" height="366"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwz-DY-jqC">
+                            <rect key="frame" x="0.0" y="496" width="355" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="PzU-ZH-s4Z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Add a new topic" image="Plus_AddIpnuts">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnAddNewTopicClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="AT7-ie-oNp"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICN-nJ-ZNa">
+                            <rect key="frame" x="0.0" y="536" width="355" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Time already recommended to get the best result. you can still edit them." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsG-8N-TXO">
+                                    <rect key="frame" x="40" y="0.0" width="275" height="50"/>
+                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="13"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="TsG-8N-TXO" firstAttribute="top" secondItem="ICN-nJ-ZNa" secondAttribute="top" id="9oU-iH-YgP"/>
+                                <constraint firstItem="TsG-8N-TXO" firstAttribute="leading" secondItem="ICN-nJ-ZNa" secondAttribute="leading" constant="40" id="AkM-iW-yMO"/>
+                                <constraint firstAttribute="bottom" secondItem="TsG-8N-TXO" secondAttribute="bottom" id="DnU-Th-D1l"/>
+                                <constraint firstAttribute="trailing" secondItem="TsG-8N-TXO" secondAttribute="trailing" constant="40" id="Rwd-g8-OCH"/>
+                                <constraint firstAttribute="height" constant="50" id="Y3u-Fa-i1M"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lmz-jO-gm7">
+                            <rect key="frame" x="0.0" y="586" width="355" height="1"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="qaQ-Rs-6KX"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8w-gf-36R">
+                            <rect key="frame" x="0.0" y="587" width="177.5" height="40"/>
+                            <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="DFs-hf-Gon"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="h0J-mJ-aXX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acN-FS-mUG">
+                            <rect key="frame" x="177.5" y="587" width="177.5" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Cgb-rv-5da"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                            <state key="normal" title="Add to Calendar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnAddToCalendarClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="IAw-wJ-SNN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Vwz-DY-jqC" firstAttribute="top" secondItem="wS5-Q6-ahV" secondAttribute="bottom" id="2U4-z3-UGN"/>
+                        <constraint firstItem="Q7e-D7-Ki5" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="2vq-nI-liO"/>
+                        <constraint firstItem="lmz-jO-gm7" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="49e-gP-SlA"/>
+                        <constraint firstItem="5yC-ck-7pE" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="4IA-Dz-tCN"/>
+                        <constraint firstItem="gAN-1J-BC6" firstAttribute="top" secondItem="5yC-ck-7pE" secondAttribute="bottom" constant="10" id="69g-M1-3Og"/>
+                        <constraint firstAttribute="bottom" secondItem="acN-FS-mUG" secondAttribute="bottom" id="9Fy-Ar-4gC"/>
+                        <constraint firstItem="gAN-1J-BC6" firstAttribute="centerX" secondItem="80e-6j-Hm6" secondAttribute="centerX" id="AYU-KS-KDu"/>
+                        <constraint firstAttribute="trailing" secondItem="Q7e-D7-Ki5" secondAttribute="trailing" id="Dgc-3s-IgC"/>
+                        <constraint firstItem="N8w-gf-36R" firstAttribute="top" secondItem="lmz-jO-gm7" secondAttribute="bottom" id="Ieu-7k-hH5"/>
+                        <constraint firstAttribute="trailing" secondItem="Vwz-DY-jqC" secondAttribute="trailing" id="Jpc-g0-h21"/>
+                        <constraint firstItem="Q7e-D7-Ki5" firstAttribute="top" secondItem="gAN-1J-BC6" secondAttribute="bottom" constant="10" id="L9J-Ok-scB"/>
+                        <constraint firstItem="lmz-jO-gm7" firstAttribute="top" secondItem="ICN-nJ-ZNa" secondAttribute="bottom" id="LHh-na-54S"/>
+                        <constraint firstAttribute="trailing" secondItem="ICN-nJ-ZNa" secondAttribute="trailing" id="NI6-zo-b8l"/>
+                        <constraint firstAttribute="trailing" secondItem="lmz-jO-gm7" secondAttribute="trailing" id="OOb-le-VXH"/>
+                        <constraint firstItem="Vwz-DY-jqC" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="PNp-KB-gzG"/>
+                        <constraint firstItem="Pdw-1h-fgL" firstAttribute="centerY" secondItem="gAN-1J-BC6" secondAttribute="centerY" id="Pgc-7b-WVo"/>
+                        <constraint firstItem="ICN-nJ-ZNa" firstAttribute="top" secondItem="Vwz-DY-jqC" secondAttribute="bottom" id="Pic-Tb-zeh"/>
+                        <constraint firstItem="N8w-gf-36R" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="WwS-66-YGM"/>
+                        <constraint firstAttribute="trailing" secondItem="acN-FS-mUG" secondAttribute="trailing" id="Yje-Dt-qTO"/>
+                        <constraint firstAttribute="trailing" secondItem="wS5-Q6-ahV" secondAttribute="trailing" id="aRo-Nd-qHY"/>
+                        <constraint firstItem="acN-FS-mUG" firstAttribute="width" secondItem="N8w-gf-36R" secondAttribute="width" id="av9-Ts-1sp"/>
+                        <constraint firstAttribute="trailing" secondItem="5yC-ck-7pE" secondAttribute="trailing" id="b3l-ty-MCF"/>
+                        <constraint firstItem="gAN-1J-BC6" firstAttribute="leading" secondItem="Pdw-1h-fgL" secondAttribute="trailing" constant="20" id="bpA-Zf-TPN"/>
+                        <constraint firstItem="acN-FS-mUG" firstAttribute="leading" secondItem="N8w-gf-36R" secondAttribute="trailing" id="br5-m0-jAN"/>
+                        <constraint firstItem="wS5-Q6-ahV" firstAttribute="top" secondItem="Q7e-D7-Ki5" secondAttribute="bottom" id="cXg-9Q-gdR"/>
+                        <constraint firstItem="wS5-Q6-ahV" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="cZS-L9-eBH"/>
+                        <constraint firstItem="8If-F9-6Cx" firstAttribute="leading" secondItem="gAN-1J-BC6" secondAttribute="trailing" constant="20" id="dxC-O4-c8W"/>
+                        <constraint firstItem="8If-F9-6Cx" firstAttribute="centerY" secondItem="gAN-1J-BC6" secondAttribute="centerY" id="efe-bI-VRp"/>
+                        <constraint firstItem="acN-FS-mUG" firstAttribute="leading" secondItem="N8w-gf-36R" secondAttribute="trailing" id="grx-db-3nG"/>
+                        <constraint firstAttribute="bottom" secondItem="N8w-gf-36R" secondAttribute="bottom" id="lcP-XI-upL"/>
+                        <constraint firstItem="5yC-ck-7pE" firstAttribute="top" secondItem="80e-6j-Hm6" secondAttribute="top" constant="20" id="lwT-9j-7up"/>
+                        <constraint firstItem="ICN-nJ-ZNa" firstAttribute="leading" secondItem="80e-6j-Hm6" secondAttribute="leading" id="rzD-CB-reL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="80e-6j-Hm6" secondAttribute="bottom" constant="10" id="DNv-ll-UNz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="80e-6j-Hm6" secondAttribute="trailing" constant="10" id="MoV-jM-g2s"/>
+                <constraint firstItem="80e-6j-Hm6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Skj-eK-Yto"/>
+                <constraint firstItem="80e-6j-Hm6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="uUN-qA-SxO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="lblMonthYearName" destination="SOh-4D-fEt" id="dN5-cN-0Uf"/>
+                <outlet property="tblView" destination="wS5-Q6-ahV" id="Dgm-vT-71d"/>
+                <outlet property="viewBackground" destination="80e-6j-Hm6" id="GFF-QC-FR8"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="CalenderClock" width="32" height="32"/>
+        <image name="NextArrow" width="29" height="28"/>
+        <image name="Plus_AddIpnuts" width="25" height="25"/>
+        <image name="PreviousArrow" width="29" height="28"/>
+    </resources>
+</document>
