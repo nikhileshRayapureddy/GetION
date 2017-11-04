@@ -29,28 +29,7 @@ class PublishViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getAllPublishData()
     }
-    func getAllPublishData()
-    {
-        app_delegate.showLoader(message: "Fetching...")
-        let layer = ServiceLayer()
-        layer.getAllPublishData(successMessage: { (response) in
-            app_delegate.removeloder()
-            let arrItems = CoreDataAccessLayer.sharedInstance.getAllPublishFromLocalDB()
-            print(arrItems)
-
-        }) { (erroe) in
-            DispatchQueue.main.async {
-                app_delegate.removeloder()
-                let alert = UIAlertController(title: "Alert!", message: "Unable to retreive data.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-
-            }
-        }
-    }
-
     func resetTopButtons()
     {
         btnDrafts.setTitleColor(UIColor.init(red: 77.0/255.0, green: 77.0/255.0, blue: 77.0/255.0, alpha: 1.0), for: .normal)
