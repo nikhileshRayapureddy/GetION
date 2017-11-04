@@ -111,6 +111,12 @@ class PublishViewController: BaseViewController {
         showIonizeOrPublishPopUP(isIonize: false)
     }
     
+    @objc func showAddInputsView()
+    {
+        let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
+        self.navigationController?.present(addInputs, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -159,6 +165,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "DRAFTSCELL", for: indexPath) as! DraftsCustomCell
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnAddInputs.addTarget(self, action: #selector(showAddInputsView), for: .touchUpInside)
             cell.btnIonize.addTarget(self, action: #selector(showIonizePopUp(sender:)), for: .touchUpInside)
             return cell
         }
