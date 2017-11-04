@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class LeadMainTableViewCell: UITableViewCell {
+class LeadMainTableViewCell: SwipeTableViewCell {
 
     @IBOutlet weak var btnSel: UIButton!
     @IBOutlet weak var imgVwLead: UIImageView!

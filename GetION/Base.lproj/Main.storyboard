@@ -3443,14 +3443,14 @@ Please enter your Email-Id below :</string>
             <objects>
                 <viewController storyboardIdentifier="UpdateVisitsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zNg-Pd-fgl" customClass="UpdateVisitsViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EXf-eb-WkF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mji-XT-8Ox">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFJ-RM-QS1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1650"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wc-Z3-5nE">
                                                 <rect key="frame" x="0.0" y="3" width="375" height="286"/>
@@ -3468,11 +3468,21 @@ Please enter your Email-Id below :</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCe-OE-Ew3">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
+                                                                <connections>
+                                                                    <action selector="btnImagePickerAction:" destination="zNg-Pd-fgl" eventType="touchUpInside" id="Is4-Ot-6CH"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="oCe-OE-Ew3" firstAttribute="top" secondItem="myT-9Z-2qT" secondAttribute="top" id="R9w-dr-73J"/>
+                                                            <constraint firstItem="oCe-OE-Ew3" firstAttribute="leading" secondItem="myT-9Z-2qT" secondAttribute="leading" id="TAy-mv-biI"/>
                                                             <constraint firstAttribute="height" constant="108" id="WWS-VE-HHA"/>
                                                             <constraint firstAttribute="width" constant="108" id="gso-N4-Rd3"/>
+                                                            <constraint firstAttribute="bottom" secondItem="oCe-OE-Ew3" secondAttribute="bottom" id="sot-Bt-YI9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="oCe-OE-Ew3" secondAttribute="trailing" id="tbH-Hr-IH9"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -4106,7 +4116,7 @@ Please enter your Email-Id below :</string>
                                             <constraint firstAttribute="trailing" secondItem="fdm-99-QLC" secondAttribute="trailing" constant="20" id="g68-ne-uR4"/>
                                             <constraint firstAttribute="trailing" secondItem="goG-ha-a1f" secondAttribute="trailing" constant="20" id="gAc-DD-IpV"/>
                                             <constraint firstItem="iOH-hD-2c2" firstAttribute="leading" secondItem="rFJ-RM-QS1" secondAttribute="leading" constant="20" id="gYx-yy-dtF"/>
-                                            <constraint firstAttribute="height" constant="1600" id="gqA-IM-ROo"/>
+                                            <constraint firstAttribute="height" constant="1650" id="gqA-IM-ROo"/>
                                             <constraint firstItem="SlD-Zw-00H" firstAttribute="leading" secondItem="rFJ-RM-QS1" secondAttribute="leading" constant="20" id="h83-Z9-Zza"/>
                                             <constraint firstItem="cyl-uD-u4k" firstAttribute="top" secondItem="9BZ-AA-rBK" secondAttribute="bottom" constant="20" id="hKf-Pk-vUo"/>
                                             <constraint firstItem="ah3-ra-EHS" firstAttribute="leading" secondItem="rFJ-RM-QS1" secondAttribute="leading" constant="20" id="i2P-GZ-QgW"/>
@@ -4156,12 +4166,12 @@ Please enter your Email-Id below :</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NcZ-Mh-KU9"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1600"/>
                     <connections>
                         <outlet property="btnAccept" destination="Rnn-Z5-Ynz" id="hgA-RC-gli"/>
                         <outlet property="btnCall" destination="Hzc-sj-ZDj" id="xGK-bH-rlR"/>
                         <outlet property="btnEdit" destination="PBT-le-fCP" id="ZUm-xB-C2F"/>
                         <outlet property="btnGroup" destination="4Tz-ru-k4N" id="G27-px-g6L"/>
+                        <outlet property="btnImgProfile" destination="oCe-OE-Ew3" id="Uz9-BR-pLk"/>
                         <outlet property="btnOSMessage" destination="b0U-uY-iwL" id="qiO-Rb-6Th"/>
                         <outlet property="btnServerMessage" destination="rfc-1f-3M6" id="GwQ-mF-pyh"/>
                         <outlet property="btnUpdateVisit" destination="tli-Fs-xXa" id="x8O-a0-tQL"/>
@@ -7463,6 +7473,9 @@ Please enter your Email-Id below :</string>
                                                 <state key="normal" title="  Add to Groups" image="add_group">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnAddGroupAction:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="EXA-K0-EZa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BU-iL-7Tz">
                                                 <rect key="frame" x="180" y="16" width="90" height="30"/>
@@ -7475,6 +7488,9 @@ Please enter your Email-Id below :</string>
                                                 <state key="normal" title="  Send SMS" image="sms-1">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnSendMessageAction:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="IZh-6u-oTd"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-N6-gQt">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="62"/>
@@ -7501,6 +7517,9 @@ Please enter your Email-Id below :</string>
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="selected" image="delete"/>
+                                                <connections>
+                                                    <action selector="btnDeleteLeadAction:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="DO2-zI-4N1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -7542,38 +7561,70 @@ Please enter your Email-Id below :</string>
                                     <constraint firstItem="mLj-dc-CD1" firstAttribute="top" secondItem="YLe-4D-G7c" secondAttribute="bottom" id="ziK-JA-Rwj"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-u5-mg2" customClass="KSToken" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="82" width="375" height="281"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kk-dO-OF6">
+                                        <rect key="frame" x="25" y="225" width="150" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.11083289235830307" green="0.88488888740539551" blue="0.82979142665863037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="btnGroupTokenDoneAction:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="z9m-Nr-I51"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yal-DB-lQe">
+                                        <rect key="frame" x="200" y="225" width="150" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="btnGroupTokenCancelAction:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="sZ0-EE-4fq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="281" id="spc-n7-kax"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ubN-VS-Km0" firstAttribute="bottom" secondItem="g1i-gF-5l7" secondAttribute="bottom" id="B0b-Vb-NHy"/>
+                            <constraint firstItem="bh7-u5-mg2" firstAttribute="top" secondItem="g1i-gF-5l7" secondAttribute="top" constant="62" id="FLG-6J-QGI"/>
                             <constraint firstItem="Rob-M6-1UH" firstAttribute="leading" secondItem="g1i-gF-5l7" secondAttribute="leading" id="LkP-dx-uZv"/>
                             <constraint firstItem="ubN-VS-Km0" firstAttribute="trailing" secondItem="g1i-gF-5l7" secondAttribute="trailing" id="O5L-T2-ueU"/>
                             <constraint firstItem="Rob-M6-1UH" firstAttribute="trailing" secondItem="g1i-gF-5l7" secondAttribute="trailing" id="Qge-pq-J1F"/>
                             <constraint firstItem="ubN-VS-Km0" firstAttribute="top" secondItem="Rob-M6-1UH" secondAttribute="bottom" id="Vgo-Lr-Lg6"/>
                             <constraint firstItem="Rob-M6-1UH" firstAttribute="top" secondItem="g1i-gF-5l7" secondAttribute="top" id="Z5g-hd-PSC"/>
                             <constraint firstItem="ubN-VS-Km0" firstAttribute="leading" secondItem="g1i-gF-5l7" secondAttribute="leading" id="pUd-ch-sIq"/>
+                            <constraint firstItem="bh7-u5-mg2" firstAttribute="leading" secondItem="g1i-gF-5l7" secondAttribute="leading" id="ph4-JE-FMe"/>
+                            <constraint firstItem="bh7-u5-mg2" firstAttribute="trailing" secondItem="g1i-gF-5l7" secondAttribute="trailing" id="s34-Of-Wux"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g1i-gF-5l7"/>
                     </view>
                     <connections>
                         <outlet property="tblLeads" destination="ubN-VS-Km0" id="txy-wP-lye"/>
+                        <outlet property="vwSuggestionsBase" destination="bh7-u5-mg2" id="4Se-yb-ZBS"/>
                         <outlet property="vwTopSelected" destination="mLj-dc-CD1" id="TSQ-6N-NwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIB-xG-g4a" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="-639"/>
+            <point key="canvasLocation" x="2176.8000000000002" y="-639.13043478260875"/>
         </scene>
         <!--Lead Add And Update View Controller-->
         <scene sceneID="HqX-yZ-YNH">
             <objects>
                 <viewController storyboardIdentifier="LeadAddAndUpdateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="maf-ZB-tf4" customClass="LeadAddAndUpdateViewController" customModule="GetION" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ww-i4-ByQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAH-bc-ngn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roe-tS-NGb">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1400"/>
@@ -7688,7 +7739,7 @@ Please enter your Email-Id below :</string>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -7712,7 +7763,7 @@ Please enter your Email-Id below :</string>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -7847,6 +7898,9 @@ Please enter your Email-Id below :</string>
                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="maf-ZB-tf4" id="kAj-sr-rp9"/>
+                                                </connections>
                                             </textField>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5b-ql-R3S">
                                                 <rect key="frame" x="20" y="627" width="335" height="1"/>
@@ -7881,6 +7935,9 @@ Please enter your Email-Id below :</string>
                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="maf-ZB-tf4" id="d8F-n7-xG6"/>
+                                                </connections>
                                             </textField>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-6d-ahf">
                                                 <rect key="frame" x="20" y="709" width="335" height="1"/>
@@ -8253,7 +8310,6 @@ Please enter your Email-Id below :</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4g6-EE-KbG"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="btnAddLead" destination="tpz-3L-E8Z" id="iBh-id-NDq"/>
                         <outlet property="btnCall" destination="9AE-pQ-MaT" id="30t-uf-OSV"/>

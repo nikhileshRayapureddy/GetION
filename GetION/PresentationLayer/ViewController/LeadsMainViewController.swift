@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import SwipeCellKit
+
 
 class LeadsMainViewController: BaseViewController {
 
+    @IBOutlet weak var vwSuggestionsBase: KSToken!
+
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
+    
+    //
+    var arrSuggestions = [TagSuggestionBO]()
+
     var isLongPressed = false
     var arrAlphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     var arrSections = [String:[LeadsBO]]()
@@ -20,12 +28,46 @@ class LeadsMainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
+        self.getSuggestions()
+        vwSuggestionsBase.isHidden = true
+    }
+    
+    func getSuggestions()
+    {
+        app_delegate.showLoader(message: "Loading...")
+        let layer = ServiceLayer()
+        layer.getAllTagSuggestion(successMessage: { (response) in
+            app_delegate.removeloder()
+            self.arrSuggestions = response as! [TagSuggestionBO]
+            
+        }) { (error) in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func groupPopViewSetUp()
+    {
+//        vwSuggestionsBase.delegate = self
+//        vwSuggestionsBase.promptText = ""
+//        vwSuggestionsBase.placeholder = "Any Other"
+//        vwSuggestionsBase.descriptionText = "Tags"
+//        vwSuggestionsBase.maxTokenLimit = 10 //default is -1 for unlimited number of tokens
+//        vwSuggestionsBase.style = .squared
         
+        vwSuggestionsBase.layer.cornerRadius = 5.0
+        vwSuggestionsBase.layer.masksToBounds = true
+        vwSuggestionsBase.layer.borderColor = THEME_COLOR.cgColor
+        vwSuggestionsBase.layer.borderWidth = 1.0
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+        self.arrLeads.removeAll()
         self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
         for alphabet in self.arrAlphabets
         {
@@ -56,7 +98,65 @@ class LeadsMainViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnGroupTokenCancelAction(_ sender: UIButton) {
+    }
+    @IBAction func btnGroupTokenDoneAction(_ sender: UIButton) {
+    }
+    @IBAction func btnAddGroupAction(_ sender: UIButton)
+    {
+        vwSuggestionsBase.isHidden = false
 
+//        var strLeads = ""
+//        for item in arrLeads
+//        {
+//            if item.isSelected == true
+//            {
+//                strLeads.append(item.id)
+//                strLeads.append(",")
+//            }
+//        }
+//        strLeads.dropLast()
+//
+//       let layer = ServiceLayer()
+//        layer.addLeadToGroupsWith(strGroups: <#T##String#>, strLeads: strLeads, successMessage: { (response) in
+//            <#code#>
+//        }) { (error) in
+//
+//            print(error)
+//        }
+        
+    }
+    @IBAction func btnSendMessageAction(_ sender: UIButton)
+    {
+        
+    }
+    
+    @IBAction func btnDeleteLeadAction(_ sender: UIButton)
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        let objLead = self.arrLeads[0]
+        
+        layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+            
+            DispatchQueue.main.async {
+                if let status = response as? String
+                {
+                    if status == "ok"
+                    {
+                        self.arrLeads.remove(at: 0)
+                        self.tblLeads.reloadData()
+                    }
+                }
+                app_delegate.removeloder()
+                
+            }
+            
+        }, failureMessage: { (error) in
+            print(error)
+        })
+        
+    }
 }
 extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
 {
@@ -65,6 +165,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeadMainTableViewCell", for: indexPath) as! LeadMainTableViewCell
+        cell.delegate = self
         let bo = arrLeads[indexPath.row]
         cell.lblLead.text = bo.firstname + " " + bo.surname
         cell.imgVwLead.layer.cornerRadius = cell.imgVwLead.frame.size.width/2
@@ -99,6 +200,14 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        let selectedLead = arrLeads[indexPath.row]
+        
+        let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
+        leadVC.isLeadAdd = false
+        leadVC.objLead = selectedLead
+       self.navigationController?.pushViewController(leadVC, animated: false)
+        
     }
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return Array(arrSections.keys).sorted()//arrAlphabets
@@ -138,4 +247,102 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
 
     
+    
+    
 }
+extension LeadsMainViewController : SwipeTableViewCellDelegate
+{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
+            // handle action by updating model with deletion
+        }
+        let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
+            // handle action by updating model with deletion
+            
+            let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            self.navigationController?.pushViewController(smsVC, animated: true)
+        }
+        let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
+            // handle action by updating model with deletion
+            // Update model
+            
+            app_delegate.showLoader(message: "Loading. . .")
+            let layer = ServiceLayer()
+            let objLead = self.arrLeads[indexPath.row]
+            
+            layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    if let status = response as? String
+                    {
+                        if status == "ok"
+                        {
+                            self.arrLeads.remove(at: indexPath.row)
+                            self.tblLeads.reloadData()
+                        }
+                    }
+                    app_delegate.removeloder()
+                    
+                }
+                
+            }, failureMessage: { (error) in
+                print(error)
+            })
+            
+           
+            //
+        }
+        
+        // customize the action appearance
+        callAction.image = #imageLiteral(resourceName: "call")
+        callAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        smsAction.image = #imageLiteral(resourceName: "sms")
+        smsAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        return [deleteAction, smsAction, callAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.transitionStyle = .border
+        return options
+    }
+}
+
+
+extension LeadsMainViewController: KSTokenViewDelegate
+{
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
+        if (string.characters.isEmpty){
+            completion!(arrSuggestions as Array<TagSuggestionBO>)
+            return
+        }
+        
+        var data: Array<String> = []
+        for value: TagSuggestionBO in arrSuggestions {
+            if value.title.lowercased().range(of: string.lowercased()) != nil {
+                data.append(value.title)
+            }
+        }
+        completion!(data as Array<AnyObject>)
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+        return object as! String
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+        
+        if token.title == "f" {
+            return false
+        }
+        return true
+    }
+}
+

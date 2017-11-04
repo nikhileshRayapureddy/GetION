@@ -1432,63 +1432,42 @@ class ServiceLayer: NSObject {
     
     public func updateVisit(visitID : String, DocID:String, email:String, phone:String, startdate:String, enddate:String, starttime:String, endtime:String, bookingDeposit:String, bookingTotal:String, bookingDue : String, Udfvalues : String, imageUrl : String, requestStatus : String, paymentStatus : String, successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
-    
-        // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_update_booking
-
-        var dict = [String : AnyObject]()
-        dict["req_id"] = visitID as AnyObject
-        dict["photo"] = imageUrl as AnyObject
-        dict["res_id"] = DocID as AnyObject
-        dict["startdate"] = startdate as AnyObject
-        dict["starttime"] = starttime as AnyObject
-        dict["enddate"] = enddate as AnyObject
-        dict["endtime"] = endtime as AnyObject
-        dict["ce_id"] = "74353" as AnyObject
-        dict["comment"] = "" as AnyObject
-        dict["booking_deposit"] = bookingDeposit as AnyObject
-        dict["request_status"] = requestStatus as AnyObject
-        dict["payment_status"] = paymentStatus as AnyObject
-        dict["phone"] = phone as AnyObject
-        dict["email"] = email as AnyObject
-        dict["booking_total"] = bookingTotal as AnyObject
-        dict["booking_due"] = bookingDue as AnyObject
-        dict["usr"] = GetIONUserDefaults.getUserId() as AnyObject
-        dict["pwd"] = GetIONUserDefaults.getPassword() as AnyObject
-        dict["encode"] = "true" as AnyObject
-
         
-    let obj : HttpRequest = HttpRequest()
-    obj.tag = ParsingConstant.Vists.rawValue
-    obj.MethodNamee = "PUT"
-    obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_update_booking"
-    
-    obj.params = dict
-    obj.doGetSOAPResponse {(success : Bool) -> Void in
-    if !success
-    {
-    failureMessage(self.SERVER_ERROR)
-    }
-    else
-    {
-    if let status = obj.parsedDataDict["status"] as? String
-    {
-    if status == "ok"
-    {
-    successMessage (status)
-    }
-    else
-    {
-    failureMessage("unable to add visit")
-    }
-    
-    }
-    else
-    {
-    failureMessage(self.SERVER_ERROR)
-    }
-    
-    }
-    }
+        // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_update_booking
+        //&udf_values_info=\(Udfvalues)
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Vists.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_update_booking&req_id=\(visitID)&res_id=\(DocID)&ce_id=74353&email=\(email)&phone=\(phone)&startdate=\(startdate)&starttime=\(starttime)&enddate=\(enddate)&endtime=\(endtime)&comment=&booking_deposit=\(bookingDeposit)&booking_total=\(bookingTotal)&booking_due=\(bookingDue)&request_status=\(requestStatus)&payment_status=\(paymentStatus)&usr=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&image=\(imageUrl)"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let dict = obj.parsedDataDict["data"] as? [String : AnyObject]
+                {
+                    let status = dict["status"] as! String
+                    if status == "ok"
+                    {
+                        successMessage (status)
+                    }
+                    else
+                    {
+                        failureMessage("unable to add visit")
+                    }
+                    
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
     }
     
     
@@ -2721,33 +2700,7 @@ class ServiceLayer: NSObject {
                 {
                     if code == "ok"
                     {
-                        if let arrPromos = obj.parsedDataDict["description"] as? [[String:AnyObject]]
-                        {
-                            var arrSuggestions = [TagSuggestionBO]()
-                            for promo in arrPromos
-                            {
-                                let bo = TagSuggestionBO()
-                                
-                                if let id = promo["id"] as? String
-                                {
-                                    bo.id = id
-                                }
-                                if let title = promo["title"] as? String
-                                {
-                                    bo.title = title
-                                }
-                                if let created = promo["created"] as? String
-                                {
-                                    bo.created = created
-                                }
-                                arrSuggestions.append(bo)
-                            }
-                            successMessage(arrSuggestions)
-                        }
-                        else
-                        {
-                            failureMessage(self.SERVER_ERROR)
-                        }
+                        successMessage (code)
                     }
                     else
                     {
