@@ -10,6 +10,7 @@ import UIKit
 
 class AddInputsViewController: UIViewController {
 
+    @IBOutlet weak var lblMonthYear: UILabel!
     @IBOutlet weak var viewBackground: UIView!
     var selectedSection = -1
     @IBOutlet weak var tblView: UITableView!
@@ -28,6 +29,22 @@ class AddInputsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func btnAddNewTopicClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnPrevDateClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnNextDateClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnAddToCalendarClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func btnCancelClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func btnSectionTitleClicked(_ sender: UIButton)
