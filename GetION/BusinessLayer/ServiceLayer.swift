@@ -2929,6 +2929,85 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func createLeadWith(dict:[String:String],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/put/contacts/contacts?id=0&type=Patient&age=22&firstname=srinivas&surname=srinivas&mobile=8989899898&email=dsafa@gmail.com&dob=1987-09-25&sex=male&purpose=testing&image=&area=AREA&city=CITY&pincode=500082&remarks=REMARK&userid=180&contactTags=EMPTY&tagflag=EMPTY&username=ramesh&pwd=cmFtZXNo&encode=true
+        var str = "username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&userid=\(GetIONUserDefaults.getUserId())"
+        for key in dict.keys
+        {
+            str = str + "&\(key)=\(dict[key]!)"
+        }
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request/put/contacts/contacts?\(str)"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+    func updateLeadWith(dict:[String:String],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/put/contacts/contacts?id=0&type=Patient&age=22&firstname=srinivas&surname=srinivas&mobile=8989899898&email=dsafa@gmail.com&dob=1987-09-25&sex=male&purpose=testing&image=&area=AREA&city=CITY&pincode=500082&remarks=REMARK&contactTags=EMPTY&tagflag=EMPTY
+        var str = "username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&userid=\(GetIONUserDefaults.getUserId())"
+        for key in dict.keys
+        {
+            str = str + "&\(key)=\(dict[key]!)"
+        }
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)/request/put/contacts/contacts?\(str)"
+        
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
+
     func blockCalender(strDocId :String,strStartDate :String,strStartTime :String,strEndDate :String,strEndTime :String,strPublish :String,strFullDay :String,strDesc :String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         // http://staging.getion.in/index.php?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=adm_save_bookoff&res_id=8&bo_offdate=2017-11-02&bo_offdate2=2017-11-02&bo_starttime=14:00:00&bo_endtime=15:00:00&bo_pub=1&bo_fullday=yes&description=Disable By Ajit&usr=ramesh&pwd=cmFtZXNo&encode=true
@@ -2977,6 +3056,617 @@ class ServiceLayer: NSObject {
                 {
                     failureMessage("Failure")
                 }
+            }
+        }
+    }
+    
+    func getAllDraftsBlog(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=latest&user_id=65&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&status=1
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getUserId())&key=\(GetIONUserDefaults.getAuth())&status=3"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrBlogs = [BlogBO]()
+                    for blog in data
+                    {
+                        let bo = BlogBO()
+                        if let postid = blog["postid"] as? String
+                        {
+                            bo.postId = postid
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let textplain = blog["textplain"] as? String
+                        {
+                            bo.textplain = textplain
+                        }
+                        if let image = blog["image"] as? [String:AnyObject]
+                        {
+                            if let url = image["url"] as? String
+                            {
+                                bo.imageURL = url
+                            }
+                        }
+                        if let created_date = blog["created_date"] as? String
+                        {
+                            bo.created_date = created_date
+                        }
+                        if let created_date_elapsed = blog["created_date_elapsed"] as? String
+                        {
+                            bo.created_date_elapsed = created_date_elapsed
+                        }
+                        if let updated_date = blog["updated_date"] as? String
+                        {
+                            bo.updated_date = updated_date
+                        }
+                        if let author = blog["author"] as? [String:AnyObject]
+                        {
+                            if let name = author["name"] as? String
+                            {
+                                bo.authorName = name
+                            }
+                            if let email = author["email"] as? String
+                            {
+                                bo.authorEmail = email
+                            }
+                            if let photo = author["photo"] as? String
+                            {
+                                bo.authorPhoto = photo
+                            }
+                            if let website = author["website"] as? String
+                            {
+                                bo.authorWebsite = website
+                            }
+                            if let bio = author["bio"] as? String
+                            {
+                                bo.authorBio = bio
+                            }
+                        }
+                        if let comments = blog["comments"] as? String
+                        {
+                            bo.comments = comments
+                        }
+                        if let url = blog["url"] as? String
+                        {
+                            bo.url = url
+                        }
+                        if let tags = blog["tags"] as? [[String:AnyObject]]
+                        {
+                            bo.tags = tags as [AnyObject]
+                        }
+                        if let rating = blog["rating"] as? String
+                        {
+                            bo.rating = rating
+                        }
+                        if let rate = blog["rate"] as? [String:AnyObject]
+                        {
+                            if let ratings = rate["ratings"] as? NSNumber
+                            {
+                                bo.ratings = Int(truncating: ratings)
+                            }
+                            if let total = rate["total"] as? String
+                            {
+                                bo.ratingTotal = total
+                            }
+                        }
+                        if let category = blog["category"] as? [String:AnyObject]
+                        {
+                            if let categoryid = category["categoryid"] as? String
+                            {
+                                bo.categoryId = categoryid
+                            }
+                            if let title = category["title"] as? String
+                            {
+                                bo.categoryTitle = title
+                            }
+                            if let description = category["description"] as? String
+                            {
+                                bo.categoryDescription = description
+                            }
+                            if let created_date = category["created_date"] as? String
+                            {
+                                bo.categoryCreated_date = created_date
+                            }
+                            if let updated_date = category["updated_date"] as? String
+                            {
+                                bo.categoryUpdated_date = updated_date
+                            }
+                            if let scope = category["scope"] as? String
+                            {
+                                bo.categoryScope = scope
+                            }
+                        }
+                        if let permalink = blog["permalink"] as? String
+                        {
+                            bo.permalink = permalink
+                        }
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            bo.modified_date = modified_date
+                        }
+                        if let isowner = blog["isowner"] as? Bool
+                        {
+                            bo.isowner = isowner
+                        }
+                        if let ispassword = blog["ispassword"] as? Bool
+                        {
+                            bo.ispassword = ispassword
+                        }
+                        if let blogpassword = blog["blogpassword"] as? String
+                        {
+                            bo.blogpassword = blogpassword
+                        }
+                        if let views = blog["views"] as? NSNumber
+                        {
+                            bo.views = Int(truncating: views)
+                        }
+                        if let vote = blog["vote"] as? String
+                        {
+                            bo.vote = vote
+                        }
+                        if let state = blog["state"] as? NSNumber
+                        {
+                            bo.state = Int(truncating: state)
+                        }
+                        if let published = blog["published"] as? String
+                        {
+                            bo.published = published
+                        }
+                        if let like = blog["like"] as? NSNumber
+                        {
+                            bo.like = Int(truncating: like)
+                        }
+                        if let intro = blog["intro"] as? String
+                        {
+                            bo.intro = intro
+                        }
+                        if let isVoted = blog["isVoted"] as? NSNumber
+                        {
+                            bo.isVoted = Int(truncating: isVoted)
+                        }
+                        if let userid = blog["userid"] as? String
+                        {
+                            bo.userid = userid
+                        }
+                        arrBlogs.append(bo)
+                    }
+                    successMessage(arrBlogs)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
+            }
+        }
+    }
+    func getAllPublishBlog(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=latest&user_id=65&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&status=1
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getUserId())&key=\(GetIONUserDefaults.getAuth())&status=1"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrBlogs = [BlogBO]()
+                    for blog in data
+                    {
+                        let bo = BlogBO()
+                        if let postid = blog["postid"] as? String
+                        {
+                            bo.postId = postid
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let textplain = blog["textplain"] as? String
+                        {
+                            bo.textplain = textplain
+                        }
+                        if let image = blog["image"] as? [String:AnyObject]
+                        {
+                            if let url = image["url"] as? String
+                            {
+                                bo.imageURL = url
+                            }
+                        }
+                        if let created_date = blog["created_date"] as? String
+                        {
+                            bo.created_date = created_date
+                        }
+                        if let created_date_elapsed = blog["created_date_elapsed"] as? String
+                        {
+                            bo.created_date_elapsed = created_date_elapsed
+                        }
+                        if let updated_date = blog["updated_date"] as? String
+                        {
+                            bo.updated_date = updated_date
+                        }
+                        if let author = blog["author"] as? [String:AnyObject]
+                        {
+                            if let name = author["name"] as? String
+                            {
+                                bo.authorName = name
+                            }
+                            if let email = author["email"] as? String
+                            {
+                                bo.authorEmail = email
+                            }
+                            if let photo = author["photo"] as? String
+                            {
+                                bo.authorPhoto = photo
+                            }
+                            if let website = author["website"] as? String
+                            {
+                                bo.authorWebsite = website
+                            }
+                            if let bio = author["bio"] as? String
+                            {
+                                bo.authorBio = bio
+                            }
+                        }
+                        if let comments = blog["comments"] as? String
+                        {
+                            bo.comments = comments
+                        }
+                        if let url = blog["url"] as? String
+                        {
+                            bo.url = url
+                        }
+                        if let tags = blog["tags"] as? [[String:AnyObject]]
+                        {
+                            bo.tags = tags as [AnyObject]
+                        }
+                        if let rating = blog["rating"] as? String
+                        {
+                            bo.rating = rating
+                        }
+                        if let rate = blog["rate"] as? [String:AnyObject]
+                        {
+                            if let ratings = rate["ratings"] as? NSNumber
+                            {
+                                bo.ratings = Int(truncating: ratings)
+                            }
+                            if let total = rate["total"] as? String
+                            {
+                                bo.ratingTotal = total
+                            }
+                        }
+                        if let category = blog["category"] as? [String:AnyObject]
+                        {
+                            if let categoryid = category["categoryid"] as? String
+                            {
+                                bo.categoryId = categoryid
+                            }
+                            if let title = category["title"] as? String
+                            {
+                                bo.categoryTitle = title
+                            }
+                            if let description = category["description"] as? String
+                            {
+                                bo.categoryDescription = description
+                            }
+                            if let created_date = category["created_date"] as? String
+                            {
+                                bo.categoryCreated_date = created_date
+                            }
+                            if let updated_date = category["updated_date"] as? String
+                            {
+                                bo.categoryUpdated_date = updated_date
+                            }
+                            if let scope = category["scope"] as? String
+                            {
+                                bo.categoryScope = scope
+                            }
+                        }
+                        if let permalink = blog["permalink"] as? String
+                        {
+                            bo.permalink = permalink
+                        }
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            bo.modified_date = modified_date
+                        }
+                        if let isowner = blog["isowner"] as? Bool
+                        {
+                            bo.isowner = isowner
+                        }
+                        if let ispassword = blog["ispassword"] as? Bool
+                        {
+                            bo.ispassword = ispassword
+                        }
+                        if let blogpassword = blog["blogpassword"] as? String
+                        {
+                            bo.blogpassword = blogpassword
+                        }
+                        if let views = blog["views"] as? NSNumber
+                        {
+                            bo.views = Int(truncating: views)
+                        }
+                        if let vote = blog["vote"] as? String
+                        {
+                            bo.vote = vote
+                        }
+                        if let state = blog["state"] as? NSNumber
+                        {
+                            bo.state = Int(truncating: state)
+                        }
+                        if let published = blog["published"] as? String
+                        {
+                            bo.published = published
+                        }
+                        if let like = blog["like"] as? NSNumber
+                        {
+                            bo.like = Int(truncating: like)
+                        }
+                        if let intro = blog["intro"] as? String
+                        {
+                            bo.intro = intro
+                        }
+                        if let isVoted = blog["isVoted"] as? NSNumber
+                        {
+                            bo.isVoted = Int(truncating: isVoted)
+                        }
+                        if let userid = blog["userid"] as? String
+                        {
+                            bo.userid = userid
+                        }
+                        arrBlogs.append(bo)
+                    }
+                    successMessage(arrBlogs)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
+            }
+        }
+    }
+    func getAllOnlineBlog(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=latest&user_id=65&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&status=1
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getUserId())&key=\(GetIONUserDefaults.getAuth())&status=0"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrBlogs = [BlogBO]()
+                    for blog in data
+                    {
+                        let bo = BlogBO()
+                        if let postid = blog["postid"] as? String
+                        {
+                            bo.postId = postid
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let textplain = blog["textplain"] as? String
+                        {
+                            bo.textplain = textplain
+                        }
+                        if let image = blog["image"] as? [String:AnyObject]
+                        {
+                            if let url = image["url"] as? String
+                            {
+                                bo.imageURL = url
+                            }
+                        }
+                        if let created_date = blog["created_date"] as? String
+                        {
+                            bo.created_date = created_date
+                        }
+                        if let created_date_elapsed = blog["created_date_elapsed"] as? String
+                        {
+                            bo.created_date_elapsed = created_date_elapsed
+                        }
+                        if let updated_date = blog["updated_date"] as? String
+                        {
+                            bo.updated_date = updated_date
+                        }
+                        if let author = blog["author"] as? [String:AnyObject]
+                        {
+                            if let name = author["name"] as? String
+                            {
+                                bo.authorName = name
+                            }
+                            if let email = author["email"] as? String
+                            {
+                                bo.authorEmail = email
+                            }
+                            if let photo = author["photo"] as? String
+                            {
+                                bo.authorPhoto = photo
+                            }
+                            if let website = author["website"] as? String
+                            {
+                                bo.authorWebsite = website
+                            }
+                            if let bio = author["bio"] as? String
+                            {
+                                bo.authorBio = bio
+                            }
+                        }
+                        if let comments = blog["comments"] as? String
+                        {
+                            bo.comments = comments
+                        }
+                        if let url = blog["url"] as? String
+                        {
+                            bo.url = url
+                        }
+                        if let tags = blog["tags"] as? [[String:AnyObject]]
+                        {
+                            bo.tags = tags as [AnyObject]
+                        }
+                        if let rating = blog["rating"] as? String
+                        {
+                            bo.rating = rating
+                        }
+                        if let rate = blog["rate"] as? [String:AnyObject]
+                        {
+                            if let ratings = rate["ratings"] as? NSNumber
+                            {
+                                bo.ratings = Int(truncating: ratings)
+                            }
+                            if let total = rate["total"] as? String
+                            {
+                                bo.ratingTotal = total
+                            }
+                        }
+                        if let category = blog["category"] as? [String:AnyObject]
+                        {
+                            if let categoryid = category["categoryid"] as? String
+                            {
+                                bo.categoryId = categoryid
+                            }
+                            if let title = category["title"] as? String
+                            {
+                                bo.categoryTitle = title
+                            }
+                            if let description = category["description"] as? String
+                            {
+                                bo.categoryDescription = description
+                            }
+                            if let created_date = category["created_date"] as? String
+                            {
+                                bo.categoryCreated_date = created_date
+                            }
+                            if let updated_date = category["updated_date"] as? String
+                            {
+                                bo.categoryUpdated_date = updated_date
+                            }
+                            if let scope = category["scope"] as? String
+                            {
+                                bo.categoryScope = scope
+                            }
+                        }
+                        if let permalink = blog["permalink"] as? String
+                        {
+                            bo.permalink = permalink
+                        }
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            bo.modified_date = modified_date
+                        }
+                        if let isowner = blog["isowner"] as? Bool
+                        {
+                            bo.isowner = isowner
+                        }
+                        if let ispassword = blog["ispassword"] as? Bool
+                        {
+                            bo.ispassword = ispassword
+                        }
+                        if let blogpassword = blog["blogpassword"] as? String
+                        {
+                            bo.blogpassword = blogpassword
+                        }
+                        if let views = blog["views"] as? NSNumber
+                        {
+                            bo.views = Int(truncating: views)
+                        }
+                        if let vote = blog["vote"] as? String
+                        {
+                            bo.vote = vote
+                        }
+                        if let state = blog["state"] as? NSNumber
+                        {
+                            bo.state = Int(truncating: state)
+                        }
+                        if let published = blog["published"] as? String
+                        {
+                            bo.published = published
+                        }
+                        if let like = blog["like"] as? NSNumber
+                        {
+                            bo.like = Int(truncating: like)
+                        }
+                        if let intro = blog["intro"] as? String
+                        {
+                            bo.intro = intro
+                        }
+                        if let isVoted = blog["isVoted"] as? NSNumber
+                        {
+                            bo.isVoted = Int(truncating: isVoted)
+                        }
+                        if let userid = blog["userid"] as? String
+                        {
+                            bo.userid = userid
+                        }
+                        arrBlogs.append(bo)
+                    }
+                    successMessage(arrBlogs)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
+            }
+        }
+    }
+    func getAllTrendingTopics(strDate:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        // http://staging.getion.in/index.php/request?action=trendingbytags&module=ionplanner&resource=planner&userid=180
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?action=trendingbytags&module=ionplanner&resource=planner&userid=\(GetIONUserDefaults.getUserId())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let description = obj.parsedDataDict["description"] as? [String:AnyObject]
+                {
+                    
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
             }
         }
     }
