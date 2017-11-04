@@ -19,6 +19,7 @@ class UpdateVisitsViewController: BaseViewController
     
     @IBOutlet weak var vwScrollMain: UIScrollView!
     
+    @IBOutlet weak var btnImgProfile: UIButton!
     @IBOutlet weak var vwMain: UIView!
     @IBOutlet weak var constrtVwMainHeight: NSLayoutConstraint!
     @IBOutlet weak var imgProfile: UIImageView!
@@ -55,6 +56,9 @@ class UpdateVisitsViewController: BaseViewController
     ///////
     var arrSuggestions = [TagSuggestionBO]()
     var objVisits = VisitsBO()
+    var imagePicker = UIImagePickerController()
+    var selectedProfilePicUrl = ""
+    var selectedProfilePic : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,17 +111,18 @@ class UpdateVisitsViewController: BaseViewController
     
     func setEditablesWithBool(isEditiable : Bool)
     {
+        btnImgProfile.isUserInteractionEnabled = isEditiable
         lblAppointmentDate.isUserInteractionEnabled = isEditiable
         lblAppointmentTime.isUserInteractionEnabled = isEditiable
         lblDocName.isUserInteractionEnabled = isEditiable
         self.txtPhone.isUserInteractionEnabled = isEditiable
         self.txtEmail.isUserInteractionEnabled = isEditiable
         self.txtAmountDue.isUserInteractionEnabled = isEditiable
-        self.txtDOB.isUserInteractionEnabled = isEditiable
-        self.txtGender.isUserInteractionEnabled = isEditiable
+        self.txtDOB.isUserInteractionEnabled = false
+        self.txtGender.isUserInteractionEnabled = false
         self.txtCity.isUserInteractionEnabled = isEditiable
         self.txtAreaLocality.isUserInteractionEnabled = isEditiable
-        self.txtSource.isUserInteractionEnabled = isEditiable
+        self.txtSource.isUserInteractionEnabled = false
         self.txtVwRemarks.isUserInteractionEnabled = isEditiable
         btnGroup.isUserInteractionEnabled = isEditiable
         
@@ -125,6 +130,7 @@ class UpdateVisitsViewController: BaseViewController
     
     func bindData()
     {
+        self.btnUpdateVisit.isHidden  = true
         self.setEditablesWithBool(isEditiable: false)
         
         let url = URL(string: objVisits.image)
@@ -231,6 +237,44 @@ class UpdateVisitsViewController: BaseViewController
             })
         
     }
+    
+    @IBAction func btnImagePickerAction(_ sender: UIButton)
+    {
+        let alert = UIAlertController(title: "Select an Image to Upload", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("camera not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default) { action in
+            // perhaps use action.title here
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("photoLibrary not available.")
+            }
+            
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 
     
     @IBAction func btnGroupEditAction(_ sender: UIButton)
@@ -264,6 +308,7 @@ class UpdateVisitsViewController: BaseViewController
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
     {
+        self.btnUpdateVisit.isHidden  = false
         self.setEditablesWithBool(isEditiable: true)
     }
     
@@ -273,12 +318,93 @@ class UpdateVisitsViewController: BaseViewController
     }
     @IBAction func btnUpdateVisitAction(_ sender: UIButton)
     {
-        
+
+        if selectedProfilePic != nil
+        {
+            self.uploadImages()
+        }
+        else
+        {
+            self.checkAllFields()
+        }
+
     }
     
+    func uploadImages()
+    {
+        
+        let imageData = UIImagePNGRepresentation(self.selectedProfilePic)
+        app_delegate.showLoader(message: "Uploading...")
+        let layer = ServiceLayer()
+        layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
+            app_delegate.removeloder()
+            if isSuccess
+            {
+                self.selectedProfilePicUrl = dict["url"] as! String
+                print("response : \(dict.description)")
+                self.checkAllFields()
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+        
+    }
     
     func checkAllFields()
     {
         
+        let Gender = ""
+        let patAge = ""
+        var udf = ""
+        let dayofbirth = ""
+        if(Gender != ""){
+            udf = "\(udf)2;\(Gender)~"
+        }
+        if(dayofbirth != ""){
+            udf = "\(udf)3;\(dayofbirth)~"
+        }
+        if(patAge != ""){
+            udf = "\(udf)4;\(patAge)~"
+        }
+        
+        let layer = ServiceLayer()
+        layer.updateVisit(visitID: objVisits.visitId, DocID: objVisits.resource, email: txtEmail.text!, phone: txtPhone.text!, startdate: objVisits.startdate, enddate: objVisits.enddate, starttime: objVisits.starttime, endtime: objVisits.endtime, bookingDeposit: objVisits.bookingDeposit, bookingTotal: objVisits.bookingTotal, bookingDue: objVisits.bookingDue, Udfvalues: udf, imageUrl :  selectedProfilePicUrl , requestStatus: objVisits.requestStatus, paymentStatus: objVisits.paymentStatus, successMessage: { (response) in
+            print(response)
+
+        }) { (error) in
+            print(error)
+        }
+        
     }
+}
+
+extension UpdateVisitsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        
+        self.dismiss(animated: true) {
+            DispatchQueue.main.async {
+                
+                self.imgProfile.image = tempImage
+                self.selectedProfilePic = tempImage
+            }
+            
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

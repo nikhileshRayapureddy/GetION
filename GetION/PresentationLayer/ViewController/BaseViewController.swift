@@ -402,6 +402,7 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
                 {
                     
                     popup.btnAddVisit.addTarget(self, action: #selector(self.addNewVisitAction), for: .touchUpInside)
+                     popup.btnLead.addTarget(self, action: #selector(self.addNewLead), for: .touchUpInside)
                     
                     UIView.animate(withDuration: 0.3, animations: {
                         sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
@@ -449,6 +450,15 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         }
 
 
+    }
+    
+    
+    @objc func addNewLead()
+    {
+        addPopUp.removeFromSuperview()
+        let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
+        leadVC.isLeadAdd = true
+        self.navigationController?.pushViewController(leadVC, animated: false)
     }
     
     @objc func addNewVisitAction()

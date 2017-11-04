@@ -63,12 +63,14 @@ class LeadAddAndUpdateViewController: BaseViewController
     @IBOutlet weak var btnAddLead: UIButton!
     ///////
     var arrSuggestions = [TagSuggestionBO]()
-    var objVisits = VisitsBO()
+    var objLead = LeadsBO()
     var imagePicker = UIImagePickerController()
     var selectedProfilePicUrl = ""
     var selectedProfilePic : UIImage!
-
-
+    let picker = UIPickerView()
+    let datePicker = UIDatePicker()
+    var arrPickerData = ["Male", "Female"]
+    var selectedPickerRow = 0
 
     
     override func viewDidLoad() {
@@ -76,7 +78,9 @@ class LeadAddAndUpdateViewController: BaseViewController
         self.designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(3)
-        
+        datePicker.datePickerMode = .date
+        picker.delegate = self
+
         
         //        arrGroupItems = [group4,group,group1,group2,group,group,group,group3,group,group,group3,group,group,group3,group2,group2,group,group4,group2,group,group,group2]
         
@@ -85,7 +89,9 @@ class LeadAddAndUpdateViewController: BaseViewController
 //        constrntFirstNameHeight.constant = 58
 //        constrntLastNameHeight.constant = 58
         lblName.isHidden = true
-
+        txtGender.inputView = picker
+        txtDOB.inputView = datePicker
+        
         if isLeadAdd == true
         {
             constrtVwMainHeight.constant = 1400
@@ -98,7 +104,7 @@ class LeadAddAndUpdateViewController: BaseViewController
         }
         else
         {
-            
+            btnAddLead.setTitle("UPDATE LEAD", for: .normal)
             constrtVwMainHeight.constant = 1500
             self.vwUtilities.isHidden = false
             constrtProfileHeight.constant = 220
@@ -183,6 +189,8 @@ class LeadAddAndUpdateViewController: BaseViewController
     func setEditablesWithBool(isEditiable : Bool)
     {
         self.btnImagePicker.isUserInteractionEnabled = isEditiable
+        self.txtFirstName.isUserInteractionEnabled = isEditiable
+        self.txtLastName.isUserInteractionEnabled = isEditiable
         self.txtPhone.isUserInteractionEnabled = isEditiable
         self.txtEmail.isUserInteractionEnabled = isEditiable
         self.txtAmountDue.isUserInteractionEnabled = isEditiable
@@ -190,7 +198,7 @@ class LeadAddAndUpdateViewController: BaseViewController
         self.txtGender.isUserInteractionEnabled = isEditiable
         self.txtCity.isUserInteractionEnabled = isEditiable
         self.txtAreaLocality.isUserInteractionEnabled = isEditiable
-        self.txtSource.isUserInteractionEnabled = isEditiable
+        self.txtSource.isUserInteractionEnabled = false
         self.txtVwRemarks.isUserInteractionEnabled = isEditiable
         btnGroup.isUserInteractionEnabled = isEditiable
         
@@ -200,20 +208,19 @@ class LeadAddAndUpdateViewController: BaseViewController
     {
         self.setEditablesWithBool(isEditiable: isLeadAdd)
 
-        let url = URL(string: objVisits.image)
+        let url = URL(string: objLead.image)
         imgProfile.kf.setImage(with: url)
         
-        lblName.text = objVisits.name
-       
-        self.txtPhone.text = objVisits.mobile
-        self.txtEmail.text = objVisits.email
-        self.txtAmountDue.text = objVisits.bookingDue
-        self.txtDOB.text = objVisits.birthday
-        self.txtGender.text = objVisits.sex
-        self.txtCity.text = objVisits.city
-        self.txtAreaLocality.text = objVisits.area
-        self.txtSource.text = objVisits.resource
-        self.txtVwRemarks.text = objVisits.remarks
+        self.txtFirstName.text = objLead.firstname
+        self.txtLastName.text = objLead.surname
+        self.txtPhone.text = objLead.mobile
+        self.txtEmail.text = objLead.email
+        self.txtDOB.text = objLead.birthday
+        self.txtGender.text = objLead.sex
+        self.txtCity.text = objLead.city
+        self.txtAreaLocality.text = objLead.area
+        self.txtSource.text = objLead.source
+        self.txtVwRemarks.text = objLead.remarks
         self.setGroups()
         
         
@@ -295,6 +302,7 @@ class LeadAddAndUpdateViewController: BaseViewController
     }
     
     
+    
     @IBAction func btnGroupEditAction(_ sender: UIButton)
     {
         if arrSuggestions.count > 0
@@ -326,7 +334,10 @@ class LeadAddAndUpdateViewController: BaseViewController
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
     {
+        btnAddLead.isHidden  = false
         self.setEditablesWithBool(isEditiable: true)
+        self.txtDOB.isUserInteractionEnabled = false
+        self.txtGender.isUserInteractionEnabled = false
     }
     
     @IBAction func btnAddOrUpdateLeadAction(_ sender: UIButton)
@@ -334,6 +345,86 @@ class LeadAddAndUpdateViewController: BaseViewController
         if selectedProfilePic != nil
         {
             self.uploadImages()
+        }
+        else
+        {
+            if isLeadAdd == true
+            {
+                self.addLead()
+            }
+            else
+            {
+                self.updateLead()
+            }
+        }
+        
+    }
+    
+    func addLead()
+    {
+        
+        
+//        id=0&type=Patient&age=22&firstname=srinivas&surname=srinivas&mobile=8989899898&email=dsafa@gmail.com&dob=1987-09-25&sex=male&purpose=testing&image=&area=AREA&city=CITY&pincode=500082&remarks=REMARK&contactTags=EMPTY&tagflag=EMPTY
+        
+        let layer = ServiceLayer()
+        var dict = [String : String]()
+        dict["id"] = "0"
+        dict["type"] = "Patient"
+        dict["age"] = ""
+        dict["firstname"] = txtFirstName.text
+        dict["surname"] = txtLastName.text
+        dict["mobile"] = txtPhone.text
+        dict["email"] = txtEmail.text
+        dict["dob"] = txtDOB.text
+        dict["sex"] = txtGender.text
+        dict["purpose"] = "testing"
+        dict["image"] = self.selectedProfilePicUrl
+        dict["area"] = txtAreaLocality.text
+        dict["city"] = txtCity.text
+        dict["pincode"] = ""
+        dict["remarks"] = txtVwRemarks.text
+        dict["contactTags"] = "EMPTY"
+        dict["tagflag"] = "EMPTY"
+
+        
+        layer.createLeadWith(dict: dict, successMessage: { (response) in
+            print(response)
+        }) { (error) in
+            print(error)
+        }
+    }
+    
+    
+    func updateLead()
+    {
+        let layer = ServiceLayer()
+        var dict = [String : String]()
+        dict["id"] = "0"
+        dict["type"] = "Patient"
+        dict["age"] = ""
+        dict["firstname"] = txtFirstName.text
+        dict["surname"] = txtLastName.text
+        dict["mobile"] = txtPhone.text
+        dict["email"] = txtEmail.text
+        dict["dob"] = txtDOB.text
+        dict["sex"] = txtGender.text
+        dict["purpose"] = "testing"
+        dict["image"] = self.selectedProfilePicUrl
+        dict["area"] = txtAreaLocality.text
+        dict["city"] = txtCity.text
+        dict["pincode"] = ""
+        dict["remarks"] = txtVwRemarks.text
+        dict["contactTags"] = "EMPTY"
+        dict["tagflag"] = "EMPTY"
+
+        layer.updateLeadWith(dict: dict, successMessage: { (response) in
+            print(response)
+            if response as? String == "Success"
+            {
+                self.navigationController?.popViewController(animated: false)
+            }
+        }) { (error) in
+            print(error)
         }
     }
     
@@ -354,6 +445,15 @@ class LeadAddAndUpdateViewController: BaseViewController
             {
                 self.selectedProfilePicUrl = dict["url"] as! String
                 print("response : \(dict.description)")
+                
+                if self.isLeadAdd == true
+                {
+                    self.addLead()
+                }
+                else
+                {
+                    self.updateLead()
+                }
             }
             else
             {
@@ -366,9 +466,35 @@ class LeadAddAndUpdateViewController: BaseViewController
         
     }
     
+
+    
 }
 
-
+extension LeadAddAndUpdateViewController: UITextFieldDelegate
+{
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if txtGender == textField
+        {
+            picker.reloadAllComponents()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        if txtDOB == textField
+        {
+            //selectedDate = datePicker.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd, MMM, yyyy"
+            txtDOB.text = dateFormatter.string(from: datePicker.date)
+        }
+       else if txtGender == textField
+        {
+            txtGender.text = arrPickerData[selectedPickerRow]
+        }
+    }
+}
 extension LeadAddAndUpdateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
@@ -393,4 +519,24 @@ extension LeadAddAndUpdateViewController: UIImagePickerControllerDelegate, UINav
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension LeadAddAndUpdateViewController : UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        selectedPickerRow = row
+    }
 }
