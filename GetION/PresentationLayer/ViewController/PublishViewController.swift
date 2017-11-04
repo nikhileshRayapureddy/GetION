@@ -6,6 +6,11 @@
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
+
+//0 - Online
+//1 - Publish
+//3 - Drafts
+
 import UIKit
 
 class PublishViewController: BaseViewController {
@@ -114,7 +119,8 @@ class PublishViewController: BaseViewController {
     @objc func showAddInputsView()
     {
         let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
-        self.navigationController?.present(addInputs, animated: true, completion: nil)
+        
+        self.present(addInputs, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
