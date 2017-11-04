@@ -105,6 +105,8 @@
 		CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C41F9F852A007A6F30 /* GallaryView.xib */; };
 		CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */; };
 		CC2519CA1F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */; };
+		CC4238C31FADB45D00480A33 /* AddInputsCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */; };
+		CC4238C51FADB46900480A33 /* AddInputsCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */; };
 		CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */; };
 		CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */; };
 		CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */; };
@@ -233,6 +235,8 @@
 		CC2519C41F9F852A007A6F30 /* GallaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryView.xib; sourceTree = "<group>"; };
 		CC2519C71F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReplyTemplateEditPopUp.swift; sourceTree = "<group>"; };
 		CC2519C91F9F9FA3007A6F30 /* QuickReplyTemplateEditPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickReplyTemplateEditPopUp.xib; sourceTree = "<group>"; };
+		CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputsCustomView.swift; sourceTree = "<group>"; };
+		CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInputsCustomView.xib; sourceTree = "<group>"; };
 		CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopUp.swift; sourceTree = "<group>"; };
 		CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesPopUp.xib; sourceTree = "<group>"; };
 		CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBO.swift; sourceTree = "<group>"; };
@@ -591,6 +595,8 @@
 				CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */,
 				CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */,
 				CCF11F471FAB84C00056C367 /* PublishIonizePopUp.xib */,
+				CC4238C21FADB45D00480A33 /* AddInputsCustomView.swift */,
+				CC4238C41FADB46900480A33 /* AddInputsCustomView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				A7D289631FA60E76005E7CC3 /* PromoSuccessCustomView.xib in Resources */,
 				CCB0E2AE1F96488E004DD3A8 /* QuickReplyPopUp.xib in Resources */,
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
+				CC4238C51FADB46900480A33 /* AddInputsCustomView.xib in Resources */,
 				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
 				CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */,
@@ -814,6 +821,7 @@
 				CCB0E2BD1F964A71004DD3A8 /* QuickReplyCustomCell.swift in Sources */,
 				CCC8BC251FA2DD1500F9002E /* ReplyOptionPopOverView.swift in Sources */,
 				A7DFFADB1F8F61BB00208FD9 /* AppDelegate.swift in Sources */,
+				CC4238C31FADB45D00480A33 /* AddInputsCustomView.swift in Sources */,
 				A78B61621F9F379A002F8E8F /* PromoListCustomCell.swift in Sources */,
 				A7F7D4671F8FB32400FA108F /* RootViewController.swift in Sources */,
 				A71FFEFA1F91E6610082BAF8 /* IQKeyboardManager.swift in Sources */,
