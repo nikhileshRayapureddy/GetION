@@ -267,9 +267,18 @@ class UpdateVisitsViewController: BaseViewController
         self.setEditablesWithBool(isEditiable: true)
     }
     
-    @IBAction func btnCancelAction(_ sender: UIButton) {
+    @IBAction func btnCancelAction(_ sender: UIButton)
+    {
+        
     }
-    @IBAction func btnUpdateVisitAction(_ sender: UIButton) {
+    @IBAction func btnUpdateVisitAction(_ sender: UIButton)
+    {
+        
     }
     
+    
+    func checkAllFields()
+    {
+        
+    }
 }
