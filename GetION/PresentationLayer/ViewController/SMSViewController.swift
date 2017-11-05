@@ -37,6 +37,7 @@ class SMSViewController: BaseViewController {
     ////
     
     var arrGroupItems = [TagSuggestionBO]()
+    var arrContactItems = [String]()
     var tokenString = [String]()
     var arrSuggestions = [TagSuggestionBO]()
 
@@ -58,6 +59,11 @@ class SMSViewController: BaseViewController {
     {
         arrGroupItems = arrSelectedGroups
         self.setGroups()
+        
+        if arrContactItems.count > 0
+        {
+            self.setContacts()
+        }
         
         vwSmsPreview.round(corners: [.topLeft,.topRight,.bottomLeft], radius: 5)
         
@@ -218,6 +224,80 @@ class SMSViewController: BaseViewController {
                 }
                 yAxis += 60
                 self.scrlVwGroups.contentSize = CGSize (width: 0, height: CGFloat(yAxis))
+                self.viewDidLayoutSubviews()
+            }
+            
+        })
+        
+    }
+    
+    
+    func setContacts()
+    {
+        DispatchQueue.main.async(execute: {
+            for subview in  self.vwGroups.subviews
+            {
+                if subview is UIButton
+                {
+                    let btn = subview as! UIButton
+                    if btn.tag == 2000
+                    {
+                        btn.removeFromSuperview()
+                        
+                    }
+                }
+            }
+            
+            var xAxis = 0
+            var yAxis = 0
+            var btnWidth = 0
+            var currentBtnWidth = 0
+            var reminigXSpace = 0
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width - 42
+            print(self.arrContactItems.count)
+            if(self.arrContactItems.count > 0){
+                for i in 0...self.arrContactItems.count - 1
+                {
+                    let btn = UIButton(type: UIButtonType.custom) as UIButton
+                    btn.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
+                    btn.setTitle("\(self.arrContactItems[i])", for: UIControlState.normal)
+                    btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+                    btn.titleLabel!.font = UIFont.myridFontOfSize(size: 16)
+                    btn.contentEdgeInsets = UIEdgeInsetsMake(8,5,5,8)
+                    btn.sizeToFit()
+                    btn.layer.cornerRadius = 10
+                    btn.tag = 2000
+                    
+                    print("\(btn.frame.size.width)")
+                    if(i == 0){
+                        xAxis = 8
+                        yAxis = 8
+                        btnWidth = Int(btn.frame.size.width)
+                        
+                    }
+                    else
+                    {
+                        reminigXSpace = Int(screenWidth) - (xAxis + btnWidth + 10)
+                        currentBtnWidth = btnWidth
+                        if (xAxis <= Int(screenWidth)) && (currentBtnWidth <= Int(reminigXSpace))
+                        {
+                            xAxis = xAxis + btnWidth + 10
+                            btnWidth = Int(btn.frame.size.width)
+                        } else {
+                            xAxis = 8
+                            btnWidth = Int(btn.frame.size.width)
+                            yAxis = yAxis + 50
+                        }
+                    }
+                    print(xAxis)
+                    btn.frame = CGRect(x: xAxis, y: yAxis, width: Int(btn.frame.size.width), height: 40)
+                    self.vwContact.addSubview(btn)
+                    self.vwContact.sizeToFit()
+                    
+                }
+                yAxis += 60
+                self.scrlVwContacts.contentSize = CGSize (width: 0, height: CGFloat(yAxis))
                 self.viewDidLayoutSubviews()
             }
             
