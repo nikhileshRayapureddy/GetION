@@ -28,7 +28,6 @@ class LeadsMainViewController: BaseViewController {
         super.viewDidLoad()
         self.designNavigationBar()
         self.getSuggestions()
-        self.groupPopViewSetUp()
         arrSelectedGroup = ["ios","hyderabad"]
     }
     
