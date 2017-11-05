@@ -12,13 +12,14 @@ import SwipeCellKit
 
 class LeadsMainViewController: BaseViewController {
 
-    @IBOutlet weak var vwSuggestionsBase: KSToken!
 
+    @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
     
     //
     var arrSuggestions = [TagSuggestionBO]()
+    var arrSelectedGroup = [String]()
 
     var isLongPressed = false
     var arrAlphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -27,9 +28,12 @@ class LeadsMainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
         self.designNavigationBar()
         self.getSuggestions()
-        vwSuggestionsBase.isHidden = true
+        self.groupPopViewSetUp()
+       // vwSuggestionsBase.isHidden = true
     }
     
     func getSuggestions()
@@ -51,17 +55,23 @@ class LeadsMainViewController: BaseViewController {
     
     func groupPopViewSetUp()
     {
-//        vwSuggestionsBase.delegate = self
-//        vwSuggestionsBase.promptText = ""
-//        vwSuggestionsBase.placeholder = "Any Other"
-//        vwSuggestionsBase.descriptionText = "Tags"
-//        vwSuggestionsBase.maxTokenLimit = 10 //default is -1 for unlimited number of tokens
-//        vwSuggestionsBase.style = .squared
+        arrSelectedGroup = ["ios","hyderabad"]
+        tokenView.delegate = self
+        tokenView.promptText = "Groups: "
+        tokenView.placeholder = "Type to search"
+        tokenView.descriptionText = "Groups"
+        tokenView.maxTokenLimit = -1
+        tokenView.searchResultHeight = 500
+        tokenView.minimumCharactersToSearch = 1 // Show all results without without typing anything
+        tokenView.style = .squared
+        tokenView.returnKeyType(type: .done)
         
-        vwSuggestionsBase.layer.cornerRadius = 5.0
-        vwSuggestionsBase.layer.masksToBounds = true
-        vwSuggestionsBase.layer.borderColor = THEME_COLOR.cgColor
-        vwSuggestionsBase.layer.borderWidth = 1.0
+        tokenView.layer.cornerRadius = 5.0
+        tokenView.layer.masksToBounds = true
+        tokenView.layer.borderColor = THEME_COLOR.cgColor
+        tokenView.layer.borderWidth = 1.0
+        
+        tokenView.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -98,37 +108,84 @@ class LeadsMainViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnGroupTokenCancelAction(_ sender: UIButton) {
+    @IBAction func btnGroupTokenCancelAction(_ sender: UIButton)
+    {
+        
     }
-    @IBAction func btnGroupTokenDoneAction(_ sender: UIButton) {
+    @IBAction func btnGroupTokenDoneAction(_ sender: UIButton)
+    {
+        var strLeads = ""
+        var strGroups = ""
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                strLeads.append(item.id)
+                strLeads.append(",")
+            }
+        }
+       strLeads.dropLast()
+        
+        for item in arrSelectedGroup
+        {
+            strGroups.append(item)
+            strGroups.append(",")
+        }
+       strGroups.dropLast()
+        
+        let layer = ServiceLayer()
+        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
+            print(response)
+        }) { (error) in
+            
+            print(error)
+        }
     }
     @IBAction func btnAddGroupAction(_ sender: UIButton)
     {
-        vwSuggestionsBase.isHidden = false
-
-//        var strLeads = ""
-//        for item in arrLeads
-//        {
-//            if item.isSelected == true
-//            {
-//                strLeads.append(item.id)
-//                strLeads.append(",")
-//            }
-//        }
-//        strLeads.dropLast()
-//
-//       let layer = ServiceLayer()
-//        layer.addLeadToGroupsWith(strGroups: <#T##String#>, strLeads: strLeads, successMessage: { (response) in
-//            <#code#>
-//        }) { (error) in
-//
-//            print(error)
-//        }
+        tokenView.isHidden = false
+        var strLeads = ""
+        var strGroups = ""
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                strLeads.append(item.id)
+                strLeads.append(",")
+            }
+        }
+        strLeads.remove(at: strLeads.index(before: strLeads.endIndex))
+        
+        for item in arrSelectedGroup
+        {
+            strGroups.append(item)
+            strGroups.append(",")
+        }
+        strGroups.remove(at: strGroups.index(before: strGroups.endIndex))
+        
+        let layer = ServiceLayer()
+        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
+            print(response)
+        }) { (error) in
+            
+            print(error)
+        }
         
     }
     @IBAction func btnSendMessageAction(_ sender: UIButton)
     {
+        var arrContact = [String]()
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                arrContact.append(item.mobile)
+            }
+        }
         
+        let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        smsVC.arrContactItems = arrContact
+        self.navigationController?.pushViewController(smsVC, animated: true)
     }
     
     @IBAction func btnDeleteLeadAction(_ sender: UIButton)
@@ -315,17 +372,17 @@ extension LeadsMainViewController : SwipeTableViewCellDelegate
     }
 }
 
-
 extension LeadsMainViewController: KSTokenViewDelegate
 {
     func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
         if (string.characters.isEmpty){
-            completion!(arrSuggestions as Array<TagSuggestionBO>)
+            completion!(arrSuggestions as Array<AnyObject>)
             return
         }
         
         var data: Array<String> = []
-        for value: TagSuggestionBO in arrSuggestions {
+       for value: TagSuggestionBO in arrSuggestions
+       {
             if value.title.lowercased().range(of: string.lowercased()) != nil {
                 data.append(value.title)
             }
@@ -333,15 +390,26 @@ extension LeadsMainViewController: KSTokenViewDelegate
         completion!(data as Array<AnyObject>)
     }
     
-    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String
+    {
+        if object is TagSuggestionBO
+        {
+            let obj = object as! TagSuggestionBO
+            return obj.title
+        }
         return object as! String
     }
     
     func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
         
+        // Restrict adding token based on token text
         if token.title == "f" {
             return false
         }
+        
+        // If user input something, it can be checked
+        //        print(tokenView.text)
+        
         return true
     }
 }
