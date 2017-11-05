@@ -43,6 +43,8 @@
 		A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
+		A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */; };
+		A736CEC81FAF4D91007C2391 /* SelectGroupCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */; };
 		A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */; };
 		A73F00611FAA015B00824BC8 /* LeadMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */; };
 		A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00621FAA06C200824BC8 /* LeadsBO.swift */; };
@@ -175,6 +177,8 @@
 		A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
+		A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupCustomView.swift; sourceTree = "<group>"; };
+		A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectGroupCustomView.xib; sourceTree = "<group>"; };
 		A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsMainViewController.swift; sourceTree = "<group>"; };
 		A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadMainTableViewCell.swift; sourceTree = "<group>"; };
 		A73F00621FAA06C200824BC8 /* LeadsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsBO.swift; sourceTree = "<group>"; };
@@ -609,6 +613,8 @@
 				CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */,
 				CCE274621FAE00BA00C12683 /* AddTopicView.swift */,
 				CCE274641FAE00C300C12683 /* AddTopicView.xib */,
+				A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */,
+				A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -675,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A736CEC81FAF4D91007C2391 /* SelectGroupCustomView.xib in Resources */,
 				CCF11F481FAB84C00056C367 /* PublishIonizePopUp.xib in Resources */,
 				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
@@ -808,6 +815,7 @@
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */,
+				A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */,
 				CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */,
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,

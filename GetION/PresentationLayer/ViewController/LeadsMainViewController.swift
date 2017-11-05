@@ -13,14 +13,12 @@ import SwipeCellKit
 class LeadsMainViewController: BaseViewController {
 
 
-    @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
     
-    //
+    var vwSelGroup: SelectGroupCustomView!
     var arrSuggestions = [TagSuggestionBO]()
     var arrSelectedGroup = [String]()
-
     var isLongPressed = false
     var arrAlphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     var arrSections = [String:[LeadsBO]]()
@@ -28,12 +26,10 @@ class LeadsMainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
         self.designNavigationBar()
         self.getSuggestions()
         self.groupPopViewSetUp()
-       // vwSuggestionsBase.isHidden = true
+        arrSelectedGroup = ["ios","hyderabad"]
     }
     
     func getSuggestions()
@@ -51,27 +47,6 @@ class LeadsMainViewController: BaseViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-    }
-    
-    func groupPopViewSetUp()
-    {
-        arrSelectedGroup = ["ios","hyderabad"]
-        tokenView.delegate = self
-        tokenView.promptText = "Groups: "
-        tokenView.placeholder = "Type to search"
-        tokenView.descriptionText = "Groups"
-        tokenView.maxTokenLimit = -1
-        tokenView.searchResultHeight = 500
-        tokenView.minimumCharactersToSearch = 1 // Show all results without without typing anything
-        tokenView.style = .squared
-        tokenView.returnKeyType(type: .done)
-        
-        tokenView.layer.cornerRadius = 5.0
-        tokenView.layer.masksToBounds = true
-        tokenView.layer.borderColor = THEME_COLOR.cgColor
-        tokenView.layer.borderWidth = 1.0
-        
-        tokenView.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -143,7 +118,12 @@ class LeadsMainViewController: BaseViewController {
     }
     @IBAction func btnAddGroupAction(_ sender: UIButton)
     {
-        tokenView.isHidden = false
+        if (vwSelGroup != nil)
+        {
+            vwSelGroup.removeFromSuperview()
+        }
+        self.showSelectGroupView()
+
         var strLeads = ""
         var strGroups = ""
         for item in arrLeads
@@ -214,7 +194,36 @@ class LeadsMainViewController: BaseViewController {
         })
         
     }
+    func showSelectGroupView()
+    {
+        if let popup = Bundle.main.loadNibNamed("SelectGroupCustomView", owner: nil, options: nil)![0] as? SelectGroupCustomView
+        {
+            popup.resizeViews()
+            popup.delegate = self
+            vwSelGroup = popup
+            popup.frame = self.view.bounds
+            
+            popup.vwKSTokenView.delegate = self
+            popup.vwKSTokenView.promptText = ""
+            popup.vwKSTokenView.placeholder = "Type to search"
+            popup.vwKSTokenView.descriptionText = "Groups"
+            popup.vwKSTokenView.maxTokenLimit = 10
+            popup.vwKSTokenView.style = .squared
+
+            self.view.addSubview(popup)
+        }
+
+    }
 }
+extension LeadsMainViewController : SelectGroupCustomView_Delegate
+{
+    func updateSelectGroupCustomView(_ text: UIButton)
+    {
+        
+    }
+    
+}
+
 extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -248,6 +257,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
             cell.constBtnSelWidth.constant = 0
         }
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        longGesture.minimumPressDuration = 0.5
         cell.addGestureRecognizer(longGesture)
         let url = URL(string: bo.image)
         cell.imgVwLead.kf.indicatorType = .activity
