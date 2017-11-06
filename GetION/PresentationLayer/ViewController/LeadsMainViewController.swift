@@ -280,9 +280,8 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
         {
             cell.constBtnSelWidth.constant = 0
         }
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
-        
-        longGesture.minimumPressDuration = 0.5
+        cell.tag = indexPath.row + 5670
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(gestureReconizer:)))
         cell.addGestureRecognizer(longGesture)
         let url = URL(string: bo.image)
         cell.imgVwLead.kf.indicatorType = .activity
@@ -292,13 +291,22 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        let selectedLead = arrLeads[indexPath.row]
-        
-        let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
-        leadVC.isLeadAdd = false
-        leadVC.objLead = selectedLead
-       self.navigationController?.pushViewController(leadVC, animated: false)
+        if isLongPressed == false
+        {
+            let selectedLead = arrLeads[indexPath.row]
+            
+            let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
+            leadVC.isLeadAdd = false
+            leadVC.objLead = selectedLead
+            self.navigationController?.pushViewController(leadVC, animated: false)
+        }
+        else
+        {
+            let bo = arrLeads[indexPath.row]
+            bo.isSelected = !bo.isSelected
+            tblLeads.reloadData()
+
+        }
         
     }
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -325,16 +333,16 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     @objc func longTap(gestureReconizer: UILongPressGestureRecognizer) {
         
         print("Long tap")
-        
-        let longPress = gestureReconizer as UILongPressGestureRecognizer
-        let locationInView = longPress.location(in: tblLeads)
-        let indexPath = tblLeads.indexPathForRow(at: locationInView)
+        let tag = (gestureReconizer.view?.tag)! - 5670
+//        let longPress = gestureReconizer as UILongPressGestureRecognizer
+//        let locationInView = longPress.location(in: tblLeads)
+//        let indexPath = tblLeads.indexPathForRow(at: locationInView)
         isLongPressed = true
-        let bo = arrLeads[(indexPath?.row)!]
+        let bo = arrLeads[tag]
         bo.isSelected = true
         tblLeads.reloadData()
         vwTopSelected.isHidden = false
-        print("indexPath=\(String(describing: indexPath?.row))")
+        print("indexPath=\(tag)")
 
     }
 
