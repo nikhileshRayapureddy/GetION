@@ -49,6 +49,7 @@
 		A73F00611FAA015B00824BC8 /* LeadMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00601FAA015B00824BC8 /* LeadMainTableViewCell.swift */; };
 		A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F00621FAA06C200824BC8 /* LeadsBO.swift */; };
 		A741E1321FA2008200963FBB /* TagSuggestionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A741E1311FA2008200963FBB /* TagSuggestionBO.swift */; };
+		A755C0861FB0B7F800516AFB /* LeadFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */; };
 		A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A759B0DC1FA8DD6F00A8CC26 /* FloatLabelTextField.swift */; };
 		A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A759B0DD1FA8DD6F00A8CC26 /* FloatLabelTextView.swift */; };
 		A759B0E11FA8E70E00A8CC26 /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A759B0E01FA8E70E00A8CC26 /* SMSViewController.swift */; };
@@ -189,6 +190,7 @@
 		A741E13E1FA209FC00963FBB /* KSTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		A741E13F1FA209FC00963FBB /* KSTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		A741E1401FA209FC00963FBB /* KSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadFilterViewController.swift; sourceTree = "<group>"; };
 		A759B0DC1FA8DD6F00A8CC26 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		A759B0DD1FA8DD6F00A8CC26 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		A759B0E01FA8E70E00A8CC26 /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */,
 				A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */,
 				CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */,
+				A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
+				A755C0861FB0B7F800516AFB /* LeadFilterViewController.swift in Sources */,
 				CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */,
 				A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,

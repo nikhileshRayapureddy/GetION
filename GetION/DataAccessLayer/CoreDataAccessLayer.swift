@@ -336,36 +336,40 @@ class CoreDataAccessLayer: NSObject {
     func saveItemIntoLeadTableInLocalDB( tmpItem : LeadsBO)
     {
         
-        let entity =  NSEntityDescription.entity(forEntityName: "Lead",in:managedObjectContext)
-        
-        let leadItem = NSManagedObject(entity: entity!,insertInto: managedObjectContext) as! Lead
-        
-        leadItem.id = tmpItem.id
-        leadItem.department = tmpItem.department
-        leadItem.age = tmpItem.age
-        leadItem.firstname = tmpItem.firstname
-        leadItem.surname = tmpItem.surname
-        leadItem.mobile = tmpItem.mobile
-        leadItem.email = tmpItem.email
-        leadItem.birthday = tmpItem.birthday
-        leadItem.sex = tmpItem.sex
-        leadItem.purpose = tmpItem.purpose
-        leadItem.area = tmpItem.area
-        leadItem.city = tmpItem.city
-        leadItem.pincode = tmpItem.pincode
-        leadItem.remarks = tmpItem.remarks
-        leadItem.login_id = tmpItem.login_id
-        leadItem.lastupdated = tmpItem.lastupdated
-        leadItem.flag = tmpItem.flag
-        leadItem.image = tmpItem.image
-        leadItem.source = tmpItem.source
-        leadItem.imgTag = tmpItem.imgTag
-        leadItem.leadsTags = tmpItem.leadsTags
-        do {
-            try managedObjectContext.save()
+        let arrLead = self.getListDataForEntity(strclass: "Lead",strFormat:"id == \(tmpItem.id)")
+        if arrLead?.count == 0
+        {
+            let entity =  NSEntityDescription.entity(forEntityName: "Lead",in:managedObjectContext)
             
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            let leadItem = NSManagedObject(entity: entity!,insertInto: managedObjectContext) as! Lead
+            
+            leadItem.id = tmpItem.id
+            leadItem.department = tmpItem.department
+            leadItem.age = tmpItem.age
+            leadItem.firstname = tmpItem.firstname
+            leadItem.surname = tmpItem.surname
+            leadItem.mobile = tmpItem.mobile
+            leadItem.email = tmpItem.email
+            leadItem.birthday = tmpItem.birthday
+            leadItem.sex = tmpItem.sex
+            leadItem.purpose = tmpItem.purpose
+            leadItem.area = tmpItem.area
+            leadItem.city = tmpItem.city
+            leadItem.pincode = tmpItem.pincode
+            leadItem.remarks = tmpItem.remarks
+            leadItem.login_id = tmpItem.login_id
+            leadItem.lastupdated = tmpItem.lastupdated
+            leadItem.flag = tmpItem.flag
+            leadItem.image = tmpItem.image
+            leadItem.source = tmpItem.source
+            leadItem.imgTag = tmpItem.imgTag
+            leadItem.leadsTags = tmpItem.leadsTags
+            do {
+                try managedObjectContext.save()
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
         }
     }
     
