@@ -23,18 +23,21 @@ class PublishViewController: BaseViewController {
     
     var selectedIndex = 1
     var viewPublishIonizePopUp: PublishIonizePopUp!
+    
+    var arrBlogs = [BlogBO]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(2)
-        btnDraftsClicked(btnDrafts)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        btnDraftsClicked(btnDrafts)
     }
+    
     func resetTopButtons()
     {
         btnDrafts.setTitleColor(UIColor.init(red: 77.0/255.0, green: 77.0/255.0, blue: 77.0/255.0, alpha: 1.0), for: .normal)
@@ -60,6 +63,10 @@ class PublishViewController: BaseViewController {
             self.selectedImageView.backgroundColor = UIColor.init(red: 0/255.0, green: 211.0/255.0, blue: 208.0/255.0, alpha: 1.0)
             self.selectedImageView.frame = CGRect(x: ((ScreenWidth - 10)/3), y: sender.frame.size.height - 2, width:((ScreenWidth - 10)/3), height: 2.0)
         }
+        
+        let  layer = CoreDataAccessLayer()
+        arrBlogs = layer.getDraftBlogsFromLocalDB()
+        
         tblView.reloadData()
     }
     @IBAction func btnOnlineClicked(_ sender: UIButton) {
@@ -169,7 +176,6 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.selectionStyle = .none
             return cell
         }
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
