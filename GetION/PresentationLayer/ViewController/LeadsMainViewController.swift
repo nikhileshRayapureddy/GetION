@@ -17,6 +17,7 @@ class LeadsMainViewController: BaseViewController {
     @IBOutlet weak var vwTopSelected: UIView!
     
     var vwSelGroup: SelectGroupCustomView!
+    var vwShowGroups: ShowGroupsView!
     var arrSuggestions = [TagSuggestionBO]()
     var arrSelectedGroup = [String]()
     var isLongPressed = false
@@ -24,6 +25,7 @@ class LeadsMainViewController: BaseViewController {
     var arrSections = [String:[LeadsBO]]()
     var arrLeads = [LeadsBO]()
 
+    var arrSelectedGroupString = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
@@ -115,6 +117,19 @@ class LeadsMainViewController: BaseViewController {
             print(error)
         }
     }
+    @IBAction func btnShowGroups(_ sender: UIButton) {
+        if let viewGroup = Bundle.main.loadNibNamed("ShowGroupsView", owner: nil, options: nil)![0] as? ShowGroupsView
+        {
+            vwShowGroups = viewGroup
+            viewGroup.tokenString = arrSelectedGroupString
+            viewGroup.arrGroups = self.arrSuggestions
+            viewGroup.frame = self.view.bounds
+            viewGroup.resizeViews()
+            viewGroup.delegate = self
+            self.view.addSubview(viewGroup)
+        }
+    }
+        
     @IBAction func btnAddGroupAction(_ sender: UIButton)
     {
         if (vwSelGroup != nil)
@@ -423,3 +438,71 @@ extension LeadsMainViewController: KSTokenViewDelegate
     }
 }
 
+extension LeadsMainViewController: ShowGroupsView_Delegate
+{
+    func closeShowGroupsView() {
+        vwShowGroups.removeFromSuperview()
+    }
+    
+    func selectedGroups(_ arrGroups: [String]) {
+        vwShowGroups.removeFromSuperview()
+        arrSelectedGroupString = arrGroups
+        var arrFilteredGroups = [LeadsBO]()
+        if arrGroups.count > 0
+        {
+            var count = 0
+            while count < arrGroups.count
+            {
+                
+                let filteredArray = arrLeads.filter(){
+                    if let type : String = ($0).leadsTags as String {
+                        return type.contains(arrGroups[count])
+                    } else {
+                        return false
+                    }
+                    
+                }
+                
+                arrFilteredGroups.append(contentsOf: filteredArray)
+                count = count + 1
+            }
+            
+            self.arrLeads.removeAll()
+            self.arrLeads = arrFilteredGroups.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
+            for alphabet in self.arrAlphabets
+            {
+                let filteredArray = self.arrLeads.filter(){
+                    return $0.firstname.uppercased().characters.first == alphabet.characters.first
+                }
+                if filteredArray.count>0
+                {
+                    self.arrSections[alphabet] = filteredArray
+                }
+            }
+            self.tblLeads.sectionIndexColor = THEME_COLOR
+            self.tblLeads.reloadData()
+
+        }
+        else
+        {
+            let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+            self.arrLeads.removeAll()
+            self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
+            for alphabet in self.arrAlphabets
+            {
+                let filteredArray = self.arrLeads.filter(){
+                    return $0.firstname.uppercased().characters.first == alphabet.characters.first
+                }
+                if filteredArray.count>0
+                {
+                    self.arrSections[alphabet] = filteredArray
+                }
+            }
+            self.tblLeads.sectionIndexColor = THEME_COLOR
+            self.tblLeads.reloadData()
+        }
+        
+        print(arrFilteredGroups.count)
+    }
+    
+}

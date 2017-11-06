@@ -111,6 +111,8 @@
 		CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238C81FADD7B800480A33 /* InputCategoriesCustomCell.swift */; };
 		CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4238CA1FADD9E500480A33 /* AddInputsSectionTitleView.swift */; };
 		CC4238CD1FADD9FB00480A33 /* AddInputsSectionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */; };
+		CC5187F91FB0B4D900B263AE /* ShowGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */; };
+		CC5187FB1FB0B5AD00B263AE /* ShowGroupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */; };
 		CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */; };
 		CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */; };
 		CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */; };
@@ -247,6 +249,8 @@
 		CC4238C81FADD7B800480A33 /* InputCategoriesCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCategoriesCustomCell.swift; sourceTree = "<group>"; };
 		CC4238CA1FADD9E500480A33 /* AddInputsSectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputsSectionTitleView.swift; sourceTree = "<group>"; };
 		CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInputsSectionTitleView.xib; sourceTree = "<group>"; };
+		CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGroupsView.swift; sourceTree = "<group>"; };
+		CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowGroupsView.xib; sourceTree = "<group>"; };
 		CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopUp.swift; sourceTree = "<group>"; };
 		CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesPopUp.xib; sourceTree = "<group>"; };
 		CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBO.swift; sourceTree = "<group>"; };
@@ -615,6 +619,8 @@
 				CCE274641FAE00C300C12683 /* AddTopicView.xib */,
 				A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */,
 				A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */,
+				CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */,
+				CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 				CC2519C61F9F8530007A6F30 /* GallaryView.xib in Resources */,
 				CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */,
 				CC0A557D1F906C2A0043A0A3 /* BottomView.xib in Resources */,
+				CC5187FB1FB0B5AD00B263AE /* ShowGroupsView.xib in Resources */,
 				CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */,
 				CCB0E2BA1F964968004DD3A8 /* QueryProfilePopUp.xib in Resources */,
 				A7164CAF1F90FA34003DB84D /* Myriad_Pro_Regular.ttf in Resources */,
@@ -779,6 +786,7 @@
 				A7C9635D1F9284AF002CB4ED /* FeedsBO.swift in Sources */,
 				A7C9635B1F9273A9002CB4ED /* BlogBO.swift in Sources */,
 				CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */,
+				CC5187F91FB0B4D900B263AE /* ShowGroupsView.swift in Sources */,
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
 				A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */,

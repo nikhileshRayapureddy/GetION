@@ -8110,6 +8110,9 @@ Please enter your Email-Id below :</string>
                                         <state key="normal" title="Groups">
                                             <color key="titleColor" red="0.2013909519" green="0.79743796590000005" blue="0.79981267450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnShowGroups:" destination="ZLm-KR-j6s" eventType="touchUpInside" id="7gn-aT-nsf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ef-7Q-38I">
                                         <rect key="frame" x="300" y="4" width="67" height="62"/>

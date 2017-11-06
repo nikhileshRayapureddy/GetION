@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
 
 
 
@@ -14,7 +15,6 @@ class SelectGroupsViewController: UIViewController {
 
     var item = [TagSuggestionBO]()
     var tagSelect = String()
-    var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
     
     @IBOutlet weak var groupView: UIView!
     @IBOutlet weak var groupLayout: NSLayoutConstraint!
@@ -47,7 +47,7 @@ class SelectGroupsViewController: UIViewController {
                     
                     if(self.tokenString.contains(self.item[i].title))
                     {
-                        btn.backgroundColor = self.ionColor
+                        btn.backgroundColor = ionColor
                     }
                     else
                     {
@@ -157,7 +157,7 @@ class SelectGroupsViewController: UIViewController {
     {
         if(sender.backgroundColor == UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1))
         {
-            sender.backgroundColor = self.ionColor
+            sender.backgroundColor = ionColor
             var btnTxt = ""
             if let temp = sender.currentTitle {
                 btnTxt = temp
