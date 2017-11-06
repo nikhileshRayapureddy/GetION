@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MessageUI
 class SMSViewController: BaseViewController {
 
     @IBOutlet weak var scrlVw: UIScrollView!
@@ -45,8 +45,8 @@ class SMSViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
-        designTabBar()
-        setSelectedButtonAtIndex(3)
+//        designTabBar()
+//        setSelectedButtonAtIndex(3)
         
         self.getSuggestions()
         // Do any additional setup after loading the view.
@@ -58,7 +58,7 @@ class SMSViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool)
     {
         arrGroupItems = arrSelectedGroups
-        self.setGroups()
+//        self.setGroups()
         
         if arrContactItems.count > 0
         {
@@ -75,13 +75,13 @@ class SMSViewController: BaseViewController {
         scrlVwContacts.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
         scrlVwContacts.layer.borderWidth = 0.8
         
-        scrlVwGroups.layer.cornerRadius = 5
-        scrlVwGroups.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
-        scrlVwGroups.layer.borderWidth = 0.8
+//        scrlVwGroups.layer.cornerRadius = 5
+//        scrlVwGroups.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+//        scrlVwGroups.layer.borderWidth = 0.8
         
-        btnGroupSearch.layer.cornerRadius = 5
-        btnGroupSearch.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
-        btnGroupSearch.layer.borderWidth = 0.8
+//        btnGroupSearch.layer.cornerRadius = 5
+//        btnGroupSearch.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
+//        btnGroupSearch.layer.borderWidth = 0.8
         
         btnContactSearch.layer.cornerRadius = 5
         btnContactSearch.layer.borderColor = UIColor.gray .withAlphaComponent(0.6).cgColor
@@ -125,21 +125,73 @@ class SMSViewController: BaseViewController {
     }
     @IBAction func btnOSSMSAction(_ sender: UIButton)
     {
-        
+        btnOSSMS.isSelected = true
+        btnServerSMS.isSelected = false
     }
     
     @IBAction func btnServerSMSAction(_ sender: UIButton)
     {
-        
+        btnOSSMS.isSelected = false
+        btnServerSMS.isSelected = true
     }
     
-    
-    @IBAction func btnIonizeAction(_ sender: UIButton)
-    {
+    @IBAction func btnSendClicked(_ sender: UIButton) {
         
+        var count = 0
+        var mobileNumber = ""
+        while count < arrContactItems.count
+        {
+            let strMobile = arrContactItems[count]
+            if mobileNumber.characters.count == 0
+            {
+                mobileNumber = strMobile
+            }
+            else
+            {
+                mobileNumber = String(format: "%@,%@", mobileNumber,strMobile)
+            }
+            count = count + 1
+        }
+
+        if btnServerSMS.isSelected == true
+        {
+            let layer = ServiceLayer()
+            app_delegate.showLoader(message: "Sending SMS")
+            layer.sendSMSFromIONServerWith(message: txtVwMessage.text, MobileNo: mobileNumber, successMessage: { (response) in
+                DispatchQueue.main.async {
+                    let responseString = response as! String
+                    if responseString.caseInsensitiveCompare("Success") == .orderedSame
+                    {
+                        
+                    }
+                    else                    
+                    {
+                        
+                    }
+                    app_delegate.removeloder()
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+            })
+        }
+        else if btnOSSMS.isSelected == true
+        {
+            if TARGET_OS_SIMULATOR != 0
+            {
+                
+            }
+            else
+            {
+                let messageVC = MFMessageComposeViewController()
+                messageVC.recipients = mobileNumber.components(separatedBy: ",")
+                messageVC.messageComposeDelegate = self;
+                self.present(messageVC, animated: false, completion: nil)
+            }
+        }
     }
     
-   
     func getSuggestions()
     {
         app_delegate.showLoader(message: "Loading...")
@@ -223,7 +275,7 @@ class SMSViewController: BaseViewController {
                     
                 }
                 yAxis += 60
-                self.scrlVwGroups.contentSize = CGSize (width: 0, height: CGFloat(yAxis))
+//                self.scrlVwGroups.contentSize = CGSize (width: 0, height: CGFloat(yAxis))
                 self.viewDidLayoutSubviews()
             }
             
@@ -235,7 +287,7 @@ class SMSViewController: BaseViewController {
     func setContacts()
     {
         DispatchQueue.main.async(execute: {
-            for subview in  self.vwGroups.subviews
+            for subview in  self.vwContact.subviews
             {
                 if subview is UIButton
                 {
@@ -311,5 +363,40 @@ class SMSViewController: BaseViewController {
        
     }
     
+
+}
+
+extension SMSViewController : UITextViewDelegate{
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        lblMessagePrev.text = textView.text + text
+        if (lblMessagePrev.text?.characters.count)! <= 120
+        {
+            lblCharCount.text = "120/\((lblMessagePrev.text?.characters.count)!)"
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+}
+
+extension SMSViewController: MFMessageComposeViewControllerDelegate
+{
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
+        }
+    }
 
 }
