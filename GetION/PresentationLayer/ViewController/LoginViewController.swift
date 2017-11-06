@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
                     GetIONUserDefaults.setPassword(object: base64Pass)
                     app_delegate.removeloder()
                     self.navigateToDashboard()
-                    app_delegate.getAllPublishData()
+                    app_delegate.getAllLeads()
                 }
             }, failureMessage: { (failure) in
                 DispatchQueue.main.async {

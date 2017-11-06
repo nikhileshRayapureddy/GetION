@@ -204,7 +204,7 @@ class LeadsMainViewController: BaseViewController {
             }
             
         }, failureMessage: { (error) in
-            print(error)
+            app_delegate.removeloder()
         })
         
     }
