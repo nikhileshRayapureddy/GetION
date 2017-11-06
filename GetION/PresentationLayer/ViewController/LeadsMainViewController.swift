@@ -17,6 +17,7 @@ class LeadsMainViewController: BaseViewController {
     @IBOutlet weak var vwTopSelected: UIView!
     
     @IBOutlet weak var btnFilter: UIButton!
+    var refreshControl = UIRefreshControl()
     var vwSelGroup: SelectGroupCustomView!
     var vwShowGroups: ShowGroupsView!
     var arrSuggestions = [TagSuggestionBO]()
@@ -32,6 +33,27 @@ class LeadsMainViewController: BaseViewController {
         self.designNavigationBar()
         self.getSuggestions()
         arrSelectedGroup = ["ios","hyderabad"]
+        tblLeads.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    
+    @objc func refreshData()
+    {
+        let dLayer = CoreDataAccessLayer()
+        dLayer.removeAllLeads()
+        
+        let layer = ServiceLayer()
+        layer.getAllLeads(successMessage: { (reponse) in
+            let arrLeads = reponse as! [LeadsBO]
+            DispatchQueue.main.async {
+                let dataLayer = CoreDataAccessLayer()
+                dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+                self.getLeadsFromLocalDB()
+                self.refreshControl.endRefreshing()
+            }
+        }) { (error) in
+        }
+
     }
     
     func getSuggestions()
@@ -50,9 +72,9 @@ class LeadsMainViewController: BaseViewController {
             }
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    
+    func getLeadsFromLocalDB()
+    {
         let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
         self.arrLeads.removeAll()
         self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
@@ -68,6 +90,10 @@ class LeadsMainViewController: BaseViewController {
         }
         self.tblLeads.sectionIndexColor = THEME_COLOR
         self.tblLeads.reloadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getLeadsFromLocalDB()
 
     }
     @IBAction func btnRemoveAllSelectedClicked(_ sender: UIButton) {
