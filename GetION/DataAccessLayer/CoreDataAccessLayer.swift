@@ -372,8 +372,16 @@ class CoreDataAccessLayer: NSObject {
             }
         }
     }
-    
-    func removePublishItemFromLocalDBWith(leadId : String)
+    func removeAllLeads()
+    {
+        let arrLeads = self.getAllLeadsFromLocalDB()
+        
+        for lead in arrLeads
+        {
+            self.removeLeadItemFromLocalDBWith(leadId: lead.id)
+        }
+    }
+    func removeLeadItemFromLocalDBWith(leadId : String)
     {
         
         var results : [Lead]!
