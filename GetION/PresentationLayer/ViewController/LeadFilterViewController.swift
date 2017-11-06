@@ -18,7 +18,7 @@ struct filterObjects
     var arrSource = [String]()
 }
 
-protocol filterDelegates : class
+protocol filterDelegates : NSObjectProtocol
 {
     func filterAction(objFilter : filterObjects)
 }
@@ -75,7 +75,6 @@ class LeadFilterViewController: BaseViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
-        self.designTabBar()
         txtAgeTo.inputView = picker
         txtAgeFrom.inputView = picker
         
@@ -274,8 +273,10 @@ class LeadFilterViewController: BaseViewController {
         }
         
         let objFilter = filterObjects (gender: gender, agefrom: strFromAge, ageTo: strToAge, arrIncludes: arrInclude, arrTags: tokenString, arrSource: arrSource)
-        
-        
+        if callBack != nil
+        {
+            callBack?.filterAction(objFilter: objFilter)
+        }
         
     }
     @IBAction func btnBackAction(_ sender: UIButton) {

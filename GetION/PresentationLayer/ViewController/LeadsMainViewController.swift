@@ -234,6 +234,7 @@ class LeadsMainViewController: BaseViewController {
     {
         let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
         filterVC.arrSuggestions = arrSuggestions
+        filterVC.callBack = self
         self.navigationController?.pushViewController(filterVC, animated: true)
     }
     
@@ -513,5 +514,13 @@ extension LeadsMainViewController: ShowGroupsView_Delegate
         
         print(arrFilteredGroups.count)
     }
+    
+}
+extension LeadsMainViewController : filterDelegates
+{
+    func filterAction(objFilter: filterObjects) {
+        
+    }
+    
     
 }
