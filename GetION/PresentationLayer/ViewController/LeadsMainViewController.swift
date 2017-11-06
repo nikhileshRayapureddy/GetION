@@ -281,6 +281,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
             cell.constBtnSelWidth.constant = 0
         }
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        
         longGesture.minimumPressDuration = 0.5
         cell.addGestureRecognizer(longGesture)
         let url = URL(string: bo.image)

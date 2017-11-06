@@ -7936,54 +7936,8 @@ Please enter your Email-Id below :</string>
                                                     <constraint firstAttribute="trailing" secondItem="SSG-uB-U5r" secondAttribute="trailing" constant="4" id="ibE-UO-9EJ"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPv-1L-F0t">
-                                                <rect key="frame" x="35" y="330" width="146" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="AuO-Wh-s1J"/>
-                                                    <constraint firstAttribute="width" constant="146" id="Upe-xf-Gnj"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPS-kg-kA5">
-                                                <rect key="frame" x="232" y="330" width="108" height="28"/>
-                                                <color key="backgroundColor" red="0.86265093088150024" green="0.86279940605163574" blue="0.86264163255691528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="108" id="NpX-fq-TLn"/>
-                                                    <constraint firstAttribute="height" constant="28" id="ozn-ie-nSW"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="18"/>
-                                                <inset key="titleEdgeInsets" minX="24" minY="2" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Search">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnGroupAction:" destination="rK2-ke-yNB" eventType="touchUpInside" id="Fj3-Ni-8ea"/>
-                                                </connections>
-                                            </button>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FI9-tf-hV5">
-                                                <rect key="frame" x="28" y="372" width="318" height="116"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tw8-DH-Pxh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="318" height="126"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="126" id="SOr-mr-33T"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="tw8-DH-Pxh" firstAttribute="centerX" secondItem="FI9-tf-hV5" secondAttribute="centerX" id="1Ui-qL-4fZ"/>
-                                                    <constraint firstItem="tw8-DH-Pxh" firstAttribute="top" secondItem="FI9-tf-hV5" secondAttribute="top" id="GlM-3S-1Jb"/>
-                                                    <constraint firstAttribute="height" constant="116" id="H8h-9C-Mp5"/>
-                                                    <constraint firstItem="tw8-DH-Pxh" firstAttribute="leading" secondItem="FI9-tf-hV5" secondAttribute="leading" id="Mvh-eX-yct"/>
-                                                    <constraint firstAttribute="bottom" secondItem="tw8-DH-Pxh" secondAttribute="bottom" id="fcC-aU-oFr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tw8-DH-Pxh" secondAttribute="trailing" id="hhs-Pg-HM2"/>
-                                                </constraints>
-                                            </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Patient Numbers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGe-vl-AOz">
-                                                <rect key="frame" x="35" y="505" width="198" height="28"/>
+                                                <rect key="frame" x="35" y="318" width="198" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="198" id="jrW-jc-od8"/>
                                                     <constraint firstAttribute="height" constant="28" id="mvt-nW-QC5"/>
@@ -7993,7 +7947,7 @@ Please enter your Email-Id below :</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LL-bj-36p">
-                                                <rect key="frame" x="232" y="505" width="108" height="28"/>
+                                                <rect key="frame" x="232" y="318" width="108" height="28"/>
                                                 <color key="backgroundColor" red="0.8626509309" green="0.86279940610000005" blue="0.86264163260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="108" id="Jng-MM-AYt"/>
@@ -8009,7 +7963,7 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-PL-3Hl">
-                                                <rect key="frame" x="28" y="547" width="318" height="116"/>
+                                                <rect key="frame" x="28" y="360" width="318" height="116"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lif-Wv-2hb">
                                                         <rect key="frame" x="0.0" y="0.0" width="318" height="126"/>
@@ -8030,7 +7984,7 @@ Please enter your Email-Id below :</string>
                                                 </constraints>
                                             </scrollView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMu-XP-EcX">
-                                                <rect key="frame" x="52" y="679" width="120" height="22"/>
+                                                <rect key="frame" x="52" y="492" width="120" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="3hR-4j-NYP"/>
@@ -8047,8 +8001,8 @@ Please enter your Email-Id below :</string>
                                                     <action selector="btnOSSMSAction:" destination="rK2-ke-yNB" eventType="touchUpInside" id="epi-UD-9Fy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arX-cj-Uoj">
-                                                <rect key="frame" x="204" y="679" width="120" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arX-cj-Uoj">
+                                                <rect key="frame" x="204" y="492" width="120" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="iIP-Rg-E89"/>
@@ -8066,7 +8020,7 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWb-sJ-ZiN">
-                                                <rect key="frame" x="103" y="718" width="170" height="50"/>
+                                                <rect key="frame" x="103" y="531" width="170" height="50"/>
                                                 <color key="backgroundColor" red="0.20139095187187195" green="0.79743796586990356" blue="0.7998126745223999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="170" id="7Pp-hc-MkT"/>
@@ -8074,7 +8028,7 @@ Please enter your Email-Id below :</string>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="23"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Ionize">
+                                                <state key="normal" title="Send">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -8086,30 +8040,23 @@ Please enter your Email-Id below :</string>
                                         <constraints>
                                             <constraint firstItem="eMu-XP-EcX" firstAttribute="centerX" secondItem="sBx-co-lrf" secondAttribute="centerX" constant="-75.5" id="9nH-H5-fdK"/>
                                             <constraint firstItem="eMu-XP-EcX" firstAttribute="top" secondItem="lO3-PL-3Hl" secondAttribute="bottom" constant="16" id="BZj-f7-Ub1"/>
-                                            <constraint firstItem="FI9-tf-hV5" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" constant="28" id="Ch9-SG-9Be"/>
                                             <constraint firstItem="GWb-sJ-ZiN" firstAttribute="centerX" secondItem="sBx-co-lrf" secondAttribute="centerX" id="G2e-qZ-RwH"/>
                                             <constraint firstItem="Owo-TR-g8W" firstAttribute="top" secondItem="r7l-aB-9AV" secondAttribute="bottom" constant="28" id="GyS-vF-S5r"/>
-                                            <constraint firstItem="3LL-bj-36p" firstAttribute="top" secondItem="FI9-tf-hV5" secondAttribute="bottom" constant="17" id="I8M-tL-fXW"/>
                                             <constraint firstAttribute="trailing" secondItem="3LL-bj-36p" secondAttribute="trailing" constant="35" id="ItK-dU-qMm"/>
                                             <constraint firstItem="lO3-PL-3Hl" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" constant="28" id="Ltf-TB-nKA"/>
-                                            <constraint firstItem="qPv-1L-F0t" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" constant="35" id="OQL-Rx-Ay4"/>
                                             <constraint firstAttribute="trailing" secondItem="Owo-TR-g8W" secondAttribute="trailing" constant="29" id="QxO-iQ-8UJ"/>
                                             <constraint firstAttribute="height" constant="800" id="T9o-Hp-Sfd"/>
-                                            <constraint firstItem="cPS-kg-kA5" firstAttribute="top" secondItem="Owo-TR-g8W" secondAttribute="bottom" constant="32" id="TGp-Po-QSX"/>
                                             <constraint firstItem="Owo-TR-g8W" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" constant="28" id="Wfm-85-Elf"/>
-                                            <constraint firstItem="qPv-1L-F0t" firstAttribute="top" secondItem="Owo-TR-g8W" secondAttribute="bottom" constant="32" id="Yfp-fj-bLy"/>
-                                            <constraint firstAttribute="trailing" secondItem="FI9-tf-hV5" secondAttribute="trailing" constant="29" id="b1y-it-P25"/>
+                                            <constraint firstItem="3LL-bj-36p" firstAttribute="top" secondItem="Owo-TR-g8W" secondAttribute="bottom" constant="20" id="Yc1-OA-90l"/>
                                             <constraint firstAttribute="trailing" secondItem="lO3-PL-3Hl" secondAttribute="trailing" constant="29" id="cBZ-mZ-O82"/>
-                                            <constraint firstItem="rGe-vl-AOz" firstAttribute="top" secondItem="FI9-tf-hV5" secondAttribute="bottom" constant="17" id="eEs-Iy-gZo"/>
                                             <constraint firstItem="r7l-aB-9AV" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" id="fdy-Nr-FtT"/>
                                             <constraint firstItem="arX-cj-Uoj" firstAttribute="centerX" secondItem="sBx-co-lrf" secondAttribute="centerX" constant="76.5" id="jSb-QT-bLx"/>
                                             <constraint firstItem="rGe-vl-AOz" firstAttribute="leading" secondItem="sBx-co-lrf" secondAttribute="leading" constant="35" id="mOJ-ZI-5is"/>
                                             <constraint firstItem="r7l-aB-9AV" firstAttribute="top" secondItem="sBx-co-lrf" secondAttribute="top" id="o3W-FE-Loz"/>
+                                            <constraint firstItem="rGe-vl-AOz" firstAttribute="top" secondItem="Owo-TR-g8W" secondAttribute="bottom" constant="20" id="p8Q-Cc-x72"/>
                                             <constraint firstAttribute="trailing" secondItem="r7l-aB-9AV" secondAttribute="trailing" id="qfW-vg-T5u"/>
                                             <constraint firstItem="arX-cj-Uoj" firstAttribute="top" secondItem="lO3-PL-3Hl" secondAttribute="bottom" constant="16" id="sWK-9d-oOM"/>
-                                            <constraint firstAttribute="trailing" secondItem="cPS-kg-kA5" secondAttribute="trailing" constant="35" id="uO1-6K-A6J"/>
                                             <constraint firstItem="lO3-PL-3Hl" firstAttribute="top" secondItem="rGe-vl-AOz" secondAttribute="bottom" constant="14" id="v1e-GD-49D"/>
-                                            <constraint firstItem="FI9-tf-hV5" firstAttribute="top" secondItem="qPv-1L-F0t" secondAttribute="bottom" constant="14" id="wws-dg-GkL"/>
                                             <constraint firstItem="GWb-sJ-ZiN" firstAttribute="top" secondItem="eMu-XP-EcX" secondAttribute="bottom" constant="17" id="z8k-HS-Zq5"/>
                                         </constraints>
                                     </view>
@@ -8134,21 +8081,17 @@ Please enter your Email-Id below :</string>
                     </view>
                     <connections>
                         <outlet property="btnContactSearch" destination="3LL-bj-36p" id="Ltm-ch-UVr"/>
-                        <outlet property="btnGroupSearch" destination="cPS-kg-kA5" id="pyh-6P-FSC"/>
                         <outlet property="btnIonize" destination="GWb-sJ-ZiN" id="Xi4-Pz-GGK"/>
                         <outlet property="btnOSSMS" destination="eMu-XP-EcX" id="DuQ-fn-3aC"/>
                         <outlet property="btnServerSMS" destination="arX-cj-Uoj" id="aht-Qm-DAJ"/>
                         <outlet property="constrtVwContactHeight" destination="FCW-y0-1jE" id="9zV-2H-PlH"/>
-                        <outlet property="constrtVwGroupHeight" destination="SOr-mr-33T" id="1Fc-G6-m2b"/>
                         <outlet property="lblCharCount" destination="fYU-Mv-hGY" id="d7K-yI-xks"/>
                         <outlet property="lblContactPrev" destination="Ctu-zn-knW" id="eZl-oS-5p5"/>
                         <outlet property="lblMessagePrev" destination="udX-Yz-sH0" id="sBb-5m-FjX"/>
                         <outlet property="scrlVw" destination="Amy-wA-3vq" id="yFQ-eq-RgZ"/>
                         <outlet property="scrlVwContacts" destination="lO3-PL-3Hl" id="nh3-iv-fl3"/>
-                        <outlet property="scrlVwGroups" destination="FI9-tf-hV5" id="v1C-qF-qOi"/>
                         <outlet property="txtVwMessage" destination="SSG-uB-U5r" id="Jwc-zM-0KZ"/>
                         <outlet property="vwContact" destination="lif-Wv-2hb" id="i4f-4k-P1O"/>
-                        <outlet property="vwGroups" destination="tw8-DH-Pxh" id="dW7-BI-uLF"/>
                         <outlet property="vwMessage" destination="Owo-TR-g8W" id="mBH-Ub-xqc"/>
                         <outlet property="vwSmsPreview" destination="HhT-x7-HRi" id="Rbk-dJ-GE3"/>
                     </connections>
