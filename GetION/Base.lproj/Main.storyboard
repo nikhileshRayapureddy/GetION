@@ -1359,7 +1359,7 @@ Please enter your Email-Id below :</string>
                                             <outlet property="lblDate" destination="N3A-ER-Ig0" id="wQi-Nz-hgh"/>
                                             <outlet property="lblDaysLeft" destination="dg3-Uz-OyH" id="AlR-lT-2xe"/>
                                             <outlet property="lblDoctorName" destination="Nea-oK-gpe" id="iwP-5X-25H"/>
-                                            <outlet property="lblDoctorTime" destination="j2y-f8-jmC" id="HP9-oc-0nq"/>
+                                            <outlet property="lblDoctorSpecialization" destination="j2y-f8-jmC" id="18d-0h-dga"/>
                                             <outlet property="lblDraft" destination="7XS-fF-4nd" id="wzd-Pa-Iri"/>
                                             <outlet property="lblTime" destination="vMx-2j-Shb" id="fxo-ZT-pZv"/>
                                             <outlet property="viewBackground" destination="fEI-bi-Uas" id="dr2-uI-UXV"/>
