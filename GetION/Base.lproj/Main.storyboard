@@ -7915,7 +7915,7 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your SMS here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SSG-uB-U5r">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SSG-uB-U5r" customClass="FloatLabelTextView" customModule="GetION" customModuleProvider="target">
                                                         <rect key="frame" x="4" y="4" width="310" height="86"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -7924,6 +7924,15 @@ Please enter your Email-Id below :</string>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Type your SMS here"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                                <color key="value" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="rK2-ke-yNB" id="V0t-iT-ARe"/>
+                                                        </connections>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -8020,11 +8029,11 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWb-sJ-ZiN">
-                                                <rect key="frame" x="103" y="531" width="170" height="50"/>
+                                                <rect key="frame" x="103" y="531" width="170" height="40"/>
                                                 <color key="backgroundColor" red="0.20139095187187195" green="0.79743796586990356" blue="0.7998126745223999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="170" id="7Pp-hc-MkT"/>
-                                                    <constraint firstAttribute="height" constant="50" id="L7G-Qs-CxL"/>
+                                                    <constraint firstAttribute="height" constant="40" id="L7G-Qs-CxL"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="23"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
@@ -8032,7 +8041,7 @@ Please enter your Email-Id below :</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnIonizeAction:" destination="rK2-ke-yNB" eventType="touchUpInside" id="4mb-yZ-Vow"/>
+                                                    <action selector="btnSendClicked:" destination="rK2-ke-yNB" eventType="touchUpInside" id="SIK-gU-vfg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
