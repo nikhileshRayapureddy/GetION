@@ -19,7 +19,7 @@ class DraftsCustomCell: UITableViewCell {
     @IBOutlet weak var lblDraft: UILabel!
     @IBOutlet weak var lblContent: UILabel!
     @IBOutlet weak var lblDoctorName: UILabel!
-    @IBOutlet weak var lblDoctorTime: UILabel!
+    @IBOutlet weak var lblDoctorSpecialization: UILabel!
     @IBOutlet weak var btnAddInputs: UIButton!
     @IBOutlet weak var btnIonize: UIButton!
     override func awakeFromNib() {
