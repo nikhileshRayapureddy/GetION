@@ -13,9 +13,10 @@ struct filterObjects
     var gender = ""
     var agefrom = ""
     var ageTo = ""
-    var arrIncludes = [String]()
-    var arrTags = [String]()
-    var arrSource = [String]()
+    var isEmail = false
+    var isPhone = false
+    var strTags = ""
+    var strSource = ""
 }
 
 protocol filterDelegates : NSObjectProtocol
@@ -218,8 +219,8 @@ class LeadFilterViewController: BaseViewController {
     @IBAction func btnApplyFilterAction(_ sender: UIButton)
     {
         var gender = ""
-        var arrSource = [String]()
-        var arrInclude = [String]()
+        var strSourc = ""
+        var tags = ""
         
         if btnMale.isSelected == true
         {
@@ -232,37 +233,42 @@ class LeadFilterViewController: BaseViewController {
         
         if btnQuerie.isSelected == true
         {
-            arrSource.append("queries")
+            strSourc.append("queries,")
         }
          if btnVisits.isSelected == true
         {
-            arrSource.append("visit")
+            strSourc.append("visit,")
         }
          if btnLead.isSelected == true
         {
-            arrSource.append("lead")
+            strSourc.append("lead,")
         }
          if btnImported.isSelected == true
         {
-            arrSource.append("imported")
+            strSourc.append("imported,")
         }
-        if btnSourcePhone.isSelected == true
-        {
-            arrSource.append("phone")
-        }
-        
-        if btnEmail.isSelected == true
-        {
-            arrInclude.append("email")
-        }
-        
         if btnPhone.isSelected == true
         {
-            arrInclude.append("phone")
+            strSourc.append("phone,")
         }
+        if strSourc != ""
+        {
+        strSourc.remove(at: strSourc.index(before: strSourc.endIndex))
+        }
+        
+        for str in tokenString
+        {
+            tags.append(str + ",")
+        }
+        if tags != ""
+        {
+            tags.remove(at: tags.index(before: tags.endIndex))
+        }
+
         
         var strFromAge = ""
         var strToAge = ""
+        
         if txtAgeFrom.text != ""
         {
             strFromAge = txtAgeFrom.text!
@@ -272,14 +278,17 @@ class LeadFilterViewController: BaseViewController {
             strToAge = txtAgeTo.text!
         }
         
-        let objFilter = filterObjects (gender: gender, agefrom: strFromAge, ageTo: strToAge, arrIncludes: arrInclude, arrTags: tokenString, arrSource: arrSource)
+        let objFilter = filterObjects (gender: gender, agefrom: strFromAge, ageTo: strToAge, isEmail: btnEmail.isSelected, isPhone: btnSourcePhone.isSelected, strTags: tags, strSource: strSourc)
+        self.navigationController?.popViewController(animated: false)
         if callBack != nil
         {
             callBack?.filterAction(objFilter: objFilter)
         }
         
     }
-    @IBAction func btnBackAction(_ sender: UIButton) {
+    @IBAction func btnBackAction(_ sender: UIButton)
+    {
+        self.navigationController?.popViewController(animated: false)
     }
     
     

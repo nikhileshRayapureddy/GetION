@@ -16,6 +16,7 @@ class LeadsMainViewController: BaseViewController {
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
     
+    @IBOutlet weak var btnFilter: UIButton!
     var refreshControl = UIRefreshControl()
     var vwSelGroup: SelectGroupCustomView!
     var vwShowGroups: ShowGroupsView!
@@ -116,32 +117,6 @@ class LeadsMainViewController: BaseViewController {
     }
     @IBAction func btnGroupTokenDoneAction(_ sender: UIButton)
     {
-        var strLeads = ""
-        var strGroups = ""
-        for item in arrLeads
-        {
-            if item.isSelected == true
-            {
-                strLeads.append(item.id)
-                strLeads.append(",")
-            }
-        }
-       strLeads.dropLast()
-        
-        for item in arrSelectedGroup
-        {
-            strGroups.append(item)
-            strGroups.append(",")
-        }
-       strGroups.dropLast()
-        
-        let layer = ServiceLayer()
-        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
-            print(response)
-        }) { (error) in
-            
-            print(error)
-        }
     }
     @IBAction func btnShowGroups(_ sender: UIButton) {
         if let viewGroup = Bundle.main.loadNibNamed("ShowGroupsView", owner: nil, options: nil)![0] as? ShowGroupsView
@@ -258,10 +233,34 @@ class LeadsMainViewController: BaseViewController {
     
     @IBAction func btnFilterAction(_ sender: UIButton)
     {
-        let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
-        filterVC.arrSuggestions = arrSuggestions
-        filterVC.callBack = self
-        self.navigationController?.pushViewController(filterVC, animated: true)
+        if sender.currentTitle == "Clear Filter"
+        {
+            let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+            self.arrLeads.removeAll()
+            self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
+            for alphabet in self.arrAlphabets
+            {
+                let filteredArray = self.arrLeads.filter(){
+                    return $0.firstname.uppercased().characters.first == alphabet.characters.first
+                }
+                if filteredArray.count>0
+                {
+                    self.arrSections[alphabet] = filteredArray
+                }
+            }
+            self.tblLeads.sectionIndexColor = THEME_COLOR
+            self.tblLeads.reloadData()
+            self.btnFilter.setTitle("Filter", for: .normal)
+
+        }
+        else
+        {
+            
+            let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
+            filterVC.arrSuggestions = arrSuggestions
+            filterVC.callBack = self
+            self.navigationController?.pushViewController(filterVC, animated: true)
+        }
     }
     
 }
@@ -269,7 +268,37 @@ extension LeadsMainViewController : SelectGroupCustomView_Delegate
 {
     func updateSelectGroupCustomView(_ text: UIButton)
     {
+        var strLeads = ""
+        var strGroups = ""
         
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                strLeads.append(item.id)
+                strLeads.append(",")
+            }
+        }
+        strLeads.remove(at: strLeads.index(before: strLeads.endIndex))
+        
+        for item in vwSelGroup.vwKSTokenView.tokens()!
+        {
+            strGroups.append(item.title)
+            strGroups.append(",")
+        }
+        strGroups.remove(at: strGroups.index(before: strGroups.endIndex))
+        app_delegate.showLoader(message: "Updating")
+        let layer = ServiceLayer()
+        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
+            DispatchQueue.main.async {
+                self.vwSelGroup.removeFromSuperview()
+                app_delegate.removeloder()
+                self.btnRemoveAllSelectedClicked(UIButton())
+            }
+        }) { (error) in
+            
+            print(error)
+        }
     }
     
 }
@@ -490,7 +519,10 @@ extension LeadsMainViewController: ShowGroupsView_Delegate
     }
     
     func selectedGroups(_ arrGroups: [String]) {
-        vwShowGroups.removeFromSuperview()
+        if vwShowGroups != nil
+        {
+            vwShowGroups.removeFromSuperview()
+        }
         arrSelectedGroupString = arrGroups
         var arrFilteredGroups = [LeadsBO]()
         if arrGroups.count > 0
@@ -553,8 +585,26 @@ extension LeadsMainViewController: ShowGroupsView_Delegate
 }
 extension LeadsMainViewController : filterDelegates
 {
-    func filterAction(objFilter: filterObjects) {
+    func filterAction(objFilter: filterObjects)
+    {
+        app_delegate.showLoader(message: "Filtering...")
+        let layer = ServiceLayer()
+        layer.getFilteredLeadsWith(strSources: objFilter.strSource, strEmail: objFilter.isEmail ? "1":"0", strPhone : objFilter.isPhone ? "1":"0", strAge: "\(objFilter.agefrom)-\(objFilter.ageTo)", strGender: objFilter.gender, successMessage: { (response) in
+            
+            DispatchQueue.main.async {
+                self.btnFilter.setTitle("Clear Filter", for: .normal)
+                print(response)
+                self.arrLeads = response as! [LeadsBO]
+                self.tblLeads.sectionIndexColor = THEME_COLOR
+                self.tblLeads.reloadData()
+                app_delegate.removeloder()
+            }
+            
+        }) { (error) in
+            print(error)
+        }
         
+
     }
     
     
