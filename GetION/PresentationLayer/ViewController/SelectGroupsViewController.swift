@@ -9,12 +9,12 @@
 import UIKit
 
 
+var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
 
 class SelectGroupsViewController: UIViewController {
 
     var item = [TagSuggestionBO]()
     var tagSelect = String()
-    var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
     
     @IBOutlet weak var groupView: UIView!
     @IBOutlet weak var groupLayout: NSLayoutConstraint!
@@ -47,7 +47,7 @@ class SelectGroupsViewController: UIViewController {
                     
                     if(self.tokenString.contains(self.item[i].title))
                     {
-                        btn.backgroundColor = self.ionColor
+                        btn.backgroundColor = ionColor
                     }
                     else
                     {
@@ -116,38 +116,7 @@ class SelectGroupsViewController: UIViewController {
         }
         
     }
-    
-
-//    fileprivate func getJSON(){
-//        /* Your UI code */
-//        let baseURL = "http://dashboard.getion.in/index.php/request/searchTags/contacts/contacts?user_id=\(appDelegate.userId)"
-//        // print("the base url is : \(baseURL)")
-//        let url = URL(string: baseURL)
-//        let request = URLRequest(url: url!)
-//        let session = URLSession(configuration: URLSessionConfiguration.default)
-//        let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-//            if error == nil{
-//                let swiftyJSON = JSON(data: data!)
-//                print("running the data")
-//                if(swiftyJSON["description"].count != 0){
-//                    for i in 1...swiftyJSON["description"].count-1{
-//                        self.item.insert(selectButtons(tagId: swiftyJSON["description"][i]["id"].stringValue, tagName: swiftyJSON["description"][i]["title"].stringValue), at: 0)
-//                    }
-//                    self.viewWillAppear(false)
-//                    // self.maxValue()
-//                }
-//
-//                print("Loading the data in view !!")
-//                //print(self.item)
-//            } else {
-//                print("mhbjhkbhkbijbo")
-//            }
-//        })
-//
-//        task.resume()
-//        // Do any additional setup after loading the view.
-//    }
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -157,7 +126,7 @@ class SelectGroupsViewController: UIViewController {
     {
         if(sender.backgroundColor == UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1))
         {
-            sender.backgroundColor = self.ionColor
+            sender.backgroundColor = ionColor
             var btnTxt = ""
             if let temp = sender.currentTitle {
                 btnTxt = temp

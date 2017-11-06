@@ -213,6 +213,15 @@ class LeadsMainViewController: BaseViewController {
         }
 
     }
+    
+    
+    @IBAction func btnFilterAction(_ sender: UIButton)
+    {
+        let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
+        filterVC.arrSuggestions = arrSuggestions
+        self.navigationController?.pushViewController(filterVC, animated: true)
+    }
+    
 }
 extension LeadsMainViewController : SelectGroupCustomView_Delegate
 {
