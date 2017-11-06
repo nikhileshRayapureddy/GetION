@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)
 
 
 var ionColor = UIColor(red: 51/255, green: 204/255, blue: 204/255, alpha: 1)

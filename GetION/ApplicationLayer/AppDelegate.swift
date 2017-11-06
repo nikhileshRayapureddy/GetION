@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if GetIONUserDefaults.getLoginStatus() == "true"
         {
-            self.getAllPublishData()
-           // self.getAllLeads()
+            self.getAllLeads()
             let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController"))
             
             let rightMenuViewController: RightMenuViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RightMenuViewController") as! RightMenuViewController
@@ -42,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else
         {
-            self.getAllLeads()
+//            self.getAllLeads()
 
             let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController"))
             self.window!.rootViewController = navigationController
@@ -125,15 +124,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         let layer = ServiceLayer()
         layer.getAllLeads(successMessage: { (reponse) in
-            app_delegate.removeloder()
             let arrLeads = reponse as! [LeadsBO]
             DispatchQueue.main.async {
+                self.getAllPublishData()
                 let dataLayer = CoreDataAccessLayer()
                dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
             }
         }) { (error) in
-            app_delegate.removeloder()
-            
+            self.getAllPublishData()            
         }
         
     }
