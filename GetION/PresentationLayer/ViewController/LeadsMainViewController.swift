@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import SwipeCellKit
+
 
 class LeadsMainViewController: BaseViewController {
 
+
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
+    
+    var vwSelGroup: SelectGroupCustomView!
+    var arrSuggestions = [TagSuggestionBO]()
+    var arrSelectedGroup = [String]()
     var isLongPressed = false
     var arrAlphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     var arrSections = [String:[LeadsBO]]()
@@ -20,12 +27,31 @@ class LeadsMainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
-        
+        self.getSuggestions()
+        arrSelectedGroup = ["ios","hyderabad"]
+    }
+    
+    func getSuggestions()
+    {
+        app_delegate.showLoader(message: "Loading...")
+        let layer = ServiceLayer()
+        layer.getAllTagSuggestion(successMessage: { (response) in
+            app_delegate.removeloder()
+            self.arrSuggestions = response as! [TagSuggestionBO]
+            
+        }) { (error) in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+        self.arrLeads.removeAll()
         self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
         for alphabet in self.arrAlphabets
         {
@@ -56,8 +82,147 @@ class LeadsMainViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnGroupTokenCancelAction(_ sender: UIButton)
+    {
+        
+    }
+    @IBAction func btnGroupTokenDoneAction(_ sender: UIButton)
+    {
+        var strLeads = ""
+        var strGroups = ""
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                strLeads.append(item.id)
+                strLeads.append(",")
+            }
+        }
+       strLeads.dropLast()
+        
+        for item in arrSelectedGroup
+        {
+            strGroups.append(item)
+            strGroups.append(",")
+        }
+       strGroups.dropLast()
+        
+        let layer = ServiceLayer()
+        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
+            print(response)
+        }) { (error) in
+            
+            print(error)
+        }
+    }
+    @IBAction func btnAddGroupAction(_ sender: UIButton)
+    {
+        if (vwSelGroup != nil)
+        {
+            vwSelGroup.removeFromSuperview()
+        }
+        self.showSelectGroupView()
 
+        var strLeads = ""
+        var strGroups = ""
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                strLeads.append(item.id)
+                strLeads.append(",")
+            }
+        }
+        strLeads.remove(at: strLeads.index(before: strLeads.endIndex))
+        
+        for item in arrSelectedGroup
+        {
+            strGroups.append(item)
+            strGroups.append(",")
+        }
+        strGroups.remove(at: strGroups.index(before: strGroups.endIndex))
+        
+        let layer = ServiceLayer()
+        layer.addLeadToGroupsWith(strGroups: strGroups, strLeads: strLeads, successMessage: { (response) in
+            print(response)
+        }) { (error) in
+            
+            print(error)
+        }
+        
+    }
+    @IBAction func btnSendMessageAction(_ sender: UIButton)
+    {
+        var arrContact = [String]()
+        for item in arrLeads
+        {
+            if item.isSelected == true
+            {
+                arrContact.append(item.mobile)
+            }
+        }
+        
+        let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        smsVC.arrContactItems = arrContact
+        self.navigationController?.pushViewController(smsVC, animated: true)
+    }
+    
+    @IBAction func btnDeleteLeadAction(_ sender: UIButton)
+    {
+        app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        let objLead = self.arrLeads[0]
+        
+        layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+            
+            DispatchQueue.main.async {
+                if let status = response as? String
+                {
+                    if status == "ok"
+                    {
+                        self.arrLeads.remove(at: 0)
+                        self.tblLeads.reloadData()
+                    }
+                }
+                app_delegate.removeloder()
+                
+            }
+            
+        }, failureMessage: { (error) in
+            print(error)
+        })
+        
+    }
+    func showSelectGroupView()
+    {
+        if let popup = Bundle.main.loadNibNamed("SelectGroupCustomView", owner: nil, options: nil)![0] as? SelectGroupCustomView
+        {
+            popup.resizeViews()
+            popup.delegate = self
+            vwSelGroup = popup
+            popup.frame = self.view.bounds
+            
+            popup.vwKSTokenView.delegate = self
+            popup.vwKSTokenView.promptText = ""
+            popup.vwKSTokenView.placeholder = "Type to search"
+            popup.vwKSTokenView.descriptionText = "Groups"
+            popup.vwKSTokenView.maxTokenLimit = 10
+            popup.vwKSTokenView.style = .squared
+
+            self.view.addSubview(popup)
+        }
+
+    }
 }
+extension LeadsMainViewController : SelectGroupCustomView_Delegate
+{
+    func updateSelectGroupCustomView(_ text: UIButton)
+    {
+        
+    }
+    
+}
+
 extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +230,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeadMainTableViewCell", for: indexPath) as! LeadMainTableViewCell
+        cell.delegate = self
         let bo = arrLeads[indexPath.row]
         cell.lblLead.text = bo.firstname + " " + bo.surname
         cell.imgVwLead.layer.cornerRadius = cell.imgVwLead.frame.size.width/2
@@ -90,6 +256,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
             cell.constBtnSelWidth.constant = 0
         }
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        longGesture.minimumPressDuration = 0.5
         cell.addGestureRecognizer(longGesture)
         let url = URL(string: bo.image)
         cell.imgVwLead.kf.indicatorType = .activity
@@ -99,6 +266,14 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        let selectedLead = arrLeads[indexPath.row]
+        
+        let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
+        leadVC.isLeadAdd = false
+        leadVC.objLead = selectedLead
+       self.navigationController?.pushViewController(leadVC, animated: false)
+        
     }
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return Array(arrSections.keys).sorted()//arrAlphabets
@@ -138,4 +313,113 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
     }
 
     
+    
+    
 }
+extension LeadsMainViewController : SwipeTableViewCellDelegate
+{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
+            // handle action by updating model with deletion
+        }
+        let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
+            // handle action by updating model with deletion
+            
+            let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            self.navigationController?.pushViewController(smsVC, animated: true)
+        }
+        let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
+            // handle action by updating model with deletion
+            // Update model
+            
+            app_delegate.showLoader(message: "Loading. . .")
+            let layer = ServiceLayer()
+            let objLead = self.arrLeads[indexPath.row]
+            
+            layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    if let status = response as? String
+                    {
+                        if status == "ok"
+                        {
+                            self.arrLeads.remove(at: indexPath.row)
+                            self.tblLeads.reloadData()
+                        }
+                    }
+                    app_delegate.removeloder()
+                    
+                }
+                
+            }, failureMessage: { (error) in
+                print(error)
+            })
+            
+           
+            //
+        }
+        
+        // customize the action appearance
+        callAction.image = #imageLiteral(resourceName: "call")
+        callAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        smsAction.image = #imageLiteral(resourceName: "sms")
+        smsAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
+        
+        return [deleteAction, smsAction, callAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.transitionStyle = .border
+        return options
+    }
+}
+
+extension LeadsMainViewController: KSTokenViewDelegate
+{
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
+        if (string.characters.isEmpty){
+            completion!(arrSuggestions as Array<AnyObject>)
+            return
+        }
+        
+        var data: Array<String> = []
+       for value: TagSuggestionBO in arrSuggestions
+       {
+            if value.title.lowercased().range(of: string.lowercased()) != nil {
+                data.append(value.title)
+            }
+        }
+        completion!(data as Array<AnyObject>)
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String
+    {
+        if object is TagSuggestionBO
+        {
+            let obj = object as! TagSuggestionBO
+            return obj.title
+        }
+        return object as! String
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+        
+        // Restrict adding token based on token text
+        if token.title == "f" {
+            return false
+        }
+        
+        // If user input something, it can be checked
+        //        print(tokenView.text)
+        
+        return true
+    }
+}
+

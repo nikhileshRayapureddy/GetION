@@ -166,7 +166,7 @@ open class KSTokenView: UIView {
    /// Default is whiteColor()
    @objc open var searchResultBackgroundColor: UIColor = UIColor.white {
       didSet {
-         _searchTableView.backgroundColor = searchResultBackgroundColor
+         _searchTableView.backgroundColor = .red
       }
    }
    

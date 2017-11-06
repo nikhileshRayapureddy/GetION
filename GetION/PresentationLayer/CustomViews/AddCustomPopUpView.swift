@@ -27,6 +27,7 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     
     @IBOutlet weak var btnAddVisit: UIButton!
     
+    @IBOutlet weak var btnLead: UIButton!
     var arrPromotion = [PromotionsBO]()
     func designScreen(screenWidth : CGFloat)
     {
@@ -58,6 +59,11 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
             callBack.btnViewMoreClicked(sender: sender)
         }
     }
+    
+    
+   
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == scrlVw
         {
