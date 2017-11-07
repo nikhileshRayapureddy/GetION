@@ -2100,6 +2100,42 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func sendSMSFromIONServerWithTags(message : String,tags : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request/sendSmsByTags/contacts/contacts?username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&phone=&user_id=\(GetIONUserDefaults.getTeamId())&sendType=server&message=\(message)&tags=\(tags)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+
     func sendSMSFromIONServerWith(message : String,MobileNo : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
