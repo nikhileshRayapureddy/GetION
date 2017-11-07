@@ -162,7 +162,14 @@ class SMSViewController: BaseViewController {
                     let responseString = response as! String
                     if responseString.caseInsensitiveCompare("Success") == .orderedSame
                     {
-                        
+                        let alert = UIAlertController(title: "Success!", message: "SMS sent successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (void) in
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+
                     }
                     else                    
                     {
@@ -173,6 +180,10 @@ class SMSViewController: BaseViewController {
             }, failureMessage: { (error) in
                 DispatchQueue.main.async {
                     app_delegate.removeloder()
+                    let alert = UIAlertController(title: "Alert!", message: "Unable to send SMS.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+
                 }
             })
         }

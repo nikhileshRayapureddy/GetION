@@ -16,6 +16,7 @@ class LeadsMainViewController: BaseViewController {
     @IBOutlet weak var tblLeads: UITableView!
     @IBOutlet weak var vwTopSelected: UIView!
     
+    @IBOutlet weak var lblNoDataFound: UILabel!
     @IBOutlet weak var btnFilter: UIButton!
     var refreshControl = UIRefreshControl()
     var vwSelGroup: SelectGroupCustomView!
@@ -30,7 +31,7 @@ class LeadsMainViewController: BaseViewController {
     var arrSelectedGroupString = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
+        
         self.getSuggestions()
         arrSelectedGroup = ["ios","hyderabad"]
         tblLeads.refreshControl = refreshControl
@@ -44,10 +45,7 @@ class LeadsMainViewController: BaseViewController {
         
         let layer = ServiceLayer()
         layer.getAllLeads(successMessage: { (reponse) in
-            let arrLeads = reponse as! [LeadsBO]
             DispatchQueue.main.async {
-                let dataLayer = CoreDataAccessLayer()
-                dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
                 self.getLeadsFromLocalDB()
                 self.refreshControl.endRefreshing()
             }
@@ -93,6 +91,8 @@ class LeadsMainViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        self.designNavigationBar()
         getLeadsFromLocalDB()
 
     }
@@ -196,11 +196,23 @@ class LeadsMainViewController: BaseViewController {
                 {
                     if status == "ok"
                     {
-                        self.arrLeads.remove(at: 0)
-                        self.tblLeads.reloadData()
+                        let DLayer = CoreDataAccessLayer()
+                        DispatchQueue.main.async {
+                            DLayer.removeAllLeads()
+                        }
+                        layer.getAllLeads(successMessage: { (success) in
+                            app_delegate.removeloder()
+                            DispatchQueue.main.async {
+                                self.arrLeads = DLayer.getAllLeadsFromLocalDB()
+                                self.btnRemoveAllSelectedClicked(UIButton())
+                                
+                            }
+
+                        }, failureMessage: { (error) in
+                            app_delegate.removeloder()
+                        })
                     }
                 }
-                app_delegate.removeloder()
                 
             }
             
@@ -251,6 +263,7 @@ class LeadsMainViewController: BaseViewController {
             self.tblLeads.sectionIndexColor = THEME_COLOR
             self.tblLeads.reloadData()
             self.btnFilter.setTitle("Filter", for: .normal)
+            self.btnFilter.setImage(#imageLiteral(resourceName: "filter"), for: .normal)
 
         }
         else
@@ -593,10 +606,21 @@ extension LeadsMainViewController : filterDelegates
             
             DispatchQueue.main.async {
                 self.btnFilter.setTitle("Clear Filter", for: .normal)
+                self.btnFilter.setImage(UIImage(), for: .normal)
                 print(response)
                 self.arrLeads = response as! [LeadsBO]
                 self.tblLeads.sectionIndexColor = THEME_COLOR
-                self.tblLeads.reloadData()
+                if self.arrLeads.count > 0
+                {
+                    self.tblLeads.isHidden = false
+                    self.lblNoDataFound.isHidden = true
+                    self.tblLeads.reloadData()
+                }
+                else
+                {
+                    self.lblNoDataFound.isHidden = false
+                    self.tblLeads.isHidden = true
+                }
                 app_delegate.removeloder()
             }
             
