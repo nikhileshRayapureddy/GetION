@@ -2293,10 +2293,15 @@ class ServiceLayer: NSObject {
     }
     public func getAllLeads(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
+        let dateFormat = DateFormatter()
+        let date = Date()
+        dateFormat.dateFormat = "MM/yyyy"
+        let strDate = dateFormat.string(from: date)
+
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&from=\(strDate)"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -2402,7 +2407,11 @@ class ServiceLayer: NSObject {
                                 }
                                 arrLeads.append(bo)
                             }
-                            
+                            DispatchQueue.main.async {
+                                let layer = CoreDataAccessLayer()
+                                layer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+                            }
+
                             successMessage(arrLeads)
                         }
                         else
