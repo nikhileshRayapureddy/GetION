@@ -3516,7 +3516,7 @@ Please enter your Email-Id below :</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKo-d1-aq5">
-                                                <rect key="frame" x="52" y="654" width="120" height="22"/>
+                                                <rect key="frame" x="52" y="478" width="120" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Bu0-ye-Ila"/>
@@ -3534,7 +3534,7 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bak-dQ-4ia">
-                                                <rect key="frame" x="204" y="654" width="120" height="22"/>
+                                                <rect key="frame" x="204" y="478" width="120" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="48F-2J-zle"/>
@@ -3552,7 +3552,7 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pt-ZE-LH4">
-                                                <rect key="frame" x="103" y="693" width="170" height="50"/>
+                                                <rect key="frame" x="103" y="517" width="170" height="50"/>
                                                 <color key="backgroundColor" red="0.2013909519" green="0.79743796590000005" blue="0.79981267450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="2xU-sW-CIM"/>
@@ -3568,7 +3568,7 @@ Please enter your Email-Id below :</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Numbers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLS-r2-6vg">
-                                                <rect key="frame" x="35" y="480" width="198" height="28"/>
+                                                <rect key="frame" x="35" y="390" width="198" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="198" id="W6M-sA-2pR"/>
@@ -3596,7 +3596,7 @@ Please enter your Email-Id below :</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGB-00-un2" customClass="KSTokenView" customModule="GetION" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGB-00-un2" customClass="KSTokenView" customModule="GetION" customModuleProvider="target">
                                                 <rect key="frame" x="28" y="342" width="319" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -3745,30 +3745,14 @@ Please enter your Email-Id below :</string>
                                             <action selector="btnNextDateAction:" destination="MUU-NJ-6Eg" eventType="touchUpInside" id="c8g-PN-nNd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na9-df-NWD">
-                                        <rect key="frame" x="6" y="8" width="71" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="dDd-Sh-Dq8"/>
-                                            <constraint firstAttribute="width" constant="71" id="fbn-zf-lfp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
-                                        <state key="normal" title="Block">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnBlockAction:" destination="MUU-NJ-6Eg" eventType="touchUpInside" id="CXR-7d-HPv"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="4bL-nB-jUS" firstAttribute="top" secondItem="0Mi-ml-Srl" secondAttribute="top" constant="39" id="2eu-rA-8Jr"/>
                                     <constraint firstItem="4bL-nB-jUS" firstAttribute="leading" secondItem="0Mi-ml-Srl" secondAttribute="leading" id="T9l-kb-LNc"/>
                                     <constraint firstItem="AzW-J2-f0h" firstAttribute="top" secondItem="0Mi-ml-Srl" secondAttribute="top" constant="39" id="cI5-wA-hyd"/>
-                                    <constraint firstItem="Na9-df-NWD" firstAttribute="leading" secondItem="0Mi-ml-Srl" secondAttribute="leading" constant="6" id="dFb-E9-viO"/>
                                     <constraint firstAttribute="height" constant="110" id="dbO-Ws-TLP"/>
                                     <constraint firstAttribute="trailing" secondItem="AzW-J2-f0h" secondAttribute="trailing" constant="4" id="uKs-Yn-tSN"/>
-                                    <constraint firstItem="Na9-df-NWD" firstAttribute="top" secondItem="0Mi-ml-Srl" secondAttribute="top" constant="8" id="ui8-3S-wmo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-Jm-tB5" customClass="FSCalendar">
@@ -3816,6 +3800,20 @@ Please enter your Email-Id below :</string>
                                     <action selector="btnTodayAction:" destination="MUU-NJ-6Eg" eventType="touchUpInside" id="P8h-BA-96c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na9-df-NWD">
+                                <rect key="frame" x="10" y="30" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dDd-Sh-Dq8"/>
+                                    <constraint firstAttribute="width" constant="71" id="fbn-zf-lfp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
+                                <state key="normal" title="Block">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBlockAction:" destination="MUU-NJ-6Eg" eventType="touchUpInside" id="CXR-7d-HPv"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-WS-b2r">
                                 <rect key="frame" x="0.0" y="140" width="375" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3838,7 +3836,7 @@ Please enter your Email-Id below :</string>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun Singh  " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-zR-DPs">
-                                                            <rect key="frame" x="25" y="15" width="119" height="30"/>
+                                                            <rect key="frame" x="25" y="15" width="109.5" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="eY1-v4-P5a"/>
                                                             </constraints>
@@ -3847,7 +3845,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Male" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-cB-5My">
-                                                            <rect key="frame" x="145" y="18" width="41" height="23"/>
+                                                            <rect key="frame" x="135.5" y="18" width="41" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="9fC-cy-CO2"/>
                                                                 <constraint firstAttribute="width" constant="41" id="TSJ-Zh-gZA"/>
@@ -3953,6 +3951,8 @@ Please enter your Email-Id below :</string>
                             <constraint firstItem="0Mi-ml-Srl" firstAttribute="leading" secondItem="ek6-Rm-nq0" secondAttribute="leading" id="L38-6P-F3j"/>
                             <constraint firstItem="kFD-Wg-DOR" firstAttribute="centerY" secondItem="dAa-zp-ZBO" secondAttribute="centerY" id="QBE-hv-Rxb"/>
                             <constraint firstItem="0Mi-ml-Srl" firstAttribute="trailing" secondItem="ek6-Rm-nq0" secondAttribute="trailing" id="b0b-HI-QZJ"/>
+                            <constraint firstItem="Na9-df-NWD" firstAttribute="top" secondItem="ek6-Rm-nq0" secondAttribute="top" constant="10" id="i2y-U9-vbo"/>
+                            <constraint firstItem="Na9-df-NWD" firstAttribute="leading" secondItem="ek6-Rm-nq0" secondAttribute="leading" constant="10" id="k6V-KR-ovz"/>
                             <constraint firstItem="kFD-Wg-DOR" firstAttribute="centerX" secondItem="dAa-zp-ZBO" secondAttribute="centerX" id="laN-Ql-Jhr"/>
                             <constraint firstItem="EFI-gd-rv8" firstAttribute="top" secondItem="ek6-Rm-nq0" secondAttribute="top" constant="10" id="lmx-HW-beb"/>
                             <constraint firstItem="ek6-Rm-nq0" firstAttribute="trailing" secondItem="EFI-gd-rv8" secondAttribute="trailing" constant="20" id="qJ5-gQ-HgI"/>
@@ -7468,12 +7468,12 @@ Please enter your Email-Id below :</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHB-C2-u82">
-                                <rect key="frame" x="0.0" y="20" width="375" height="520"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="520"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIc-bP-hU7">
                                         <rect key="frame" x="18" y="0.0" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT SPECIALITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEW-20-nbT">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT SPECIALITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEW-20-nbT">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7496,7 +7496,7 @@ Please enter your Email-Id below :</string>
                                                     <constraint firstAttribute="width" constant="20" id="dnE-q2-Ym6"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZo-ti-y2Z">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZo-ti-y2Z">
                                                 <rect key="frame" x="0.0" y="1" width="339" height="53"/>
                                             </button>
                                         </subviews>
@@ -7517,7 +7517,7 @@ Please enter your Email-Id below :</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwC-ak-B8n">
                                         <rect key="frame" x="18" y="60" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT DOCTOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-ZU-vVQ">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT DOCTOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-ZU-vVQ">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7562,7 +7562,7 @@ Please enter your Email-Id below :</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4co-te-uVM">
                                         <rect key="frame" x="18" y="120" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKB-b5-e9M">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKB-b5-e9M">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7606,7 +7606,7 @@ Please enter your Email-Id below :</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWr-SN-2Dd">
                                         <rect key="frame" x="18" y="180" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYg-5Y-DPR">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYg-5Y-DPR">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7650,7 +7650,7 @@ Please enter your Email-Id below :</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-z7-G2F">
                                         <rect key="frame" x="18" y="302" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK TILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5W-5N-6yX">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK TILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5W-5N-6yX">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7694,7 +7694,7 @@ Please enter your Email-Id below :</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJP-gF-ZxU">
                                         <rect key="frame" x="18" y="242" width="339" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK TILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzj-20-5fk">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLOCK TILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzj-20-5fk">
                                                 <rect key="frame" x="12" y="8" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="11"/>
@@ -7783,6 +7783,9 @@ Please enter your Email-Id below :</string>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnSaveAction:" destination="XFf-HX-QIZ" eventType="touchUpInside" id="FTP-v7-qPJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJa-Xx-zvT">
                                         <rect key="frame" x="220" y="477" width="67" height="30"/>
@@ -7803,6 +7806,9 @@ Please enter your Email-Id below :</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="btnCancel:" destination="XFf-HX-QIZ" eventType="touchUpInside" id="rsL-q3-69V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -7844,19 +7850,180 @@ Please enter your Email-Id below :</string>
                                     <constraint firstAttribute="trailing" secondItem="4co-te-uVM" secondAttribute="trailing" constant="18" id="zm8-eN-o4R"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Select SPECIALITY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKM-hs-xzf" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="47" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="CW9-CQ-Gv3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="E6U-fn-tbs"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="BgV-Nm-Bjp"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Select DOCTOR" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sE-y1-PZd" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="108" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="W0Y-HC-Ydu"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="v4M-Bz-9Zn"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="xhw-S4-5eL"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BLOCK FROM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yUf-fz-7D6" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="169" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="6oH-15-OEK"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="YKa-RO-M36"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="nJM-Qw-NPn"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BLOCK FROM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmF-pB-NaA" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="230" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="2Qi-jD-Ems"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Msu-34-Qpt"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="QSm-p0-Egk"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BLOCK TILL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIz-Cz-Slj" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="291" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OZN-lf-uWN"/>
+                                    <constraint firstAttribute="height" constant="46" id="luj-eL-wQX"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="YdF-It-C2S"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BLOCK TILL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uV8-7T-h2V" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                <rect key="frame" x="26" y="352" width="324" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5VS-bH-IXa"/>
+                                    <constraint firstAttribute="height" constant="46" id="e3l-8Z-PNI"/>
+                                </constraints>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XFf-HX-QIZ" id="fK7-Kd-r8q"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uV8-7T-h2V" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="1Kj-xd-4ax"/>
+                            <constraint firstItem="AKM-hs-xzf" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="2XT-mD-pci"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="DmF-pB-NaA" secondAttribute="trailing" constant="25" id="5ul-Td-0AP"/>
+                            <constraint firstItem="uV8-7T-h2V" firstAttribute="top" secondItem="rIz-Cz-Slj" secondAttribute="bottom" constant="15" id="94O-1l-e00"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="yUf-fz-7D6" secondAttribute="trailing" constant="25" id="B9P-vj-lnc"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="rIz-Cz-Slj" secondAttribute="trailing" constant="25" id="FvV-40-AXY"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="AKM-hs-xzf" secondAttribute="trailing" constant="25" id="H0l-No-BTP"/>
+                            <constraint firstItem="rIz-Cz-Slj" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="KbS-Ev-8Vg"/>
+                            <constraint firstItem="DmF-pB-NaA" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="O5M-Xl-rVp"/>
+                            <constraint firstItem="AKM-hs-xzf" firstAttribute="top" secondItem="AQx-gY-opq" secondAttribute="top" constant="27" id="SdP-rg-ER7"/>
+                            <constraint firstItem="rIz-Cz-Slj" firstAttribute="top" secondItem="DmF-pB-NaA" secondAttribute="bottom" constant="15" id="Va7-0g-Ou8"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="1sE-y1-PZd" secondAttribute="trailing" constant="25" id="doc-PI-ljJ"/>
+                            <constraint firstItem="yUf-fz-7D6" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="dp1-CI-PtK"/>
+                            <constraint firstItem="yUf-fz-7D6" firstAttribute="top" secondItem="1sE-y1-PZd" secondAttribute="bottom" constant="15" id="eRZ-1a-jby"/>
                             <constraint firstItem="kHB-C2-u82" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" id="emv-OH-k7G"/>
-                            <constraint firstItem="kHB-C2-u82" firstAttribute="top" secondItem="AQx-gY-opq" secondAttribute="top" id="jLo-UH-xD3"/>
+                            <constraint firstItem="1sE-y1-PZd" firstAttribute="top" secondItem="AKM-hs-xzf" secondAttribute="bottom" constant="15" id="fIZ-Gz-DGb"/>
+                            <constraint firstItem="kHB-C2-u82" firstAttribute="top" secondItem="AQx-gY-opq" secondAttribute="top" constant="20" id="jLo-UH-xD3"/>
                             <constraint firstItem="kHB-C2-u82" firstAttribute="trailing" secondItem="AQx-gY-opq" secondAttribute="trailing" id="pOn-vf-EGK"/>
+                            <constraint firstItem="1sE-y1-PZd" firstAttribute="leading" secondItem="AQx-gY-opq" secondAttribute="leading" constant="26" id="pQX-Rd-0cm"/>
+                            <constraint firstItem="AQx-gY-opq" firstAttribute="trailing" secondItem="uV8-7T-h2V" secondAttribute="trailing" constant="25" id="r1B-Lz-cVb"/>
+                            <constraint firstItem="DmF-pB-NaA" firstAttribute="top" secondItem="yUf-fz-7D6" secondAttribute="bottom" constant="15" id="yLc-Q6-HOP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AQx-gY-opq"/>
                     </view>
+                    <connections>
+                        <outlet property="switchAllDay" destination="xWp-rq-olS" id="hvt-gz-fmn"/>
+                        <outlet property="txtDoctor" destination="1sE-y1-PZd" id="0JF-Go-Uhg"/>
+                        <outlet property="txtFromDate" destination="yUf-fz-7D6" id="3af-1S-xue"/>
+                        <outlet property="txtFromTime" destination="DmF-pB-NaA" id="EGf-og-hvK"/>
+                        <outlet property="txtSpeciality" destination="AKM-hs-xzf" id="A90-6h-UiK"/>
+                        <outlet property="txtToDate" destination="rIz-Cz-Slj" id="Sib-TQ-5E8"/>
+                        <outlet property="txtToTime" destination="uV8-7T-h2V" id="Ooe-WG-5EB"/>
+                        <outlet property="txtdescription" destination="DgM-y7-LBd" id="3N9-Ip-X3p"/>
+                        <outlet property="vwMain" destination="kHB-C2-u82" id="raa-Sv-wHt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXE-po-i1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441" y="-670"/>
+            <point key="canvasLocation" x="440.80000000000001" y="-670.61469265367316"/>
         </scene>
         <!--SMSViewController-->
         <scene sceneID="Jz3-bB-K9g">

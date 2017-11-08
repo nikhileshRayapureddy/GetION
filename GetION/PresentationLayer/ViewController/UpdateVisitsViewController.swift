@@ -291,7 +291,15 @@ class UpdateVisitsViewController: BaseViewController
         }
     }
     
-    @IBAction func btnCallAction(_ sender: UIButton) {
+    @IBAction func btnCallAction(_ sender: UIButton)
+    {
+        if let url = URL(string: "tel://\(objVisits.mobile)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     @IBAction func btnServerMessageAction(_ sender: UIButton)
