@@ -315,7 +315,15 @@ class LeadAddAndUpdateViewController: BaseViewController
         }
     }
     
-    @IBAction func btnCallAction(_ sender: UIButton) {
+    @IBAction func btnCallAction(_ sender: UIButton)
+    {
+        if let url = URL(string: "tel://\(objLead.mobile)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     @IBAction func btnServerMessageAction(_ sender: UIButton)
@@ -363,6 +371,46 @@ class LeadAddAndUpdateViewController: BaseViewController
         
         
 //        id=0&type=Patient&age=22&firstname=srinivas&surname=srinivas&mobile=8989899898&email=dsafa@gmail.com&dob=1987-09-25&sex=male&purpose=testing&image=&area=AREA&city=CITY&pincode=500082&remarks=REMARK&contactTags=EMPTY&tagflag=EMPTY
+        
+        
+        if txtFirstName.text == ""
+        {
+            return
+        }
+        else if txtLastName.text == ""
+        {
+            return
+        }
+        else if txtPhone.text == ""
+        {
+            return
+        }
+        else if txtEmail.text == ""
+        {
+            return
+        }
+        else if txtDOB.text == ""
+        {
+            return
+        }
+        else if txtGender.text == ""
+        {
+            return
+        }
+        else if txtAreaLocality.text == ""
+        {
+            return
+        }
+        else if txtCity.text == ""
+        {
+            return
+        }
+        else if txtVwRemarks.text == ""
+        {
+            return
+        }
+        
+        
         
         let layer = ServiceLayer()
         var dict = [String : String]()

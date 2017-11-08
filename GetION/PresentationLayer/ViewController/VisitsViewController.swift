@@ -59,7 +59,11 @@ class VisitsViewController: BaseViewController {
         }
     }
     
-    @IBAction func btnBlockAction(_ sender: UIButton) {
+    @IBAction func btnBlockAction(_ sender: UIButton)
+    {
+        let blockVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockCalendarViewController") as! BlockCalendarViewController
+        self.navigationController?.pushViewController(blockVC, animated: true)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -145,6 +149,7 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
         let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
         detailVisitVC.objVisits = arrVisits[indexPath.row]
         self.navigationController?.pushViewController(detailVisitVC, animated: true)
+        
     }
 }
 
@@ -155,6 +160,17 @@ extension VisitsViewController : SwipeTableViewCellDelegate
         
         let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
             // handle action by updating model with deletion
+            
+            
+                if let url = URL(string: "tel://\(self.arrVisits[indexPath.section].mobile)"), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            
+            
         }
         let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
             // handle action by updating model with deletion

@@ -245,34 +245,40 @@ class LeadsMainViewController: BaseViewController {
     
     @IBAction func btnFilterAction(_ sender: UIButton)
     {
-        if sender.currentTitle == "Clear Filter"
-        {
-            let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
-            self.arrLeads.removeAll()
-            self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
-            for alphabet in self.arrAlphabets
-            {
-                let filteredArray = self.arrLeads.filter(){
-                    return $0.firstname.uppercased().characters.first == alphabet.characters.first
-                }
-                if filteredArray.count>0
-                {
-                    self.arrSections[alphabet] = filteredArray
-                }
-            }
-            self.tblLeads.sectionIndexColor = THEME_COLOR
-            self.tblLeads.reloadData()
-            self.btnFilter.setTitle("Filter", for: .normal)
-            self.btnFilter.setImage(#imageLiteral(resourceName: "filter"), for: .normal)
-
-        }
-        else
-        {
+        DispatchQueue.main.async {
             
-            let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
-            filterVC.arrSuggestions = arrSuggestions
-            filterVC.callBack = self
-            self.navigationController?.pushViewController(filterVC, animated: true)
+            
+            if sender.currentTitle == "Clear Filter"
+            {
+                let arrLeadsTemp = CoreDataAccessLayer().getAllLeadsFromLocalDB()
+                self.arrLeads.removeAll()
+                self.arrLeads = arrLeadsTemp.sorted{(($0).firstname).localizedCaseInsensitiveCompare(($1).firstname) == ComparisonResult.orderedAscending}
+                for alphabet in self.arrAlphabets
+                {
+                    let filteredArray = self.arrLeads.filter(){
+                        return $0.firstname.uppercased().characters.first == alphabet.characters.first
+                    }
+                    if filteredArray.count>0
+                    {
+                        self.arrSections[alphabet] = filteredArray
+                    }
+                }
+                self.btnFilter.setTitle("Filter", for: .normal)
+                self.btnFilter.setImage(#imageLiteral(resourceName: "filter"), for: .normal)
+                self.tblLeads.isHidden = false
+                self.tblLeads.sectionIndexColor = THEME_COLOR
+                self.tblLeads.reloadData()
+                
+                
+            }
+            else
+            {
+                
+                let filterVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadFilterViewController") as! LeadFilterViewController
+                filterVC.arrSuggestions = self.arrSuggestions
+                filterVC.callBack = self
+                self.navigationController?.pushViewController(filterVC, animated: true)
+            }
         }
     }
     
@@ -350,6 +356,7 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
         }
         cell.tag = indexPath.row + 5670
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(gestureReconizer:)))
+        cell.removeGestureRecognizer(longGesture)
         cell.addGestureRecognizer(longGesture)
         let url = URL(string: bo.image)
         cell.imgVwLead.kf.indicatorType = .activity
@@ -425,6 +432,14 @@ extension LeadsMainViewController : SwipeTableViewCellDelegate
         
         let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
             // handle action by updating model with deletion
+            
+            if let url = URL(string: "tel://\(self.arrLeads[indexPath.row].mobile)"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
         }
         let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
             // handle action by updating model with deletion

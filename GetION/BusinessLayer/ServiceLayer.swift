@@ -2831,7 +2831,7 @@ class ServiceLayer: NSObject {
                         let res = data[0]
                         if let msg = res["SaveResult"] as? String
                         {
-                            if msg == "ok"
+                            if msg.uppercased() == "OK"
                             {
                                 successMessage("success")
                             }
