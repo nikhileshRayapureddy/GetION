@@ -2329,15 +2329,23 @@ class ServiceLayer: NSObject {
     }
     public func getAllLeads(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
+        let arr = CoreDataAccessLayer().getAllLeadsFromLocalDB()
         let dateFormat = DateFormatter()
         let date = Date()
-        dateFormat.dateFormat = "MM/yyyy"
+        dateFormat.dateFormat = "yyyy-MM-dd"
         let strDate = dateFormat.string(from: date)
 
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&from=\(strDate)"
+        if arr.count > 0
+        {
+            obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&modifiedSince=\(strDate)"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true"
+        }
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
