@@ -171,7 +171,6 @@ class PromotionsMainViewController: BaseViewController {
         btnPromotions.isSelected = false
         sender.isSelected = true
         scrlVwSMSCamp.isHidden = false
-        app_delegate.showLoader(message: "Fetching data...")
 
     }
 
