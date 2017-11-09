@@ -8,6 +8,9 @@
 
 import UIKit
 import MessageUI
+
+var arrLeadsContacts = [LeadsBO]()
+
 class SMSViewController: BaseViewController {
 
     @IBOutlet weak var scrlVw: UIScrollView!
@@ -40,18 +43,24 @@ class SMSViewController: BaseViewController {
     var arrContactItems = [String]()
     var tokenString = [String]()
     var arrSuggestions = [TagSuggestionBO]()
-
+    var isSingleContact = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBar()
-//        designTabBar()
-//        setSelectedButtonAtIndex(3)
+
         
-        self.getSuggestions()
-        // Do any additional setup after loading the view.
+        if isSingleContact == true
+        {
+            self.btnContactSearch.isHidden = true
+        }
+        else
+        {
+            self.btnContactSearch.isHidden = false
+        }
         
-       
+     
+        
         
     }
 
@@ -59,6 +68,20 @@ class SMSViewController: BaseViewController {
     {
         arrGroupItems = arrSelectedGroups
 //        self.setGroups()
+
+        if isSingleContact == false
+        {
+            arrContactItems.removeAll()
+
+            for item in arrLeadsContacts
+            {
+                if item.isSelected == true
+                {
+                    arrContactItems.append(item.mobile)
+                }
+            }
+        }
+       
         
         if arrContactItems.count > 0
         {
@@ -122,6 +145,8 @@ class SMSViewController: BaseViewController {
     @IBAction func btnContactAction(_ sender: UIButton)
     {
         
+        let contactVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContactsViewController") as! ContactsViewController
+        self.navigationController?.pushViewController(contactVC, animated: true)
     }
     @IBAction func btnOSSMSAction(_ sender: UIButton)
     {

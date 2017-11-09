@@ -305,12 +305,16 @@ class UpdateVisitsViewController: BaseViewController
     @IBAction func btnServerMessageAction(_ sender: UIButton)
     {
          let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        smsVC.isSingleContact = true
+        smsVC.arrContactItems = [objVisits.mobile]
         self.navigationController?.pushViewController(smsVC, animated: true)
     }
     
     @IBAction func btnOSMessageAction(_ sender: UIButton)
     {
           let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+        smsVC.isSingleContact = true
+        smsVC.arrContactItems = [objVisits.mobile]
         self.navigationController?.pushViewController(smsVC, animated: true)
     }
     
