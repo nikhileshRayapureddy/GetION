@@ -187,9 +187,18 @@ class LeadsMainViewController: BaseViewController {
     {
         app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
-        let objLead = self.arrLeads[0]
         
-        layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+        var strId = ""
+        for lead in self.arrLeads
+        {
+            if lead.isSelected
+            {
+                strId = strId + "," + lead.id
+            }
+        }
+        strId.removeFirst()
+        
+        layer.deleteLeadWith(Id: strId, successMessage: { (response) in
             
             DispatchQueue.main.async {
                 if let status = response as? String
