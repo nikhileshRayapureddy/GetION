@@ -176,6 +176,8 @@ extension VisitsViewController : SwipeTableViewCellDelegate
             // handle action by updating model with deletion
             
             let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            smsVC.isSingleContact = true
+            smsVC.arrContactItems = [self.arrVisits[indexPath.section].mobile]
             self.navigationController?.pushViewController(smsVC, animated: true)
         }
         let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in

@@ -56,6 +56,7 @@
 		A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */; };
 		A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */; };
 		A76AAFC31F93976F000465D1 /* VisitsEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */; };
+		A770CB221FB4CC98005D9131 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770CB211FB4CC98005D9131 /* ContactsViewController.swift */; };
 		A77F9CA11FAB25AF0032BA6A /* Lead+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */; };
 		A77F9CA21FAB25AF0032BA6A /* Lead+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */; };
 		A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */; };
@@ -197,6 +198,7 @@
 		A76AAFBE1F934DFD000465D1 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		A76AAFC01F934E0F000465D1 /* PlannerDayEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDayEventTableViewCell.swift; sourceTree = "<group>"; };
 		A76AAFC21F93976F000465D1 /* VisitsEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsEventTableViewCell.swift; sourceTree = "<group>"; };
+		A770CB211FB4CC98005D9131 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lead+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lead+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadAddAndUpdateViewController.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				A77F9CA51FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift */,
 				CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */,
 				A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */,
+				A770CB211FB4CC98005D9131 /* ContactsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,
+				A770CB221FB4CC98005D9131 /* ContactsViewController.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */,

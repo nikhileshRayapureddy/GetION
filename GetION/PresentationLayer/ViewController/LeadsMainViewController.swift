@@ -169,17 +169,12 @@ class LeadsMainViewController: BaseViewController {
     }
     @IBAction func btnSendMessageAction(_ sender: UIButton)
     {
-        var arrContact = [String]()
-        for item in arrLeads
-        {
-            if item.isSelected == true
-            {
-                arrContact.append(item.mobile)
-            }
-        }
+
+        arrLeadsContacts.removeAll()
+        arrLeadsContacts.append(contentsOf: arrLeads)
         
         let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
-        smsVC.arrContactItems = arrContact
+        smsVC.isSingleContact = false
         self.navigationController?.pushViewController(smsVC, animated: true)
     }
     
@@ -454,6 +449,8 @@ extension LeadsMainViewController : SwipeTableViewCellDelegate
             // handle action by updating model with deletion
             
             let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            smsVC.isSingleContact = true
+            smsVC.arrContactItems = [self.arrLeads[indexPath.row].mobile]
             self.navigationController?.pushViewController(smsVC, animated: true)
         }
         let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
