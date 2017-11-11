@@ -126,12 +126,13 @@ class PublishViewController: BaseViewController {
         tblView.reloadData()
     }
     
-    func showIonizeOrPublishPopUP(isIonize: Bool)
+    func showIonizeOrPublishPopUP(isIonize: Bool, Blog : BlogBO)
     {
         if let view = Bundle.main.loadNibNamed("PublishIonizePopUp", owner: nil, options: nil)![0] as? PublishIonizePopUp
         {
             view.arrGroups = arrGroups
             view.isIonize = isIonize
+            view.objBlog = Blog
             viewPublishIonizePopUp = view
             view.delegate = self
             view.frame = self.view.bounds
@@ -142,19 +143,26 @@ class PublishViewController: BaseViewController {
     
     @objc func showIonizePopUp(sender: UIButton)
     {
-        showIonizeOrPublishPopUP(isIonize: true)
+        let blog = arrBlogs[sender.tag - 800]
+
+        showIonizeOrPublishPopUP(isIonize: true, Blog: blog)
     }
     
     @objc func showPublishPopUp(sender: UIButton)
     {
-        showIonizeOrPublishPopUP(isIonize: false)
+        let blog = arrBlogs[sender.tag - 500]
+        
+        showIonizeOrPublishPopUP(isIonize: false, Blog: blog)
     }
     
     @objc func showAddInputsView()
     {
-        let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
+//        let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
+//
+//        self.present(addInputs, animated: true, completion: nil)
         
-        self.present(addInputs, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -213,6 +221,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.resizeViews()
             cell.selectionStyle = .none
             cell.btnAddInputs.addTarget(self, action: #selector(showAddInputsView), for: .touchUpInside)
+            cell.btnIonize.tag = indexPath.row + 800
             cell.btnIonize.addTarget(self, action: #selector(showIonizePopUp(sender:)), for: .touchUpInside)
             return cell
         }
@@ -240,6 +249,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
 
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnPublish.tag = indexPath.row + 500
             cell.btnPublish.addTarget(self, action: #selector(showPublishPopUp(sender:)), for: .touchUpInside)
             return cell
         }
@@ -271,7 +281,8 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
         self.navigationController?.pushViewController(vc, animated: true)

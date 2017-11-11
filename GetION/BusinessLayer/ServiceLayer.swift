@@ -1751,6 +1751,81 @@ class ServiceLayer: NSObject {
     }
     
     
+    func ionizeBlog(dict : [String:AnyObject],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //title:First blog
+        
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "http://www.dashboard.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.params = dict
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["message"] as? String
+                {
+                    if code == "blog updated successfully"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
+    
+    func publishBlog(dict : [String:AnyObject],successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=blog
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "PUT"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=blog"
+        obj.params = dict
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["message"] as? String
+                {
+                    if code == "blog updated successfully"
+                    {
+                        successMessage("Success")
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    
+    
     func getIonizedBlogsWith(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
