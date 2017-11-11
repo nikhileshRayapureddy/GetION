@@ -23,6 +23,7 @@ class PublishViewController: BaseViewController {
     
     var selectedIndex = 1
     var viewPublishIonizePopUp: PublishIonizePopUp!
+    var arrGroups = [TagSuggestionBO]()
     
     var arrBlogs = [BlogBO]()
     override func viewDidLoad() {
@@ -37,6 +38,23 @@ class PublishViewController: BaseViewController {
         super.viewWillAppear(animated)
         getAllData()
         btnDraftsClicked(btnDrafts)
+        getAllGroups()
+    }
+    
+    func getAllGroups()
+    {
+        app_delegate.showLoader(message: "Loading...")
+        let layer = ServiceLayer()
+        layer.getAllTagSuggestion(successMessage: { (response) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                self.arrGroups = response as! [TagSuggestionBO]
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+            }
+        }
     }
     
     func getAllData()
@@ -112,6 +130,7 @@ class PublishViewController: BaseViewController {
     {
         if let view = Bundle.main.loadNibNamed("PublishIonizePopUp", owner: nil, options: nil)![0] as? PublishIonizePopUp
         {
+            view.arrGroups = arrGroups
             view.isIonize = isIonize
             viewPublishIonizePopUp = view
             view.delegate = self
@@ -266,6 +285,6 @@ extension PublishViewController: PublishIonizePopUp_Delegate
     }
     
     func ionizeOrPublishClicked() {
-        
+        closePublishIonizePopup()
     }
 }
