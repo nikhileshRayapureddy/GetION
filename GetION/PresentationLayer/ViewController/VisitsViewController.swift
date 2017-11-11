@@ -147,7 +147,7 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
-        detailVisitVC.objVisits = arrVisits[indexPath.row]
+        detailVisitVC.objVisits = arrVisits[indexPath.section]
         self.navigationController?.pushViewController(detailVisitVC, animated: true)
         
     }

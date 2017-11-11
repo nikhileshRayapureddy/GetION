@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MessageUI
 class LeadAddAndUpdateViewController: BaseViewController
 {
     var arrGroupItems = [TagSuggestionBO]()
@@ -336,10 +336,17 @@ class LeadAddAndUpdateViewController: BaseViewController
     
     @IBAction func btnOSMessageAction(_ sender: UIButton)
     {
-        let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
-        smsVC.isSingleContact = true
-        smsVC.arrContactItems = [self.objLead.mobile]
-        self.navigationController?.pushViewController(smsVC, animated: true)
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([objLead.email])
+            present(mail, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Alert!", message: "No supportive EMail Composer.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
@@ -413,34 +420,57 @@ class LeadAddAndUpdateViewController: BaseViewController
         {
             return
         }
-        
-        
-        
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd, MMM, yyyy"
+        let selDate = dateFormatter.date(from: self.txtDOB.text!)
+        dateFormatter.dateFormat = "yyy-MM-dd"
+        let dayofbirth = dateFormatter.string(from: selDate!)
+        var strTags = ""
+        for tag in self.arrGroupItems
+        {
+            strTags = strTags + "," + tag.title
+        }
+        strTags.removeFirst()
         let layer = ServiceLayer()
         var dict = [String : String]()
-        dict["id"] = "0"
         dict["type"] = "Patient"
         dict["age"] = ""
         dict["firstname"] = txtFirstName.text
         dict["surname"] = txtLastName.text
         dict["mobile"] = txtPhone.text
         dict["email"] = txtEmail.text
-        dict["dob"] = txtDOB.text
+        dict["dob"] = dayofbirth
         dict["sex"] = txtGender.text
-        dict["purpose"] = "testing"
+        dict["purpose"] = ""
         dict["image"] = self.selectedProfilePicUrl
         dict["area"] = txtAreaLocality.text
         dict["city"] = txtCity.text
         dict["pincode"] = ""
         dict["remarks"] = txtVwRemarks.text
-        dict["contactTags"] = "EMPTY"
-        dict["tagflag"] = "EMPTY"
+        dict["contactTags"] = strTags
+        dict["tagflag"] = ""
+        dict["misc"] = "Lead"
 
         
+        
+        app_delegate.showLoader(message: "Adding Lead..")
         layer.createLeadWith(dict: dict, successMessage: { (response) in
+            app_delegate.removeloder()
+            let alert = UIAlertController(title: "Success!", message: "Lead added successfully.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+
             print(response)
         }) { (error) in
+            app_delegate.removeloder()
             print(error)
+            let alert = UIAlertController(title: "Alert!", message: "Unable to Add Lead.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
         }
     }
     
@@ -449,23 +479,35 @@ class LeadAddAndUpdateViewController: BaseViewController
     {
         let layer = ServiceLayer()
         var dict = [String : String]()
-        dict["id"] = "0"
-        dict["type"] = "Patient"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd, MMM, yyyy"
+        let selDate = dateFormatter.date(from: self.txtDOB.text!)
+        dateFormatter.dateFormat = "yyy-MM-dd"
+        let dayofbirth = dateFormatter.string(from: selDate!)
+        var strTags = ""
+        for tag in self.arrGroupItems
+        {
+            strTags = strTags + "," + tag.title
+        }
+        strTags.removeFirst()
+
+        dict["id"] = objLead.id
+        dict["type"] = ""
         dict["age"] = ""
         dict["firstname"] = txtFirstName.text
         dict["surname"] = txtLastName.text
         dict["mobile"] = txtPhone.text
         dict["email"] = txtEmail.text
-        dict["dob"] = txtDOB.text
+        dict["dob"] = dayofbirth
         dict["sex"] = txtGender.text
-        dict["purpose"] = "testing"
+        dict["purpose"] = ""
         dict["image"] = self.selectedProfilePicUrl
         dict["area"] = txtAreaLocality.text
         dict["city"] = txtCity.text
         dict["pincode"] = ""
         dict["remarks"] = txtVwRemarks.text
-        dict["contactTags"] = "EMPTY"
-        dict["tagflag"] = "EMPTY"
+        dict["contactTags"] = strTags
+        dict["tagflag"] = ""
 
         layer.updateLeadWith(dict: dict, successMessage: { (response) in
             print(response)
@@ -590,3 +632,11 @@ extension LeadAddAndUpdateViewController : UIPickerViewDelegate, UIPickerViewDat
         selectedPickerRow = row
     }
 }
+extension LeadAddAndUpdateViewController:MFMailComposeViewControllerDelegate
+{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+}
+

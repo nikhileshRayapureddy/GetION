@@ -50,6 +50,10 @@ class RightMenuViewController: UIViewController {
 
     @IBAction func btnLogOutAction(_ sender: UIButton)
     {
+        GetIONUserDefaults.setLoginStatus(object: "false")
+        let Dlayer = CoreDataAccessLayer()
+        Dlayer.removeAllLeads()
+        Dlayer.removeAllPublishItems()
         let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController"))
 
         app_delegate.window!.rootViewController = navigationController

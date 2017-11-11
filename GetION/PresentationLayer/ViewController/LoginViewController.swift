@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
     }
     func navigateToDashboard()
     {
-        
+        GetIONUserDefaults.setLoginStatus(object: "true")
         let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController"))
         
         let rightMenuViewController: RightMenuViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RightMenuViewController") as! RightMenuViewController
