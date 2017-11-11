@@ -1703,10 +1703,10 @@ Please enter your Email-Id below :</string>
                                                             <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Days left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg3-Uz-OyH">
-                                                            <rect key="frame" x="245" y="5" width="80" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg3-Uz-OyH">
+                                                            <rect key="frame" x="220" y="5" width="105" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="J57-nb-TMW"/>
+                                                                <constraint firstAttribute="width" constant="105" id="J57-nb-TMW"/>
                                                                 <constraint firstAttribute="height" constant="20" id="Z0K-bX-WjR"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
@@ -2290,7 +2290,7 @@ Please enter your Email-Id below :</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYL-04-oHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="-669"/>
+            <point key="canvasLocation" x="-396" y="-669.71514242878561"/>
         </scene>
         <!--Queries View Controller-->
         <scene sceneID="VvY-5O-jez">
