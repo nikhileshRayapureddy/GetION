@@ -2748,8 +2748,8 @@ class ServiceLayer: NSObject {
         }
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
-        obj.MethodNamee = "PUT"
-        obj._serviceURL = "\(BASE_URL)/request/put/contacts/contacts?\(str)"
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request/post/contacts/contacts?\(str)"
         
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
@@ -2761,7 +2761,7 @@ class ServiceLayer: NSObject {
             {
                 if let code = obj.parsedDataDict["status"] as? String
                 {
-                    if code == "ok"
+                    if code == "success"
                     {
                         successMessage("Success")
                     }

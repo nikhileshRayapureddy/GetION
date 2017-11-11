@@ -230,7 +230,15 @@ class CoreDataAccessLayer: NSObject {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
-    
+    func removeAllPublishItems()
+    {
+        let arrPublish = self.getAllPublishFromLocalDB()
+        
+        for publish in arrPublish
+        {
+            self.removePublishItemFromLocalDBWith(publishId: publish.postId)
+        }
+    }
     func removePublishItemFromLocalDBWith(publishId : String)
     {
         
@@ -329,7 +337,10 @@ class CoreDataAccessLayer: NSObject {
     {
         for tmpItem in arrTmpItems
         {
-            self.saveItemIntoLeadTableInLocalDB(tmpItem: tmpItem)
+            if tmpItem.flag == "1"
+            {
+                self.saveItemIntoLeadTableInLocalDB(tmpItem: tmpItem)
+            }
         }
     }
     

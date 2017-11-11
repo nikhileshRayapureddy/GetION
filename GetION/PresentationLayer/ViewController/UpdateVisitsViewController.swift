@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MessageUI
 var arrSelectedGroups = [TagSuggestionBO]()
 
 class UpdateVisitsViewController: BaseViewController
@@ -312,10 +312,17 @@ class UpdateVisitsViewController: BaseViewController
     
     @IBAction func btnOSMessageAction(_ sender: UIButton)
     {
-          let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
-        smsVC.isSingleContact = true
-        smsVC.arrContactItems = [objVisits.mobile]
-        self.navigationController?.pushViewController(smsVC, animated: true)
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([objVisits.email])
+            present(mail, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Alert!", message: "No supportive EMail Composer.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func btnUpdateAction(_ sender: UIButton)
@@ -419,4 +426,11 @@ extension UpdateVisitsViewController: UIImagePickerControllerDelegate, UINavigat
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+extension UpdateVisitsViewController:MFMailComposeViewControllerDelegate
+{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+
 }

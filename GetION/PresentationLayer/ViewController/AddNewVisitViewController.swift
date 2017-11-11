@@ -361,21 +361,15 @@ class AddNewVisitViewController: BaseViewController {
         {
             return
         }
-        
-        app_delegate.showLoader(message: "Authenticating...")
-        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        
-        // Declare
-        var dayofbirth = ""
-        let tmpDate = dateFormatter.date(from: self.txtDOB.text!)
-        dayofbirth = dateFormatter.string(from: tmpDate!)
+        dateFormatter.dateFormat = "dd, MMM, yyyy"
+        let selDate = dateFormatter.date(from: self.txtDOB.text!)
+        dateFormatter.dateFormat = "yyy-MM-dd"
+        let dayofbirth = dateFormatter.string(from: selDate!)
         var Gender = ""
         let patAge = ""
         var udf = ""
-
+        
         if btnMale.isSelected == true
         {
             Gender = "Male"
@@ -394,69 +388,87 @@ class AddNewVisitViewController: BaseViewController {
         if(patAge != ""){
             udf = "\(udf)4;\(patAge)~"
         }
-
-
-
+        
         let layer = ServiceLayer()
-        layer.addVisit(DocID: selectedDoc.id_resources, name: txtFirstName.text! + " " + txtLastName.text! , email: txtEmail.text!, phone: txtPhone.text!, startdate: dateFormatter.string(from: selectedDate), enddate: dateFormatter.string(from: selectedDate), starttime: selectedTimeSlot.timeslot_starttime, endtime: selectedTimeSlot.timeslot_endtime, bookingDeposit: txtAmountPaid.text!, bookingTotal: selectedDoc.rate, Udfvalues: udf, imageUrl: self.selectedProfilePicUrl, successMessage: { (response) in
-            
-            app_delegate.removeloder()
-            
-        }) { (error) in
-            
-            app_delegate.removeloder()
-        }
-        
-        
-//        let objVisits = VisitsBO()
-//        objVisits.id
-//        //txtSpeciality.text
-//        txtSelectDoctor.text
-//        txtSelectDate.text
-//        txtSelectTime.text
-//        txtAppointmentStatus.text
-//        txtAmountPaid.text
-//        txtFirstName.text
-//        txtLastName.text
-//        txtDOB.text
-//        txtPhone.text
-//
-//        txtVWAddMarks.text
-        
-       
-        
-
-
-        
-        
-        
-    }
-    
-    
-    
-    func uploadImages()
-    {
         let imageData = UIImagePNGRepresentation(self.imgProfile.image!)
-        app_delegate.showLoader(message: "Uploading...")
-        let layer = ServiceLayer()
-        layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
-            app_delegate.removeloder()
-            if isSuccess
-            {
-                self.selectedProfilePicUrl = dict["url"] as! String
-                print("response : \(dict.description)")
+        if imageData != nil
+        {
+            app_delegate.showLoader(message: "Uploading...")
+            layer.uploadImageWithData(imageData: imageData!) { (isSuccess, dict) in
+                DispatchQueue.main.async {
+                    if isSuccess
+                    {
+                        self.selectedProfilePicUrl = dict["url"] as! String
+                        print("response : \(dict.description)")
+                        layer.addVisit(DocID: self.selectedDoc.id_resources, name: self.txtFirstName.text! + " " + self.txtLastName.text! , email: self.txtEmail.text!, phone: self.txtPhone.text!, startdate: dateFormatter.string(from: self.selectedDate), enddate: dateFormatter.string(from: self.selectedDate), starttime: self.selectedTimeSlot.timeslot_starttime, endtime: self.selectedTimeSlot.timeslot_endtime, bookingDeposit: self.txtAmountPaid.text!, bookingTotal: self.selectedDoc.rate, Udfvalues: udf, imageUrl: self.selectedProfilePicUrl, successMessage: { (response) in
+                            DispatchQueue.main.async {
+                                app_delegate.removeloder()
+                                let alert = UIAlertController(title: "Success!", message: "Visit added Successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            
+                        }) { (error) in
+                            DispatchQueue.main.async {
+                                app_delegate.removeloder()
+                                let alert = UIAlertController(title: "Failure!", message: "Visit adding failed.", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }                    }
+                        
+                    }
+                    else
+                    {
+                        DispatchQueue.main.async {
+                            app_delegate.removeloder()
+                            let alert = UIAlertController(title: "Alert!", message: "Failed to Upload Image.\n Visit will be Uploaded without Image", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                                app_delegate.showLoader(message: "Adding Visit...")
+                                layer.addVisit(DocID: self.selectedDoc.id_resources, name: self.txtFirstName.text! + " " + self.txtLastName.text! , email: self.txtEmail.text!, phone: self.txtPhone.text!, startdate: dateFormatter.string(from: self.selectedDate), enddate: dateFormatter.string(from: self.selectedDate), starttime: self.selectedTimeSlot.timeslot_starttime, endtime: self.selectedTimeSlot.timeslot_endtime, bookingDeposit: self.txtAmountPaid.text!, bookingTotal: self.selectedDoc.rate, Udfvalues: udf, imageUrl: self.selectedProfilePicUrl, successMessage: { (response) in
+                                    DispatchQueue.main.async {
+                                        app_delegate.removeloder()
+                                        let alert = UIAlertController(title: "Success!", message: "Visit added Successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                                }) { (error) in
+                                    DispatchQueue.main.async {
+                                        app_delegate.removeloder()
+                                        let alert = UIAlertController(title: "Failure!", message: "Visit adding failed.", preferredStyle: UIAlertControllerStyle.alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }                            }
+                                
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        }
+                    }
+                }
             }
-            else
-            {
-                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            app_delegate.showLoader(message: "Adding Visit...")
+            layer.addVisit(DocID: self.selectedDoc.id_resources, name: self.txtFirstName.text! + " " + self.txtLastName.text! , email: self.txtEmail.text!, phone: self.txtPhone.text!, startdate: dateFormatter.string(from: self.selectedDate), enddate: dateFormatter.string(from: self.selectedDate), starttime: self.selectedTimeSlot.timeslot_starttime, endtime: self.selectedTimeSlot.timeslot_endtime, bookingDeposit: self.txtAmountPaid.text!, bookingTotal: self.selectedDoc.rate, Udfvalues: udf, imageUrl: self.selectedProfilePicUrl, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    let alert = UIAlertController(title: "Success!", message: "Visit added Successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }) { (error) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    let alert = UIAlertController(title: "Failure!", message: "Visit adding failed.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
                 
             }
         }
-        
     }
-    
 }
 
 
@@ -501,6 +513,8 @@ extension AddNewVisitViewController : UITextFieldDelegate
             if txtSpeciality.text != "" && txtSelectDoctor.text != ""
             {
                 datePicker.datePickerMode = .date
+                datePicker.minimumDate = Date()
+
             }
             else
             {
@@ -540,7 +554,22 @@ extension AddNewVisitViewController : UITextFieldDelegate
             }
             
         }
-        
+        else if textField == txtDOB
+        {
+            if txtSpeciality.text != "" && txtSelectDoctor.text != ""
+            {
+                datePicker.datePickerMode = .date
+                let tmpDate = Calendar.current.date(byAdding: .year, value: -500, to: Date())
+                datePicker.minimumDate = tmpDate
+
+            }
+            else
+            {
+                textField.resignFirstResponder()
+                
+            }
+        }
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField)
@@ -649,7 +678,6 @@ extension AddNewVisitViewController: UIImagePickerControllerDelegate, UINavigati
             DispatchQueue.main.async {
                 
                 self.imgProfile.image = tempImage
-                self.uploadImages()
             }
             
         }

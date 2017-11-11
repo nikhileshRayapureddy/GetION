@@ -180,49 +180,58 @@ class LeadsMainViewController: BaseViewController {
     
     @IBAction func btnDeleteLeadAction(_ sender: UIButton)
     {
-        app_delegate.showLoader(message: "Loading. . .")
-        let layer = ServiceLayer()
-        
-        var strId = ""
-        for lead in self.arrLeads
-        {
-            if lead.isSelected
-            {
-                strId = strId + "," + lead.id
-            }
-        }
-        strId.removeFirst()
-        
-        layer.deleteLeadWith(Id: strId, successMessage: { (response) in
-            
+        let alert = UIAlertController(title: "Alert!", message: "Are you sure you want to delete?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
             DispatchQueue.main.async {
-                if let status = response as? String
+                app_delegate.showLoader(message: "Loading. . .")
+                let layer = ServiceLayer()
+                
+                var strId = ""
+                for lead in self.arrLeads
                 {
-                    if status == "ok"
+                    if lead.isSelected
                     {
-                        let DLayer = CoreDataAccessLayer()
-                        DispatchQueue.main.async {
-                            DLayer.removeAllLeads()
-                        }
-                        layer.getAllLeads(successMessage: { (success) in
-                            app_delegate.removeloder()
-                            DispatchQueue.main.async {
-                                self.arrLeads = DLayer.getAllLeadsFromLocalDB()
-                                self.btnRemoveAllSelectedClicked(UIButton())
-                                
-                            }
-
-                        }, failureMessage: { (error) in
-                            app_delegate.removeloder()
-                        })
+                        strId = strId + "," + lead.id
                     }
                 }
+                strId.removeFirst()
                 
+                layer.deleteLeadWith(Id: strId, successMessage: { (response) in
+                    
+                    DispatchQueue.main.async {
+                        if let status = response as? String
+                        {
+                            if status == "ok"
+                            {
+                                let DLayer = CoreDataAccessLayer()
+                                DispatchQueue.main.async {
+                                    DLayer.removeAllLeads()
+                                }
+                                layer.getAllLeads(successMessage: { (success) in
+                                    app_delegate.removeloder()
+                                    DispatchQueue.main.async {
+                                        self.arrLeads = DLayer.getAllLeadsFromLocalDB()
+                                        self.btnRemoveAllSelectedClicked(UIButton())
+                                        
+                                    }
+                                    
+                                }, failureMessage: { (error) in
+                                    app_delegate.removeloder()
+                                })
+                            }
+                        }
+                        
+                    }
+                    
+                }, failureMessage: { (error) in
+                    app_delegate.removeloder()
+                })
             }
-            
-        }, failureMessage: { (error) in
-            app_delegate.removeloder()
-        })
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+
         
     }
     func showSelectGroupView()
@@ -376,6 +385,14 @@ extension LeadsMainViewController:UITableViewDelegate,UITableViewDataSource
             
             let leadVC: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
             leadVC.isLeadAdd = false
+            let arrGroups = selectedLead.leadsTags.components(separatedBy: ",")
+            for group in arrGroups
+            {
+                let bo = TagSuggestionBO()
+                bo.title = group
+                arrSelectedGroups.append(bo)
+            }
+            
             leadVC.objLead = selectedLead
             self.navigationController?.pushViewController(leadVC, animated: false)
         }
@@ -457,28 +474,41 @@ extension LeadsMainViewController : SwipeTableViewCellDelegate
             // handle action by updating model with deletion
             // Update model
             
-            app_delegate.showLoader(message: "Loading. . .")
-            let layer = ServiceLayer()
-            let objLead = self.arrLeads[indexPath.row]
-            
-            layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
-                
-                DispatchQueue.main.async {
-                    if let status = response as? String
-                    {
-                        if status == "ok"
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Alert!", message: "Are you sure you want to delete?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
+                    DispatchQueue.main.async
                         {
-                            self.arrLeads.remove(at: indexPath.row)
-                            self.tblLeads.reloadData()
-                        }
+                            app_delegate.showLoader(message: "Loading. . .")
+                            let layer = ServiceLayer()
+                            let objLead = self.arrLeads[indexPath.row]
+                            
+                            layer.deleteLeadWith(Id: objLead.id, successMessage: { (response) in
+                                
+                                DispatchQueue.main.async {
+                                    if let status = response as? String
+                                    {
+                                        if status == "ok"
+                                        {
+                                            self.arrLeads.remove(at: indexPath.row)
+                                            self.tblLeads.reloadData()
+                                        }
+                                    }
+                                    app_delegate.removeloder()
+                                    
+                                }
+                                
+                            }, failureMessage: { (error) in
+                                print(error)
+                            })
                     }
-                    app_delegate.removeloder()
-                    
-                }
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
                 
-            }, failureMessage: { (error) in
-                print(error)
-            })
+                self.present(alert, animated: true, completion: nil)
+
+            }
+
             
            
             //

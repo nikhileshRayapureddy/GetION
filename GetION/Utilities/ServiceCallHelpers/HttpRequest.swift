@@ -83,7 +83,6 @@ class HttpRequest
         
         
         request.httpBody = requestBody
-//        webStringURL =    webStringURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)! as NSString
         
         let url : URL = URL(string: webStringURL as String)!
         request.url = url
