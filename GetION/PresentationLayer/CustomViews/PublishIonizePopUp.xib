@@ -65,10 +65,10 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TCx-mx-U5q">
-                                    <rect key="frame" x="104" y="5" width="1.5" height="20"/>
+                                    <rect key="frame" x="104" y="5" width="2" height="20"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqj-zP-KAK">
-                                    <rect key="frame" x="105.5" y="0.0" width="104" height="30"/>
+                                    <rect key="frame" x="106" y="0.0" width="104" height="30"/>
                                     <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="13"/>
                                     <state key="normal" title="EVENT"/>
                                     <connections>
@@ -76,7 +76,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ORM-SM-Q88">
-                                    <rect key="frame" x="209.5" y="5" width="1.5" height="20"/>
+                                    <rect key="frame" x="210" y="5" width="1" height="20"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnv-7X-vPI">
                                     <rect key="frame" x="211" y="0.0" width="104" height="30"/>
@@ -125,8 +125,34 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuW-GB-HBV">
                             <rect key="frame" x="20" y="110" width="315" height="70"/>
+                            <subviews>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xx-HB-oUL">
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="70"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYL-Q5-thw">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="70"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rYL-Q5-thw" firstAttribute="centerX" secondItem="0Xx-HB-oUL" secondAttribute="centerX" id="GKa-Eb-Dxz"/>
+                                        <constraint firstItem="rYL-Q5-thw" firstAttribute="top" secondItem="0Xx-HB-oUL" secondAttribute="top" id="Q3v-Zo-qUK"/>
+                                        <constraint firstAttribute="trailing" secondItem="rYL-Q5-thw" secondAttribute="trailing" id="WF6-j2-bS0"/>
+                                        <constraint firstAttribute="bottom" secondItem="rYL-Q5-thw" secondAttribute="bottom" id="WKv-Fd-6z2"/>
+                                        <constraint firstItem="rYL-Q5-thw" firstAttribute="leading" secondItem="0Xx-HB-oUL" secondAttribute="leading" id="dep-C0-g7x"/>
+                                        <constraint firstItem="rYL-Q5-thw" firstAttribute="centerY" secondItem="0Xx-HB-oUL" secondAttribute="centerY" id="jvi-hy-hBp"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="ll5-32-CjT"/>
+                                    </connections>
+                                </scrollView>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="0Xx-HB-oUL" secondAttribute="trailing" id="6mY-OE-tYq"/>
+                                <constraint firstItem="0Xx-HB-oUL" firstAttribute="leading" secondItem="LuW-GB-HBV" secondAttribute="leading" id="IMR-eb-9Pe"/>
+                                <constraint firstAttribute="bottom" secondItem="0Xx-HB-oUL" secondAttribute="bottom" id="Ud9-70-AWZ"/>
+                                <constraint firstItem="0Xx-HB-oUL" firstAttribute="top" secondItem="LuW-GB-HBV" secondAttribute="top" id="j7h-yI-DkS"/>
                                 <constraint firstAttribute="height" constant="70" id="yKo-3N-rd0"/>
                             </constraints>
                         </view>
@@ -316,11 +342,13 @@
                 <outlet property="btnEvent" destination="gqj-zP-KAK" id="exH-To-ZA2"/>
                 <outlet property="btnIonizePublish" destination="c3t-nv-8tZ" id="Iw3-AH-pHv"/>
                 <outlet property="btnNews" destination="xnv-7X-vPI" id="nk3-4v-KWM"/>
+                <outlet property="scrlVwGroups" destination="0Xx-HB-oUL" id="oOa-IX-xfY"/>
                 <outlet property="viewBackground" destination="7ME-JI-ola" id="rSD-rO-9Ez"/>
                 <outlet property="viewButtons" destination="Vvd-as-Jh4" id="lfQ-9P-N8G"/>
                 <outlet property="viewDateBackground" destination="MXK-0t-YGo" id="e9e-Qd-V4Z"/>
                 <outlet property="viewTags" destination="LuW-GB-HBV" id="I3q-ZO-9ei"/>
                 <outlet property="viewTimeBackground" destination="bVX-kk-Aid" id="I2I-jC-Ja3"/>
+                <outlet property="vwGroups" destination="rYL-Q5-thw" id="lHJ-6u-ANC"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="129.5"/>
         </view>
