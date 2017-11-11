@@ -28,13 +28,28 @@ class PublishIonizePopUp: UIView {
     @IBOutlet weak var btnBlog: UIButton!
     @IBOutlet weak var btnEvent: UIButton!
     @IBOutlet weak var btnNews: UIButton!
+    
+    
+    @IBOutlet weak var txtDate: UITextField!
+    @IBOutlet weak var txtTime: UITextField!
+    
+    @IBOutlet weak var lbldaye: UILabel!
+    @IBOutlet weak var lblWeek: UILabel!
+    @IBOutlet weak var lblMonth: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    /////
+    let datePicker = UIDatePicker()
     var tokenString = [String]()
     var arrGroups = [TagSuggestionBO]()
     var isIonize: Bool!
     var contentSize = 0
+    var selectedDate = ""
+    var objBlog = BlogBO()
     var delegate: PublishIonizePopUp_Delegate!
     func resizeViews()
     {
+        txtDate.inputView = datePicker
+        txtTime.inputView = datePicker
         
         addCornerRadiusFor(view: viewBackground, withRadius: 10.0)
         addCornerRadiusFor(view: viewButtons, withRadius: 5.0)
@@ -57,6 +72,31 @@ class PublishIonizePopUp: UIView {
             btnIonizePublish.setTitle("Publish", for: .normal)
             btnIonizePublish.backgroundColor = UIColor.init(red: 71.0/255.0, green: 74.0/255.0, blue: 88.0/255.0, alpha: 1.0)
         }
+        
+        btnBlog.backgroundColor = THEME_COLOR
+       
+        
+        let selectedDate = datePicker.date
+        datePicker.minimumDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd, EEE, MMM"
+        let arrTime = (dateFormatter.string(from: selectedDate)).components(separatedBy: ",")
+        
+        self.lbldaye.text = arrTime[0]
+        self.lblWeek.text = arrTime[1]
+        self.lblMonth.text = arrTime[2]
+        
+        let selectedTime = datePicker.date
+        dateFormatter.dateFormat = "hh.mm a"
+        self.lblTime.text = dateFormatter.string(from: selectedTime)
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"          
+        self.selectedDate = dateFormatter.string(from: selectedDate)
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        self.selectedDate.append(" ")
+        self.selectedDate.append(dateFormatter.string(from: selectedTime))
+        
+        
         designGroups()
     }
     
@@ -183,11 +223,105 @@ class PublishIonizePopUp: UIView {
     }
     
     @IBAction func btnIonizePublishClicked(_ sender: UIButton) {
-        if let delegate = self.delegate
+        
+        let layer = ServiceLayer()
+        
+        var selectedGroups = ""
+        for group in tokenString
         {
-            delegate.ionizeOrPublishClicked()
+            selectedGroups.append(group)
+            selectedGroups.append(",")
         }
+        if selectedGroups != ""
+        {
+            selectedGroups.remove(at: selectedGroups.index(before: selectedGroups.endIndex))
+        }
+        
+        if isIonize == true
+        {
+            var dict = [String : AnyObject]()
+            dict["title"] = objBlog.title as AnyObject
+            dict["content"] = objBlog.comments as AnyObject
+            dict["key"] = GetIONUserDefaults.getAuth() as AnyObject
+            dict["image"] = "" as AnyObject
+            dict["category_id"] = objBlog.categoryId as AnyObject
+            dict["created"] = objBlog.created_date as AnyObject
+            dict["publish_up"] = selectedDate as AnyObject
+            dict["publish_down"] = "0000-00-00 00:00:00" as AnyObject
+            dict["frontpage"] = "" as AnyObject
+            dict["published"] = objBlog.published as AnyObject
+            dict["tags"] = selectedGroups as AnyObject
+            dict["id"] = objBlog.postId as AnyObject
+            dict["encode"] = "1" as AnyObject
+            app_delegate.showLoader(message: "Ionizing..")
+            layer.ionizeBlog(dict: dict, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                print(response)
+                app_delegate.removeloder()
+                if let delegate = self.delegate
+                {
+                    delegate.ionizeOrPublishClicked()
+                }
+                }
+
+            }, failureMessage: { (error) in
+                
+                print(error)
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+
+            })
+        }
+        else
+        {
+            var dict = [String : AnyObject]()
+            dict["title"] = objBlog.title as AnyObject
+            dict["content"] = objBlog.comments as AnyObject
+            dict["key"] = GetIONUserDefaults.getAuth() as AnyObject
+            dict["image"] = "" as AnyObject
+            dict["category_id"] = objBlog.categoryId as AnyObject
+            dict["created"] = objBlog.created_date as AnyObject
+            dict["publish_up"] = selectedDate as AnyObject
+            dict["publish_down"] = "0000-00-00 00:00:00" as AnyObject
+            dict["frontpage"] = "" as AnyObject
+            dict["published"] = "1" as AnyObject
+            dict["tags"] = selectedGroups as AnyObject
+            dict["id"] = objBlog.postId as AnyObject
+            dict["encode"] = "1" as AnyObject
+            
+            app_delegate.showLoader(message: "Publishing..")
+            
+            layer.publishBlog(dict: dict, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    print(response)
+                    app_delegate.removeloder()
+                    if let delegate = self.delegate
+                    {
+                        delegate.ionizeOrPublishClicked()
+                    }
+                }
+                
+            }, failureMessage: { (error) in
+                
+                print(error)
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+            })
+        }
+        
+       
     }
+    
+    
+    @IBAction func btnGroupsAction(_ sender: UIButton)
+    {
+        
+    }
+    
     
     @IBAction func btnCloseClicked(_ sender: UIButton) {
         if let delegate = self.delegate
@@ -196,12 +330,96 @@ class PublishIonizePopUp: UIView {
         }
     }
     
-    @IBAction func btnNewsClicked(_ sender: UIButton) {
+    @IBAction func btnNewsClicked(_ sender: UIButton)
+    {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected == true
+        {
+            btnNews.backgroundColor = THEME_COLOR
+            btnBlog.isSelected = false
+            btnEvent.isSelected = false
+            btnBlog.backgroundColor = UIColor.white
+            btnEvent.backgroundColor = UIColor.white
+
+        }
     }
     
-    @IBAction func btnEventClicked(_ sender: UIButton) {
+    @IBAction func btnEventClicked(_ sender: UIButton)
+    {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected == true
+        {
+            btnEvent.backgroundColor = THEME_COLOR
+            btnBlog.isSelected = false
+            btnNews.isSelected = false
+            btnBlog.backgroundColor = UIColor.white
+            btnNews.backgroundColor = UIColor.white
+            
+        }
     }
     
-    @IBAction func btnBlogClicked(_ sender: UIButton) {
+    @IBAction func btnBlogClicked(_ sender: UIButton)
+    {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected == true
+        {
+            btnBlog.backgroundColor = THEME_COLOR
+            btnNews.isSelected = false
+            btnEvent.isSelected = false
+            btnNews.backgroundColor = UIColor.white
+            btnEvent.backgroundColor = UIColor.white
+            
+        }
     }
+}
+
+
+extension PublishIonizePopUp : UITextFieldDelegate
+{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if textField == txtDate
+        {
+            datePicker.datePickerMode = .date
+            
+        }
+        else if textField == txtTime
+        {
+            datePicker.datePickerMode = .time
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        if textField == txtDate
+        {
+            let selectedDate = datePicker.date
+            datePicker.minimumDate = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd, EEE, MMM"
+            let arrTime = (dateFormatter.string(from: selectedDate)).components(separatedBy: ",")
+            
+            self.lbldaye.text = arrTime[0]
+            self.lblWeek.text = arrTime[1]
+            self.lblMonth.text = arrTime[2]
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            self.selectedDate = dateFormatter.string(from: selectedDate)
+
+        }
+        else if textField == txtTime
+        {
+           let selectedTime = datePicker.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh.mm a"
+            self.lblTime.text = dateFormatter.string(from: selectedTime)
+            
+            dateFormatter.dateFormat = "hh:mm:ss a"
+            self.selectedDate.append(dateFormatter.string(from: selectedTime))
+        }
+        
+        
+    }
+    
 }
