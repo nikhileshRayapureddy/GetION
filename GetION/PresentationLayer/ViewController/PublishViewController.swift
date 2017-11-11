@@ -210,7 +210,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             dateFormat.dateFormat = "hh mm a"
             cell.lblTime.text = dateFormat.string(from: date!)
             
-            cell.lblDaysLeft.text = ""
+            cell.lblDaysLeft.text = draftBlog.created_date_elapsed
             let url = URL(string: draftBlog.imageURL)
             cell.imgVwProfilePic.kf.indicatorType = .activity
             cell.imgVwProfilePic.kf.setImage(with: url)
