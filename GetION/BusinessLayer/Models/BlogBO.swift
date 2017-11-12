@@ -23,7 +23,7 @@ class BlogBO: NSObject {
     public var authorBio = ""
     public var comments = ""
     public var url = ""
-    public var tags = [AnyObject]()
+    public var tags = ""
     public var ratings = 0
     public var rating = ""
     public var ratingTotal = ""

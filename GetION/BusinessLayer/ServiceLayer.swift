@@ -355,7 +355,7 @@ class ServiceLayer: NSObject {
                                 }
                                 if let tags = blog["tags"] as? [[String:AnyObject]]
                                 {
-                                    bo.tags = tags as [AnyObject]
+                                    bo.tags = "" // kiran tags as [AnyObject]
                                 }
                                 if let rating = blog["rating"] as? String
                                 {
@@ -1682,7 +1682,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog!["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            bo.tags = "" // kiran tags as [AnyObject]
                         }
                         if let rating = blog!["rating"] as? String
                         {
@@ -1910,7 +1910,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            bo.tags = "" // kiran tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3030,7 +3030,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            bo.tags = "" // kiran tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3228,7 +3228,27 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            if tags.count > 0
+                            {
+                                var tagString = ""
+                                
+                                for dict in tags
+                                {
+                                    tagString = dict["title"] as! String
+                                    tagString.append(",")
+                                }
+                                
+                                if tagString != ""
+                                {
+                                    tagString.remove(at: tagString.index(before: tagString.endIndex))
+                                }
+                                bo.tags = tagString
+
+                            }
+                            else
+                            {
+                                bo.tags = ""
+                            }
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3426,7 +3446,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            bo.tags = "" // kiran tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
