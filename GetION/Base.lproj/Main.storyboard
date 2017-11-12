@@ -6105,7 +6105,7 @@ Please enter your Email-Id below :</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jm-uN-Kch">
-                                        <rect key="frame" x="10" y="0.0" width="355" height="50"/>
+                                        <rect key="frame" x="10" y="5" width="355" height="40"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -6114,8 +6114,8 @@ Please enter your Email-Id below :</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="0Jm-uN-Kch" firstAttribute="leading" secondItem="FEx-Vo-Dkd" secondAttribute="leading" constant="10" id="DuV-v7-ABe"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Jm-uN-Kch" secondAttribute="bottom" id="LGJ-W0-orJ"/>
-                                    <constraint firstItem="0Jm-uN-Kch" firstAttribute="top" secondItem="FEx-Vo-Dkd" secondAttribute="top" id="csQ-Dj-ZaF"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Jm-uN-Kch" secondAttribute="bottom" constant="5" id="LGJ-W0-orJ"/>
+                                    <constraint firstItem="0Jm-uN-Kch" firstAttribute="top" secondItem="FEx-Vo-Dkd" secondAttribute="top" constant="5" id="csQ-Dj-ZaF"/>
                                     <constraint firstAttribute="height" constant="50" id="pqd-gN-d5l"/>
                                     <constraint firstAttribute="trailing" secondItem="0Jm-uN-Kch" secondAttribute="trailing" constant="10" id="xQd-AP-v5f"/>
                                 </constraints>

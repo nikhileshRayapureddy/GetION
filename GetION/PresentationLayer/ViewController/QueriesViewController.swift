@@ -41,8 +41,99 @@ class QueriesViewController: BaseViewController {
         btnSegmentActionsClicked(btnUnAnswered)
         getPopularQueries()
         // Do any additional setup after loading the view, typically from a nib.
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeDown)
+
     }
-    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                var sender = UIButton()
+                if selectedButtonIndex == 1
+                {
+                    sender = self.btnUnAnswered
+                }
+                else if selectedButtonIndex == 2
+                {
+                    sender = self.btnUnAnswered
+                }
+                else if selectedButtonIndex == 3
+                {
+                    sender = self.btnAnswered
+                }
+                else
+                {
+                    sender = self.btnUnAnswered
+                }
+                selectedImageView.frame.size.width = sender.frame.size.width - 20
+                selectedImageView.frame.origin.x = sender.frame.origin.x + 10
+                switch sender {
+                case btnUnAnswered:
+                    selectedButtonIndex = 1
+                    break
+                case btnAnswered:
+                    selectedButtonIndex = 2
+                    break
+                case btnPopular:
+                    selectedButtonIndex = 3
+                    break
+                default:
+                    selectedButtonIndex = 1
+                    break
+                }
+                bindData()
+
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                var sender = UIButton()
+                if selectedButtonIndex == 1
+                {
+                    sender = self.btnAnswered
+                }
+                else if selectedButtonIndex == 2
+                {
+                    sender = self.btnPopular
+                }
+                else if selectedButtonIndex == 3
+                {
+                    sender = self.btnPopular
+                }
+                else
+                {
+                    sender = self.btnUnAnswered
+                }
+                selectedImageView.frame.size.width = sender.frame.size.width - 20
+                selectedImageView.frame.origin.x = sender.frame.origin.x + 10
+                switch sender {
+                case btnUnAnswered:
+                    selectedButtonIndex = 1
+                    break
+                case btnAnswered:
+                    selectedButtonIndex = 2
+                    break
+                case btnPopular:
+                    selectedButtonIndex = 3
+                    break
+                default:
+                    selectedButtonIndex = 1
+                    break
+                }
+                bindData()
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
+    }
+
     func getPopularQueries()
     {
         app_delegate.showLoader(message: "Loading. . .")
