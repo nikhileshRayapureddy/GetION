@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1851B152BE2498C93FC7C4DB /* Pods_GetION.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E223C7B883D864793EF0EC /* Pods_GetION.framework */; };
+		2CB53D6D1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */; };
+		2CB53D6F1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */; };
+		2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */; };
 		A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707DE231FA1CF1100320892 /* PromotionsBO.swift */; };
 		A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */; };
 		A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */; };
@@ -39,8 +42,6 @@
 		A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */; };
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
-		A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */; };
-		A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
 		A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */; };
@@ -140,9 +141,15 @@
 		CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */; };
 		CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */; };
 		CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */; };
+		CCFB46791FB8377400B4A057 /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */; };
+		CCFB467A1FB8377400B4A057 /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */; };
+		CCFB467C1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingCalendarHeaderView.swift; sourceTree = "<group>"; };
+		2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketingCalendarHeaderView.xib; sourceTree = "<group>"; };
+		2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerBO.swift; sourceTree = "<group>"; };
 		66E223C7B883D864793EF0EC /* Pods_GetION.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetION.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.debug.xcconfig"; sourceTree = "<group>"; };
 		A707DE231FA1CF1100320892 /* PromotionsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsBO.swift; sourceTree = "<group>"; };
@@ -177,8 +184,6 @@
 		A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
-		A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
 		A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupCustomView.swift; sourceTree = "<group>"; };
@@ -280,6 +285,9 @@
 		CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCustomCell.swift; sourceTree = "<group>"; };
 		CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineCustomCell.swift; sourceTree = "<group>"; };
 		CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailsViewController.swift; sourceTree = "<group>"; };
+		CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSuggestionsViewController.swift; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -455,6 +463,7 @@
 				A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */,
 				A73F00621FAA06C200824BC8 /* LeadsBO.swift */,
 				CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */,
+				2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -482,8 +491,8 @@
 		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
-				A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */,
-				A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */,
+				CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */,
+				CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */,
 				A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */,
 				A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */,
 			);
@@ -571,6 +580,7 @@
 				CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */,
 				A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */,
 				A770CB211FB4CC98005D9131 /* ContactsViewController.swift */,
+				CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -627,6 +637,8 @@
 				A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */,
 				CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */,
 				CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */,
+				2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */,
+				2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -695,6 +707,7 @@
 			files = (
 				A736CEC81FAF4D91007C2391 /* SelectGroupCustomView.xib in Resources */,
 				CCF11F481FAB84C00056C367 /* PublishIonizePopUp.xib in Resources */,
+				2CB53D6F1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib in Resources */,
 				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
@@ -794,13 +807,14 @@
 				CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */,
 				CC5187F91FB0B4D900B263AE /* ShowGroupsView.swift in Sources */,
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				CCFB467C1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift in Sources */,
 				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
-				A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */,
 				A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */,
 				CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
+				2CB53D6D1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift in Sources */,
 				A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
 				A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */,
@@ -823,6 +837,7 @@
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
 				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
+				2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,
@@ -830,6 +845,7 @@
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */,
+				CCFB46791FB8377400B4A057 /* Publish+CoreDataClass.swift in Sources */,
 				A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */,
 				CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */,
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
@@ -866,7 +882,6 @@
 				CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */,
 				A7D5861C1FA4B2ED00B1BD4A /* TimeSlotsBO.swift in Sources */,
 				A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */,
-				A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */,
 				A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */,
 				A71FFEFE1F91E6610082BAF8 /* IQPreviousNextView.swift in Sources */,
 				A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */,
@@ -886,6 +901,7 @@
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */,
+				CCFB467A1FB8377400B4A057 /* Publish+CoreDataProperties.swift in Sources */,
 				CC4238C71FADCFA900480A33 /* AddInputsViewController.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,

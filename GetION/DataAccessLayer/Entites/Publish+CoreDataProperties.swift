@@ -2,7 +2,7 @@
 //  Publish+CoreDataProperties.swift
 //  GetION
 //
-//  Created by NIKHILESH on 04/11/17.
+//  Created by Kiran Kumar on 12/11/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 //
@@ -46,6 +46,7 @@ extension Publish {
     @NSManaged public var ratings: Int64
     @NSManaged public var ratingTotal: String?
     @NSManaged public var state: Int64
+    @NSManaged public var status: String?
     @NSManaged public var tags: NSObject?
     @NSManaged public var textplain: String?
     @NSManaged public var title: String?
@@ -54,6 +55,5 @@ extension Publish {
     @NSManaged public var userid: String?
     @NSManaged public var views: Int64
     @NSManaged public var vote: String?
-    @NSManaged public var status: String?
 
 }

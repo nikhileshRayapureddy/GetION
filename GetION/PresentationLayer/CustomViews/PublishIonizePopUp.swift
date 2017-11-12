@@ -11,6 +11,7 @@ import UIKit
 protocol PublishIonizePopUp_Delegate {
     func ionizeOrPublishClicked()
     func closePublishIonizePopup()
+    func navigateToTagSelectionScreen(_ tags: [TagSuggestionBO])
 }
 
 class PublishIonizePopUp: UIView {
@@ -40,12 +41,13 @@ class PublishIonizePopUp: UIView {
     /////
     let datePicker = UIDatePicker()
     var tokenString = [String]()
-    var arrGroups = [TagSuggestionBO]()
     var isIonize: Bool!
     var contentSize = 0
     var selectedDate = ""
     var objBlog = BlogBO()
     var delegate: PublishIonizePopUp_Delegate!
+    
+    var arrtagSuggestions = [TagSuggestionBO]()
     func resizeViews()
     {
         txtDate.inputView = datePicker
@@ -116,7 +118,7 @@ class PublishIonizePopUp: UIView {
                     }
                 }
             }
-            
+            self.tokenString.removeAll()
             var xAxis = 0
             var yAxis = 0
             var btnWidth = 0
@@ -124,26 +126,29 @@ class PublishIonizePopUp: UIView {
             var reminigXSpace = 0
             let screenSize = UIScreen.main.bounds
             let screenWidth = screenSize.width - 42
-            if(self.arrGroups.count > 0){
-                for i in 0...self.arrGroups.count - 1
+            if(self.arrtagSuggestions.count > 0){
+                for i in 0...self.arrtagSuggestions.count - 1
                 {
+                    let tag = self.arrtagSuggestions[i]
+                    let title = tag.title
                     let btn = UIButton(type: UIButtonType.custom) as UIButton
-                    if self.tokenString.contains(self.arrGroups[i].title)
+                    if self.tokenString.contains(title)
                     {
-                        btn.backgroundColor = ionColor
+//                        btn.backgroundColor = ionColor
+                        btn.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
                     }
                     else
                     {
                         btn.backgroundColor = UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
                     }
-                    btn.setTitle("\(self.arrGroups[i].title)", for: UIControlState.normal)
+                    btn.setTitle("\(title)", for: UIControlState.normal)
                     btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
                     btn.titleLabel!.font = UIFont.myridFontOfSize(size: 16)
                     btn.contentEdgeInsets = UIEdgeInsetsMake(8,5,5,8)
                     btn.sizeToFit()
                     btn.layer.cornerRadius = 10
                     btn.tag = 1000
-                    
+                    self.tokenString.append(title)
                     print("\(btn.frame.size.width)")
                     if(i == 0){
                         xAxis = 8
@@ -188,6 +193,11 @@ class PublishIonizePopUp: UIView {
 
     @objc func clickMe(sender:UIButton!)
     {
+        if let delegate = self.delegate
+        {
+            delegate.navigateToTagSelectionScreen(arrtagSuggestions)
+            return
+        }
         if(sender.backgroundColor == UIColor (red: 240.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1))
         {
             sender.backgroundColor = ionColor
@@ -225,7 +235,6 @@ class PublishIonizePopUp: UIView {
     @IBAction func btnIonizePublishClicked(_ sender: UIButton) {
         
         let layer = ServiceLayer()
-        
         var selectedGroups = ""
         for group in tokenString
         {
@@ -376,7 +385,6 @@ class PublishIonizePopUp: UIView {
 
 extension PublishIonizePopUp : UITextFieldDelegate
 {
-    
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
         if textField == txtDate
@@ -418,8 +426,5 @@ extension PublishIonizePopUp : UITextFieldDelegate
             dateFormatter.dateFormat = "hh:mm:ss a"
             self.selectedDate.append(dateFormatter.string(from: selectedTime))
         }
-        
-        
     }
-    
 }

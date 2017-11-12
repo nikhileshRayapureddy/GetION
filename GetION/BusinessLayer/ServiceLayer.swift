@@ -1826,6 +1826,110 @@ class ServiceLayer: NSObject {
     }
     
     
+    func getCalendarTopicsbymonth(month : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?action=get&module=ionplanner&resource=planner&userid=\(GetIONUserDefaults.getUserId())"
+        //action=currentmonthdata&module=ionplanner&resource=planner&usr=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&from=\(month)"
+    
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code.uppercased() == "OK"
+                    {
+                        var arrData = [PlannerBO]()
+                        if let arrDict =  obj.parsedDataDict["description"] as? [[String : AnyObject]]
+                        {
+                            
+                            for dict in arrDict
+                            {
+                                let objPlanner = PlannerBO()
+                                
+                                if let id = dict["id"] as? String
+                                {
+                                    objPlanner.id = id
+                                }
+                                if let title = dict["title"] as? String
+                                {
+                                    objPlanner.title = title
+                                }
+                                if let alias = dict["alias"] as? String
+                                {
+                                    objPlanner.alias = alias
+                                }
+                                if let start_date = dict["start_date"] as? String
+                                {
+                                    objPlanner.start_date = start_date
+                                    
+                                    let dateFormator = DateFormatter()
+                                    dateFormator.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                    
+                                    let date = dateFormator.date(from: start_date)
+                                    
+                                    dateFormator.dateFormat = "dd EEE"
+                                    objPlanner.dateWithWeek = dateFormator.string(from: date!)
+                                    
+                                    dateFormator.dateFormat = "yyyy-MM-dd"
+                                    objPlanner.date = dateFormator.string(from: date!)
+                                    
+                                    dateFormator.dateFormat = "HH:mm"
+                                    objPlanner.time = dateFormator.string(from: date!)
+                                    
+                                }
+                                if let comment = dict["comment"] as? String
+                                {
+                                    objPlanner.comment = comment
+                                }
+                                if let state = dict["state"] as? String
+                                {
+                                    objPlanner.state = state
+                                }
+                                
+                                let arrTemp = arrData.filter({ (objFilterPlanner) -> Bool in
+                                    
+                                    if objFilterPlanner.date == objPlanner.date
+                                    {
+                                        return true
+                                    }
+                                    return false
+                                })
+                                
+                                if !(arrTemp.count > 0)
+                                {
+                                    objPlanner.isShowDate = true
+                                }
+                                
+                                arrData.append(objPlanner)
+                            }
+                            successMessage (arrData)
+                            
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                    }
+                    else
+                    {
+                        failureMessage(self.SERVER_ERROR)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    
     func getIonizedBlogsWith(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
@@ -2951,7 +3055,16 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3"
+        let dataLayer = CoreDataAccessLayer()
+        let arrBlogs = dataLayer.getDraftBlogsFromLocalDB()
+        if arrBlogs.count == 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3)"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3&from=\(GetIONUserDefaults.getDraftLastSyncTime())"
+        }
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -2960,6 +3073,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setDraftLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
@@ -3149,7 +3263,18 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1"
+        let dataLayer = CoreDataAccessLayer()
+        let arrPublish = dataLayer.getAllPublishFromLocalDB()
+        if arrPublish.count == 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1&from=\(GetIONUserDefaults.getPublishLastSyncTime())"
+
+        }
+        
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -3158,6 +3283,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setPublishLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
@@ -3228,7 +3354,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = tags as [AnyObject]
+                            bo.tags =  tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3347,7 +3473,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0&from=\(GetIONUserDefaults.getOnlineLastSyncTime())"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -3356,6 +3482,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setOnlineLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
