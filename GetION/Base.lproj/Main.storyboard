@@ -670,6 +670,13 @@ Your simple text goes here Analytics Title</string>
                                             <constraint firstAttribute="height" constant="20" id="xKK-z6-JZs"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRt-QH-Aoz">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="178.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="btnPublishedClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="Zfe-9i-hDg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -677,13 +684,17 @@ Your simple text goes here Analytics Title</string>
                                     <constraint firstItem="hJf-a5-JIe" firstAttribute="top" secondItem="0G7-n0-G2J" secondAttribute="bottom" constant="4" id="Afl-6N-6ba"/>
                                     <constraint firstAttribute="trailing" secondItem="3e4-Sr-i6m" secondAttribute="trailing" constant="18" id="EkT-UZ-lZs"/>
                                     <constraint firstAttribute="bottom" secondItem="3e4-Sr-i6m" secondAttribute="bottom" constant="10" id="G6Y-gA-AbT"/>
+                                    <constraint firstItem="VRt-QH-Aoz" firstAttribute="top" secondItem="w4K-ee-7gI" secondAttribute="top" id="HxG-7G-cBb"/>
                                     <constraint firstItem="hJf-a5-JIe" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="14" id="Kqd-Uf-X1V"/>
+                                    <constraint firstAttribute="bottom" secondItem="VRt-QH-Aoz" secondAttribute="bottom" id="LN7-vR-gf2"/>
                                     <constraint firstItem="zrH-aD-v7t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="20" symbolic="YES" id="TkP-V9-7mZ"/>
                                     <constraint firstItem="3e4-Sr-i6m" firstAttribute="top" secondItem="zrH-aD-v7t" secondAttribute="bottom" constant="10" id="VZs-36-idU"/>
                                     <constraint firstItem="3e4-Sr-i6m" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="18" id="d0y-8j-DJm"/>
                                     <constraint firstItem="zrH-aD-v7t" firstAttribute="top" secondItem="w4K-ee-7gI" secondAttribute="top" constant="10" id="nAn-ww-ig5"/>
                                     <constraint firstAttribute="trailing" secondItem="zrH-aD-v7t" secondAttribute="trailing" id="qkj-mh-qN5"/>
+                                    <constraint firstAttribute="trailing" secondItem="VRt-QH-Aoz" secondAttribute="trailing" id="rUc-8j-AGM"/>
                                     <constraint firstItem="0G7-n0-G2J" firstAttribute="centerX" secondItem="hJf-a5-JIe" secondAttribute="centerX" id="sXL-ov-Dwg"/>
+                                    <constraint firstItem="VRt-QH-Aoz" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" id="wnC-1d-fpi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZX-ID-M30">
@@ -728,6 +739,13 @@ Your simple text goes here Analytics Title</string>
                                                     <constraint firstAttribute="height" constant="20" id="yIk-Vh-SRd"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mw-yr-3N8">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="178.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="btnVisitClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="ftv-95-tWb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -735,11 +753,15 @@ Your simple text goes here Analytics Title</string>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="14" id="35B-B4-JrL"/>
                                             <constraint firstItem="oOS-c4-cZw" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="10" id="4Sb-6k-xEF"/>
                                             <constraint firstAttribute="trailing" secondItem="oOS-c4-cZw" secondAttribute="trailing" constant="10.33" id="6p5-C7-VfI"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Mw-yr-3N8" secondAttribute="trailing" id="7aP-ng-wBq"/>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="bottom" secondItem="W3C-O4-iAK" secondAttribute="bottom" id="HPU-C7-9wt"/>
                                             <constraint firstItem="p3D-rl-d3G" firstAttribute="centerX" secondItem="xQR-7N-Zib" secondAttribute="centerX" id="Qcu-pZ-NA8"/>
                                             <constraint firstAttribute="trailing" secondItem="W3C-O4-iAK" secondAttribute="trailing" id="XIo-3t-uhH"/>
                                             <constraint firstItem="W3C-O4-iAK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="20" symbolic="YES" id="Zyx-eD-YT7"/>
+                                            <constraint firstItem="7Mw-yr-3N8" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" id="bjV-7b-NBO"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Mw-yr-3N8" secondAttribute="bottom" id="dPN-jD-rOr"/>
                                             <constraint firstAttribute="bottom" secondItem="oOS-c4-cZw" secondAttribute="bottom" constant="7.6699999999999999" id="djk-ey-tWf"/>
+                                            <constraint firstItem="7Mw-yr-3N8" firstAttribute="top" secondItem="EDh-oH-vGM" secondAttribute="top" id="ghK-xT-IQc"/>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="top" secondItem="p3D-rl-d3G" secondAttribute="bottom" constant="4" id="qEI-jb-i9R"/>
                                             <constraint firstItem="W3C-O4-iAK" firstAttribute="top" secondItem="EDh-oH-vGM" secondAttribute="top" constant="10" id="yZW-nL-w1q"/>
                                         </constraints>
@@ -783,14 +805,25 @@ Your simple text goes here Analytics Title</string>
                                                     <constraint firstAttribute="width" constant="15" id="pAG-Bt-Dfz"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T87-dy-VSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="178.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="btnQueryClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="cHq-Km-Rra"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="bpj-vu-ZvQ" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" constant="10" id="1ko-kg-T4A"/>
+                                            <constraint firstAttribute="trailing" secondItem="T87-dy-VSt" secondAttribute="trailing" id="4am-BJ-jsN"/>
                                             <constraint firstAttribute="bottom" secondItem="bpj-vu-ZvQ" secondAttribute="bottom" constant="7.6699999999999999" id="BT2-qq-oNm"/>
+                                            <constraint firstItem="T87-dy-VSt" firstAttribute="top" secondItem="gZ9-9k-snd" secondAttribute="top" id="CFb-GP-7VR"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" constant="14" id="DBQ-Y4-gU7"/>
                                             <constraint firstAttribute="trailing" secondItem="bpj-vu-ZvQ" secondAttribute="trailing" constant="9.6699999999999999" id="Ha1-x4-Gmg"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="bottom" secondItem="saU-eB-C53" secondAttribute="bottom" id="IET-sw-NgF"/>
+                                            <constraint firstItem="T87-dy-VSt" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" id="K2X-TE-A27"/>
+                                            <constraint firstAttribute="bottom" secondItem="T87-dy-VSt" secondAttribute="bottom" id="KRT-Yh-8Fx"/>
                                             <constraint firstItem="bpj-vu-ZvQ" firstAttribute="top" secondItem="saU-eB-C53" secondAttribute="bottom" constant="10" id="PhX-mj-mWf"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="top" secondItem="Naq-OZ-sC6" secondAttribute="bottom" constant="4" id="VIz-WY-fMQ"/>
                                             <constraint firstItem="Naq-OZ-sC6" firstAttribute="centerX" secondItem="Be3-dk-PyW" secondAttribute="centerX" id="eeC-Pu-ueb"/>
@@ -989,6 +1022,9 @@ Your simple text goes here Analytics Title</string>
                     <connections>
                         <outlet property="btnActionPoints" destination="PCf-iA-iBJ" id="3fy-Fm-MmM"/>
                         <outlet property="btnHsptlFeeds" destination="1QY-Sa-qZA" id="Xo6-aY-dds"/>
+                        <outlet property="btnPublished" destination="VRt-QH-Aoz" id="y35-L5-Epd"/>
+                        <outlet property="btnQuery" destination="T87-dy-VSt" id="N40-k5-zjG"/>
+                        <outlet property="btnVisits" destination="7Mw-yr-3N8" id="QN6-ax-3QD"/>
                         <outlet property="constImgVwTabLeading" destination="pLa-Ef-cZw" id="Bmy-wR-XeD"/>
                         <outlet property="imgVwTab" destination="i3p-Zt-PNo" id="4zC-w9-lj0"/>
                         <outlet property="lblPublishCount" destination="zrH-aD-v7t" id="8x4-6b-Oa5"/>
@@ -6205,7 +6241,7 @@ Please enter your Email-Id below :</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jm-uN-Kch">
-                                        <rect key="frame" x="10" y="0.0" width="355" height="50"/>
+                                        <rect key="frame" x="10" y="5" width="355" height="40"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -6214,8 +6250,8 @@ Please enter your Email-Id below :</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="0Jm-uN-Kch" firstAttribute="leading" secondItem="FEx-Vo-Dkd" secondAttribute="leading" constant="10" id="DuV-v7-ABe"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Jm-uN-Kch" secondAttribute="bottom" id="LGJ-W0-orJ"/>
-                                    <constraint firstItem="0Jm-uN-Kch" firstAttribute="top" secondItem="FEx-Vo-Dkd" secondAttribute="top" id="csQ-Dj-ZaF"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Jm-uN-Kch" secondAttribute="bottom" constant="5" id="LGJ-W0-orJ"/>
+                                    <constraint firstItem="0Jm-uN-Kch" firstAttribute="top" secondItem="FEx-Vo-Dkd" secondAttribute="top" constant="5" id="csQ-Dj-ZaF"/>
                                     <constraint firstAttribute="height" constant="50" id="pqd-gN-d5l"/>
                                     <constraint firstAttribute="trailing" secondItem="0Jm-uN-Kch" secondAttribute="trailing" constant="10" id="xQd-AP-v5f"/>
                                 </constraints>

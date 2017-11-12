@@ -33,7 +33,48 @@ class QueryReplyViewController: BaseViewController {
     var categoriesSelectionView: CategoriesPopUp!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let strTitle = "\(queryBO.poster_name),\(queryBO.age),\(queryBO.gender)"
+        var strTitle = ""
+        if queryBO.poster_name != ""
+        {
+            strTitle = queryBO.poster_name
+            if queryBO.age != ""
+            {
+                strTitle = strTitle + "," + queryBO.age
+
+                if queryBO.gender != ""
+                {
+                    strTitle = strTitle + "," + queryBO.gender
+                }
+            }
+            else
+            {
+                if queryBO.gender != ""
+                {
+                    strTitle = strTitle + "," + queryBO.gender
+                }
+            }
+        }
+        else
+        {
+            if queryBO.age != ""
+            {
+                strTitle = queryBO.age
+                
+                if queryBO.gender != ""
+                {
+                    strTitle = strTitle + "," + queryBO.gender
+                }
+            }
+            else
+            {
+                if queryBO.gender != ""
+                {
+                    strTitle = queryBO.gender
+                }
+            }
+
+
+        }
         self.designQueriesNavigationBarWith(strTitle: strTitle)
         getQueryDetails()
         lblMessage.text = queryBO.content

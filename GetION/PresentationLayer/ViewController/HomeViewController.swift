@@ -24,12 +24,56 @@ class HomeViewController: BaseViewController {
     
     var arrBlogs = [BlogBO]()
     var arrFeeds = [FeedsBO]()
+    var timer : Timer!
+
+    @IBOutlet weak var btnPublished: UIButton!
+    @IBOutlet weak var btnVisits: UIButton!
+    @IBOutlet weak var btnQuery: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.btnActionPointsClicked(self.btnActionPoints)
         designTabBar()
 
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeDown)
+
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                if self.btnHsptlFeeds.isSelected
+                {
+                    self.btnActionPointsClicked(self.btnActionPoints)
+                }
+                else
+                {
+                    print("No more tabs on the left")
+                }
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                if self.btnActionPoints.isSelected
+                {
+                    self.btnHsptlFeedsClicked(self.btnHsptlFeeds)
+                }
+                else
+                {
+                    print("No more tabs on the right")
+                }
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +84,16 @@ class HomeViewController: BaseViewController {
         self.getIonisedReports()
         self.getBlogs()
         self.getFeeds()
+    }
+    
+    @IBAction func btnPublishedClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnPublish)
+    }
+    @IBAction func btnVisitClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnVisit)
+    }
+    @IBAction func btnQueryClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnQueries)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -163,7 +217,30 @@ class HomeViewController: BaseViewController {
             Xpos = Xpos + imgBlog.frame.size.width
         }
         scrlVwBlog.contentSize = CGSize(width: CGFloat(arrBlogs.count) * scrlVwBlog.frame.size.width, height: scrlVwBlog.frame.size.height)
+        
+        if timer == nil
+        {
+            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollingTimer), userInfo: nil, repeats: true)
+        }
+
     }
+   @objc func scrollingTimer()
+    {
+        let contentOffset : CGFloat = scrlVwBlog.contentOffset.x
+        
+        let nextPage : Int = Int((contentOffset/scrlVwBlog.frame.width) + 1)
+        
+        if nextPage != arrBlogs.count
+        {
+            scrlVwBlog.setContentOffset(CGPoint(x: CGFloat(nextPage) * scrlVwBlog.frame.width, y: 0), animated: true)
+        }
+        else
+        {
+
+            scrlVwBlog.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
+
     @IBAction func btnHsptlFeedsClicked(_ sender: UIButton) {
         sender.isSelected = true
         btnActionPoints.isSelected = false
@@ -185,6 +262,17 @@ class HomeViewController: BaseViewController {
         }
 
     }
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        if timer != nil
+        {
+            timer.invalidate()
+            timer = nil
+            
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -279,12 +367,42 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
             let bo = arrFeeds[indexPath.row]
             if bo.action == "Reply"
             {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+                let queryBO = QueriesBO()
+                queryBO.id = bo.context_id
+                queryBO.content = bo.content
+                vc.queryBO = queryBO
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             else if bo.action == "Congratulated"
             {
             }
             else if bo.action == "View"
             {
+                let arrContect = bo.context.split(separator: ".")
+                if arrContect[0] == "visits"
+                {
+                    let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
+                    let visitBO = VisitsBO()
+                    visitBO.visitId = bo.context_id
+                    detailVisitVC.objVisits = visitBO
+                    self.navigationController?.pushViewController(detailVisitVC, animated: true)
+                }
+                else if arrContect[0] == "blog"
+                {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else if arrContect[0] == "queries"
+                {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+                    let queryBO = QueriesBO()
+                    queryBO.id = bo.context_id
+                    vc.queryBO = queryBO
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+
             }
             else
             {
