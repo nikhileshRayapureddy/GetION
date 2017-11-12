@@ -176,7 +176,7 @@ class LeadAddAndUpdateViewController: BaseViewController
             
         }) { (error) in
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Alert!", message: "Unable to upload image.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Alert!", message: "Unable to fetch data.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }

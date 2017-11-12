@@ -175,7 +175,45 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
             
         }
         self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1]
+        
+
+        
     }
+    
+    @objc func btnDoneClicked(_ sender: UIButton)
+    {
+        
+    }
+    
+    func designNavigationBarWithBackAndDone()
+    {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.barTintColor = THEME_COLOR
+        self.navigationItem.hidesBackButton = true
+        
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+        let btnBack = UIButton(type: UIButtonType.custom)
+        btnBack.frame = CGRect(x: 0, y: 0  , width: 200 , height: 30)
+        btnBack.setImage(#imageLiteral(resourceName: "back_white"), for: UIControlState.normal)
+        btnBack.addTarget(self, action: #selector(self.btnBackClicked(sender:)), for: UIControlEvents.touchUpInside)
+        btnBack.contentHorizontalAlignment = .left
+        btnBack.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnBack)
+
+        self.navigationItem.leftBarButtonItems = [negativeSpacer,leftBarButtonItem1]
+        let btnDone = UIButton(type: UIButtonType.custom)
+        btnDone.frame = CGRect(x: 0, y: 0  , width: 60 , height: 30)
+        btnDone.addTarget(self, action: #selector(btnDoneClicked(_:)), for: .touchUpInside)
+        btnDone.setTitle("Done", for: .normal)
+        btnDone.contentHorizontalAlignment = .left
+        btnDone.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        let rightBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnDone)
+        self.navigationItem.rightBarButtonItems = [rightBarButtonItem1]
+
+    }
+    
     @objc func btnBackClicked(sender:UIButton)
     {
         self.navigationController?.popViewController(animated: true)

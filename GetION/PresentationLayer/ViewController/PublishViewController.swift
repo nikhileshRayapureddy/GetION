@@ -20,7 +20,7 @@ class PublishViewController: BaseViewController {
     @IBOutlet weak var btnOnline: UIButton!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var selectedImageView: UIImageView!
-    
+    var refreshControl = UIRefreshControl()
     var selectedIndex = 1
     var viewPublishIonizePopUp: PublishIonizePopUp!
     var arrGroups = [TagSuggestionBO]()
@@ -39,9 +39,65 @@ class PublishViewController: BaseViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeDown.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeDown)
+        
+        tblView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
 
     }
     
+    @objc func refreshData()
+    {
+        let layer = ServiceLayer()
+        
+        if selectedIndex == 1
+        {
+            layer.getAllDraftsBlog(successMessage: { (response) in
+                DispatchQueue.main.async {
+                    self.btnDraftsClicked(self.btnDrafts)
+                    self.refreshControl.endRefreshing()
+
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    self.btnDraftsClicked(self.btnDrafts)
+                    self.refreshControl.endRefreshing()
+
+                }
+            })
+        }
+        else if selectedIndex == 2
+        {
+            layer.getAllPublishBlog(successMessage: { (response) in
+                DispatchQueue.main.async {
+                    self.btnPublishedClicked(self.btnPublish)
+                    self.refreshControl.endRefreshing()
+
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                  self.btnPublishedClicked(self.btnPublish)
+                    self.refreshControl.endRefreshing()
+
+                }
+            })
+        }
+        else
+        {
+            layer.getAllOnlineBlog(successMessage: { (response) in
+                DispatchQueue.main.async {
+                    self.btnOnlineClicked(self.btnOnline)
+                    self.refreshControl.endRefreshing()
+
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    self.btnOnlineClicked(self.btnOnline)
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getAllData()
@@ -181,12 +237,12 @@ class PublishViewController: BaseViewController {
         tblView.reloadData()
     }
     
-    func showIonizeOrPublishPopUP(isIonize: Bool, Blog : BlogBO)
+    func showIonizeOrPublishPopUP(isIonize: Bool, arrTags : [TagSuggestionBO], andBlog Blog: BlogBO)
     {
         if let view = Bundle.main.loadNibNamed("PublishIonizePopUp", owner: nil, options: nil)![0] as? PublishIonizePopUp
         {
-            view.arrGroups = arrGroups
             view.isIonize = isIonize
+            view.arrtagSuggestions = arrTags
             view.objBlog = Blog
             viewPublishIonizePopUp = view
             view.delegate = self
@@ -199,15 +255,31 @@ class PublishViewController: BaseViewController {
     @objc func showIonizePopUp(sender: UIButton)
     {
         let blog = arrBlogs[sender.tag - 800]
-
-        showIonizeOrPublishPopUP(isIonize: true, Blog: blog)
+        showIonizeOrPublishPopUP(isIonize: true, arrTags: convertTagsToTagSuggestionsBO(blog), andBlog: blog)
+        
+    }
+    
+    func convertTagsToTagSuggestionsBO(_ blog: BlogBO) -> [TagSuggestionBO]
+    {
+        var arrTagSuggestions = [TagSuggestionBO]()
+        for dict in blog.tags
+        {
+            let tagBO = TagSuggestionBO()
+            tagBO.id = dict["id"] as! String
+            tagBO.title = dict["title"] as! String
+            tagBO.created = dict["created"] as! String
+            arrTagSuggestions.append(tagBO)
+        }
+        
+        return arrTagSuggestions
     }
     
     @objc func showPublishPopUp(sender: UIButton)
     {
         let blog = arrBlogs[sender.tag - 500]
         
-        showIonizeOrPublishPopUP(isIonize: false, Blog: blog)
+        showIonizeOrPublishPopUP(isIonize: false, arrTags: convertTagsToTagSuggestionsBO(blog), andBlog: blog)
+        
     }
     
     @objc func showAddInputsView()
@@ -351,6 +423,60 @@ extension PublishViewController: PublishIonizePopUp_Delegate
     }
     
     func ionizeOrPublishClicked() {
+        if viewPublishIonizePopUp.isIonize == true
+        {
+            app_delegate.showLoader(message: "Refreshing...")
+            let layer = ServiceLayer()
+            layer.getAllDraftsBlog(successMessage: { (response) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    self.btnDraftsClicked(self.btnDrafts)
+                }
+
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+            })
+        }
+        else
+        {
+            app_delegate.showLoader(message: "Refreshing...")
+            let layer = ServiceLayer()
+            layer.getAllPublishBlog(successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    self.btnPublishedClicked(self.btnPublish)
+                }
+            }, failureMessage: { (error) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                }
+                
+            })
+        }
         closePublishIonizePopup()
+    }
+    
+    func navigateToTagSelectionScreen(_ tags: [TagSuggestionBO]) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectSuggestionsViewController") as! SelectSuggestionsViewController
+        var tagsString = [String]()
+        for dict in tags
+        {
+            tagsString.append(dict.title)
+        }
+        vc.delegate = self
+        vc.tokenString = tagsString
+        vc.item = arrGroups
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension PublishViewController: SelectSuggestionsViewController_Delegate
+{
+    func selectedTags(_ arrSelected: [TagSuggestionBO]) {
+        viewPublishIonizePopUp.arrtagSuggestions = arrSelected
+        viewPublishIonizePopUp.resizeViews()
     }
 }

@@ -42,8 +42,6 @@
 		A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */; };
 		A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */; };
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
-		A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */; };
-		A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
 		A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */; };
@@ -143,6 +141,9 @@
 		CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */; };
 		CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */; };
 		CCF702A41FA8F137009AFB21 /* PublishDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */; };
+		CCFB46791FB8377400B4A057 /* Publish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */; };
+		CCFB467A1FB8377400B4A057 /* Publish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */; };
+		CCFB467C1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,8 +184,6 @@
 		A71FFEF11F91E6610082BAF8 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		A71FFF1A1F91E6AB0082BAF8 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
-		A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
 		A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupCustomView.swift; sourceTree = "<group>"; };
@@ -286,6 +285,9 @@
 		CCF7029F1FA8DE44009AFB21 /* PublishCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCustomCell.swift; sourceTree = "<group>"; };
 		CCF702A11FA8E5B4009AFB21 /* OnlineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineCustomCell.swift; sourceTree = "<group>"; };
 		CCF702A31FA8F137009AFB21 /* PublishDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailsViewController.swift; sourceTree = "<group>"; };
+		CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSuggestionsViewController.swift; sourceTree = "<group>"; };
 		DCA925316D5D2B130F63925C /* Pods-GetION.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -489,8 +491,8 @@
 		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
-				A7253C3C1FAE00E000EC19DA /* Publish+CoreDataClass.swift */,
-				A7253C3D1FAE00E000EC19DA /* Publish+CoreDataProperties.swift */,
+				CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */,
+				CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */,
 				A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */,
 				A77F9C9E1FAB25AF0032BA6A /* Lead+CoreDataProperties.swift */,
 			);
@@ -578,6 +580,7 @@
 				CC4238C61FADCFA900480A33 /* AddInputsViewController.swift */,
 				A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */,
 				A770CB211FB4CC98005D9131 /* ContactsViewController.swift */,
+				CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -804,8 +807,8 @@
 				CC4238C91FADD7B800480A33 /* InputCategoriesCustomCell.swift in Sources */,
 				CC5187F91FB0B4D900B263AE /* ShowGroupsView.swift in Sources */,
 				A71FFEFB1F91E6610082BAF8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				CCFB467C1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift in Sources */,
 				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
-				A7253C3E1FAE00E000EC19DA /* Publish+CoreDataClass.swift in Sources */,
 				A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */,
 				CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
@@ -842,6 +845,7 @@
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
 				CCB0E2B91F964963004DD3A8 /* QueryProfilePopUp.swift in Sources */,
 				A759B0DF1FA8DD6F00A8CC26 /* FloatLabelTextView.swift in Sources */,
+				CCFB46791FB8377400B4A057 /* Publish+CoreDataClass.swift in Sources */,
 				A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */,
 				CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */,
 				A7D289611FA60E6C005E7CC3 /* PromoSuccessCustomView.swift in Sources */,
@@ -878,7 +882,6 @@
 				CCB0E2B01F964905004DD3A8 /* QueriesCustomCell.swift in Sources */,
 				A7D5861C1FA4B2ED00B1BD4A /* TimeSlotsBO.swift in Sources */,
 				A7164CA41F90F123003DB84D /* GetIONUserDefaults.swift in Sources */,
-				A7253C3F1FAE00E000EC19DA /* Publish+CoreDataProperties.swift in Sources */,
 				A7C60D211F90ABD400DCDFFD /* QueriesViewController.swift in Sources */,
 				A71FFEFE1F91E6610082BAF8 /* IQPreviousNextView.swift in Sources */,
 				A71FFF1B1F91E6AC0082BAF8 /* ServiceLayer.swift in Sources */,
@@ -898,6 +901,7 @@
 				A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */,
 				A71FFF171F91E6610082BAF8 /* HttpRequest.swift in Sources */,
 				A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */,
+				CCFB467A1FB8377400B4A057 /* Publish+CoreDataProperties.swift in Sources */,
 				CC4238C71FADCFA900480A33 /* AddInputsViewController.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,

@@ -19,6 +19,9 @@ let Auth = "Auth"
 let Publishid = "Publishid"
 let TeamId = "TeamId"
 let CatId = "CatId"
+let PUBLISHLASTSYNCTIME = "PUBLISHLASTSYNCTIME"
+let DRAFTLASTSYNCTIME = "DRAFTLASTSYNCTIME"
+let ONLINELASTSYNCTIME = "ONLINELASTSYNCTIME"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -225,6 +228,73 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
+    
+    class func getPublishLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: PUBLISHLASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: PUBLISHLASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setPublishLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: PUBLISHLASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func getDraftLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: DRAFTLASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: DRAFTLASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setDraftLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: DRAFTLASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func getOnlineLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: ONLINELASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: ONLINELASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setOnlineLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: ONLINELASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
     class func setAuth (object : String)
     {
         UserDefaults.standard.set(object, forKey: Auth)

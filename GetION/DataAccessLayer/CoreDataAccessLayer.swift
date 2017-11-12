@@ -223,6 +223,7 @@ class CoreDataAccessLayer: NSObject {
         blogItem.postId = tmpItem.postId
         blogItem.isVoted = Int64(tmpItem.isVoted)
         blogItem.status = tmpItem.status
+        blogItem.tags = tmpItem.tags as NSObject
         do {
             try managedObjectContext.save()
             
@@ -466,6 +467,7 @@ class CoreDataAccessLayer: NSObject {
             blogItem.postId = tmpItem.postId!
             blogItem.isVoted = Int(tmpItem.isVoted)
             blogItem.status = tmpItem.status!
+            blogItem.tags = tmpItem.tags as! [AnyObject]
             arrblogItems.append(blogItem)
         }
         return arrblogItems
