@@ -355,7 +355,7 @@ class ServiceLayer: NSObject {
                                 }
                                 if let tags = blog["tags"] as? [[String:AnyObject]]
                                 {
-                                    bo.tags = "" // kiran tags as [AnyObject]
+                                    bo.tags = tags as [AnyObject]
                                 }
                                 if let rating = blog["rating"] as? String
                                 {
@@ -1682,7 +1682,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog!["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = "" // kiran tags as [AnyObject]
+                            bo.tags = tags as [AnyObject]
                         }
                         if let rating = blog!["rating"] as? String
                         {
@@ -1910,7 +1910,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = "" // kiran tags as [AnyObject]
+                            bo.tags = tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -2951,7 +2951,16 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3"
+        let dataLayer = CoreDataAccessLayer()
+        let arrBlogs = dataLayer.getDraftBlogsFromLocalDB()
+        if arrBlogs.count == 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3)"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=3&from=\(GetIONUserDefaults.getDraftLastSyncTime())"
+        }
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -2960,6 +2969,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setDraftLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
@@ -3030,7 +3040,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = "" // kiran tags as [AnyObject]
+                            bo.tags = tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3149,7 +3159,18 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1"
+        let dataLayer = CoreDataAccessLayer()
+        let arrPublish = dataLayer.getAllPublishFromLocalDB()
+        if arrPublish.count == 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1&from=\(GetIONUserDefaults.getPublishLastSyncTime())"
+
+        }
+        
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -3158,6 +3179,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setPublishLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
@@ -3228,27 +3250,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            if tags.count > 0
-                            {
-                                var tagString = ""
-                                
-                                for dict in tags
-                                {
-                                    tagString = dict["title"] as! String
-                                    tagString.append(",")
-                                }
-                                
-                                if tagString != ""
-                                {
-                                    tagString.remove(at: tagString.index(before: tagString.endIndex))
-                                }
-                                bo.tags = tagString
-
-                            }
-                            else
-                            {
-                                bo.tags = ""
-                            }
+                            bo.tags =  tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {
@@ -3367,7 +3369,7 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0&from=\(GetIONUserDefaults.getOnlineLastSyncTime())"
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -3376,6 +3378,7 @@ class ServiceLayer: NSObject {
             }
             else
             {
+                GetIONUserDefaults.setOnlineLastSyncTime()
                 if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
                 {
                     var arrBlogs = [BlogBO]()
@@ -3446,7 +3449,7 @@ class ServiceLayer: NSObject {
                         }
                         if let tags = blog["tags"] as? [[String:AnyObject]]
                         {
-                            bo.tags = "" // kiran tags as [AnyObject]
+                            bo.tags = tags as [AnyObject]
                         }
                         if let rating = blog["rating"] as? String
                         {

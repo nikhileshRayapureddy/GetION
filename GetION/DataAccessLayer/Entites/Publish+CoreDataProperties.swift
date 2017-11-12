@@ -47,7 +47,7 @@ extension Publish {
     @NSManaged public var ratingTotal: String?
     @NSManaged public var state: Int64
     @NSManaged public var status: String?
-    @NSManaged public var tags: String?
+    @NSManaged public var tags: NSObject?
     @NSManaged public var textplain: String?
     @NSManaged public var title: String?
     @NSManaged public var updated_date: String?
