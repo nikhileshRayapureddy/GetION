@@ -32,6 +32,14 @@ class PublishViewController: BaseViewController {
         designTabBar()
         setSelectedButtonAtIndex(2)
         // Do any additional setup after loading the view.
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeDown)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +48,54 @@ class PublishViewController: BaseViewController {
         btnDraftsClicked(btnDrafts)
         getAllGroups()
     }
-    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                if selectedIndex == 1
+                {
+                    self.btnDraftsClicked(self.btnDrafts)
+                }
+                else if selectedIndex == 2
+                {
+                    self.btnDraftsClicked(self.btnDrafts)
+                }
+                else if selectedIndex == 3
+                {
+                    self.btnPublishedClicked(self.btnPublished)
+                }
+                else
+                {
+                    self.btnDraftsClicked(self.btnDrafts)
+                }
+                
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                if selectedIndex == 1
+                {
+                    self.btnPublishedClicked(self.btnPublished)
+                }
+                else if selectedIndex == 2
+                {
+                    self.btnOnlineClicked(self.btnOnline)
+                }
+                else if selectedIndex == 3
+                {
+                    self.btnOnlineClicked(self.btnOnline)
+                }
+                else
+                {
+                    self.btnOnlineClicked(self.btnOnline)
+                }
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
+    }
+
     func getAllGroups()
     {
         app_delegate.showLoader(message: "Loading...")

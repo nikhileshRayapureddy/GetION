@@ -30,6 +30,44 @@ class HomeViewController: BaseViewController {
         self.btnActionPointsClicked(self.btnActionPoints)
         designTabBar()
 
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeDown)
+
+    }
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                if self.btnHsptlFeeds.isSelected
+                {
+                    self.btnActionPointsClicked(self.btnActionPoints)
+                }
+                else
+                {
+                    print("No more tabs on the left")
+                }
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                if self.btnActionPoints.isSelected
+                {
+                    self.btnHsptlFeedsClicked(self.btnHsptlFeeds)
+                }
+                else
+                {
+                    print("No more tabs on the right")
+                }
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
