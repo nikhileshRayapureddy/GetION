@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="MarketingCalendarHeaderView" customClass="MarketingCalendarHeaderView" customModule="GetION" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="454"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Omj-zt-7sc" customClass="FSCalendar">
+                    <rect key="frame" x="30" y="0.0" width="315" height="470"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                            <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                            <color key="value" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
+                            <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                            <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ild-ae-5N0">
+                    <rect key="frame" x="0.0" y="0.0" width="30" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="9fe-gR-l21"/>
+                        <constraint firstAttribute="width" constant="30" id="PKR-yt-Y9u"/>
+                    </constraints>
+                    <state key="normal" image="laft_arrowGreen">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnPrevMonthAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xSa-U5-p0o"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w29-gR-GOY">
+                    <rect key="frame" x="340" y="0.0" width="30" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="IYK-tF-2Fo"/>
+                        <constraint firstAttribute="width" constant="31" id="nlq-pk-t1z"/>
+                    </constraints>
+                    <state key="normal" image="right_arrowGreen">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnNextMonthAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="qJw-Z9-8l9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Omj-zt-7sc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="AMH-Xg-5XG"/>
+                <constraint firstItem="Omj-zt-7sc" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="BhU-09-zq7"/>
+                <constraint firstItem="Ild-ae-5N0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Fh6-OV-RP5"/>
+                <constraint firstItem="Ild-ae-5N0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I3Q-WD-5hv"/>
+                <constraint firstItem="w29-gR-GOY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hFj-q4-gxz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w29-gR-GOY" secondAttribute="trailing" constant="4" id="hvr-LD-JgQ"/>
+                <constraint firstItem="Omj-zt-7sc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="jN3-Vb-j2t"/>
+                <constraint firstItem="Omj-zt-7sc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-30" id="rDW-vP-7Rv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="calendar" destination="Omj-zt-7sc" id="DpZ-C2-mOT"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="108.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="laft_arrowGreen" width="7" height="15"/>
+        <image name="right_arrowGreen" width="7" height="15"/>
+    </resources>
+</document>

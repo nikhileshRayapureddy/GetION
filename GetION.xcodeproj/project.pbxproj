@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1851B152BE2498C93FC7C4DB /* Pods_GetION.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E223C7B883D864793EF0EC /* Pods_GetION.framework */; };
+		2CB53D6D1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */; };
+		2CB53D6F1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */; };
+		2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */; };
 		A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707DE231FA1CF1100320892 /* PromotionsBO.swift */; };
 		A707E3DD1FA25A6D00184A42 /* UpdateVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707E3DC1FA25A6D00184A42 /* UpdateVisitsViewController.swift */; };
 		A715B8F51FA0FD6E007A3361 /* VisitsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B8F41FA0FD6E007A3361 /* VisitsBO.swift */; };
@@ -144,6 +147,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingCalendarHeaderView.swift; sourceTree = "<group>"; };
+		2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketingCalendarHeaderView.xib; sourceTree = "<group>"; };
+		2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerBO.swift; sourceTree = "<group>"; };
 		66E223C7B883D864793EF0EC /* Pods_GetION.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetION.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5B2FCD02393BCD5256FDFF /* Pods-GetION.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetION.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetION/Pods-GetION.debug.xcconfig"; sourceTree = "<group>"; };
 		A707DE231FA1CF1100320892 /* PromotionsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsBO.swift; sourceTree = "<group>"; };
@@ -457,6 +463,7 @@
 				A7D5861B1FA4B2ED00B1BD4A /* TimeSlotsBO.swift */,
 				A73F00621FAA06C200824BC8 /* LeadsBO.swift */,
 				CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */,
+				2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -630,6 +637,8 @@
 				A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */,
 				CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */,
 				CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */,
+				2CB53D6C1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift */,
+				2CB53D6E1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -698,6 +707,7 @@
 			files = (
 				A736CEC81FAF4D91007C2391 /* SelectGroupCustomView.xib in Resources */,
 				CCF11F481FAB84C00056C367 /* PublishIonizePopUp.xib in Resources */,
+				2CB53D6F1FB8297E00C2BE28 /* MarketingCalendarHeaderView.xib in Resources */,
 				A7EAF6BC1F9E727800CB6622 /* PromoCustomCell.xib in Resources */,
 				A7164CB01F90FA34003DB84D /* Myriad_Pro_Semibold.ttf in Resources */,
 				A7DFFACB1F8F608D00208FD9 /* LaunchScreen.storyboard in Resources */,
@@ -804,6 +814,7 @@
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
+				2CB53D6D1FB8296A00C2BE28 /* MarketingCalendarHeaderView.swift in Sources */,
 				A7FB4D4D1FA20C8C00CDE219 /* KSTokenView.swift in Sources */,
 				A7164CA81F90F1F2003DB84D /* ForgotPasswordViewController.swift in Sources */,
 				A7D586161FA4880D00B1BD4A /* SelectGroupsViewController.swift in Sources */,
@@ -826,6 +837,7 @@
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
 				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
+				2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
 				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,

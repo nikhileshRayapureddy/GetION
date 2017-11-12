@@ -729,6 +729,13 @@ Your simple text goes here Analytics Title</string>
                                             <constraint firstAttribute="height" constant="20" id="xKK-z6-JZs"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRt-QH-Aoz">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="178.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="btnPublishedClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="Zfe-9i-hDg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -736,13 +743,17 @@ Your simple text goes here Analytics Title</string>
                                     <constraint firstItem="hJf-a5-JIe" firstAttribute="top" secondItem="0G7-n0-G2J" secondAttribute="bottom" constant="4" id="Afl-6N-6ba"/>
                                     <constraint firstAttribute="trailing" secondItem="3e4-Sr-i6m" secondAttribute="trailing" constant="18" id="EkT-UZ-lZs"/>
                                     <constraint firstAttribute="bottom" secondItem="3e4-Sr-i6m" secondAttribute="bottom" constant="10" id="G6Y-gA-AbT"/>
+                                    <constraint firstItem="VRt-QH-Aoz" firstAttribute="top" secondItem="w4K-ee-7gI" secondAttribute="top" id="HxG-7G-cBb"/>
                                     <constraint firstItem="hJf-a5-JIe" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="14" id="Kqd-Uf-X1V"/>
+                                    <constraint firstAttribute="bottom" secondItem="VRt-QH-Aoz" secondAttribute="bottom" id="LN7-vR-gf2"/>
                                     <constraint firstItem="zrH-aD-v7t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="20" symbolic="YES" id="TkP-V9-7mZ"/>
                                     <constraint firstItem="3e4-Sr-i6m" firstAttribute="top" secondItem="zrH-aD-v7t" secondAttribute="bottom" constant="10" id="VZs-36-idU"/>
                                     <constraint firstItem="3e4-Sr-i6m" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" constant="18" id="d0y-8j-DJm"/>
                                     <constraint firstItem="zrH-aD-v7t" firstAttribute="top" secondItem="w4K-ee-7gI" secondAttribute="top" constant="10" id="nAn-ww-ig5"/>
                                     <constraint firstAttribute="trailing" secondItem="zrH-aD-v7t" secondAttribute="trailing" id="qkj-mh-qN5"/>
+                                    <constraint firstAttribute="trailing" secondItem="VRt-QH-Aoz" secondAttribute="trailing" id="rUc-8j-AGM"/>
                                     <constraint firstItem="0G7-n0-G2J" firstAttribute="centerX" secondItem="hJf-a5-JIe" secondAttribute="centerX" id="sXL-ov-Dwg"/>
+                                    <constraint firstItem="VRt-QH-Aoz" firstAttribute="leading" secondItem="w4K-ee-7gI" secondAttribute="leading" id="wnC-1d-fpi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZX-ID-M30">
@@ -787,6 +798,13 @@ Your simple text goes here Analytics Title</string>
                                                     <constraint firstAttribute="height" constant="20" id="yIk-Vh-SRd"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mw-yr-3N8">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="178.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="btnVisitClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="ftv-95-tWb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -794,11 +812,15 @@ Your simple text goes here Analytics Title</string>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="14" id="35B-B4-JrL"/>
                                             <constraint firstItem="oOS-c4-cZw" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="10" id="4Sb-6k-xEF"/>
                                             <constraint firstAttribute="trailing" secondItem="oOS-c4-cZw" secondAttribute="trailing" constant="10.33" id="6p5-C7-VfI"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Mw-yr-3N8" secondAttribute="trailing" id="7aP-ng-wBq"/>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="bottom" secondItem="W3C-O4-iAK" secondAttribute="bottom" id="HPU-C7-9wt"/>
                                             <constraint firstItem="p3D-rl-d3G" firstAttribute="centerX" secondItem="xQR-7N-Zib" secondAttribute="centerX" id="Qcu-pZ-NA8"/>
                                             <constraint firstAttribute="trailing" secondItem="W3C-O4-iAK" secondAttribute="trailing" id="XIo-3t-uhH"/>
                                             <constraint firstItem="W3C-O4-iAK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EDh-oH-vGM" secondAttribute="leading" constant="20" symbolic="YES" id="Zyx-eD-YT7"/>
+                                            <constraint firstItem="7Mw-yr-3N8" firstAttribute="leading" secondItem="EDh-oH-vGM" secondAttribute="leading" id="bjV-7b-NBO"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Mw-yr-3N8" secondAttribute="bottom" id="dPN-jD-rOr"/>
                                             <constraint firstAttribute="bottom" secondItem="oOS-c4-cZw" secondAttribute="bottom" constant="7.6699999999999999" id="djk-ey-tWf"/>
+                                            <constraint firstItem="7Mw-yr-3N8" firstAttribute="top" secondItem="EDh-oH-vGM" secondAttribute="top" id="ghK-xT-IQc"/>
                                             <constraint firstItem="xQR-7N-Zib" firstAttribute="top" secondItem="p3D-rl-d3G" secondAttribute="bottom" constant="4" id="qEI-jb-i9R"/>
                                             <constraint firstItem="W3C-O4-iAK" firstAttribute="top" secondItem="EDh-oH-vGM" secondAttribute="top" constant="10" id="yZW-nL-w1q"/>
                                         </constraints>
@@ -842,14 +864,25 @@ Your simple text goes here Analytics Title</string>
                                                     <constraint firstAttribute="width" constant="15" id="pAG-Bt-Dfz"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T87-dy-VSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="178.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="btnQueryClicked:" destination="0wF-fB-vRi" eventType="touchUpInside" id="cHq-Km-Rra"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="bpj-vu-ZvQ" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" constant="10" id="1ko-kg-T4A"/>
+                                            <constraint firstAttribute="trailing" secondItem="T87-dy-VSt" secondAttribute="trailing" id="4am-BJ-jsN"/>
                                             <constraint firstAttribute="bottom" secondItem="bpj-vu-ZvQ" secondAttribute="bottom" constant="7.6699999999999999" id="BT2-qq-oNm"/>
+                                            <constraint firstItem="T87-dy-VSt" firstAttribute="top" secondItem="gZ9-9k-snd" secondAttribute="top" id="CFb-GP-7VR"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" constant="14" id="DBQ-Y4-gU7"/>
                                             <constraint firstAttribute="trailing" secondItem="bpj-vu-ZvQ" secondAttribute="trailing" constant="9.6699999999999999" id="Ha1-x4-Gmg"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="bottom" secondItem="saU-eB-C53" secondAttribute="bottom" id="IET-sw-NgF"/>
+                                            <constraint firstItem="T87-dy-VSt" firstAttribute="leading" secondItem="gZ9-9k-snd" secondAttribute="leading" id="K2X-TE-A27"/>
+                                            <constraint firstAttribute="bottom" secondItem="T87-dy-VSt" secondAttribute="bottom" id="KRT-Yh-8Fx"/>
                                             <constraint firstItem="bpj-vu-ZvQ" firstAttribute="top" secondItem="saU-eB-C53" secondAttribute="bottom" constant="10" id="PhX-mj-mWf"/>
                                             <constraint firstItem="Be3-dk-PyW" firstAttribute="top" secondItem="Naq-OZ-sC6" secondAttribute="bottom" constant="4" id="VIz-WY-fMQ"/>
                                             <constraint firstItem="Naq-OZ-sC6" firstAttribute="centerX" secondItem="Be3-dk-PyW" secondAttribute="centerX" id="eeC-Pu-ueb"/>
@@ -1048,6 +1081,9 @@ Your simple text goes here Analytics Title</string>
                     <connections>
                         <outlet property="btnActionPoints" destination="PCf-iA-iBJ" id="3fy-Fm-MmM"/>
                         <outlet property="btnHsptlFeeds" destination="1QY-Sa-qZA" id="Xo6-aY-dds"/>
+                        <outlet property="btnPublished" destination="VRt-QH-Aoz" id="y35-L5-Epd"/>
+                        <outlet property="btnQuery" destination="T87-dy-VSt" id="N40-k5-zjG"/>
+                        <outlet property="btnVisits" destination="7Mw-yr-3N8" id="QN6-ax-3QD"/>
                         <outlet property="constImgVwTabLeading" destination="pLa-Ef-cZw" id="Bmy-wR-XeD"/>
                         <outlet property="imgVwTab" destination="i3p-Zt-PNo" id="4zC-w9-lj0"/>
                         <outlet property="lblPublishCount" destination="zrH-aD-v7t" id="8x4-6b-Oa5"/>
@@ -2736,121 +2772,161 @@ Please enter your Email-Id below :</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yM-W7-WFN" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="20" width="375" height="420"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="blc-8j-qtK">
+                                <rect key="frame" x="71" y="24" width="2" height="637"/>
+                                <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="7yM-W7-WFN" secondAttribute="height" multiplier="414:497" constant="24.989939637826978" id="FNz-g5-lb1"/>
+                                    <constraint firstAttribute="width" constant="2" id="WuQ-vg-N3E"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
-                                        <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="jCW-fH-RrE" id="8NB-0I-V1I"/>
-                                    <outlet property="delegate" destination="jCW-fH-RrE" id="vbE-oe-I3u"/>
-                                </connections>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-GX-bgB">
-                                <rect key="frame" x="0.0" y="450" width="375" height="217"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-GX-bgB">
+                                <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlannerDayEventTableViewCell" id="nso-8S-DvT" customClass="PlannerDayEventTableViewCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="92"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nso-8S-DvT" id="E88-98-mMY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-ml-BlP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nvL-PP-BzB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="10" height="80"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-9o-ZjF">
+                                                            <rect key="frame" x="89" y="10" width="278" height="90.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-yh-sa1">
+                                                                    <rect key="frame" x="224" y="29" width="42" height="21"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="42" id="3Lv-k7-4fb"/>
+                                                                        <constraint firstAttribute="height" constant="21" id="EEb-H7-Fxh"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="13"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <integer key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ionized" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-u3-nRJ">
+                                                                    <rect key="frame" x="224" y="51" width="42" height="13"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="42" id="L1B-Bb-oe5"/>
+                                                                        <constraint firstAttribute="height" constant="13" id="RMU-SW-zDb"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="10"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <integer key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum is simply Lorem ipsun is simply" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-8S-xhm">
+                                                                    <rect key="frame" x="8" y="10" width="208" height="70.5"/>
+                                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                                                                    <color key="textColor" red="0.72148895260000001" green="0.72161453959999999" blue="0.72148102520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="iv4-8S-xhm" secondAttribute="trailing" constant="62" id="6ez-Q7-hyv"/>
+                                                                <constraint firstItem="p5z-yh-sa1" firstAttribute="top" secondItem="kAh-9o-ZjF" secondAttribute="top" constant="29" id="N2O-hB-ig2"/>
+                                                                <constraint firstAttribute="trailing" secondItem="fbC-u3-nRJ" secondAttribute="trailing" constant="12" id="SD5-kd-Bc5"/>
+                                                                <constraint firstAttribute="trailing" secondItem="p5z-yh-sa1" secondAttribute="trailing" constant="12" id="an9-Vi-KJf"/>
+                                                                <constraint firstItem="iv4-8S-xhm" firstAttribute="top" secondItem="kAh-9o-ZjF" secondAttribute="top" constant="10" id="dDl-5M-5sN"/>
+                                                                <constraint firstAttribute="bottom" secondItem="iv4-8S-xhm" secondAttribute="bottom" constant="10" id="tUz-UI-1Kr"/>
+                                                                <constraint firstItem="fbC-u3-nRJ" firstAttribute="top" secondItem="p5z-yh-sa1" secondAttribute="bottom" constant="1" id="vt9-PS-pXF"/>
+                                                                <constraint firstItem="iv4-8S-xhm" firstAttribute="leading" secondItem="kAh-9o-ZjF" secondAttribute="leading" constant="8" id="zrH-hb-FXB"/>
+                                                            </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="am9-aE-9CC">
-                                                            <rect key="frame" x="25" y="0.0" width="49" height="80"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="19">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.82922881841659546" blue="0.81533104181289673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" metaFont="system" size="35"/>
-                                                                        <font key="NSOriginalFont" metaFont="system" size="30"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content=" ">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.82922881841659546" blue="0.81533104181289673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" metaFont="system" size="35"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                                <fragment content="wed">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.82922881841659546" blue="0.81533104181289673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" metaFont="system" size="14"/>
-                                                                        <font key="NSOriginalFont" metaFont="system" size="14"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum is simply Lorem ipsun is simply" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-8S-xhm">
-                                                            <rect key="frame" x="89" y="0.0" width="242" height="80"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
-                                                            <color key="textColor" red="0.72148895260000001" green="0.72161453959999999" blue="0.72148102520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-yh-sa1">
-                                                            <rect key="frame" x="349" y="29" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="13"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="8"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-u3-nRJ">
-                                                            <rect key="frame" x="393" y="30" width="17" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Oo-Af-oEO">
+                                                            <rect key="frame" x="0.0" y="1" width="89" height="68"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="am9-aE-9CC">
+                                                                    <rect key="frame" x="12" y="0.0" width="37" height="59"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="19">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <font key="NSFont" size="27" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSOriginalFont" metaFont="system" size="30"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                        <fragment content="  ">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                        <fragment content="wed">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <font key="NSFont" size="11" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="radio_deselcted" translatesAutoresizingMaskIntoConstraints="NO" id="2Wj-g5-9fS">
+                                                                    <rect key="frame" x="67" y="22" width="10" height="10"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5D-IE-eK0">
+                                                                    <rect key="frame" x="62" y="0.0" width="19" height="22"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="13"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="8"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="89" id="5a0-8w-HkV"/>
+                                                                <constraint firstAttribute="height" constant="68" id="b1G-GP-oDu"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="5Oo-Af-oEO" firstAttribute="leading" secondItem="FRU-ml-BlP" secondAttribute="leading" id="1Hg-cq-MSl"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iv4-8S-xhm" secondAttribute="trailing" constant="70" id="8co-6D-0iH"/>
+                                                        <constraint firstItem="kAh-9o-ZjF" firstAttribute="leading" secondItem="5Oo-Af-oEO" secondAttribute="trailing" id="IaB-Av-WJV"/>
+                                                        <constraint firstItem="5Oo-Af-oEO" firstAttribute="top" secondItem="FRU-ml-BlP" secondAttribute="top" constant="1" id="P1o-yM-4tc"/>
+                                                        <constraint firstItem="kAh-9o-ZjF" firstAttribute="top" secondItem="FRU-ml-BlP" secondAttribute="top" constant="10" id="Sd5-BU-TI2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="kAh-9o-ZjF" secondAttribute="bottom" constant="25" id="vrE-pX-00V"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="FRU-ml-BlP" secondAttribute="trailing" id="Xls-XL-0hW"/>
-                                                <constraint firstAttribute="bottom" secondItem="FRU-ml-BlP" secondAttribute="bottom" constant="11.666666666666671" id="hGQ-YN-dv8"/>
+                                                <constraint firstAttribute="bottom" secondItem="FRU-ml-BlP" secondAttribute="bottom" constant="-0.5" id="hGQ-YN-dv8"/>
                                                 <constraint firstItem="FRU-ml-BlP" firstAttribute="leading" secondItem="E88-98-mMY" secondAttribute="leading" id="rBA-mt-n30"/>
                                                 <constraint firstItem="FRU-ml-BlP" firstAttribute="top" secondItem="E88-98-mMY" secondAttribute="top" id="wty-Y5-gIc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="lblDate" destination="am9-aE-9CC" id="iU4-Ux-gf7"/>
+                                            <outlet property="lblStatus" destination="fbC-u3-nRJ" id="0Sd-uv-vro"/>
+                                            <outlet property="lblTime" destination="p5z-yh-sa1" id="4WH-DS-fsU"/>
+                                            <outlet property="lblTitle" destination="iv4-8S-xhm" id="H1s-5S-581"/>
+                                            <outlet property="vwDate" destination="5Oo-Af-oEO" id="oWR-24-NIo"/>
+                                            <outlet property="vwMaskLayer" destination="F5D-IE-eK0" id="bCy-gf-1Bu"/>
+                                            <outlet property="vwPlanner" destination="kAh-9o-ZjF" id="soa-Nu-3sk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2858,27 +2934,87 @@ Please enter your Email-Id below :</string>
                                     <outlet property="delegate" destination="jCW-fH-RrE" id="Dou-7c-JPq"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-e8-vjw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQi-UN-CAy">
+                                        <rect key="frame" x="313" y="31" width="54" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="RAr-Fm-iIk"/>
+                                            <constraint firstAttribute="width" constant="54" id="flc-d7-Ed3"/>
+                                        </constraints>
+                                        <state key="normal" image="calender"/>
+                                        <connections>
+                                            <action selector="btnCalendarToggleAction:" destination="jCW-fH-RrE" eventType="touchUpInside" id="fWg-cI-cHD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgX-Wy-In0">
+                                        <rect key="frame" x="253" y="40" width="50" height="28"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="fRL-M2-pBS"/>
+                                            <constraint firstAttribute="width" constant="50" id="fgZ-3C-r9m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.20139095187187195" green="0.79743796586990356" blue="0.7998126745223999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnAddAction:" destination="jCW-fH-RrE" eventType="touchUpInside" id="51d-dP-UJT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSv-Ac-AZ9">
+                                        <rect key="frame" x="8" y="31" width="159" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="22" maxY="0.0"/>
+                                        <state key="normal" title="Marketing Calendar" image="back_white"/>
+                                        <connections>
+                                            <action selector="btnBackAction:" destination="jCW-fH-RrE" eventType="touchUpInside" id="bOd-d5-95g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20139095187187195" green="0.79743796586990356" blue="0.7998126745223999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="0Bk-vQ-1Ry"/>
+                                    <constraint firstAttribute="trailing" secondItem="gQi-UN-CAy" secondAttribute="trailing" constant="8" id="6XD-g5-Asp"/>
+                                    <constraint firstItem="gQi-UN-CAy" firstAttribute="leading" secondItem="YgX-Wy-In0" secondAttribute="trailing" constant="10" id="PDC-qg-Cyk"/>
+                                    <constraint firstItem="gQi-UN-CAy" firstAttribute="top" secondItem="pmP-e8-vjw" secondAttribute="top" constant="31" id="Usi-FX-5m7"/>
+                                    <constraint firstItem="YgX-Wy-In0" firstAttribute="top" secondItem="pmP-e8-vjw" secondAttribute="top" constant="40" id="jyW-GE-fLH"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.87049323320000005" green="0.87064296009999997" blue="0.8704838157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7yM-W7-WFN" firstAttribute="leading" secondItem="hbc-hh-kXA" secondAttribute="leading" id="CXJ-PR-huL"/>
-                            <constraint firstItem="9Fi-GX-bgB" firstAttribute="top" secondItem="7yM-W7-WFN" secondAttribute="bottom" constant="10" id="GEV-vA-ulW"/>
-                            <constraint firstItem="7yM-W7-WFN" firstAttribute="trailing" secondItem="hbc-hh-kXA" secondAttribute="trailing" id="YiX-gd-nbD"/>
+                            <constraint firstItem="9Fi-GX-bgB" firstAttribute="top" secondItem="pmP-e8-vjw" secondAttribute="bottom" id="AHy-n7-WO3"/>
+                            <constraint firstItem="pmP-e8-vjw" firstAttribute="leading" secondItem="hbc-hh-kXA" secondAttribute="leading" id="T1T-hQ-uJi"/>
+                            <constraint firstItem="pmP-e8-vjw" firstAttribute="trailing" secondItem="hbc-hh-kXA" secondAttribute="trailing" id="Ty8-Ro-pkg"/>
+                            <constraint firstItem="pmP-e8-vjw" firstAttribute="top" secondItem="JW9-S8-FbX" secondAttribute="top" id="Tyb-xP-xgJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="blc-8j-qtK" secondAttribute="bottom" constant="6" id="XDv-h1-D4J"/>
+                            <constraint firstItem="blc-8j-qtK" firstAttribute="leading" secondItem="hbc-hh-kXA" secondAttribute="leading" constant="71" id="clP-Lw-CcZ"/>
+                            <constraint firstItem="blc-8j-qtK" firstAttribute="top" secondItem="JW9-S8-FbX" secondAttribute="topMargin" constant="4" id="iP1-hd-PSW"/>
                             <constraint firstItem="9Fi-GX-bgB" firstAttribute="trailing" secondItem="hbc-hh-kXA" secondAttribute="trailing" id="pUA-8K-V8D"/>
                             <constraint firstAttribute="bottom" secondItem="9Fi-GX-bgB" secondAttribute="bottom" id="rX9-wE-VK4"/>
-                            <constraint firstItem="7yM-W7-WFN" firstAttribute="top" secondItem="JW9-S8-FbX" secondAttribute="top" constant="20" id="xXy-c7-h2B"/>
                             <constraint firstItem="9Fi-GX-bgB" firstAttribute="leading" secondItem="hbc-hh-kXA" secondAttribute="leading" id="ytX-t7-5OD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hbc-hh-kXA"/>
                     </view>
                     <connections>
-                        <outlet property="calendar" destination="7yM-W7-WFN" id="BOu-t8-Sho"/>
+                        <outlet property="btnAdd" destination="YgX-Wy-In0" id="qCV-Lr-F2b"/>
+                        <outlet property="btnCalendarToggle" destination="gQi-UN-CAy" id="3P3-Ce-pZ0"/>
+                        <outlet property="imgDots" destination="blc-8j-qtK" id="XGw-jS-D1g"/>
                         <outlet property="tblPlanner" destination="9Fi-GX-bgB" id="o6E-HG-mlV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohf-Zj-TJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5130.434782608696" y="100.2717391304348"/>
+            <point key="canvasLocation" x="5130.3999999999996" y="99.400299850074973"/>
         </scene>
         <!--Promotion List View Controller-->
         <scene sceneID="9Sz-Ep-DVo">
@@ -9508,6 +9644,7 @@ Please enter your Email-Id below :</string>
         <image name="background" width="414" height="736"/>
         <image name="calendar" width="22" height="24"/>
         <image name="calendargray" width="21" height="22"/>
+        <image name="calender" width="24" height="24"/>
         <image name="chat" width="46" height="46"/>
         <image name="checkBox_InputSelected" width="26" height="26"/>
         <image name="checkBox_InputUnSelected" width="26" height="26"/>
