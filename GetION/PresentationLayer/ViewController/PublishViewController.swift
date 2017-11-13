@@ -282,13 +282,22 @@ class PublishViewController: BaseViewController {
         
     }
     
-    @objc func showAddInputsView()
+    @objc func showReviewsView(_ sender: UIButton)
     {
-//        let addInputs = self.storyboard?.instantiateViewController(withIdentifier: "AddInputsViewController") as! AddInputsViewController
-//
-//        self.present(addInputs, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+        vc.isDraft = false
+        vc.objBlog = arrBlogs[sender.tag - 900]
+        vc.arrGroups = arrGroups
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func showAddInputsView(_ sender: UIButton)
+    {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+        vc.isDraft = true
+        vc.objBlog = arrBlogs[sender.tag - 200]
+        vc.arrGroups = arrGroups
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -347,7 +356,8 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             
             cell.resizeViews()
             cell.selectionStyle = .none
-            cell.btnAddInputs.addTarget(self, action: #selector(showAddInputsView), for: .touchUpInside)
+            cell.btnAddInputs.tag = indexPath.row + 200
+            cell.btnAddInputs.addTarget(self, action: #selector(showAddInputsView(_:)), for: .touchUpInside)
             cell.btnIonize.tag = indexPath.row + 800
             cell.btnIonize.addTarget(self, action: #selector(showIonizePopUp(sender:)), for: .touchUpInside)
             return cell
@@ -377,6 +387,8 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.resizeViews()
             cell.selectionStyle = .none
             cell.btnPublish.tag = indexPath.row + 500
+            cell.btnReview.tag = indexPath.row + 900
+            cell.btnReview.addTarget(self, action: #selector(showReviewsView(_:)), for: .touchUpInside)
             cell.btnPublish.addTarget(self, action: #selector(showPublishPopUp(sender:)), for: .touchUpInside)
             return cell
         }
@@ -411,8 +423,8 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
