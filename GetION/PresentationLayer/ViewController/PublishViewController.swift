@@ -416,6 +416,8 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
 
             cell.resizeViews()
             cell.selectionStyle = .none
+            cell.btnView.tag = 9000+indexPath.row
+            cell.btnView.addTarget(self, action: #selector(self.btnViewClicked(sender:)), for: .touchUpInside)
             return cell
         }
     }
@@ -425,6 +427,12 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
         tableView.deselectRow(at: indexPath, animated: true)
 //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
 //        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func btnViewClicked(sender: UIButton) {
+        let bo = arrBlogs[sender.tag - 9000]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BlogWebViewController") as! BlogWebViewController
+        vc.detailBO = bo
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
