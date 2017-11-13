@@ -189,6 +189,8 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+
         if isDraft == true
         {
             self.navigationItem.title = "Draft"
@@ -217,7 +219,7 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         self.navigationItem.leftBarButtonItems = [leftBarButtonItem1]
 
         let btnIonizePublish = UIButton(type: UIButtonType.custom)
-        btnIonizePublish.frame = CGRect(x: 0, y: 0  , width: 90 , height: 30)
+        btnIonizePublish.frame = CGRect(x: 0, y: 0  , width: 70 , height: 25)
         btnIonizePublish.setTitle(title, for: .normal)
         if isDraft == true
         {
@@ -227,6 +229,7 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         {
             btnIonizePublish.backgroundColor = UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0)
         }
+        btnIonizePublish.titleLabel?.font = UIFont.myridFontOfSize(size: 15)
         btnIonizePublish.layer.cornerRadius = 15.0
         btnIonizePublish.clipsToBounds = true
         btnIonizePublish.addTarget(self, action: #selector(btnIonizePublishClicked(sender:)), for: .touchUpInside)
