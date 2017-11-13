@@ -3601,7 +3601,7 @@ Please enter your Email-Id below :</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-ag-r6c">
-                                <rect key="frame" x="284" y="270" width="83" height="40"/>
+                                <rect key="frame" x="278" y="270" width="89" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="PgL-l2-DhS"/>
@@ -3682,7 +3682,7 @@ Please enter your Email-Id below :</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-Di-gSv">
-                                                            <rect key="frame" x="182.5" y="158" width="164.5" height="35"/>
+                                                            <rect key="frame" x="194.5" y="158" width="152.5" height="35"/>
                                                             <color key="backgroundColor" red="0.0" green="0.82745098039999998" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Cch-kz-nQx"/>
@@ -3700,7 +3700,7 @@ Please enter your Email-Id below :</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem epsum is dummy text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvD-3M-XRH">
-                                                            <rect key="frame" x="8" y="158" width="166.5" height="34"/>
+                                                            <rect key="frame" x="8" y="158" width="178.5" height="34"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -4165,17 +4165,17 @@ Please enter your Email-Id below :</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htg-zT-stt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                    <rect key="frame" x="8" y="0.0" width="367" height="80"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTb-OM-JRw">
-                                                            <rect key="frame" x="365" y="0.0" width="10" height="80"/>
+                                                            <rect key="frame" x="357" y="0.0" width="10" height="80"/>
                                                             <color key="backgroundColor" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="e26-z2-DOl"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun Singh  " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-zR-DPs">
-                                                            <rect key="frame" x="25" y="15" width="109.5" height="30"/>
+                                                            <rect key="frame" x="25" y="15" width="119" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="eY1-v4-P5a"/>
                                                             </constraints>
@@ -4184,7 +4184,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Male" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-cB-5My">
-                                                            <rect key="frame" x="135.5" y="18" width="41" height="23"/>
+                                                            <rect key="frame" x="145" y="18" width="41" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="9fC-cy-CO2"/>
                                                                 <constraint firstAttribute="width" constant="41" id="TSJ-Zh-gZA"/>
@@ -4194,7 +4194,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:30 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-aH-vBQ">
-                                                            <rect key="frame" x="234" y="13" width="121" height="43"/>
+                                                            <rect key="frame" x="226" y="13" width="121" height="43"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="43" id="IHa-LJ-tRE"/>
@@ -4217,7 +4217,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_arrowGreen" translatesAutoresizingMaskIntoConstraints="NO" id="mUc-bi-4Ka">
-                                                            <rect key="frame" x="357" y="35" width="10" height="10"/>
+                                                            <rect key="frame" x="349" y="35" width="10" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="QXT-12-IlY"/>
                                                                 <constraint firstAttribute="height" constant="10" id="UXw-nm-6Ef"/>
@@ -4248,11 +4248,11 @@ Please enter your Email-Id below :</string>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Htg-zT-stt" secondAttribute="bottom" constant="-0.3333333333333286" id="Enf-Ph-T6h"/>
+                                                <constraint firstAttribute="bottom" secondItem="Htg-zT-stt" secondAttribute="bottom" id="Enf-Ph-T6h"/>
                                                 <constraint firstAttribute="trailing" secondItem="Htg-zT-stt" secondAttribute="trailing" id="OAL-kR-Q4Z"/>
                                                 <constraint firstItem="Htg-zT-stt" firstAttribute="top" secondItem="UOg-Pd-wBz" secondAttribute="top" id="bka-Wl-kXM"/>
                                                 <constraint firstAttribute="bottom" secondItem="Htg-zT-stt" secondAttribute="bottom" id="hqI-YF-GGd"/>
-                                                <constraint firstItem="Htg-zT-stt" firstAttribute="leading" secondItem="UOg-Pd-wBz" secondAttribute="leading" id="rvZ-yO-f75"/>
+                                                <constraint firstItem="Htg-zT-stt" firstAttribute="leading" secondItem="UOg-Pd-wBz" secondAttribute="leading" constant="8" id="rvZ-yO-f75"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

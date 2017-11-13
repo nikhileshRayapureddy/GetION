@@ -62,23 +62,14 @@ class UpdateVisitsViewController: BaseViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
-        designTabBar()
-        setSelectedButtonAtIndex(3)
-        
-   
-//        arrGroupItems = [group4,group,group1,group2,group,group,group,group3,group,group,group3,group,group,group3,group2,group2,group,group4,group2,group,group,group2]
-        
-        self.vwAppointmentDetails.layer.borderColor = UIColor.lightGray.cgColor
-        self.vwAppointmentDetails.layer.borderWidth = 0.8
-        
-        self.getSuggestions()
-        self.bindData()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
+        self.designNavigationBarWithBackAnd(strTitle: "VISITS")
+        self.vwAppointmentDetails.layer.borderColor = UIColor.lightGray.cgColor
+        self.vwAppointmentDetails.layer.borderWidth = 0.8
+        self.getSuggestions()
         arrGroupItems = arrSelectedGroups
         self.setGroups()
     }
@@ -329,6 +320,7 @@ class UpdateVisitsViewController: BaseViewController
     {
         self.btnUpdateVisit.isHidden  = false
         self.setEditablesWithBool(isEditiable: true)
+        self.txtPhone.becomeFirstResponder()
     }
     
     @IBAction func btnCancelAction(_ sender: UIButton)

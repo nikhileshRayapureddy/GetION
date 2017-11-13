@@ -44,9 +44,11 @@ class SMSViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
+    }
 
-        
+    override func viewWillAppear(_ animated: Bool)
+    {
+        self.designNavigationBarWithBackAnd(strTitle: "")
         if isSingleContact == true
         {
             self.btnContactSearch.isHidden = true
@@ -55,17 +57,7 @@ class SMSViewController: BaseViewController {
         {
             self.btnContactSearch.isHidden = false
         }
-        
-     
-        
-        
-    }
-
-    override func viewWillAppear(_ animated: Bool)
-    {
         arrGroupItems = arrSelectedGroups
-//        self.setGroups()
-
         if isSingleContact == false
         {
             arrContactItems.removeAll()
