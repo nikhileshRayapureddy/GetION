@@ -25,10 +25,17 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     
     @IBOutlet weak var lblCategory: UILabel!
     
+    @IBOutlet weak var btnSelectTopic: UIButton!
     @IBOutlet weak var btnAddVisit: UIButton!
-    
+    @IBOutlet weak var vwBlogSelTopic: UIView!
+    @IBOutlet weak var vwBlogTopic: UIView!
+    @IBOutlet weak var btnDontSelTopic: UIButton!
     @IBOutlet weak var btnLead: UIButton!
+    
+    @IBOutlet weak var tblTopics: UITableView!
     var arrPromotion = [PromotionsBO]()
+    var arrTopics = ["Topic1","Topic2","Topic3","Topic2","Topic3","Topic2","Topic3","Topic2","Topic3"]
+    var isBlogSel = false
     func designScreen(screenWidth : CGFloat)
     {
         scrlVw.contentSize = CGSize (width: (screenWidth - 40) * 3  , height: 0)
@@ -38,20 +45,41 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
         btnSelPromo.layer.cornerRadius = 10.0
         btnSelPromo.layer.masksToBounds = true
      
+        btnDontSelTopic.layer.borderColor = UIColor.white.cgColor
+        btnDontSelTopic.layer.borderWidth = 1
+        
         imgVwBase.layer.cornerRadius = 10.0
         imgVwBase.layer.masksToBounds = true
         clVwPromo.register(UINib(nibName: "PromoCustomCell", bundle: nil), forCellWithReuseIdentifier: "PromoCustomCell")
+        let nib = UINib(nibName: "QuickReplyCustomCell", bundle: Bundle.main)
+        tblTopics.register(nib, forCellReuseIdentifier: "QUICKREPLY")
+
     }
     
+    @IBAction func btnSelectTopicClicked(_ sender: UIButton) {
+        scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width * 2, y: 0), animated: true)
+        pageControl.currentPage = 2
+
+    }
+    
+    @IBAction func btnDontSelTopicClicked(_ sender: UIButton) {
+        
+    }
     @IBAction func btnAddPromoClicked(_ sender: UIButton) {
         scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width, y: 0), animated: true)
         pageControl.currentPage = 1
-
+        isBlogSel = false
+        vwBlogTopic.isHidden = true
+        vwBlogSelTopic.isHidden = true
     }
     @IBAction func btnSelPromo(_ sender:UIButton)
     {
         scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width * 2, y: 0), animated: true)
         pageControl.currentPage = 2
+        isBlogSel = false
+        vwBlogTopic.isHidden = true
+        vwBlogSelTopic.isHidden = true
+
     }
     @IBAction func btnViewMoreClicked(_ sender: UIButton) {
         if callBack != nil
@@ -60,6 +88,13 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
         }
     }
     
+    @IBAction func btnAddBlogClicked(_ sender: UIButton) {
+        scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width, y: 0), animated: true)
+        pageControl.currentPage = 1
+        isBlogSel = true
+        vwBlogTopic.isHidden = false
+        vwBlogSelTopic.isHidden = false
+    }
     
    
     
@@ -101,5 +136,34 @@ extension AddCustomPopUpView : UICollectionViewDelegate,UICollectionViewDataSour
         {
             callBack.AddPoupCollectionView(collectionView: collectionView, didSelectItemAt: indexPath)
         }
+    }
+}
+extension AddCustomPopUpView: UITableViewDataSource, UITableViewDelegate
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrTopics.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QUICKREPLY", for: indexPath) as! QuickReplyCustomCell
+        cell.lblReplyMessage.text = arrTopics[indexPath.row]
+        cell.viewBackground.layer.cornerRadius = 10.0
+        cell.viewBackground.layer.borderColor = UIColor.white.cgColor
+        cell.viewBackground.layer.borderWidth = 1.0
+        cell.lblReplyMessage.textColor = UIColor.white
+        cell.viewBackground.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
+        cell.selectionStyle = .none
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

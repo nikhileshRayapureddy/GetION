@@ -36,9 +36,6 @@ class SMSViewController: BaseViewController {
     @IBOutlet weak var btnServerSMS: UIButton!
     @IBOutlet weak var btnIonize: UIButton!
     
-    
-    ////
-    
     var arrGroupItems = [TagSuggestionBO]()
     var arrContactItems = [String]()
     var tokenString = [String]()
