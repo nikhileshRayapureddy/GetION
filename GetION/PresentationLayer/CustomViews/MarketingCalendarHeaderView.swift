@@ -75,8 +75,13 @@ class MarketingCalendarHeaderView: UIView {
 extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
 {
     
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool)
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar)
     {
-        
+        print(calendar.currentPage)
+        if self.callBack != nil
+        {
+            self.callBack.calendarMonthChanged(month: calendar.currentPage)
+        }
     }
+
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PublishDetailsViewController: UIViewController {
+class PublishDetailsViewController: BaseViewController {
 
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var lblMessage: UILabel!
@@ -24,8 +24,12 @@ class PublishDetailsViewController: UIViewController {
     var imagePicker = UIImagePickerController()
     var arrImages = [UIImage]()
     var currentImage = 0
-    var arrQueries = [QueriesBO]()
+    var arrQueries = [BlogDetailsBO]()
     var vwGalleryView : GallaryView!
+    var objBlog = BlogBO()
+    var viewPublishIonizePopUp: PublishIonizePopUp!
+    var isDraft = false
+    var arrGroups = [TagSuggestionBO]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,16 +37,35 @@ class PublishDetailsViewController: UIViewController {
         viewTop.clipsToBounds = true
         constrtImgVwHeight.constant = 0
         getQueryDetails()
+        if isDraft == true
+        {
+            designNavigationBarForIonizeAndPublish(isDraft: isDraft, andButtonTitle: "Ionize")
+        }
+        else
+        {
+            designNavigationBarForIonizeAndPublish(isDraft: isDraft, andButtonTitle: "Publish")
+        }
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.barTintColor = THEME_COLOR
+        self.navigationItem.hidesBackButton = true
+    }
+    
     func getQueryDetails()
     {
         app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
-        layer.getQueryDetailsWithId(id: "7149", successMessage: { (response) in
+        
+        layer.getBlogDetailsWithId(id: objBlog.postId, successMessage: { (response) in
             DispatchQueue.main.async {
-                self.arrQueries = response as! [QueriesBO]
+                self.arrQueries = response as! [BlogDetailsBO]
                 app_delegate.removeloder()
                 self.bindData()
             }
@@ -100,6 +123,10 @@ class PublishDetailsViewController: UIViewController {
         
     }
     
+    override func btnIonizePublishClicked(sender: UIButton) {
+        showIonizeOrPublishPopUP(isIonize: isDraft, arrTags: convertTagsToTagSuggestionsBO(objBlog), andBlog: objBlog)
+    }
+    
     @objc func removeImageAction(sender : UIButton)
     {
         let tag = sender.tag - 2000
@@ -119,11 +146,41 @@ class PublishDetailsViewController: UIViewController {
         if let vwGallery = Bundle.main.loadNibNamed("GallaryView", owner: nil, options: nil)![0] as? GallaryView
         {
             vwGallery.frame = CGRect (x: 0, y: 20, width: (self.view.window?.bounds.width)!, height: (self.view.window?.bounds.height)! - 20)
-            vwGallery.arrImages.append(contentsOf: arrQueries[tag].arrImages)
             vwGallery.loadGalleryWithImages()
             vwGallery.delegate = self
             vwGalleryView = vwGallery
             self.view.window?.addSubview(vwGallery)
+        }
+    }
+
+    func convertTagsToTagSuggestionsBO(_ blog: BlogBO) -> [TagSuggestionBO]
+    {
+        var arrTagSuggestions = [TagSuggestionBO]()
+        for dict in blog.tags
+        {
+            let tagBO = TagSuggestionBO()
+            tagBO.id = dict["id"] as! String
+            tagBO.title = dict["title"] as! String
+            tagBO.created = dict["created"] as! String
+            arrTagSuggestions.append(tagBO)
+        }
+        
+        return arrTagSuggestions
+    }
+    
+
+    func showIonizeOrPublishPopUP(isIonize: Bool, arrTags : [TagSuggestionBO], andBlog Blog: BlogBO)
+    {
+        if let view = Bundle.main.loadNibNamed("PublishIonizePopUp", owner: nil, options: nil)![0] as? PublishIonizePopUp
+        {
+            view.isIonize = isIonize
+            view.arrtagSuggestions = arrTags
+            view.objBlog = Blog
+            viewPublishIonizePopUp = view
+            view.delegate = self
+            view.frame = self.view.bounds
+            view.resizeViews()
+            self.view.addSubview(view)
         }
     }
 
@@ -181,207 +238,39 @@ extension PublishDetailsViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let queryDetailBO = arrQueries[indexPath.row]
-        //        queryDetailBO.content = queryDetailBO.content.removingPercentEncoding!
-        if queryDetailBO.user_id == "0"
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
-            cell.lblName.text = queryDetailBO.poster_name
-            cell.lblTime.text = queryDetailBO.display_time
-            cell.lblQueryMessage.text = queryDetailBO.content
-            cell.viewBackground.layer.cornerRadius = 10.0
-            cell.viewBackground.clipsToBounds = true
-            cell.btnShowGallery.tag = indexPath.row + 3000
-            cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
-            
-            if queryDetailBO.arrImages.count == 1
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                cell.img2.isHidden = true
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count == 2
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count == 3
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img3.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                cell.img3.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                let url2 = URL(string: queryDetailBO.arrImages[2])
-                cell.img3.kf.setImage(with: url2)
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count > 3
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img3.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                cell.img3.kf.indicatorType = .activity
-                
-                cell.btn4thImage.isHidden = false
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                let url2 = URL(string: queryDetailBO.arrImages[2])
-                cell.img3.kf.setImage(with: url2)
-                cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
-                
-            }
-            else
-            {
-                cell.constrtVwImagesHeight.constant = 0
-                cell.img1.isHidden = true
-                cell.img2.isHidden = true
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            
-            return cell
-        }
-        else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TOMESSAGE", for: indexPath) as! ToMessageCustomCell
-            cell.lblName.text = queryDetailBO.poster_name
-            cell.lblTime.text = queryDetailBO.display_time
-            cell.lblQueryMessage.text = queryDetailBO.content
-            cell.viewBackground.layer.cornerRadius = 10.0
-            cell.viewBackground.clipsToBounds = true
-            cell.btnShowGallery.tag = indexPath.row + 3000
-            cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
-            
-            if queryDetailBO.arrImages.count == 1
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                cell.img2.isHidden = true
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count == 2
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count == 3
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img3.isHidden = false
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                cell.img3.kf.indicatorType = .activity
-                
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                let url2 = URL(string: queryDetailBO.arrImages[0])
-                cell.img3.kf.setImage(with: url2)
-                cell.btn4thImage.isHidden = true
-            }
-            else if queryDetailBO.arrImages.count > 3
-            {
-                cell.constrtVwImagesHeight.constant = 76
-                cell.img1.isHidden = false
-                cell.img2.isHidden = false
-                cell.img3.isHidden = false
-                cell.btn4thImage.isHidden = false
-                
-                cell.img1.kf.indicatorType = .activity
-                cell.img2.kf.indicatorType = .activity
-                cell.img3.kf.indicatorType = .activity
-                let url = URL(string: queryDetailBO.arrImages[0])
-                cell.img1.kf.setImage(with: url)
-                let url1 = URL(string: queryDetailBO.arrImages[1])
-                cell.img2.kf.setImage(with: url1)
-                let url2 = URL(string: queryDetailBO.arrImages[0])
-                cell.img3.kf.setImage(with: url2)
-                cell.btn4thImage.setTitle("+\( queryDetailBO.arrImages.count - 3) More", for: .normal)
-                
-            }
-            else
-            {
-                cell.constrtVwImagesHeight.constant = 0
-                cell.img1.isHidden = true
-                cell.img2.isHidden = true
-                cell.img3.isHidden = true
-                cell.btn4thImage.isHidden = true
-            }
-            
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FROMMESSAGE", for: indexPath) as! FromMessageCustomCell
+        
+        cell.lblName.text = queryDetailBO.name
+        cell.lblTime.text = queryDetailBO.date
+        cell.lblQueryMessage.text = queryDetailBO.comment.htmlToString
+        cell.viewBackground.layer.cornerRadius = 10.0
+        cell.viewBackground.clipsToBounds = true
+        cell.btnShowGallery.tag = indexPath.row + 3000
+        cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
+        
+        return cell
     }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         let queryDetailBO = arrQueries[indexPath.row]
         var height = 0
-        if queryDetailBO.content.contains("</")
+        if queryDetailBO.comment.contains("</")
         {
             let attrDescription = try! NSMutableAttributedString(
-                data: queryDetailBO.content.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                data: queryDetailBO.comment.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
                 options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             
-            height = Int(queryDetailBO.content.heightForHtmlString(attrDescription, font: UIFont.myridFontOfSize(size: 17), labelWidth: self.view.frame.size.width - 45))
+            height = Int(queryDetailBO.comment.heightForHtmlString(attrDescription, font: UIFont.myridFontOfSize(size: 17), labelWidth: self.view.frame.size.width - 45))
             height = height + 50
         }
         else
         {
-            height = Int(queryDetailBO.content.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.myridFontOfSize(size: 17)))
+            height = Int(queryDetailBO.comment.height(withConstrainedWidth: self.view.frame.size.width - 45, font: UIFont.myridFontOfSize(size: 17)))
             height = height + 60
         }
         
-        if queryDetailBO.arrImages.count != 0
-        {
-            return CGFloat(height + 76)
-        }
         return CGFloat(height)
         
     }
@@ -413,4 +302,55 @@ extension PublishDetailsViewController: UIImagePickerControllerDelegate, UINavig
     }
     
 }
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType:  NSAttributedString.DocumentType.html], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+    
+}
 
+extension PublishDetailsViewController: PublishIonizePopUp_Delegate
+{
+    func closePublishIonizePopup() {
+        viewPublishIonizePopUp.removeFromSuperview()
+    }
+    
+    func ionizeOrPublishClicked() {
+     
+        let alert = UIAlertController(title: "Success", message: "Blog updated successfuly", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (completed) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func navigateToTagSelectionScreen(_ tags: [TagSuggestionBO]) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SelectSuggestionsViewController") as! SelectSuggestionsViewController
+        var tagsString = [String]()
+        for dict in tags
+        {
+            tagsString.append(dict.title)
+        }
+        vc.delegate = self
+        vc.tokenString = tagsString
+        vc.item = arrGroups
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension PublishDetailsViewController: SelectSuggestionsViewController_Delegate
+{
+    func selectedTags(_ arrSelected: [TagSuggestionBO]) {
+        viewPublishIonizePopUp.arrtagSuggestions = arrSelected
+        viewPublishIonizePopUp.resizeViews()
+    }
+}
