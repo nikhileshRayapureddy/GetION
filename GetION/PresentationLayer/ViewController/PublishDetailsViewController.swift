@@ -246,13 +246,14 @@ extension PublishDetailsViewController: UITableViewDataSource, UITableViewDelega
         cell.viewBackground.layer.cornerRadius = 10.0
         cell.viewBackground.clipsToBounds = true
         cell.btnShowGallery.tag = indexPath.row + 3000
-        cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
+//        cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
         
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
         let queryDetailBO = arrQueries[indexPath.row]
         var height = 0
         if queryDetailBO.comment.contains("</")
