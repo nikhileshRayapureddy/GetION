@@ -44,6 +44,7 @@
 		A71FFF1D1F9203D90082BAF8 /* ReportsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */; };
 		A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72957C51FA0F43C0061E705 /* FontConstants.swift */; };
 		A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */; };
+		A73479071FBA32BF000C0296 /* BlogWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73479061FBA32BF000C0296 /* BlogWebViewController.swift */; };
 		A736CEC61FAF4D83007C2391 /* SelectGroupCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */; };
 		A736CEC81FAF4D91007C2391 /* SelectGroupCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */; };
 		A73F005F1FA9EBDC00824BC8 /* LeadsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */; };
@@ -187,6 +188,7 @@
 		A71FFF1C1F9203D80082BAF8 /* ReportsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsBO.swift; sourceTree = "<group>"; };
 		A72957C51FA0F43C0061E705 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		A731177E1FA4BC8800CC9628 /* CoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccessLayer.swift; sourceTree = "<group>"; };
+		A73479061FBA32BF000C0296 /* BlogWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogWebViewController.swift; sourceTree = "<group>"; };
 		A736CEC51FAF4D83007C2391 /* SelectGroupCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupCustomView.swift; sourceTree = "<group>"; };
 		A736CEC71FAF4D91007C2391 /* SelectGroupCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectGroupCustomView.xib; sourceTree = "<group>"; };
 		A73F005E1FA9EBDC00824BC8 /* LeadsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadsMainViewController.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 				A755C0851FB0B7F800516AFB /* LeadFilterViewController.swift */,
 				A770CB211FB4CC98005D9131 /* ContactsViewController.swift */,
 				CCFB467B1FB86D7E00B4A057 /* SelectSuggestionsViewController.swift */,
+				A73479061FBA32BF000C0296 /* BlogWebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				CCF702A21FA8E5B4009AFB21 /* OnlineCustomCell.swift in Sources */,
 				A77F9CA11FAB25AF0032BA6A /* Lead+CoreDataClass.swift in Sources */,
 				CC2519C01F9F850D007A6F30 /* ImageAttachmentCollectionCell.swift in Sources */,
+				A73479071FBA32BF000C0296 /* BlogWebViewController.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,

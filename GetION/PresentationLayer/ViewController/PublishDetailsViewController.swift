@@ -184,6 +184,8 @@ class PublishDetailsViewController: BaseViewController {
         }
     }
 
+    @IBAction func btnAddCommentClicked(_ sender: UIButton) {
+    }
 }
 
 extension PublishDetailsViewController : GallaryView_Delegate
@@ -242,18 +244,18 @@ extension PublishDetailsViewController: UITableViewDataSource, UITableViewDelega
         
         cell.lblName.text = queryDetailBO.name
         cell.lblTime.text = queryDetailBO.date
-        cell.lblQueryMessage.text = queryDetailBO.comment.htmlToString
+        cell.lblTime.adjustsFontSizeToFitWidth = true
+        cell.lblQueryMessage.attributedText = queryDetailBO.comment.htmlToAttributedString
         cell.viewBackground.layer.cornerRadius = 10.0
         cell.viewBackground.clipsToBounds = true
         cell.btnShowGallery.tag = indexPath.row + 3000
 //        cell.btnShowGallery.addTarget(self, action: #selector(showGallary(sender:)), for: .touchUpInside)
-        
+        cell.constrtVwImagesHeight.constant = 0
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
         let queryDetailBO = arrQueries[indexPath.row]
         var height = 0
         if queryDetailBO.comment.contains("</")
