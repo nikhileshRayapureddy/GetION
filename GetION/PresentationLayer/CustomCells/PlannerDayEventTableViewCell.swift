@@ -24,6 +24,8 @@ class PlannerDayEventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var vwMaskLayer: UIView!
     
+    @IBOutlet weak var vwGray: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
