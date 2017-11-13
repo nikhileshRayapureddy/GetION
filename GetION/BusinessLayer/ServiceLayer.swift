@@ -3466,6 +3466,85 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    
+    public func getBlogDetailsWithId(id:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = String(format: "%@/request?action=fullview&module=ionplanner&resource=planner&type=blog&id=%@", BASE_URL,id)
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                {
+                    var arrQueries = [BlogDetailsBO]()
+                    for blog in posts
+                    {
+                        let query = BlogDetailsBO()
+                        if let id = blog["id"] as? String
+                        {
+                            query.id = id
+                        }
+                        if let comment = blog["comment"] as? String
+                        {
+                            query.comment = comment
+                        }
+                        if let name = blog["name"] as? String
+                        {
+                            query.name = name
+                        }
+                        if let username = blog["username"] as? String
+                        {
+                            query.username = username
+                        }
+                        if let selftag = blog["selftag"] as? String
+                        {
+                            query.selftag = selftag
+                        }
+                        if let image = blog["image"] as? String
+                        {
+                            query.image = image
+                        }
+                        if let userid = blog["userid"] as? String
+                        {
+                            query.userid = userid
+                        }
+                        if let groupid = blog["groupid"] as? String
+                        {
+                            query.groupid = groupid
+                        }
+                        if let email = blog["email"] as? String
+                        {
+                            query.email = email
+                        }
+                        if let date = blog["date"] as? String
+                        {
+                            query.date = date
+                        }
+                        if let modified = blog["modified"] as? String
+                        {
+                            query.modified = modified
+                        }
+                        arrQueries.append(query)
+                    }
+                    successMessage(arrQueries)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
+            }
+        }
+    }
+
+    
     func getAllOnlineBlog(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         //http://www.staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=latest&user_id=65&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&status=1

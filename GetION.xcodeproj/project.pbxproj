@@ -116,6 +116,7 @@
 		CC4238CD1FADD9FB00480A33 /* AddInputsSectionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */; };
 		CC5187F91FB0B4D900B263AE /* ShowGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */; };
 		CC5187FB1FB0B5AD00B263AE /* ShowGroupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */; };
+		CC5406001FB89E0D0008FA40 /* BlogDetailsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5405FF1FB89E0D0008FA40 /* BlogDetailsBO.swift */; };
 		CC65A26A1FAA383400F2B9A9 /* CategoriesPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */; };
 		CC65A26C1FAA383F00F2B9A9 /* CategoriesPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */; };
 		CC65A26E1FAA3B3E00F2B9A9 /* CategoryBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */; };
@@ -260,6 +261,7 @@
 		CC4238CC1FADD9FB00480A33 /* AddInputsSectionTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInputsSectionTitleView.xib; sourceTree = "<group>"; };
 		CC5187F81FB0B4D900B263AE /* ShowGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGroupsView.swift; sourceTree = "<group>"; };
 		CC5187FA1FB0B5AD00B263AE /* ShowGroupsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowGroupsView.xib; sourceTree = "<group>"; };
+		CC5405FF1FB89E0D0008FA40 /* BlogDetailsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsBO.swift; sourceTree = "<group>"; };
 		CC65A2691FAA383400F2B9A9 /* CategoriesPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopUp.swift; sourceTree = "<group>"; };
 		CC65A26B1FAA383F00F2B9A9 /* CategoriesPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesPopUp.xib; sourceTree = "<group>"; };
 		CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBO.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				A73F00621FAA06C200824BC8 /* LeadsBO.swift */,
 				CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */,
 				2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */,
+				CC5405FF1FB89E0D0008FA40 /* BlogDetailsBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				A73F00631FAA06C200824BC8 /* LeadsBO.swift in Sources */,
 				A759B0DE1FA8DD6F00A8CC26 /* FloatLabelTextField.swift in Sources */,
 				CC4238CB1FADD9E500480A33 /* AddInputsSectionTitleView.swift in Sources */,
+				CC5406001FB89E0D0008FA40 /* BlogDetailsBO.swift in Sources */,
 				A71FFEF81F91E6610082BAF8 /* IQKeyboardManagerConstants.swift in Sources */,
 				A71FFEFD1F91E6610082BAF8 /* IQBarButtonItem.swift in Sources */,
 				A7FB4D4B1FA20C8C00CDE219 /* KSToken.swift in Sources */,
