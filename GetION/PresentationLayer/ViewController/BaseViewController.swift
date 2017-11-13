@@ -185,6 +185,57 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         
     }
     
+    func designNavigationBarForIonizeAndPublish(isDraft: Bool, andButtonTitle title: String)
+    {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        if isDraft == true
+        {
+            self.navigationItem.title = "Draft"
+            self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        }
+        else
+        {
+            self.navigationItem.title = "Publish"
+            self.navigationController!.navigationBar.barTintColor = THEME_COLOR
+        }
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+
+        self.navigationItem.hidesBackButton = true
+
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+
+        let btnBack = UIButton(type: UIButtonType.custom)
+        btnBack.frame = CGRect(x: 0, y: 0  , width: 90 , height: 30)
+        btnBack.setImage(#imageLiteral(resourceName: "back_white"), for: UIControlState.normal)
+        btnBack.addTarget(self, action: #selector(self.btnBackClicked(sender:)), for: UIControlEvents.touchUpInside)
+        btnBack.contentHorizontalAlignment = .left
+        btnBack.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnBack)
+        self.navigationItem.leftBarButtonItems = [leftBarButtonItem1]
+
+        let btnIonizePublish = UIButton(type: UIButtonType.custom)
+        btnIonizePublish.frame = CGRect(x: 0, y: 0  , width: 90 , height: 30)
+        btnIonizePublish.setTitle(title, for: .normal)
+        if isDraft == true
+        {
+            btnIonizePublish.backgroundColor = ionColor
+        }
+        else
+        {
+            btnIonizePublish.backgroundColor = UIColor.init(red: 201.0/255.0, green: 48.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        }
+        btnIonizePublish.layer.cornerRadius = 15.0
+        btnIonizePublish.clipsToBounds = true
+        btnIonizePublish.addTarget(self, action: #selector(btnIonizePublishClicked(sender:)), for: .touchUpInside)
+        
+        btnIonizePublish.contentHorizontalAlignment = .center
+        let rightBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: btnIonizePublish)
+        self.navigationItem.rightBarButtonItems = [rightBarButtonItem1]
+    }
+    
     func designNavigationBarWithBackAndDone()
     {
         self.navigationController?.navigationBar.isHidden = false
@@ -219,6 +270,10 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc func btnIonizePublishClicked(sender: UIButton)
+    {
+        
+    }
     @objc func btnFavClicked(sender:UIButton)
     {
     }
