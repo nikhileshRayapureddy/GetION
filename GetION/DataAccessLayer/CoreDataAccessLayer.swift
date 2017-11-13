@@ -467,7 +467,7 @@ class CoreDataAccessLayer: NSObject {
             blogItem.postId = tmpItem.postId!
             blogItem.isVoted = Int(tmpItem.isVoted)
             blogItem.status = tmpItem.status!
-            blogItem.tags = tmpItem.tags as! [AnyObject]
+           // blogItem.tags = tmpItem.tags as! [AnyObject]
             arrblogItems.append(blogItem)
         }
         return arrblogItems

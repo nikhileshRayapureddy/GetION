@@ -38,8 +38,12 @@
                             <color key="value" red="0.0" green="0.82922881839999996" blue="0.81533104180000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="ih7-rA-ccv"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="hvl-KI-CRa"/>
+                    </connections>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ild-ae-5N0">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ild-ae-5N0">
                     <rect key="frame" x="0.0" y="0.0" width="30" height="63"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="9fe-gR-l21"/>
@@ -52,11 +56,11 @@
                         <action selector="btnPrevMonthAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xSa-U5-p0o"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w29-gR-GOY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w29-gR-GOY">
                     <rect key="frame" x="340" y="0.0" width="30" height="63"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="IYK-tF-2Fo"/>
-                        <constraint firstAttribute="width" constant="31" id="nlq-pk-t1z"/>
+                        <constraint firstAttribute="width" constant="30" id="nlq-pk-t1z"/>
                     </constraints>
                     <state key="normal" image="right_arrowGreen">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -73,7 +77,7 @@
                 <constraint firstItem="Ild-ae-5N0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Fh6-OV-RP5"/>
                 <constraint firstItem="Ild-ae-5N0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I3Q-WD-5hv"/>
                 <constraint firstItem="w29-gR-GOY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hFj-q4-gxz"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w29-gR-GOY" secondAttribute="trailing" constant="4" id="hvr-LD-JgQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w29-gR-GOY" secondAttribute="trailing" constant="5" id="hvr-LD-JgQ"/>
                 <constraint firstItem="Omj-zt-7sc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="jN3-Vb-j2t"/>
                 <constraint firstItem="Omj-zt-7sc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-30" id="rDW-vP-7Rv"/>
             </constraints>

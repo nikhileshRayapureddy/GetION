@@ -18,6 +18,7 @@ class PlannerViewController: BaseViewController {
     
     @IBOutlet weak var btnAdd: UIButton!
     
+
     ///
     var isCalendarShow = false
     var arrPlans = [PlannerBO]()
@@ -28,7 +29,8 @@ class PlannerViewController: BaseViewController {
       
         self.calendarMonthChanged(month: Date())
         // Do any additional setup after loading the view.
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.tblPlanner.isScrollEnabled = false
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +65,10 @@ class PlannerViewController: BaseViewController {
     {
         isCalendarShow = !isCalendarShow
         self.tblPlanner.reloadData()
+        self.tblPlanner.layoutIfNeeded()
+        self.tblPlanner.setContentOffset(.zero, animated: true)
+        self.tblPlanner.isScrollEnabled = !isCalendarShow
+       
     }
     
 }
@@ -166,7 +172,15 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
      
         cell?.lblDate.attributedText = dateText
         
-       
+        if isCalendarShow == true
+        {
+            cell?.vwGray.isHidden = false
+        }
+        else
+        {
+            cell?.vwGray.isHidden = true
+        }
+
         return cell!
     }
     
@@ -202,7 +216,7 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
             print(error)
         }
     }
-    
+
     
 }
 
