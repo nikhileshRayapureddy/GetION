@@ -55,7 +55,6 @@ class PublishDetailsViewController: BaseViewController {
 
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController!.navigationBar.isTranslucent = false
-        self.navigationController!.navigationBar.barTintColor = THEME_COLOR
         self.navigationItem.hidesBackButton = true
     }
     
