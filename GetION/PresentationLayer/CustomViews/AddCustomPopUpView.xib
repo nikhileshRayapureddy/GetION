@@ -390,8 +390,8 @@ What would you like to start today?</string>
                                                 <constraint firstItem="2xa-Su-v0I" firstAttribute="top" secondItem="g3b-bF-cpj" secondAttribute="bottom" constant="110" id="yik-oV-HKK"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-0m-XP4">
-                                            <rect key="frame" x="670" y="0.0" width="335" height="418"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-0m-XP4">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="418"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which promotion would you like to start from?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5r-sm-X1h">
                                                     <rect key="frame" x="15" y="30.333333333333343" width="305" height="60"/>
@@ -457,37 +457,99 @@ What would you like to start today?</string>
                                                         <action selector="btnViewMoreClicked:" destination="s1V-gs-U2N" eventType="touchUpInside" id="50w-eS-Afe"/>
                                                     </connections>
                                                 </button>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqt-Lr-CzR">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqt-Lr-CzR">
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="418"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Why-5J-fRz">
-                                                            <rect key="frame" x="15" y="10" width="305" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT THE TOPIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Why-5J-fRz">
+                                                            <rect key="frame" x="15" y="10" width="305" height="35"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="RKY-dn-woC"/>
+                                                                <constraint firstAttribute="height" constant="35" id="RKY-dn-woC"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-bO-8Si">
-                                                            <rect key="frame" x="0.0" y="38" width="335" height="380"/>
+                                                            <rect key="frame" x="0.0" y="85" width="335" height="333"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <connections>
                                                                 <outlet property="dataSource" destination="s1V-gs-U2N" id="ldC-LZ-Z9H"/>
                                                                 <outlet property="delegate" destination="s1V-gs-U2N" id="7M3-g3-fgN"/>
                                                             </connections>
                                                         </tableView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvy-dZ-h1E">
+                                                            <rect key="frame" x="285" y="5" width="40" height="40"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="46u-19-ssf"/>
+                                                                <constraint firstAttribute="height" constant="40" id="apn-1v-7vy"/>
+                                                            </constraints>
+                                                            <state key="normal" image="addTopic"/>
+                                                            <connections>
+                                                                <action selector="btnAddNewTopicClicked:" destination="s1V-gs-U2N" eventType="touchUpInside" id="iUs-6c-RE4"/>
+                                                            </connections>
+                                                        </button>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dar-6v-2Cq">
+                                                            <rect key="frame" x="5" y="50" width="325" height="35"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the Topic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9sr-6D-9mM" customClass="FloatLabelTextField" customModule="GetION" customModuleProvider="target">
+                                                                    <rect key="frame" x="5" y="3" width="241" height="29"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-4f-4QY">
+                                                                    <rect key="frame" x="251" y="0.0" width="70" height="35"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="70" id="lRf-Pq-u3I"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                                    <state key="normal" title="Cancel">
+                                                                        <color key="titleColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="btnCancelAddTopicClicked:" destination="s1V-gs-U2N" eventType="touchUpInside" id="k0x-3R-5hQ"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="tintColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="0Zf-kX-5PN"/>
+                                                                <constraint firstItem="ch3-4f-4QY" firstAttribute="leading" secondItem="9sr-6D-9mM" secondAttribute="trailing" constant="5" id="HEF-om-Lhr"/>
+                                                                <constraint firstItem="9sr-6D-9mM" firstAttribute="top" secondItem="dar-6v-2Cq" secondAttribute="top" constant="3" id="adx-MC-gqP"/>
+                                                                <constraint firstItem="9sr-6D-9mM" firstAttribute="leading" secondItem="dar-6v-2Cq" secondAttribute="leading" constant="5" id="gq0-iw-0o0"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9sr-6D-9mM" secondAttribute="bottom" constant="3" id="mk7-dh-AfT"/>
+                                                                <constraint firstItem="ch3-4f-4QY" firstAttribute="top" secondItem="dar-6v-2Cq" secondAttribute="top" id="s1G-Fi-BlW"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ch3-4f-4QY" secondAttribute="trailing" constant="4" id="tKh-wi-Wab"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ch3-4f-4QY" secondAttribute="bottom" id="u5i-EK-0SL"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.40784313729999999" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="dar-6v-2Cq" firstAttribute="leading" secondItem="Cqt-Lr-CzR" secondAttribute="leading" constant="5" id="1hn-74-nFr"/>
+                                                        <constraint firstItem="dar-6v-2Cq" firstAttribute="top" secondItem="Why-5J-fRz" secondAttribute="bottom" constant="5" id="A2B-N9-3wX"/>
                                                         <constraint firstAttribute="trailing" secondItem="Why-5J-fRz" secondAttribute="trailing" constant="15" id="Klr-hT-ANu"/>
                                                         <constraint firstItem="Why-5J-fRz" firstAttribute="leading" secondItem="Cqt-Lr-CzR" secondAttribute="leading" constant="15" id="RiQ-Ur-mSe"/>
-                                                        <constraint firstItem="vaf-bO-8Si" firstAttribute="top" secondItem="Why-5J-fRz" secondAttribute="bottom" constant="7" id="Ydy-3i-kSQ"/>
+                                                        <constraint firstItem="pvy-dZ-h1E" firstAttribute="top" secondItem="Cqt-Lr-CzR" secondAttribute="top" constant="5" id="Wc7-zx-ypi"/>
                                                         <constraint firstAttribute="trailing" secondItem="vaf-bO-8Si" secondAttribute="trailing" id="b01-Ke-Z0G"/>
                                                         <constraint firstItem="vaf-bO-8Si" firstAttribute="leading" secondItem="Cqt-Lr-CzR" secondAttribute="leading" id="jly-tI-1OQ"/>
                                                         <constraint firstItem="Why-5J-fRz" firstAttribute="top" secondItem="Cqt-Lr-CzR" secondAttribute="top" constant="10" id="l2u-q9-D6e"/>
+                                                        <constraint firstItem="vaf-bO-8Si" firstAttribute="top" secondItem="dar-6v-2Cq" secondAttribute="bottom" id="lM3-wj-Zwg"/>
                                                         <constraint firstAttribute="bottom" secondItem="vaf-bO-8Si" secondAttribute="bottom" id="pRm-oL-jBb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dar-6v-2Cq" secondAttribute="trailing" constant="5" id="taW-yf-Yd3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pvy-dZ-h1E" secondAttribute="trailing" constant="10" id="y5S-w4-V4i"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -600,6 +662,7 @@ What would you like to start today?</string>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="41C-Kh-Aaf"/>
             <connections>
+                <outlet property="btnAddNewTopic" destination="pvy-dZ-h1E" id="8FR-b3-41f"/>
                 <outlet property="btnAddPromo" destination="QYk-sh-Wh5" id="55Z-cZ-Rgs"/>
                 <outlet property="btnAddVisit" destination="bhd-Yj-sbm" id="gwp-HT-qsz"/>
                 <outlet property="btnClose" destination="T9A-6q-QOv" id="S1Y-Cl-Bdf"/>
@@ -608,12 +671,15 @@ What would you like to start today?</string>
                 <outlet property="btnSelPromo" destination="2xa-Su-v0I" id="UYd-vQ-hwc"/>
                 <outlet property="btnSelectTopic" destination="H3u-qT-MiG" id="urW-AR-bgU"/>
                 <outlet property="clVwPromo" destination="kVx-Dt-wED" id="ZJT-F5-oks"/>
+                <outlet property="constVwAddTopicHeight" destination="0Zf-kX-5PN" id="XwF-Jn-mQS"/>
                 <outlet property="constVwBgWidth" destination="fZP-v9-eNR" id="sbx-Uf-uhT"/>
                 <outlet property="imgVwBase" destination="PRb-aQ-8Dx" id="gP8-dt-PUP"/>
                 <outlet property="lblCategory" destination="YtA-Eu-4Pb" id="FDP-xc-41u"/>
                 <outlet property="pageControl" destination="xPJ-V6-syN" id="kx6-eM-WTp"/>
                 <outlet property="scrlVw" destination="icd-SO-eDh" id="Zfw-r2-8rc"/>
                 <outlet property="tblTopics" destination="vaf-bO-8Si" id="9KF-MC-N9r"/>
+                <outlet property="txtFldAddTopic" destination="9sr-6D-9mM" id="LQJ-GI-pBC"/>
+                <outlet property="vwAddTopic" destination="dar-6v-2Cq" id="cpX-Tc-R59"/>
                 <outlet property="vwBase" destination="k3E-or-bkJ" id="hpd-H9-vWo"/>
                 <outlet property="vwBlogSelTopic" destination="IiK-f0-0QY" id="tfj-I9-Yo2"/>
                 <outlet property="vwBlogTopic" destination="Cqt-Lr-CzR" id="OIJ-ny-Jpw"/>
@@ -623,6 +689,7 @@ What would you like to start today?</string>
     </objects>
     <resources>
         <image name="Blog" width="34" height="46"/>
+        <image name="addTopic" width="40" height="40"/>
         <image name="addVisit" width="39" height="38"/>
         <image name="arr" width="29" height="12"/>
         <image name="close" width="75" height="69"/>

@@ -491,58 +491,75 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
 
         let layer = ServiceLayer()
         layer.getAllPromotionsWith(parentId: "87", successMessage: { (reponse) in
-            
-            DispatchQueue.main.async {
-                app_delegate.removeloder()
-                if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
-                {
-                    
-                    popup.btnAddVisit.addTarget(self, action: #selector(self.addNewVisitAction), for: .touchUpInside)
-                     popup.btnLead.addTarget(self, action: #selector(self.addNewLead), for: .touchUpInside)
-                    
-                    UIView.animate(withDuration: 0.3, animations: {
-                        sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
-                    }, completion: { (isComplete) in
-                        sender.transform = .identity
-                        self.addPopUp = popup
-                        let filteredArray = (reponse as! [PromotionsBO]).filter() {
-                            if let type : String = ($0 as PromotionsBO).parent_id as String {
-                                return type == "87"
-                            } else {
-                                return false
-                            }
-                        }
-                        if filteredArray.count > 0
-                        {
-                            self.addPopUp.lblCategory.text = filteredArray[0].title
-                            self.addPopUp.arrPromotion = (reponse as! [PromotionsBO]).filter() {
+            layer.getTopics(successMessage: { (topics) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    if let popup = Bundle.main.loadNibNamed("AddCustomPopUpView", owner: nil, options: nil)![0] as? AddCustomPopUpView
+                    {
+                        
+                        popup.btnAddVisit.addTarget(self, action: #selector(self.addNewVisitAction), for: .touchUpInside)
+                        popup.btnLead.addTarget(self, action: #selector(self.addNewLead), for: .touchUpInside)
+                        
+                        UIView.animate(withDuration: 0.3, animations: {
+                            sender.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.25))
+                        }, completion: { (isComplete) in
+                            sender.transform = .identity
+                            self.addPopUp = popup
+                            let filteredArray = (reponse as! [PromotionsBO]).filter() {
                                 if let type : String = ($0 as PromotionsBO).parent_id as String {
-                                    return type == filteredArray[0].id
+                                    return type == "87"
                                 } else {
                                     return false
                                 }
                             }
+                            if filteredArray.count > 0
+                            {
+                                self.addPopUp.lblCategory.text = filteredArray[0].title
+                                self.addPopUp.arrPromotion = (reponse as! [PromotionsBO]).filter() {
+                                    if let type : String = ($0 as PromotionsBO).parent_id as String {
+                                        return type == filteredArray[0].id
+                                    } else {
+                                        return false
+                                    }
+                                }
+                            }
+                            self.addPopUp.arrTopics = topics as! [TopicsBO]
+                            self.addPopUp.callBack = self
+                            self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
+                            self.view.window?.addSubview(self.addPopUp)
+                            self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
+                            self.addPopUp.designScreen(screenWidth: ScreenWidth)
+                        })
+                    }
+                    
+                }
+            }, failureMessage: { (err) in
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Topics.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
 
+            })
 
-                            
-                        }
-                        self.addPopUp.callBack = self
-                        self.addPopUp.frame = CGRect(x: 0, y: 20, width: ScreenWidth, height: ScreenHeight-20)
-                        self.view.window?.addSubview(self.addPopUp)
-                        self.addPopUp.btnClose.addTarget(self, action: #selector(self.btnCloseClicked(sender:)), for: .touchUpInside)
-                        self.addPopUp.designScreen(screenWidth: ScreenWidth)
-                        
-                        
-                    })
-                }            }
         }) { (error) in
             app_delegate.removeloder()
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Promotions.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-
+            let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Promotions.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                DispatchQueue.main.async {
+                    layer.getTopics(successMessage: { (topics) in
+                        
+                    }, failureMessage: { (err) in
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Sorry!", message: "Unable to Load Topics.", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    })
+                    
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
 
 
@@ -563,7 +580,34 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         let addNewVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewVisitViewController") as! AddNewVisitViewController
         self.navigationController?.pushViewController(addNewVisitVC, animated: true)
     }
-    
+    func addTopicWithText(strTopic:String)
+    {
+        app_delegate.showLoader(message: "Adding Topic...")
+        let layer = ServiceLayer()
+        layer.addTopicWith(strTopic: strTopic, successMessage: { (reponse) in
+            app_delegate.removeloder()
+            app_delegate.showLoader(message: "Added Topic.Fetching latest Topics...")
+            layer.getTopics(successMessage: { (topics) in
+                DispatchQueue.main.async {
+                    self.addPopUp.txtFldAddTopic.text = ""
+                    self.addPopUp.btnCancelAddTopicClicked(UIButton())
+                    app_delegate.removeloder()
+                    self.addPopUp.arrTopics = topics as! [TopicsBO]
+                    self.addPopUp.tblTopics.reloadData()
+                }
+            }, failureMessage: { (err) in
+                app_delegate.removeloder()
+            })
+
+        }) { (error) in
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let alert = UIAlertController(title: "Sorry!", message: "Unable to add topic.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
     func btnViewMoreClicked(sender: UIButton)
     {
         addPopUp.removeFromSuperview()
@@ -747,7 +791,6 @@ private extension UIView {
     }
     
 }
-
 extension UITextField
 {
     

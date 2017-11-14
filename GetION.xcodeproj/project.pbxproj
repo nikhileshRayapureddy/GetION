@@ -68,6 +68,7 @@
 		A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */; };
 		A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */; };
 		A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */; };
+		A7B39B8F1FBAD012007E6469 /* TopicsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */; };
 		A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */; };
 		A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */; };
 		A7C60D1D1F90AB8A00DCDFFD /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */; };
@@ -216,6 +217,7 @@
 		A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsMainViewController.swift; sourceTree = "<group>"; };
 		A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoIonizedCustomCell.swift; sourceTree = "<group>"; };
 		A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionViewController.swift; sourceTree = "<group>"; };
+		A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsBO.swift; sourceTree = "<group>"; };
 		A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCalendarViewController.swift; sourceTree = "<group>"; };
 		A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisitViewController.swift; sourceTree = "<group>"; };
 		A7C60D1C1F90AB8A00DCDFFD /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				CC65A26D1FAA3B3E00F2B9A9 /* CategoryBO.swift */,
 				2CB53D701FB85C8800C2BE28 /* PlannerBO.swift */,
 				CC5405FF1FB89E0D0008FA40 /* BlogDetailsBO.swift */,
+				A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				CC0A55781F9069F80043A0A3 /* BaseViewController.swift in Sources */,
 				A707DE241FA1CF1100320892 /* PromotionsBO.swift in Sources */,
 				CCF702A01FA8DE44009AFB21 /* PublishCustomCell.swift in Sources */,
+				A7B39B8F1FBAD012007E6469 /* TopicsBO.swift in Sources */,
 				CCE274631FAE00BA00C12683 /* AddTopicView.swift in Sources */,
 				CCF11F461FAB84B10056C367 /* PublishIonizePopUp.swift in Sources */,
 				A77F9CA61FAB6DAA0032BA6A /* LeadAddAndUpdateViewController.swift in Sources */,

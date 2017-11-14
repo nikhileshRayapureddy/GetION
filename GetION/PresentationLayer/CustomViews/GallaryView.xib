@@ -89,6 +89,6 @@
     </objects>
     <resources>
         <image name="arr" width="29" height="12"/>
-        <image name="close" width="127" height="124"/>
+        <image name="close" width="75" height="69"/>
     </resources>
 </document>
