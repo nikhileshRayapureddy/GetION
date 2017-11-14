@@ -159,7 +159,7 @@ class AddPromotionViewController: BaseViewController {
         dict["write_content"] = txtVwDesignBrief.text! as AnyObject
         dict["published"] = "4" as AnyObject
         dict["subscription"] = "1" as AnyObject
-        dict["title"] = "test blog" as AnyObject
+        dict["title"] = "iOS test blog" as AnyObject
         dict["content"] = strContent as AnyObject//strContent
         dict["tags"] = "" as AnyObject
         dict["frontpage"] = "1" as AnyObject

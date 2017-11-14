@@ -66,6 +66,10 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setLastName(object: lastname)
                         }
+                        if let name = obj.parsedDataDict["name"] as? String
+                        {
+                            GetIONUserDefaults.setProfileName(object: name)
+                        }
                         if let role = obj.parsedDataDict["role"] as? String
                         {
                             GetIONUserDefaults.setRole(object: role)
@@ -74,8 +78,83 @@ class ServiceLayer: NSObject {
                         {
                             GetIONUserDefaults.setCatID(object: catID)
                         }
-                        
                         successMessage("Success")
+                        self.getProfileData(successMessage: { (reponse) in
+                            print("Profile data fetched Successfully")
+                        }, failureMessage: { (err) in
+                            print("Failed to get Profile data")
+                        })
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    //index.php/request?module=user&action=get&resource=profiledata&userid={teamID}
+    public func getProfileData(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?module=user&action=get&resource=profiledata&userid=\(GetIONUserDefaults.getUserId())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            if description.count > 0
+                            {
+                                let reports = description[0]
+                                let bo = ReportsBO()
+                                if let ionized = reports["ionized"] as? String
+                                {
+                                    bo.strIonized = ionized
+                                }
+                                if let draft = reports["draft"] as? String
+                                {
+                                    bo.strDraft = draft
+                                }
+                                if let draftionized = reports["draftionized"] as? NSNumber
+                                {
+                                    bo.strDraftIonized = String(Int(truncating: draftionized))
+                                }
+                                if let unanswered = reports["unanswered"] as? String
+                                {
+                                    bo.strUnanswered = unanswered
+                                }
+                                if let visitcount = reports["visitcount"] as? String
+                                {
+                                    bo.strVisitcount = visitcount
+                                }
+                                successMessage(bo)
+                            }
+                            else
+                            {
+                                failureMessage("Failure")
+                            }
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
                     }
                     else
                     {
@@ -3264,7 +3343,7 @@ class ServiceLayer: NSObject {
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
         let dataLayer = CoreDataAccessLayer()
-        let arrPublish = dataLayer.getAllPublishFromLocalDB()
+        let arrPublish = dataLayer.getPublishBlogsFromLocalDB()
         if arrPublish.count == 0
         {
             obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=1"
@@ -3552,7 +3631,15 @@ class ServiceLayer: NSObject {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Login.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0&from=\(GetIONUserDefaults.getOnlineLastSyncTime())"
+        let arrOnline = CoreDataAccessLayer().getOnlineBlogsFromLocalDB()
+        if arrOnline.count == 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=latest&user_id=\(GetIONUserDefaults.getPublishId())&key=\(GetIONUserDefaults.getAuth())&status=0&from=\(GetIONUserDefaults.getOnlineLastSyncTime())"
+        }
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success

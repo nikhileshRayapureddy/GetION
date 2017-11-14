@@ -33,6 +33,13 @@ class PublishDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        // Do any additional setup after loading the view.
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewTop.layer.cornerRadius = 10.0
         viewTop.clipsToBounds = true
         constrtImgVwHeight.constant = 0
@@ -45,13 +52,7 @@ class PublishDetailsViewController: BaseViewController {
         {
             designNavigationBarForIonizeAndPublish(isDraft: isDraft, andButtonTitle: "Publish")
         }
-        
-        // Do any additional setup after loading the view.
-    }
 
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController!.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.barTintColor = THEME_COLOR
@@ -334,6 +335,8 @@ extension PublishDetailsViewController: PublishIonizePopUp_Delegate
                 self.navigationController?.popViewController(animated: true)
             }
         }
+        alert.addAction(alertAction)
+        present(alert, animated: true)
     }
     
     func navigateToTagSelectionScreen(_ tags: [TagSuggestionBO]) {
@@ -348,6 +351,14 @@ extension PublishDetailsViewController: PublishIonizePopUp_Delegate
         vc.item = arrGroups
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    func errorWith(strMsg:String)
+    {
+        let ac = UIAlertController(title: "Failure!", message: strMsg, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+
+    }
+    
 }
 
 extension PublishDetailsViewController: SelectSuggestionsViewController_Delegate
