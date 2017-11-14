@@ -105,11 +105,6 @@ extension RightMenuViewController : UITableViewDelegate, UITableViewDataSource
         }
         else
         {
-            let homeViewController: LeadAddAndUpdateViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeadAddAndUpdateViewController") as! LeadAddAndUpdateViewController
-            homeViewController.isLeadAdd = true
-            navController = UINavigationController(rootViewController: homeViewController)
-            self.sideMenuViewController!.setContentViewController(navController!, animated: true)
-            self.sideMenuViewController!.hideMenuViewController()
         }
     }
 }

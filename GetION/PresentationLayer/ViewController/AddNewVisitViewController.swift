@@ -294,6 +294,7 @@ class AddNewVisitViewController: BaseViewController {
     }
     
     @IBAction func btnCancelAction(_ sender: UIButton) {
+         self.navigationController?.popViewController(animated: true)
     }
     
     func validateUserEmail(emailAdd : String) -> Bool
@@ -403,7 +404,11 @@ class AddNewVisitViewController: BaseViewController {
                             DispatchQueue.main.async {
                                 app_delegate.removeloder()
                                 let alert = UIAlertController(title: "Success!", message: "Visit added Successfully.", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:nil))
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                                    DispatchQueue.main.async {
+                                        self.navigationController?.popViewController(animated: true)
+                                    }
+                                }))
                                 self.present(alert, animated: true, completion: nil)
                             }
                             

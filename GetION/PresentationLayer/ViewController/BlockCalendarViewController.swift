@@ -48,7 +48,7 @@ class BlockCalendarViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
+        self.designNavigationBarWithBackAnd(strTitle: "BLOCK CALENDAR")
         // Do any additional setup after loading the view.
         
         
@@ -67,8 +67,6 @@ class BlockCalendarViewController: BaseViewController {
         }
         
         picker.delegate = self
-        self.designNavigationBar()
-        designTabBar()
         self.setUpView()
         self.getCat()
     }

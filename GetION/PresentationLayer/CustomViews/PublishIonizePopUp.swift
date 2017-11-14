@@ -12,6 +12,7 @@ protocol PublishIonizePopUp_Delegate {
     func ionizeOrPublishClicked()
     func closePublishIonizePopup()
     func navigateToTagSelectionScreen(_ tags: [TagSuggestionBO])
+    func errorWith(strMsg:String)
 }
 
 class PublishIonizePopUp: UIView {
@@ -264,7 +265,6 @@ class PublishIonizePopUp: UIView {
             dict["encode"] = "1" as AnyObject
             app_delegate.showLoader(message: "Ionizing..")
             layer.ionizeBlog(dict: dict, successMessage: { (response) in
-                
                 DispatchQueue.main.async {
                 print(response)
                 app_delegate.removeloder()
@@ -279,6 +279,10 @@ class PublishIonizePopUp: UIView {
                 print(error)
                 DispatchQueue.main.async {
                     app_delegate.removeloder()
+                    if let delegate = self.delegate
+                    {
+                        delegate.errorWith(strMsg: "Failed to Inonise.")
+                    }
                 }
 
             })
@@ -318,6 +322,10 @@ class PublishIonizePopUp: UIView {
                 print(error)
                 DispatchQueue.main.async {
                     app_delegate.removeloder()
+                    if let delegate = self.delegate
+                    {
+                        delegate.errorWith(strMsg: "Failed to Publish.")
+                    }
                 }
             })
         }

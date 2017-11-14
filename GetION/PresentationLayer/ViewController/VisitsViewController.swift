@@ -137,7 +137,7 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
         let objVisits = arrVisits[indexPath.section]
         cell?.lblName.text = objVisits.name
-        cell?.lblAge.text = objVisits.age
+        cell?.lblAge.text = objVisits.age + "," + objVisits.sex
         cell?.lblDrName.text = objVisits.resname
         cell?.lblTime.text = objVisits.displayStarttime
         

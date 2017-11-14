@@ -71,16 +71,21 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
         
         self.navigationItem.rightBarButtonItems = [negativeSpacer,rightBarButtonItem,rightBarButtonItem2, rightBarButtonItem3]
         
-        let imgLogo = UIButton(type: UIButtonType.custom)
-        imgLogo.frame = CGRect(x: 0, y: 0  , width: 30 , height: 30)
-        imgLogo.addTarget(self, action: #selector(btnBackClicked(sender:)), for: .touchUpInside)
-        imgLogo.setImage(#imageLiteral(resourceName: "user"), for: UIControlState.normal)
-
-        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: imgLogo)
+        let imgProfilePic = UIImageView(frame: CGRect(x: 0, y: 0  , width: 30 , height: 30))
+        imgProfilePic.backgroundColor = UIColor.clear
+        imgProfilePic.kf.indicatorType = .activity
+        let url = URL(string: GetIONUserDefaults.getProfPic())
+        imgProfilePic.kf.setImage(with: url)
+        
+        let vwImgBase = UIView()
+        vwImgBase.backgroundColor = UIColor.clear
+        vwImgBase.frame =  CGRect(x: 0, y: 0  , width: 30 , height: 30)
+        vwImgBase.addSubview(imgProfilePic)
+        let leftBarButtonItem1: UIBarButtonItem = UIBarButtonItem(customView: vwImgBase)
         
         let btnTitle = UIButton(type: UIButtonType.custom)
         btnTitle.frame = CGRect(x: 0, y: 0  , width: 100 , height: 30)
-        btnTitle.setTitle("Dr.Arjun Reddy", for: .normal)
+        btnTitle.setTitle(GetIONUserDefaults.getProfileName(), for: .normal)
         btnTitle.setTitleColor(UIColor.darkGray, for: .normal)
         btnTitle.titleLabel?.adjustsFontSizeToFitWidth = true
         btnTitle.titleLabel?.font = UIFont.myridSemiboldFontOfSize(size: 17)

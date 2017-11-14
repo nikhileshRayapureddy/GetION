@@ -22,6 +22,7 @@ let CatId = "CatId"
 let PUBLISHLASTSYNCTIME = "PUBLISHLASTSYNCTIME"
 let DRAFTLASTSYNCTIME = "DRAFTLASTSYNCTIME"
 let ONLINELASTSYNCTIME = "ONLINELASTSYNCTIME"
+let NAME = "name"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -310,6 +311,24 @@ class GetIONUserDefaults: NSObject {
         else
         {
             return UserDefaults.standard.object(forKey: Auth) as! String
+            
+        }
+    }
+    class func setProfileName (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: NAME)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getProfileName () -> String
+    {
+        if UserDefaults.standard.object(forKey: NAME) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: NAME) as! String
             
         }
     }

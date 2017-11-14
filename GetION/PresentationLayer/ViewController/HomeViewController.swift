@@ -391,6 +391,9 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
                 else if arrContect[0] == "blog"
                 {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+                    let blogBO = BlogBO()
+                    blogBO.postId = bo.context_id
+                    vc.objBlog = blogBO
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else if arrContect[0] == "queries"

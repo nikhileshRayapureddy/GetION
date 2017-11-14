@@ -438,6 +438,14 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
 
 extension PublishViewController: PublishIonizePopUp_Delegate
 {
+    func errorWith(strMsg:String)
+    {
+        let ac = UIAlertController(title: "Failure!", message: strMsg, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+        
+    }
+
     func closePublishIonizePopup() {
         viewPublishIonizePopUp.removeFromSuperview()
     }
