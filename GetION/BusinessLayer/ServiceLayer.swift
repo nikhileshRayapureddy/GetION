@@ -3833,6 +3833,131 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    public func getTopics(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://dashboard.getion.in/index.php/request?action=trending&module=ionplanner&resource=planner&userid=180
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?action=trending&module=ionplanner&resource=planner&userid=\(GetIONUserDefaults.getUserId())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrTopics = [TopicsBO]()
+                            for topic in description
+                            {
+                                let bo = TopicsBO()
+                                if let id = topic["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let title = topic["title"] as? String
+                                {
+                                    bo.title = title
+                                }
+                                if let start_time = topic["start_time"] as? String
+                                {
+                                    bo.start_time = start_time
+                                }
+                                if let hours = topic["hours"] as? String
+                                {
+                                    bo.hours = hours
+                                }
+                                if let start_date = topic["start_date"] as? String
+                                {
+                                    bo.start_date = start_date
+                                }
+                                if let end_date = topic["end_date"] as? String
+                                {
+                                    bo.end_date = end_date
+                                }
+                                if let created = topic["created"] as? String
+                                {
+                                    bo.created = created
+                                }
+                                if let description = topic["description"] as? String
+                                {
+                                    bo.Description = description
+                                }
+                                if let color = topic["color"] as? String
+                                {
+                                    bo.color = color
+                                }
+                                if let modified = topic["modified"] as? String
+                                {
+                                    bo.modified = modified
+                                }
+                                if let state = topic["state"] as? String
+                                {
+                                    bo.state = state
+                                }
+                                arrTopics.append(bo)
+                            }
+                            successMessage(arrTopics)
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    public func addTopicWith(strTopic : String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request?action=post&module=ionplanner&resource=planner&title=\(strTopic)&start_date=0000-00-00&created_by=\(GetIONUserDefaults.getUserId())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "success"
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""

@@ -10,6 +10,7 @@ import UIKit
 protocol AddCustomPopUpViewDelegate {
     func btnViewMoreClicked(sender: UIButton)
     func AddPoupCollectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    func addTopicWithText(strTopic:String)
 }
 class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet var btnClose: UIButton!
@@ -24,6 +25,7 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet weak var imgVwBase: UIImageView!
     
     @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var btnAddNewTopic: UIButton!
     
     @IBOutlet weak var btnSelectTopic: UIButton!
     @IBOutlet weak var btnAddVisit: UIButton!
@@ -31,10 +33,13 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
     @IBOutlet weak var vwBlogTopic: UIView!
     @IBOutlet weak var btnDontSelTopic: UIButton!
     @IBOutlet weak var btnLead: UIButton!
+    @IBOutlet weak var vwAddTopic: UIView!
+    @IBOutlet weak var constVwAddTopicHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var txtFldAddTopic: FloatLabelTextField!
     @IBOutlet weak var tblTopics: UITableView!
     var arrPromotion = [PromotionsBO]()
-    var arrTopics = ["Topic1","Topic2","Topic3","Topic2","Topic3","Topic2","Topic3","Topic2","Topic3"]
+    var arrTopics = [TopicsBO]()
     var isBlogSel = false
     func designScreen(screenWidth : CGFloat)
     {
@@ -53,15 +58,35 @@ class AddCustomPopUpView: UIView,UIScrollViewDelegate {
         clVwPromo.register(UINib(nibName: "PromoCustomCell", bundle: nil), forCellWithReuseIdentifier: "PromoCustomCell")
         let nib = UINib(nibName: "QuickReplyCustomCell", bundle: Bundle.main)
         tblTopics.register(nib, forCellReuseIdentifier: "QUICKREPLY")
+        txtFldAddTopic.delegate = self
+        txtFldAddTopic.layer.borderColor = THEME_COLOR.cgColor
+        txtFldAddTopic.layer.borderWidth = 1.0
+        txtFldAddTopic.titleFont = UIFont.myridFontOfSize(size: 12)
+        constVwAddTopicHeight.constant = 0
 
     }
     
+    @IBAction func btnAddNewTopicClicked(_ sender: UIButton) {
+        
+        constVwAddTopicHeight.constant = 35
+        vwAddTopic.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+
+    }
+    @IBAction func btnCancelAddTopicClicked(_ sender: UIButton) {
+        constVwAddTopicHeight.constant = 0
+        vwAddTopic.isHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
     @IBAction func btnSelectTopicClicked(_ sender: UIButton) {
         scrlVw.setContentOffset(CGPoint(x: scrlVw.frame.width * 2, y: 0), animated: true)
         pageControl.currentPage = 2
 
     }
-    
     @IBAction func btnDontSelTopicClicked(_ sender: UIButton) {
         
     }
@@ -153,7 +178,7 @@ extension AddCustomPopUpView: UITableViewDataSource, UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QUICKREPLY", for: indexPath) as! QuickReplyCustomCell
-        cell.lblReplyMessage.text = arrTopics[indexPath.row]
+        cell.lblReplyMessage.text = arrTopics[indexPath.row].title
         cell.viewBackground.layer.cornerRadius = 10.0
         cell.viewBackground.layer.borderColor = UIColor.white.cgColor
         cell.viewBackground.layer.borderWidth = 1.0
@@ -165,5 +190,22 @@ extension AddCustomPopUpView: UITableViewDataSource, UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+}
+extension AddCustomPopUpView:UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if txtFldAddTopic.text != ""
+        {
+            if callBack != nil {
+                self.endEditing(true)
+                callBack.addTopicWithText(strTopic: textField.text!)
+            }
+        }
+        else
+        {
+            return false
+        }
+        return true
     }
 }
