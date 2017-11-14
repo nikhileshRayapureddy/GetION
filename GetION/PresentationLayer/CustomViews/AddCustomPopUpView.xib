@@ -208,7 +208,7 @@ What would you like to start today?</string>
                                                                 <constraint firstAttribute="height" constant="40" id="hS1-0w-DR8"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Promo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJn-We-WtA">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Lead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJn-We-WtA">
                                                             <rect key="frame" x="8" y="89" width="127" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="14" id="pgx-U5-Xwc"/>
@@ -390,8 +390,8 @@ What would you like to start today?</string>
                                                 <constraint firstItem="2xa-Su-v0I" firstAttribute="top" secondItem="g3b-bF-cpj" secondAttribute="bottom" constant="110" id="yik-oV-HKK"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-0m-XP4">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="418"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-0m-XP4">
+                                            <rect key="frame" x="670" y="0.0" width="335" height="418"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which promotion would you like to start from?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5r-sm-X1h">
                                                     <rect key="frame" x="15" y="30.333333333333343" width="305" height="60"/>
@@ -457,7 +457,7 @@ What would you like to start today?</string>
                                                         <action selector="btnViewMoreClicked:" destination="s1V-gs-U2N" eventType="touchUpInside" id="50w-eS-Afe"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqt-Lr-CzR">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqt-Lr-CzR">
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="418"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT THE TOPIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Why-5J-fRz">
