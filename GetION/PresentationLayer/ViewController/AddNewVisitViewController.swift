@@ -98,8 +98,7 @@ class AddNewVisitViewController: BaseViewController {
             
         }
         
-        self.designNavigationBar()
-        designTabBar()
+        self.designNavigationBarWithBackAnd(strTitle: "Add New Visit")
         self.setUpView()
         self.getCat()
         

@@ -72,6 +72,7 @@ class UpdateVisitsViewController: BaseViewController
         self.getSuggestions()
         arrGroupItems = arrSelectedGroups
         self.setGroups()
+        self.bindData()
     }
     override func viewWillDisappear(_ animated: Bool)
     {

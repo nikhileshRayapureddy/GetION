@@ -2784,7 +2784,7 @@ Please enter your Email-Id below :</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlannerDayEventTableViewCell" id="nso-8S-DvT" customClass="PlannerDayEventTableViewCell" customModule="GetION" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="125"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nso-8S-DvT" id="E88-98-mMY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
@@ -3138,7 +3138,7 @@ Please enter your Email-Id below :</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hxb-cM-1o6" id="os8-qz-GPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-DB-x9c">
@@ -7480,13 +7480,32 @@ Please enter your Email-Id below :</string>
                     <view key="view" contentMode="scaleToFill" id="qoJ-SZ-gEt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAv-TO-V2T">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SAv-TO-V2T" firstAttribute="leading" secondItem="GHq-IY-pzH" secondAttribute="leading" id="Sdb-m8-UC1"/>
+                            <constraint firstItem="SAv-TO-V2T" firstAttribute="bottom" secondItem="GHq-IY-pzH" secondAttribute="bottom" id="Z4M-dH-S28"/>
+                            <constraint firstItem="SAv-TO-V2T" firstAttribute="top" secondItem="GHq-IY-pzH" secondAttribute="top" id="gmE-Ns-Ijo"/>
+                            <constraint firstItem="SAv-TO-V2T" firstAttribute="trailing" secondItem="GHq-IY-pzH" secondAttribute="trailing" id="vQe-kz-fW6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GHq-IY-pzH"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="SAv-TO-V2T" id="Qdb-tI-w0U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77i-rn-Xbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="1177"/>
+            <point key="canvasLocation" x="1872.8" y="1176.1619190404799"/>
         </scene>
         <!--Add Inputs View Controller-->
         <scene sceneID="K1p-WD-iBj">
@@ -7609,7 +7628,7 @@ Please enter your Email-Id below :</string>
                                                 <rect key="frame" x="0.0" y="28" width="355" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1yd-4p-ugH" id="10C-lG-YWK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reo-GC-Fga">

@@ -75,7 +75,7 @@ class LeadAddAndUpdateViewController: BaseViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.designNavigationBar()
+        self.designNavigationBarWithBackAnd(strTitle: "Add New Lead")
         datePicker.datePickerMode = .date
         picker.delegate = self
 
