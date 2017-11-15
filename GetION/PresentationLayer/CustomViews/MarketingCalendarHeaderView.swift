@@ -102,32 +102,24 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
                 return false
             })
             
-            if tmp.count > 1
+            if tmp.count > 1 || tmp.count == 1
             {
-                return UIColor.orange
-            }
-            else if tmp.count == 1
-            {
-                
                 if tmp[0].state == "1"
                 {
                     return  UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
-                   
+                    
                 }
                 else if tmp[0].state == "2"
                 {
                     return UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
-                 
+                    
                 }
                 else if tmp[0].state == "3"
                 {
                     return THEME_COLOR
                 }
-                
-                return UIColor.red
-                
+                return THEME_COLOR
             }
-            
             return UIColor.red
             
         }
