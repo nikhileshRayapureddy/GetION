@@ -68,8 +68,6 @@
 		A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */; };
 		A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */; };
 		A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */; };
-		A7ACE7A91FBC4A42006471BF /* Visit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */; };
-		A7ACE7AA1FBC4A42006471BF /* Visit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */; };
 		A7ACE7AD1FBC5325006471BF /* Queries+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */; };
 		A7ACE7AE1FBC5325006471BF /* Queries+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */; };
 		A7B39B8F1FBAD012007E6469 /* TopicsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */; };
@@ -140,6 +138,8 @@
 		CCC8BC271FA2DD2700F9002E /* ReplyOptionPopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */; };
 		CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */; };
 		CCC8BC2B1FA36D5600F9002E /* EditQueryPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */; };
+		CCE0A6341FBC9146008D4B30 /* Visit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A6321FBC9146008D4B30 /* Visit+CoreDataClass.swift */; };
+		CCE0A6351FBC9146008D4B30 /* Visit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A6331FBC9146008D4B30 /* Visit+CoreDataProperties.swift */; };
 		CCE274631FAE00BA00C12683 /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE274621FAE00BA00C12683 /* AddTopicView.swift */; };
 		CCE274651FAE00C300C12683 /* AddTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE274641FAE00C300C12683 /* AddTopicView.xib */; };
 		CCF11F461FAB84B10056C367 /* PublishIonizePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */; };
@@ -221,8 +221,6 @@
 		A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsMainViewController.swift; sourceTree = "<group>"; };
 		A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoIonizedCustomCell.swift; sourceTree = "<group>"; };
 		A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionViewController.swift; sourceTree = "<group>"; };
-		A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Visit+CoreDataClass.swift"; path = "/Nikhilesh/Projects/GetIONV2/SourceCode/Git/GetION/DataAccessLayer/Entites/Visit+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Visit+CoreDataProperties.swift"; path = "/Nikhilesh/Projects/GetIONV2/SourceCode/Git/GetION/DataAccessLayer/Entites/Visit+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queries+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queries+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsBO.swift; sourceTree = "<group>"; };
@@ -291,6 +289,8 @@
 		CCC8BC261FA2DD2700F9002E /* ReplyOptionPopOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyOptionPopOverView.xib; sourceTree = "<group>"; };
 		CCC8BC281FA36D4D00F9002E /* EditQueryPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQueryPopUpView.swift; sourceTree = "<group>"; };
 		CCC8BC2A1FA36D5600F9002E /* EditQueryPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQueryPopUpView.xib; sourceTree = "<group>"; };
+		CCE0A6321FBC9146008D4B30 /* Visit+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Visit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCE0A6331FBC9146008D4B30 /* Visit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Visit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCE274621FAE00BA00C12683 /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
 		CCE274641FAE00C300C12683 /* AddTopicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTopicView.xib; sourceTree = "<group>"; };
 		CCF11F451FAB84B10056C367 /* PublishIonizePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishIonizePopUp.swift; sourceTree = "<group>"; };
@@ -507,10 +507,10 @@
 		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
+				CCE0A6321FBC9146008D4B30 /* Visit+CoreDataClass.swift */,
+				CCE0A6331FBC9146008D4B30 /* Visit+CoreDataProperties.swift */,
 				A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */,
 				A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */,
-				A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */,
-				A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */,
 				CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */,
 				CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */,
 				A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */,
@@ -858,6 +858,7 @@
 				A73479071FBA32BF000C0296 /* BlogWebViewController.swift in Sources */,
 				CCB0E2AD1F964883004DD3A8 /* QuickReplyPopUp.swift in Sources */,
 				A76AAFBF1F934DFD000465D1 /* PlannerViewController.swift in Sources */,
+				CCE0A6351FBC9146008D4B30 /* Visit+CoreDataProperties.swift in Sources */,
 				A78B61591F9E37F5002F8E8F /* MenuCell.swift in Sources */,
 				A7EAF6BB1F9E727800CB6622 /* PromoCustomCell.swift in Sources */,
 				2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */,
@@ -876,10 +877,8 @@
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A755C0861FB0B7F800516AFB /* LeadFilterViewController.swift in Sources */,
-				A7ACE7A91FBC4A42006471BF /* Visit+CoreDataClass.swift in Sources */,
 				CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */,
 				A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */,
-				A7ACE7AA1FBC4A42006471BF /* Visit+CoreDataProperties.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
@@ -891,6 +890,7 @@
 				CC2519C81F9F9F8F007A6F30 /* QuickReplyTemplateEditPopUp.swift in Sources */,
 				A71FFEF91F91E6610082BAF8 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */,
+				CCE0A6341FBC9146008D4B30 /* Visit+CoreDataClass.swift in Sources */,
 				A71FFEF51F91E6610082BAF8 /* IQUIView+Hierarchy.swift in Sources */,
 				A72957C61FA0F43D0061E705 /* FontConstants.swift in Sources */,
 				A71FFEF41F91E6610082BAF8 /* IQUITextFieldView+Additions.swift in Sources */,
