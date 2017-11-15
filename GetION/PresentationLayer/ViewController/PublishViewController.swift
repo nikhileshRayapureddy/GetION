@@ -31,6 +31,10 @@ class PublishViewController: BaseViewController {
         self.designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(2)
+        getAllData()
+        btnDraftsClicked(btnDrafts)
+        getAllGroups()
+
         // Do any additional setup after loading the view.
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -100,9 +104,8 @@ class PublishViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getAllData()
-        btnDraftsClicked(btnDrafts)
-        getAllGroups()
+        self.designNavigationBar()
+
     }
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
@@ -352,7 +355,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.imgVwProfilePic.kf.setImage(with: url)
             cell.lblContent.text = draftBlog.title
             cell.lblDoctorName.text = draftBlog.authorName
-            cell.lblDoctorSpecialization.text = ""
+            cell.lblDoctorSpecialization.text = "Orthopaedic"
             
             cell.resizeViews()
             cell.selectionStyle = .none
@@ -382,7 +385,7 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.imgVwProfilePic.kf.setImage(with: url)
             cell.lblContent.text = publishBlog.title
             cell.lblDoctorName.text = publishBlog.authorName
-            cell.lblDoctorTime.text = ""
+            cell.lblDoctorTime.text = "Orthopaedic"
 
             cell.resizeViews()
             cell.selectionStyle = .none
@@ -390,6 +393,9 @@ extension PublishViewController: UITableViewDataSource, UITableViewDelegate
             cell.btnReview.tag = indexPath.row + 900
             cell.btnReview.addTarget(self, action: #selector(showReviewsView(_:)), for: .touchUpInside)
             cell.btnPublish.addTarget(self, action: #selector(showPublishPopUp(sender:)), for: .touchUpInside)
+            
+            cell.lblDaysLeft.text = "7 Days Left"
+            
             return cell
         }
         else
