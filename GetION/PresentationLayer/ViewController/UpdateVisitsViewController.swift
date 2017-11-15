@@ -14,23 +14,27 @@ class UpdateVisitsViewController: BaseViewController
 {
     var arrGroupItems = [TagSuggestionBO]()
     var tokenString = [String]()
-
+    var selectedPickerRow = 0
+    var arrPickerData = [String]()
+    let datePicker = UIDatePicker()
+    let picker = UIPickerView()
+    var selectedDate = Date()
 
     
+    @IBOutlet weak var vwGroupsBase: UIView!
     @IBOutlet weak var vwScrollMain: UIScrollView!
-    
     @IBOutlet weak var btnImgProfile: UIButton!
     @IBOutlet weak var vwMain: UIView!
     @IBOutlet weak var constrtVwMainHeight: NSLayoutConstraint!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var vwAppointmentDetails: UIView!
-    @IBOutlet weak var lblAppointmentDate: UILabel!
-    @IBOutlet weak var lblAppointmentTime: UILabel!
-
-    
+    @IBOutlet weak var btnAppointmentDate: UIButton!
+    @IBOutlet weak var btnAppointmentTime: UIButton!
     @IBOutlet weak var lblDocName: UILabel!
     @IBOutlet weak var btnAccept: UIButton!
+    @IBOutlet weak var txtFirstname: FloatLabelTextField!
+    @IBOutlet weak var txtLastname: FloatLabelTextField!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtAmountDue: UITextField!
@@ -73,6 +77,17 @@ class UpdateVisitsViewController: BaseViewController
         arrGroupItems = arrSelectedGroups
         self.setGroups()
         self.bindData()
+        datePicker.datePickerMode = .date
+        txtDOB.inputView = datePicker
+        txtGender.inputView = picker
+        picker.delegate = self
+        vwGroupsBase.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        vwGroupsBase.layer.borderWidth = 1.0
+        txtVwRemarks.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        txtVwRemarks.layer.borderWidth = 1.0
+        let vwLeft = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: txtVwRemarks.frame.size.height))
+        vwLeft.backgroundColor = UIColor.clear
+        txtVwRemarks.textContainerInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 20)
     }
     override func viewWillDisappear(_ animated: Bool)
     {
@@ -99,22 +114,22 @@ class UpdateVisitsViewController: BaseViewController
             }
         }
     }
-    
-    
     func setEditablesWithBool(isEditiable : Bool)
     {
         btnImgProfile.isUserInteractionEnabled = isEditiable
-        lblAppointmentDate.isUserInteractionEnabled = isEditiable
-        lblAppointmentTime.isUserInteractionEnabled = isEditiable
+        btnAppointmentDate.isUserInteractionEnabled = isEditiable
+        btnAppointmentTime.isUserInteractionEnabled = isEditiable
         lblDocName.isUserInteractionEnabled = isEditiable
+        self.txtFirstname.isUserInteractionEnabled = isEditiable
+        self.txtLastname.isUserInteractionEnabled = isEditiable
         self.txtPhone.isUserInteractionEnabled = isEditiable
         self.txtEmail.isUserInteractionEnabled = isEditiable
         self.txtAmountDue.isUserInteractionEnabled = isEditiable
-        self.txtDOB.isUserInteractionEnabled = false
-        self.txtGender.isUserInteractionEnabled = false
+        self.txtDOB.isUserInteractionEnabled = isEditiable
+        self.txtGender.isUserInteractionEnabled = isEditiable
         self.txtCity.isUserInteractionEnabled = isEditiable
         self.txtAreaLocality.isUserInteractionEnabled = isEditiable
-        self.txtSource.isUserInteractionEnabled = false
+        self.txtSource.isUserInteractionEnabled = isEditiable
         self.txtVwRemarks.isUserInteractionEnabled = isEditiable
         btnGroup.isUserInteractionEnabled = isEditiable
         
@@ -129,33 +144,41 @@ class UpdateVisitsViewController: BaseViewController
         imgProfile.kf.setImage(with: url)
         
         lblName.text = objVisits.name
-        lblAppointmentDate.text = objVisits.displayStartdate
+        btnAppointmentDate.setTitle(objVisits.displayStartdate, for: .normal)
         if let time = objVisits.displayStarttime.components(separatedBy: "-")[0] as? String
         {
-            lblAppointmentTime.text = time
+            btnAppointmentTime.setTitle(time, for: .normal)
         }
         else
         {
-            lblAppointmentTime.text = "N/A"
+            btnAppointmentTime.setTitle("N/A", for: .normal)
         }
         
         lblDocName.text = objVisits.resname
         self.btnAccept.setTitle(objVisits.requestStatus.uppercased(), for: .normal)
+        self.txtFirstname.text = objVisits.name
+        self.txtLastname.text = ""
         self.txtPhone.text = objVisits.mobile
         self.txtEmail.text = objVisits.email
         self.txtAmountDue.text = objVisits.bookingDue
-        self.txtDOB.text = objVisits.birthday
+        if objVisits.birthday != ""
+        {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let DOB = formatter.date(from: objVisits.birthday)
+            formatter.dateFormat = "dd MMM, YYYY"
+            let strDOB = formatter.string(from: DOB!)
+            self.txtDOB.text = strDOB
+        }
         self.txtGender.text = objVisits.sex
         self.txtCity.text = objVisits.city
         self.txtAreaLocality.text = objVisits.area
         self.txtSource.text = objVisits.resource
         self.txtVwRemarks.text = objVisits.remarks
         self.setGroups()
-
-
+        
+        
     }
-    
-    
     func setGroups()
     {
             DispatchQueue.main.async(execute: {
@@ -321,9 +344,69 @@ class UpdateVisitsViewController: BaseViewController
     {
         self.btnUpdateVisit.isHidden  = false
         self.setEditablesWithBool(isEditiable: true)
-        self.txtPhone.becomeFirstResponder()
+        self.txtFirstname.becomeFirstResponder()
     }
     
+    @IBAction func btnAppointmentDateClicked(_ sender: UIButton) {
+        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.backgroundColor = UIColor.white
+        datePicker.addTarget(self, action: #selector(self.dueDateChanged(sender:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0, y: ScreenHeight - 250, width: ScreenWidth, height: 250)
+        self.view.addSubview(datePicker)
+        
+        let btnDone = UIButton(type: .custom)
+        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 30, width: 50, height: 30)
+        btnDone.backgroundColor = UIColor.lightGray
+        btnDone.setTitleColor(.white, for: .normal)
+        btnDone.setTitle("Done", for: .normal)
+        btnDone.addTarget(self, action: #selector(self.btnDatePickerDoneClicked(sender:)), for: .touchUpInside)
+        self.view.addSubview(btnDone)
+    }
+    @objc func btnDatePickerDoneClicked(sender:UIButton)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM, yyyy"
+        btnAppointmentDate.setTitle(dateFormatter.string(from: datePicker.date), for: .normal)
+        datePicker.removeFromSuperview()
+        sender.removeFromSuperview()
+    }
+    @objc func dueDateChanged(sender:UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM, yyyy"
+        btnAppointmentDate.setTitle(dateFormatter.string(from: sender.date), for: .normal)
+    }
+    @IBAction func btnAppointmentTimeClicked(_ sender: UIButton) {
+        datePicker.datePickerMode = UIDatePickerMode.time
+        datePicker.backgroundColor = UIColor.white
+        datePicker.addTarget(self, action: #selector(self.dueTimeChanged(sender:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0, y: ScreenHeight - 250, width: ScreenWidth, height: 250)
+        self.view.addSubview(datePicker)
+        
+        let btnDone = UIButton(type: .custom)
+        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 30, width: 50, height: 30)
+        btnDone.backgroundColor = UIColor.lightGray
+        btnDone.setTitleColor(.white, for: .normal)
+        btnDone.setTitle("Done", for: .normal)
+        btnDone.addTarget(self, action: #selector(self.btnTimePickerDoneClicked(sender:)), for: .touchUpInside)
+        self.view.addSubview(btnDone)
+    }
+    @objc func btnTimePickerDoneClicked(sender:UIButton)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        btnAppointmentTime.setTitle(dateFormatter.string(from: datePicker.date), for: .normal)
+        datePicker.removeFromSuperview()
+        sender.removeFromSuperview()
+    }
+
+    @objc func dueTimeChanged(sender:UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        btnAppointmentTime.setTitle(dateFormatter.string(from: sender.date), for: .normal)
+    }
+
     @IBAction func btnCancelAction(_ sender: UIButton)
     {
         
@@ -383,13 +466,29 @@ class UpdateVisitsViewController: BaseViewController
         if(patAge != ""){
             udf = "\(udf)4;\(patAge)~"
         }
-        
+        app_delegate.showLoader(message: "Updating...")
         let layer = ServiceLayer()
         layer.updateVisit(visitID: objVisits.visitId, DocID: objVisits.resource, email: txtEmail.text!, phone: txtPhone.text!, startdate: objVisits.startdate, enddate: objVisits.enddate, starttime: objVisits.starttime, endtime: objVisits.endtime, bookingDeposit: objVisits.bookingDeposit, bookingTotal: objVisits.bookingTotal, bookingDue: objVisits.bookingDue, Udfvalues: udf, imageUrl :  selectedProfilePicUrl , requestStatus: objVisits.requestStatus, paymentStatus: objVisits.paymentStatus, successMessage: { (response) in
-            print(response)
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let alert = UIAlertController(title: "Suucess!", message: "Visit Updated Successfully.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
 
+            }
         }) { (error) in
-            print(error)
+            DispatchQueue.main.async {
+                app_delegate.removeloder()
+                let alert = UIAlertController(title: "Failure!", message: "Failed to Update Visit.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                }))
+                self.present(alert, animated: true, completion: nil)
+
+            }
         }
         
     }
@@ -426,4 +525,62 @@ extension UpdateVisitsViewController:MFMailComposeViewControllerDelegate
         controller.dismiss(animated: true)
     }
 
+}
+extension UpdateVisitsViewController : UITextFieldDelegate
+{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        selectedPickerRow = 0
+        
+        if textField == txtDOB
+        {
+            datePicker.datePickerMode = .date
+            let tmpDate = Calendar.current.date(byAdding: .year, value: -500, to: Date())
+            datePicker.minimumDate = tmpDate
+        }
+        else if textField == txtGender
+        {
+            arrPickerData.removeAll()
+            arrPickerData = ["Male", "Female"]
+            picker.reloadAllComponents()
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        if textField == txtDOB
+        {
+            selectedDate = datePicker.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            textField.text = dateFormatter.string(from: datePicker.date)
+        }
+        else if textField == txtGender
+        {
+            txtGender.text = arrPickerData[selectedPickerRow]
+        }
+        
+    }
+    
+}
+extension UpdateVisitsViewController : UIPickerViewDelegate, UIPickerViewDataSource
+{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        selectedPickerRow = row
+    }
 }

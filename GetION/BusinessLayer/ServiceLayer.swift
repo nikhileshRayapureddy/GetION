@@ -1527,18 +1527,32 @@ class ServiceLayer: NSObject {
             }
             else
             {
-                if let dict = obj.parsedDataDict["data"] as? [String : AnyObject]
+                if let data = obj.parsedDataDict["data"] as? [[String : AnyObject]]
                 {
-                    let status = dict["status"] as! String
-                    if status == "ok"
+                    if data.count > 0
                     {
-                        successMessage (status)
+                        let dict = data[0]
+                        if let status = dict["status"] as? String
+                        {
+                            if status == "ok"
+                            {
+                                successMessage (status)
+                            }
+                            else
+                            {
+                                failureMessage("unable to add visit")
+                            }
+                        }
+                        else
+                        {
+                            failureMessage("unable to add visit")
+                        }
+                        
                     }
                     else
                     {
                         failureMessage("unable to add visit")
                     }
-                    
                 }
                 else
                 {
