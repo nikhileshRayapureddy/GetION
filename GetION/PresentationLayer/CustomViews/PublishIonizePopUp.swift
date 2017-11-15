@@ -267,6 +267,8 @@ class PublishIonizePopUp: UIView {
             layer.ionizeBlog(dict: dict, successMessage: { (response) in
                 DispatchQueue.main.async {
                 print(response)
+                let layer = CoreDataAccessLayer()
+                    layer.removePublishItemFromLocalDBWith(publishId: self.objBlog.postId)
                 app_delegate.removeloder()
                 if let delegate = self.delegate
                 {

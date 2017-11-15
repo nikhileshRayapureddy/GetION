@@ -552,7 +552,7 @@ extension QueriesViewController: ReplyOptionPopOverView_Delegate
             layer.deleteReplyForQuestion(id: selectedQueryForOptions.id, forUser: GetIONUserDefaults.getUserId(), withUserName: GetIONUserDefaults.getUserName(), successMessage: { (response) in
                 DispatchQueue.main.async {
                     let layer = CoreDataAccessLayer()
-                    layer.removeQueryItemFromLocalDBWith(queryId: selectedQueryForOptions.id)
+                    layer.removeQueryItemFromLocalDBWith(queryId: self.selectedQueryForOptions.id)
                    app_delegate.removeloder()
                     if self.selectedButtonIndex == 1
                     {
@@ -623,7 +623,7 @@ extension QueriesViewController: ReplyOptionPopOverView_Delegate
                     let alert = UIAlertController(title: "Alert!", message: "Ionized successfully", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (completed) in
                         let layer = CoreDataAccessLayer()
-                        layer.removeQueryItemFromLocalDBWith(queryId: selectedQueryForOptions.id)
+                        layer.removeQueryItemFromLocalDBWith(queryId: self.selectedQueryForOptions.id)
 
                         if self.selectedButtonIndex == 1
                         {
