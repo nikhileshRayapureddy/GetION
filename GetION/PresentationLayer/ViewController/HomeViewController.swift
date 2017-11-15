@@ -154,7 +154,10 @@ class HomeViewController: BaseViewController {
             self.arrBlogs = success as! [BlogBO]
             DispatchQueue.main.async {
                 app_delegate.removeloder()
-                self.loadBlogs()
+                if self.arrBlogs.count > 0
+                {
+                    self.loadBlogs()
+                }
             }
         }) { (failure) in
             DispatchQueue.main.async {
