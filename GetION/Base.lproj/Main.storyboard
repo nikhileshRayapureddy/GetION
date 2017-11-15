@@ -1799,7 +1799,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg3-Uz-OyH">
-                                                            <rect key="frame" x="220" y="5" width="105" height="20"/>
+                                                            <rect key="frame" x="240" y="5" width="105" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="105" id="J57-nb-TMW"/>
                                                                 <constraint firstAttribute="height" constant="20" id="Z0K-bX-WjR"/>
@@ -1809,10 +1809,10 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqV-wF-KYw">
-                                                            <rect key="frame" x="325" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="355" y="0.0" width="0.0" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="9CR-iv-y3c"/>
-                                                                <constraint firstAttribute="width" constant="30" id="KnG-AO-eNZ"/>
+                                                                <constraint firstAttribute="width" id="KnG-AO-eNZ"/>
                                                             </constraints>
                                                             <state key="normal" image="dotsImage"/>
                                                         </button>
@@ -1924,7 +1924,7 @@ Please enter your Email-Id below :</string>
                                                         <constraint firstItem="zdp-YA-Xi8" firstAttribute="top" secondItem="pJO-2f-vXI" secondAttribute="bottom" constant="15" id="Qma-EN-vBr"/>
                                                         <constraint firstItem="p5x-YO-RBD" firstAttribute="top" secondItem="7XS-fF-4nd" secondAttribute="bottom" constant="5" id="RYm-3f-LNV"/>
                                                         <constraint firstItem="2o6-Bo-E7G" firstAttribute="top" secondItem="p5x-YO-RBD" secondAttribute="bottom" id="SSL-zq-CTp"/>
-                                                        <constraint firstItem="NqV-wF-KYw" firstAttribute="leading" secondItem="dg3-Uz-OyH" secondAttribute="trailing" id="StH-kt-dWj"/>
+                                                        <constraint firstItem="NqV-wF-KYw" firstAttribute="leading" secondItem="dg3-Uz-OyH" secondAttribute="trailing" constant="10" id="StH-kt-dWj"/>
                                                         <constraint firstItem="pJO-2f-vXI" firstAttribute="leading" secondItem="fEI-bi-Uas" secondAttribute="leading" constant="10" id="Twj-vp-YZO"/>
                                                         <constraint firstItem="vMx-2j-Shb" firstAttribute="leading" secondItem="Yf1-Bd-Jea" secondAttribute="trailing" constant="10" id="Ww7-dN-POl"/>
                                                         <constraint firstItem="vMx-2j-Shb" firstAttribute="top" secondItem="fEI-bi-Uas" secondAttribute="top" constant="5" id="XFC-P9-oaA"/>
@@ -2005,7 +2005,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88 Days left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twu-mL-K4n">
-                                                            <rect key="frame" x="245" y="5" width="80" height="20"/>
+                                                            <rect key="frame" x="265" y="5" width="80" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="7Cp-Ow-TtR"/>
                                                                 <constraint firstAttribute="height" constant="20" id="9nv-0X-ik3"/>
@@ -2015,9 +2015,9 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSR-nb-sT4">
-                                                            <rect key="frame" x="325" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="355" y="0.0" width="0.0" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="8Y4-MS-XGT"/>
+                                                                <constraint firstAttribute="width" id="8Y4-MS-XGT"/>
                                                                 <constraint firstAttribute="height" constant="30" id="TDt-s5-6mh"/>
                                                             </constraints>
                                                             <state key="normal" image="dotsImage"/>
@@ -2133,7 +2133,7 @@ Please enter your Email-Id below :</string>
                                                         <constraint firstItem="TLU-lz-Mfo" firstAttribute="leading" secondItem="EXl-6V-nNZ" secondAttribute="trailing" constant="10" id="dQn-pl-rWv"/>
                                                         <constraint firstItem="AMp-aJ-Y9h" firstAttribute="leading" secondItem="BvG-7f-iKj" secondAttribute="trailing" id="diJ-eg-qc2"/>
                                                         <constraint firstItem="BSR-nb-sT4" firstAttribute="top" secondItem="BNA-wA-Emx" secondAttribute="top" id="dsX-N7-igK"/>
-                                                        <constraint firstItem="BSR-nb-sT4" firstAttribute="leading" secondItem="twu-mL-K4n" secondAttribute="trailing" id="g8D-wn-K4G"/>
+                                                        <constraint firstItem="BSR-nb-sT4" firstAttribute="leading" secondItem="twu-mL-K4n" secondAttribute="trailing" constant="10" id="g8D-wn-K4G"/>
                                                         <constraint firstItem="igM-Mt-CS4" firstAttribute="top" secondItem="BNA-wA-Emx" secondAttribute="top" constant="5" id="gON-VA-ZNY"/>
                                                         <constraint firstItem="9Al-xz-e63" firstAttribute="top" secondItem="EXl-6V-nNZ" secondAttribute="bottom" constant="15" id="iMw-Vr-VTY"/>
                                                         <constraint firstAttribute="trailing" secondItem="rPu-vf-KLE" secondAttribute="trailing" id="jFd-iH-em4"/>
@@ -2212,7 +2212,7 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 views" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-qZ-ZM5">
-                                                            <rect key="frame" x="265" y="5" width="60" height="20"/>
+                                                            <rect key="frame" x="285" y="5" width="60" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="XT2-vd-2rs"/>
                                                                 <constraint firstAttribute="width" constant="60" id="pm9-Oa-CYE"/>
@@ -2222,9 +2222,9 @@ Please enter your Email-Id below :</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVI-9c-ifE">
-                                                            <rect key="frame" x="325" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="355" y="0.0" width="0.0" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="AT9-UW-Hfu"/>
+                                                                <constraint firstAttribute="width" id="AT9-UW-Hfu"/>
                                                                 <constraint firstAttribute="height" constant="30" id="M6V-Jl-WTV"/>
                                                             </constraints>
                                                             <state key="normal" image="dotsImage"/>
@@ -2312,7 +2312,7 @@ Please enter your Email-Id below :</string>
                                                         <constraint firstItem="dVo-79-qSj" firstAttribute="leading" secondItem="ife-r5-Uno" secondAttribute="trailing" constant="10" id="T0w-XF-a6X"/>
                                                         <constraint firstItem="Agf-yJ-BGa" firstAttribute="top" secondItem="cmI-5q-wea" secondAttribute="bottom" constant="5" id="Tn3-on-OyH"/>
                                                         <constraint firstItem="hVe-qZ-ZM5" firstAttribute="top" secondItem="an8-io-bqj" secondAttribute="top" constant="5" id="UNh-2t-bq9"/>
-                                                        <constraint firstItem="cVI-9c-ifE" firstAttribute="leading" secondItem="hVe-qZ-ZM5" secondAttribute="trailing" id="UTe-Bj-geE"/>
+                                                        <constraint firstItem="cVI-9c-ifE" firstAttribute="leading" secondItem="hVe-qZ-ZM5" secondAttribute="trailing" constant="10" id="UTe-Bj-geE"/>
                                                         <constraint firstAttribute="bottom" secondItem="P2f-NP-j7P" secondAttribute="bottom" id="V7D-sM-HuZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="Zfs-Hi-2EG" secondAttribute="trailing" constant="10" id="Vc4-jX-L02"/>
                                                         <constraint firstAttribute="trailing" secondItem="Agf-yJ-BGa" secondAttribute="trailing" constant="10" id="atB-Zh-tod"/>
