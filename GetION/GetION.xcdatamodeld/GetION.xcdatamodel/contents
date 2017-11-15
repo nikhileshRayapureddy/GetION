@@ -63,8 +63,69 @@
         <attribute name="views" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vote" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Queries" representedClassName="Queries" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answered" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="display_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="display_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featured" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hits" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgTag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modified" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modified_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="num_likes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="post_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poster_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poster_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="replied" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Visit" representedClassName="Visit" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bookingDeposit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bookingDue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bookingTotal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ceId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayStartdate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayStarttime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enddate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endtime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nametag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="resname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="resource" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="resourceAdmins" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startdate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startdatetime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="starttime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Lead" positionX="-63" positionY="135" width="128" height="360"/>
         <element name="Publish" positionX="-63" positionY="-18" width="128" height="615"/>
+        <element name="Visit" positionX="-63" positionY="135" width="128" height="480"/>
+        <element name="Queries" positionX="-54" positionY="144" width="128" height="435"/>
     </elements>
 </model>

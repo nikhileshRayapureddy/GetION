@@ -34,7 +34,19 @@ class VisitsViewController: BaseViewController {
     }
     func getVisitsFor(date : String)
     {
-        app_delegate.showLoader(message: "Loading. . .")
+        self.arrVisits.removeAll()
+        self.arrVisits = CoreDataAccessLayer().getAllVisitItemsFor(date: date)
+        if self.arrVisits.count > 0
+        {
+            self.lblNoVisits.isHidden = true
+        }
+        else
+        {
+            self.lblNoVisits.isHidden = false
+        }
+        self.tblVisitEvents.reloadData()
+
+        /*app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
         
         layer.getVisitsFor(date: date, username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
@@ -56,7 +68,7 @@ class VisitsViewController: BaseViewController {
             
         }) { (error) in
             
-        }
+        }*/
     }
     
     @IBAction func btnBlockAction(_ sender: UIButton)

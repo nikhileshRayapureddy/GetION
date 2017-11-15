@@ -38,8 +38,19 @@ class QueriesViewController: BaseViewController {
         designNavigationBar()
         designTabBar()
         setSelectedButtonAtIndex(4)
+        let DLayer = CoreDataAccessLayer()
+        arrPopularQueries.removeAll()
+        arrPopularQueries = DLayer.getAllPopularQueries()
+        arrAnsweredQueries.removeAll()
+        arrAnsweredQueries = DLayer.getAllAnsweredQueries()
+        arrUnAnsweredQueries.removeAll()
+        arrUnAnsweredQueries = DLayer.getAllUnansweredQueries()
+        
+        self.btnUnAnswered.setTitle("\(arrUnAnsweredQueries.count) UnAnswered", for: .normal)
+        self.btnAnswered.setTitle("\(arrAnsweredQueries.count) Answered", for: .normal)
+        self.btnPopular.setTitle("\(arrPopularQueries.count) Popular", for: .normal)
+        self.getPopularQueries()
         btnSegmentActionsClicked(btnUnAnswered)
-        getPopularQueries()
         // Do any additional setup after loading the view, typically from a nib.
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
@@ -136,6 +147,9 @@ class QueriesViewController: BaseViewController {
 
     func getPopularQueries()
     {
+        self.selectedButtonIndex = 3
+        self.bindData()
+        /*
         app_delegate.showLoader(message: "Loading. . .")
         let layer = ServiceLayer()
         
@@ -158,12 +172,15 @@ class QueriesViewController: BaseViewController {
             DispatchQueue.main.async {
                 app_delegate.removeloder()
             }
-        }
+        }*/
     }
     
     func getAnsweredQueries()
     {
-        if isFirstTime == true
+        self.selectedButtonIndex = 2
+        self.bindData()
+
+  /*      if isFirstTime == true
         {
             
         }
@@ -193,11 +210,14 @@ class QueriesViewController: BaseViewController {
             DispatchQueue.main.async {
                 app_delegate.removeloder()
             }
-        }
+        }*/
     }
     
     func getUnAnsweredQueries()
     {
+        self.selectedButtonIndex = 1
+        self.bindData()
+        /*
         if isFirstTime == true
         {
             
@@ -222,7 +242,7 @@ class QueriesViewController: BaseViewController {
             DispatchQueue.main.async {
                 app_delegate.removeloder()
             }
-        }
+        }*/
     }
     
     func getQuickReplyTemplates()

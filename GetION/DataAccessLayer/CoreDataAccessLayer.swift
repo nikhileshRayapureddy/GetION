@@ -422,8 +422,536 @@ class CoreDataAccessLayer: NSObject {
         }
         
     }
+    //MARK:- Visit methods
+    public func getDataForVisit(strFetcher:String) -> [NSManagedObject]?
+    {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Visit",
+                                                           in: managedObjectContext)
+        let request : NSFetchRequest<Visit> = Visit.fetchRequest()
+        request.entity = entityDescription
+        
+        if strFetcher.characters.count > 0
+        {
+            let resultPredicate = NSPredicate(format: strFetcher as String)
+            request.predicate = resultPredicate
+        }
+        
+        do
+        {
+            let results = try  managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>)
+            
+            return results as? [NSManagedObject]
+        }
+        catch _
+        {
+            
+        }
+        return[]
+        
+    }
+    
+    func getAllVisitsFromLocalDB() -> [VisitsBO]
+    {
+        let arrVisit = self.getListDataForEntity(strclass: "Visit",strFormat:"")
+        if arrVisit == nil || arrVisit?.count == 0
+        {
+            return [VisitsBO]()
+        }
+        
+        if arrVisit!.count > 0
+        {
+            return self.convertVisitArrayToVisitBOArray(arr: arrVisit as! [Visit])
+        }
+        else
+        {
+            return [VisitsBO]()
+        }
+        
+    }
+    func getAllVisitItemsFor(date : String) -> [VisitsBO]
+    {
+        let arrVisit  =  self.checkAvaibleVersionIs10() ? self.getDataForVisit(strFetcher:"startdate == '" +  date + "'")  : self.getListDataForEntity(strclass: "Visit",strFormat:"startdate == '" +  date + "'")
+        
+        if arrVisit == nil
+        {
+            return [VisitsBO]()
+        }
+        if arrVisit!.count > 0
+        {
+            return self.convertVisitArrayToVisitBOArray(arr: arrVisit as! [Visit])
+        }
+        else {
+            return [VisitsBO]()
+        }
+    }
+
+    
+    func getVisitItemsWith(visitId : String) -> [VisitsBO]
+    {
+        let arrVisit  =  self.checkAvaibleVersionIs10() ? self.getDataForVisit(strFetcher:"visitId == '" +  visitId + "'")  : self.getListDataForEntity(strclass: "Visit",strFormat:"visitId == '" +  visitId + "'")
+        
+        if arrVisit == nil
+        {
+            return [VisitsBO]()
+        }
+        if arrVisit!.count > 0
+        {
+            return self.convertVisitArrayToVisitBOArray(arr: arrVisit as! [Visit])
+        }
+        else {
+            return [VisitsBO]()
+        }
+    }
+    func saveAllItemsIntoVisitTableInLocalDB( arrTmpItems : [VisitsBO])
+    {
+        for tmpItem in arrTmpItems
+        {
+                self.saveItemIntoVisitTableInLocalDB(tmpItem: tmpItem)
+        }
+    }
+    
+    func saveItemIntoVisitTableInLocalDB( tmpItem : VisitsBO)
+    {
+        
+        let arrVisit = self.getListDataForEntity(strclass: "Visit",strFormat:"visitId == \(tmpItem.visitId)")
+        if arrVisit?.count == 0
+        {
+            let entity =  NSEntityDescription.entity(forEntityName: "Visit",in:managedObjectContext)
+            
+            let vistItem = NSManagedObject(entity: entity!,insertInto: managedObjectContext) as! Visit
+            
+            vistItem.visitId = tmpItem.visitId
+            vistItem.name = tmpItem.name
+            vistItem.email = tmpItem.email
+            vistItem.mobile = tmpItem.mobile
+            vistItem.resource = tmpItem.resource
+            vistItem.requestStatus = tmpItem.requestStatus
+            vistItem.paymentStatus = tmpItem.paymentStatus
+            vistItem.resourceAdmins = tmpItem.resourceAdmins
+            vistItem.bookingDue = tmpItem.bookingDue
+            vistItem.bookingDeposit = tmpItem.bookingDeposit
+            vistItem.bookingTotal = tmpItem.bookingTotal
+            vistItem.startdate = tmpItem.startdate
+            vistItem.starttime = tmpItem.starttime
+            vistItem.enddate = tmpItem.enddate
+            vistItem.endtime = tmpItem.endtime
+            vistItem.resname = tmpItem.resname
+            vistItem.serviceName = tmpItem.ServiceName
+            vistItem.startdatetime = tmpItem.startdatetime
+            vistItem.displayStartdate = tmpItem.displayStartdate
+            vistItem.displayStarttime = tmpItem.displayStarttime
+            vistItem.image = tmpItem.image
+            vistItem.sex = tmpItem.sex
+            vistItem.age = tmpItem.age
+            vistItem.area = tmpItem.area
+            vistItem.city = tmpItem.city
+            vistItem.birthday = tmpItem.birthday
+            vistItem.remarks = tmpItem.remarks
+            vistItem.ceId = tmpItem.ceId
+            vistItem.nametag = tmpItem.nametag
+            do {
+                try managedObjectContext.save()
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+        else
+        {
+            let vistItem = arrVisit![0] as! Visit
+            
+            vistItem.visitId = tmpItem.visitId
+            vistItem.name = tmpItem.name
+            vistItem.email = tmpItem.email
+            vistItem.mobile = tmpItem.mobile
+            vistItem.resource = tmpItem.resource
+            vistItem.requestStatus = tmpItem.requestStatus
+            vistItem.paymentStatus = tmpItem.paymentStatus
+            vistItem.resourceAdmins = tmpItem.resourceAdmins
+            vistItem.bookingDue = tmpItem.bookingDue
+            vistItem.bookingDeposit = tmpItem.bookingDeposit
+            vistItem.bookingTotal = tmpItem.bookingTotal
+            vistItem.startdate = tmpItem.startdate
+            vistItem.starttime = tmpItem.starttime
+            vistItem.enddate = tmpItem.enddate
+            vistItem.endtime = tmpItem.endtime
+            vistItem.resname = tmpItem.resname
+            vistItem.serviceName = tmpItem.ServiceName
+            vistItem.startdatetime = tmpItem.startdatetime
+            vistItem.displayStartdate = tmpItem.displayStartdate
+            vistItem.displayStarttime = tmpItem.displayStarttime
+            vistItem.image = tmpItem.image
+            vistItem.sex = tmpItem.sex
+            vistItem.age = tmpItem.age
+            vistItem.area = tmpItem.area
+            vistItem.city = tmpItem.city
+            vistItem.birthday = tmpItem.birthday
+            vistItem.remarks = tmpItem.remarks
+            vistItem.ceId = tmpItem.ceId
+            vistItem.nametag = tmpItem.nametag
+            do {
+                try managedObjectContext.save()
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+    }
+    func removeAllVisits()
+    {
+        let arrVisits = self.getAllVisitsFromLocalDB()
+        
+        for visit in arrVisits
+        {
+            self.removeVisitItemFromLocalDBWith(visitId: visit.visitId)
+        }
+    }
+    func removeVisitItemFromLocalDBWith(visitId : String)
+    {
+        
+        var results : [Visit]!
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Visit")
+        let predicate = NSPredicate(format: "visitId == %@", visitId)
+        request.predicate = predicate
+        do{
+            
+            
+            results = try managedObjectContext.fetch(request) as! [Visit]
+            if (results.count > 0) {
+                managedObjectContext.delete( results[0])
+                
+            } else {
+                
+            }
+        } catch let error as NSError {
+            
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        do {
+            try managedObjectContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
+    //MARK:- Queries methods
+    public func getDataForQueries(strFetcher:String) -> [NSManagedObject]?
+    {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Queries",
+                                                           in: managedObjectContext)
+        let request : NSFetchRequest<Queries> = Queries.fetchRequest()
+        request.entity = entityDescription
+        
+        if strFetcher.characters.count > 0
+        {
+            let resultPredicate = NSPredicate(format: strFetcher as String)
+            request.predicate = resultPredicate
+        }
+        
+        do
+        {
+            let results = try  managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>)
+            
+            return results as? [NSManagedObject]
+        }
+        catch _
+        {
+            
+        }
+        return[]
+        
+    }
+    
+    func getAllQueriesFromLocalDB() -> [QueriesBO]
+    {
+        let arrQueries = self.getListDataForEntity(strclass: "Queries",strFormat:"")
+        if arrQueries == nil || arrQueries?.count == 0
+        {
+            return [QueriesBO]()
+        }
+        
+        if arrQueries!.count > 0
+        {
+            return self.convertQueriesArrayToQueriesBOArray(arr: arrQueries as! [Queries])
+        }
+        else
+        {
+            return [QueriesBO]()
+        }
+        
+    }
+    func getAllUnansweredQueries()->[QueriesBO]
+    {
+        let arrQueries  =  self.checkAvaibleVersionIs10() ? self.getDataForQueries(strFetcher:"answered == 0")  : self.getListDataForEntity(strclass: "Queries",strFormat:"answered == 0")
+        
+        if arrQueries == nil
+        {
+            return [QueriesBO]()
+        }
+        if arrQueries!.count > 0
+        {
+            return self.convertQueriesArrayToQueriesBOArray(arr: arrQueries as! [Queries])
+        }
+        else {
+            return [QueriesBO]()
+        }
+    }
+    func getAllAnsweredQueries()->[QueriesBO]
+    {
+        let arrQueries  =  self.checkAvaibleVersionIs10() ? self.getDataForQueries(strFetcher:"answered == 1")  : self.getListDataForEntity(strclass: "Queries",strFormat:"answered == 1")
+        
+        if arrQueries == nil
+        {
+            return [QueriesBO]()
+        }
+        if arrQueries!.count > 0
+        {
+            return self.convertQueriesArrayToQueriesBOArray(arr: arrQueries as! [Queries])
+        }
+        else {
+            return [QueriesBO]()
+        }
+    }
+    func getAllPopularQueries()->[QueriesBO]
+    {
+        let arrQueries = self.getListDataForEntity(strclass: "Queries",strFormat:"")
+        if arrQueries == nil || arrQueries?.count == 0
+        {
+            return [QueriesBO]()
+        }
+        
+        if arrQueries!.count > 0
+        {
+            return self.convertQueriesArrayToQueriesBOArray(arr: arrQueries as! [Queries])
+        }
+        else
+        {
+            return [QueriesBO]()
+        }
+        
+    }
+
+    func getQueryItemsWith(QueryId : String) -> [QueriesBO]
+    {
+        let arrQueries  =  self.checkAvaibleVersionIs10() ? self.getDataForVisit(strFetcher:"id == '" +  QueryId + "'")  : self.getListDataForEntity(strclass: "Queries",strFormat:"id == '" +  QueryId + "'")
+        
+        if arrQueries == nil
+        {
+            return [QueriesBO]()
+        }
+        if arrQueries!.count > 0
+        {
+            return self.convertQueriesArrayToQueriesBOArray(arr: arrQueries as! [Queries])
+        }
+        else {
+            return [QueriesBO]()
+        }
+    }
+    func saveAllItemsIntoQueriesTableInLocalDB( arrTmpItems : [QueriesBO])
+    {
+        for tmpItem in arrTmpItems
+        {
+            self.saveItemIntoQueriesTableInLocalDB(tmpItem: tmpItem)
+        }
+    }
+    
+    func saveItemIntoQueriesTableInLocalDB( tmpItem : QueriesBO)
+    {
+        
+        let arrQueries = self.getListDataForEntity(strclass: "Queries",strFormat:"id == \(tmpItem.id)")
+        if arrQueries?.count == 0
+        {
+            let entity =  NSEntityDescription.entity(forEntityName: "Queries",in:managedObjectContext)
+            
+            let queriesItem = NSManagedObject(entity: entity!,insertInto: managedObjectContext) as! Queries
+            
+            queriesItem.id = tmpItem.id
+            queriesItem.title = tmpItem.title
+            queriesItem.alias = tmpItem.alias
+            queriesItem.created = tmpItem.created
+            queriesItem.display_time = tmpItem.display_time
+            queriesItem.display_date = tmpItem.display_date
+            queriesItem.modified_date = tmpItem.modified_date
+            queriesItem.state = tmpItem.state
+            queriesItem.modified = tmpItem.modified
+            queriesItem.replied = tmpItem.replied
+            queriesItem.content = tmpItem.content
+            queriesItem.featured = tmpItem.featured
+            queriesItem.answered = tmpItem.answered
+            queriesItem.hits = tmpItem.hits
+            queriesItem.num_likes = tmpItem.num_likes
+            queriesItem.user_id = tmpItem.user_id
+            queriesItem.poster_name = tmpItem.poster_name
+            queriesItem.poster_email = tmpItem.poster_email
+            queriesItem.imgTag = tmpItem.imgTag
+            queriesItem.image = tmpItem.image
+            queriesItem.gender = tmpItem.gender
+            queriesItem.age = tmpItem.age
+            queriesItem.mobile = tmpItem.mobile
+            queriesItem.category_id = tmpItem.category_id
+            queriesItem.post_type = tmpItem.post_type
+            queriesItem.category_name = tmpItem.category_name
+            do {
+                try managedObjectContext.save()
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+        else
+        {
+            let queriesItem = arrQueries![0] as! Queries
+            
+            queriesItem.id = tmpItem.id
+            queriesItem.title = tmpItem.title
+            queriesItem.alias = tmpItem.alias
+            queriesItem.created = tmpItem.created
+            queriesItem.display_time = tmpItem.display_time
+            queriesItem.display_date = tmpItem.display_date
+            queriesItem.modified_date = tmpItem.modified_date
+            queriesItem.state = tmpItem.state
+            queriesItem.modified = tmpItem.modified
+            queriesItem.replied = tmpItem.replied
+            queriesItem.content = tmpItem.content
+            queriesItem.featured = tmpItem.featured
+            queriesItem.answered = tmpItem.answered
+            queriesItem.hits = tmpItem.hits
+            queriesItem.num_likes = tmpItem.num_likes
+            queriesItem.user_id = tmpItem.user_id
+            queriesItem.poster_name = tmpItem.poster_name
+            queriesItem.poster_email = tmpItem.poster_email
+            queriesItem.imgTag = tmpItem.imgTag
+            queriesItem.image = tmpItem.image
+            queriesItem.gender = tmpItem.gender
+            queriesItem.age = tmpItem.age
+            queriesItem.mobile = tmpItem.mobile
+            queriesItem.category_id = tmpItem.category_id
+            queriesItem.post_type = tmpItem.post_type
+            queriesItem.category_name = tmpItem.category_name
+            do {
+                try managedObjectContext.save()
+                
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+    }
+    func removeAllQueries()
+    {
+        let arrQueries = self.getAllQueriesFromLocalDB()
+        
+        for query in arrQueries
+        {
+            self.removeVisitItemFromLocalDBWith(visitId: query.id)
+        }
+    }
+    func removeQueryItemFromLocalDBWith(queryId : String)
+    {
+        
+        var results : [Queries]!
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Queries")
+        let predicate = NSPredicate(format: "id == %@", queryId)
+        request.predicate = predicate
+        do{
+            
+            
+            results = try managedObjectContext.fetch(request) as! [Queries]
+            if (results.count > 0) {
+                managedObjectContext.delete( results[0])
+                
+            } else {
+                
+            }
+        } catch let error as NSError {
+            
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        do {
+            try managedObjectContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
 
     //MARK: - Utiltiy Method
+    func  convertQueriesArrayToQueriesBOArray (arr : [Queries]) -> [QueriesBO]
+    {
+        var arrQueryItems = [QueriesBO]()
+        for tmpItem in arr
+        {
+            let queryItem = QueriesBO()
+            queryItem.id = tmpItem.id!
+            queryItem.title = tmpItem.title!
+            queryItem.alias = tmpItem.alias!
+            queryItem.created = tmpItem.created!
+            queryItem.display_time = tmpItem.display_time!
+            queryItem.display_date = tmpItem.display_date!
+            queryItem.modified_date = tmpItem.modified_date!
+            queryItem.state = tmpItem.state!
+            queryItem.modified = tmpItem.modified!
+            queryItem.replied = tmpItem.replied!
+            queryItem.content = tmpItem.content!
+            queryItem.featured = tmpItem.featured!
+            queryItem.answered = tmpItem.answered!
+            queryItem.hits = tmpItem.hits!
+            queryItem.num_likes = tmpItem.num_likes!
+            queryItem.user_id = tmpItem.user_id!
+            queryItem.poster_name = tmpItem.poster_name!
+            queryItem.poster_email = tmpItem.poster_email!
+            queryItem.imgTag = tmpItem.imgTag!
+            queryItem.image = tmpItem.image!
+            queryItem.gender = tmpItem.gender!
+            queryItem.age = tmpItem.age!
+            queryItem.mobile = tmpItem.mobile!
+            queryItem.category_id = tmpItem.category_id!
+            queryItem.post_type = tmpItem.post_type!
+            queryItem.category_name = tmpItem.category_name!
+            arrQueryItems.append(queryItem)
+        }
+        return arrQueryItems
+    }
+    func  convertVisitArrayToVisitBOArray (arr : [Visit]) -> [VisitsBO]
+    {
+        var arrVisitItems = [VisitsBO]()
+        for tmpItem in arr
+        {
+            let vistItem = VisitsBO()
+            vistItem.visitId = tmpItem.visitId!
+            vistItem.name = tmpItem.name!
+            vistItem.email = tmpItem.email!
+            vistItem.mobile = tmpItem.mobile!
+            vistItem.resource = tmpItem.resource!
+            vistItem.requestStatus = tmpItem.requestStatus!
+            vistItem.paymentStatus = tmpItem.paymentStatus!
+            vistItem.resourceAdmins = tmpItem.resourceAdmins!
+            vistItem.bookingDue = tmpItem.bookingDue!
+            vistItem.bookingDeposit = tmpItem.bookingDeposit!
+            vistItem.bookingTotal = tmpItem.bookingTotal!
+            vistItem.startdate = tmpItem.startdate!
+            vistItem.starttime = tmpItem.starttime!
+            vistItem.enddate = tmpItem.enddate!
+            vistItem.endtime = tmpItem.endtime!
+            vistItem.resname = tmpItem.resname!
+            vistItem.ServiceName = tmpItem.serviceName!
+            vistItem.startdatetime = tmpItem.startdatetime!
+            vistItem.displayStartdate = tmpItem.displayStartdate!
+            vistItem.displayStarttime = tmpItem.displayStarttime!
+            vistItem.image = tmpItem.image!
+            vistItem.sex = tmpItem.sex!
+            vistItem.age = tmpItem.age!
+            vistItem.area = tmpItem.area!
+            vistItem.city = tmpItem.city!
+            vistItem.birthday = tmpItem.birthday!
+            vistItem.remarks = tmpItem.remarks!
+            vistItem.ceId = tmpItem.ceId!
+            vistItem.nametag = tmpItem.nametag!
+            arrVisitItems.append(vistItem)
+        }
+        return arrVisitItems
+    }
     func  convertPublishArrayToBlogBOArray (arr : [Publish]) -> [BlogBO]
     {
         var arrblogItems = [BlogBO]()

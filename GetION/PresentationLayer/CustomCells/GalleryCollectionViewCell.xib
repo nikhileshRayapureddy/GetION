@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCollectionViewCell" id="gTV-IL-0wX" customClass="GalleryCollectionViewCell" customModule="MessangerApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCollectionViewCell" id="gTV-IL-0wX" customClass="GalleryCollectionViewCell" customModule="GetION" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="180" height="240"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -22,22 +22,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="180" height="240"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-iP-6jn">
-                        <rect key="frame" x="150" y="210" width="30" height="30"/>
+                        <rect key="frame" x="140" y="200" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.3009187940140845" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Xvz-Js-Dgo"/>
                             <constraint firstAttribute="height" constant="30" id="k3F-RU-a2a"/>
                         </constraints>
-                        <state key="normal" title="!"/>
+                        <state key="normal" image="GallertDwn"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ewV-5M-r1Y" secondAttribute="trailing" id="5YA-V0-Ls8"/>
-                <constraint firstAttribute="bottom" secondItem="SFZ-iP-6jn" secondAttribute="bottom" id="Irm-Y6-GZ4"/>
+                <constraint firstAttribute="bottom" secondItem="SFZ-iP-6jn" secondAttribute="bottom" constant="10" id="Irm-Y6-GZ4"/>
                 <constraint firstItem="ewV-5M-r1Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RZ7-Vd-pB2"/>
                 <constraint firstItem="ewV-5M-r1Y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bLx-1u-K98"/>
                 <constraint firstAttribute="bottom" secondItem="ewV-5M-r1Y" secondAttribute="bottom" id="cD0-W1-cLz"/>
-                <constraint firstAttribute="trailing" secondItem="SFZ-iP-6jn" secondAttribute="trailing" id="o3D-39-ioT"/>
+                <constraint firstAttribute="trailing" secondItem="SFZ-iP-6jn" secondAttribute="trailing" constant="10" id="o3D-39-ioT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
@@ -46,4 +53,7 @@
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="GallertDwn" width="40" height="40"/>
+    </resources>
 </document>

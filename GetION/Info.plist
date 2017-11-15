@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>This app will use camera.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save the images to Gallery</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Get photos from library</string>
 	<key>UIAppFonts</key>
