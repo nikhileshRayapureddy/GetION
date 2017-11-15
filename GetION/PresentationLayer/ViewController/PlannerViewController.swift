@@ -194,18 +194,43 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
     func calendarEventSelected(arrPlanns: [PlannerBO], selectedDate: Date)
     {
         selectedDay = selectedDate
-        if arrPlanns.count > 0
-        {
-            self.arrPlans.removeAll()
-            self.arrPlans.append(contentsOf: arrPlanns)
-            self.tblPlanner.reloadData()
-        }
-        else
-        {
-            self.arrPlans.removeAll()
-            self.arrPlans.append(contentsOf: self.arrPermenantPlans)
-            self.tblPlanner.reloadData()
-        }
+//        if arrPlanns.count > 0
+//        {
+            app_delegate.showLoader(message: "Loading. . .")
+            let dateFormate = DateFormatter()
+            dateFormate.dateFormat = "yyyy-MM"
+            
+            let strDate = dateFormate.string(from: selectedDate)
+            
+            let layer = ServiceLayer()
+            layer.getCalendarTopicsbymonth(month: strDate, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    self.arrPlans.removeAll()
+                    self.arrPlans.append(contentsOf: response as! [PlannerBO])
+                    self.tblPlanner.reloadData()
+                    if self.arrPlans.count == 0
+                    {
+                        self.imgDots.isHidden = true
+                    }
+                    else
+                    {
+                        self.imgDots.isHidden = false
+                    }
+                    
+                    app_delegate.removeloder()
+                }
+                
+            }) { (error) in
+                print(error)
+            }
+//        }
+//        else
+//        {
+//            self.arrPlans.removeAll()
+//            self.arrPlans.append(contentsOf: self.arrPermenantPlans)
+//            self.tblPlanner.reloadData()
+//        }
     }
     func calendarMonthChanged(month: Date)
     {
