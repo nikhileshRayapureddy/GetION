@@ -542,7 +542,164 @@ class ServiceLayer: NSObject {
             }
         }
     }
-    
+    public func getAllQueries(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        let arrQueries = CoreDataAccessLayer().getAllQueriesFromLocalDB()
+        let dateFormat = DateFormatter()
+        let date = Date()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        let strDate = dateFormat.string(from: date)
+
+        let username = GetIONUserDefaults.getUserName()
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        if arrQueries.count > 0
+        {
+            obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=get&resource=posts&username=%@&from=\(strDate)", BASE_URL,username)
+        }
+        else
+        {
+        obj._serviceURL = String(format: "%@/request?module=easydiscuss&action=get&resource=posts&username=%@", BASE_URL,username)
+        }
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let posts = obj.parsedDataDict["posts"] as? [[String:AnyObject]]
+                {
+                    var arrQueries = [QueriesBO]()
+                    for blog in posts
+                    {
+                        let query = QueriesBO()
+                        if let id = blog["id"] as? String
+                        {
+                            query.id = id
+                        }
+                        if let title = blog["title"] as? String
+                        {
+                            query.title = title
+                        }
+                        if let alias = blog["alias"] as? String
+                        {
+                            query.alias = alias
+                        }
+                        if let created = blog["created"] as? String
+                        {
+                            query.created = created
+                        }
+                        if let display_time = blog["display_time"] as? String
+                        {
+                            query.display_time = display_time
+                        }
+                        if let display_date = blog["display_date"] as? String
+                        {
+                            query.display_date = display_date
+                        }
+                        if let modified_date = blog["modified_date"] as? String
+                        {
+                            query.modified_date = modified_date
+                        }
+                        if let state = blog["state"] as? String
+                        {
+                            query.state = state
+                            if query.state == "0"
+                            {
+                                continue
+                            }
+                        }
+                        if let modified = blog["modified"] as? String
+                        {
+                            query.modified = modified
+                        }
+                        if let replied = blog["replied"] as? String
+                        {
+                            query.replied = replied
+                        }
+                        if let content = blog["content"] as? String
+                        {
+                            query.content = content
+                        }
+                        if let featured = blog["featured"] as? String
+                        {
+                            query.featured = featured
+                        }
+                        if let answered = blog["answered"] as? String
+                        {
+                            query.answered = answered
+                        }
+                        if let hits = blog["hits"] as? String
+                        {
+                            query.hits = hits
+                        }
+                        if let num_likes = blog["num_likes"] as? String
+                        {
+                            query.num_likes = num_likes
+                        }
+                        if let user_id = blog["user_id"] as? String
+                        {
+                            query.user_id = user_id
+                        }
+                        if let poster_name = blog["poster_name"] as? String
+                        {
+                            query.poster_name = poster_name
+                        }
+                        if let poster_email = blog["poster_email"] as? String
+                        {
+                            query.poster_email = poster_email
+                        }
+                        if let imgTag = blog["imgTag"] as? String
+                        {
+                            query.imgTag = imgTag
+                        }
+                        if let image = blog["image"] as? String
+                        {
+                            query.image = image
+                        }
+                        if let gender = blog["gender"] as? String
+                        {
+                            query.gender = gender
+                        }
+                        if let age = blog["age"] as? String
+                        {
+                            query.age = age
+                        }
+                        if let mobile = blog["mobile"] as? String
+                        {
+                            query.mobile = mobile
+                        }
+                        if let category_id = blog["category_id"] as? String
+                        {
+                            query.category_id = category_id
+                        }
+                        if let post_type = blog["post_type"] as? String
+                        {
+                            query.post_type = post_type
+                        }
+                        if let category_name = blog["category_name"] as? String
+                        {
+                            query.category_name = category_name
+                        }
+                        arrQueries.append(query)
+                    }
+                    DispatchQueue.main.async {
+                        CoreDataAccessLayer().saveAllItemsIntoQueriesTableInLocalDB(arrTmpItems: arrQueries)
+                    }
+                    successMessage(arrQueries)
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+                
+            }
+        }
+    }
+
     public func getQueries(status:String, andIsPopular isPopular: Bool,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let username = GetIONUserDefaults.getUserName()
@@ -1036,12 +1193,21 @@ class ServiceLayer: NSObject {
             }
         }
     }
-    public func getVisitsFor(date:String,username:String,password:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    public func getVisitsFor(date:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
     {
         let obj : HttpRequest = HttpRequest()
         obj.tag = ParsingConstant.Vists.rawValue
         obj.MethodNamee = "GET"
-        obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_bookings&adm=1&list_type=daily&usr=\(username)&pwd=\(password)&adm=1&encode=true&sd=\(date)"
+        let arrVisits = CoreDataAccessLayer().getAllVisitsFromLocalDB()
+        if arrVisits.count > 0
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_bookings&adm=1&list_type=total&usr=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&adm=1&encode=true&sd=\(date)"
+        }
+        else
+        {
+            obj._serviceURL = "\(BASE_URL)?option=com_rsappt_pro3&controller=json_x&fileout=yes&format=raw&task=get_adm_bookings&adm=1&list_type=total&usr=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&adm=1&encode=true"
+            
+        }
         obj.params = [:]
         obj.doGetSOAPResponse {(success : Bool) -> Void in
             if !success
@@ -1176,7 +1342,9 @@ class ServiceLayer: NSObject {
                         arrVisitData.append(objVisits)
                         
                     }
-                    
+                    DispatchQueue.main.async {
+                        CoreDataAccessLayer().saveAllItemsIntoVisitTableInLocalDB(arrTmpItems: arrVisitData)
+                    }
                     successMessage (arrVisitData)
                     
                 }
@@ -1902,7 +2070,10 @@ class ServiceLayer: NSObject {
                 {
                     if code == "blog updated successfully"
                     {
-                        successMessage("Success")
+                        if let id = obj.parsedDataDict["id"] as? String
+                        {
+                            successMessage(id)
+                        }
                     }
                     else
                     {

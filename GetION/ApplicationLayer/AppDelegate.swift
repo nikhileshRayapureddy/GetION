@@ -126,12 +126,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         layer.getAllLeads(successMessage: { (reponse) in
             let arrLeads = reponse as! [LeadsBO]
             DispatchQueue.main.async {
-                self.getAllPublishData()
                 let dataLayer = CoreDataAccessLayer()
-               dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+                dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getAllQueries(successMessage: { (success) in
+                    layer.getVisitsFor(date: strDate,successMessage: { (reponse1) in
+                        self.getAllPublishData()
+                    }, failureMessage: { (err) in
+                        self.getAllPublishData()
+                    })
+                }, failureMessage: { (errors) in
+                    layer.getVisitsFor(date: strDate,successMessage: { (reponse1) in
+                        self.getAllPublishData()
+                    }, failureMessage: { (err) in
+                        self.getAllPublishData()
+                    })
+                })
             }
+
         }) { (error) in
-            self.getAllPublishData()            
+            layer.getAllQueries(successMessage: { (success) in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getVisitsFor(date: strDate,successMessage: { (reponse) in
+                    self.getAllPublishData()
+                }, failureMessage: { (err) in
+                    self.getAllPublishData()
+                })
+
+            }, failureMessage: { (error) in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getVisitsFor(date: strDate,successMessage: { (reponse) in
+                    self.getAllPublishData()
+                }, failureMessage: { (err) in
+                    self.getAllPublishData()
+                })
+            })
+
         }
         
     }

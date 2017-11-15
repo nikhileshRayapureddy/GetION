@@ -259,7 +259,7 @@ class PublishIonizePopUp: UIView {
             dict["publish_up"] = selectedDate as AnyObject
             dict["publish_down"] = "0000-00-00 00:00:00" as AnyObject
             dict["frontpage"] = "" as AnyObject
-            dict["published"] = objBlog.published as AnyObject
+            dict["published"] = "4" as AnyObject
             dict["tags"] = selectedGroups as AnyObject
             dict["id"] = objBlog.postId as AnyObject
             dict["encode"] = "1" as AnyObject
@@ -309,6 +309,8 @@ class PublishIonizePopUp: UIView {
             layer.publishBlog(dict: dict, successMessage: { (response) in
                 
                 DispatchQueue.main.async {
+                    let id = response as! String
+                    CoreDataAccessLayer().removePublishItemFromLocalDBWith(publishId: id)
                     print(response)
                     app_delegate.removeloder()
                     if let delegate = self.delegate

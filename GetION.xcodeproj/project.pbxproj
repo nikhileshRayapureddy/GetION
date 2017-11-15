@@ -68,6 +68,10 @@
 		A78B61661F9F61D5002F8E8F /* PromotionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */; };
 		A78B61681F9F6933002F8E8F /* PromoIonizedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */; };
 		A79A54B01F9F9AA300A39E4A /* AddPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */; };
+		A7ACE7A91FBC4A42006471BF /* Visit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */; };
+		A7ACE7AA1FBC4A42006471BF /* Visit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */; };
+		A7ACE7AD1FBC5325006471BF /* Queries+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */; };
+		A7ACE7AE1FBC5325006471BF /* Queries+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */; };
 		A7B39B8F1FBAD012007E6469 /* TopicsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */; };
 		A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */; };
 		A7BE05B41FA3B3F2000DF86C /* AddNewVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */; };
@@ -217,6 +221,10 @@
 		A78B61651F9F61D5002F8E8F /* PromotionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsMainViewController.swift; sourceTree = "<group>"; };
 		A78B61671F9F6933002F8E8F /* PromoIonizedCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoIonizedCustomCell.swift; sourceTree = "<group>"; };
 		A79A54AF1F9F9AA300A39E4A /* AddPromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromotionViewController.swift; sourceTree = "<group>"; };
+		A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Visit+CoreDataClass.swift"; path = "/Nikhilesh/Projects/GetIONV2/SourceCode/Git/GetION/DataAccessLayer/Entites/Visit+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Visit+CoreDataProperties.swift"; path = "/Nikhilesh/Projects/GetIONV2/SourceCode/Git/GetION/DataAccessLayer/Entites/Visit+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queries+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Queries+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A7B39B8E1FBAD012007E6469 /* TopicsBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsBO.swift; sourceTree = "<group>"; };
 		A7BA438E1FAA351B00E15F65 /* BlockCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCalendarViewController.swift; sourceTree = "<group>"; };
 		A7BE05B31FA3B3F2000DF86C /* AddNewVisitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisitViewController.swift; sourceTree = "<group>"; };
@@ -499,6 +507,10 @@
 		A74FA7C41FA4BB6A001DF55B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
+				A7ACE7AB1FBC5325006471BF /* Queries+CoreDataClass.swift */,
+				A7ACE7AC1FBC5325006471BF /* Queries+CoreDataProperties.swift */,
+				A7ACE7A71FBC4A42006471BF /* Visit+CoreDataClass.swift */,
+				A7ACE7A81FBC4A42006471BF /* Visit+CoreDataProperties.swift */,
 				CCFB46771FB8377400B4A057 /* Publish+CoreDataClass.swift */,
 				CCFB46781FB8377400B4A057 /* Publish+CoreDataProperties.swift */,
 				A77F9C9D1FAB25AF0032BA6A /* Lead+CoreDataClass.swift */,
@@ -851,6 +863,7 @@
 				2CB53D711FB85C8800C2BE28 /* PlannerBO.swift in Sources */,
 				A76AAFC11F934E0F000465D1 /* PlannerDayEventTableViewCell.swift in Sources */,
 				A71FFEFF1F91E6610082BAF8 /* IQTitleBarButtonItem.swift in Sources */,
+				A7ACE7AE1FBC5325006471BF /* Queries+CoreDataProperties.swift in Sources */,
 				A7D5861A1FA4B16600B1BD4A /* DoctorDetailBO.swift in Sources */,
 				A770CB221FB4CC98005D9131 /* ContactsViewController.swift in Sources */,
 				A71FFF001F91E6610082BAF8 /* IQToolbar.swift in Sources */,
@@ -863,8 +876,10 @@
 				A7FB4D4E1FA20C8C00CDE219 /* KSUtils.swift in Sources */,
 				A71FFEF21F91E6610082BAF8 /* IQNSArray+Sort.swift in Sources */,
 				A755C0861FB0B7F800516AFB /* LeadFilterViewController.swift in Sources */,
+				A7ACE7A91FBC4A42006471BF /* Visit+CoreDataClass.swift in Sources */,
 				CCF7029E1FA8D981009AFB21 /* DraftsCustomCell.swift in Sources */,
 				A7BA438F1FAA351B00E15F65 /* BlockCalendarViewController.swift in Sources */,
+				A7ACE7AA1FBC4A42006471BF /* Visit+CoreDataProperties.swift in Sources */,
 				A7164CA61F90F1B0003DB84D /* LoginViewController.swift in Sources */,
 				CCC8BC291FA36D4D00F9002E /* EditQueryPopUpView.swift in Sources */,
 				A7164CA11F90D8A0003DB84D /* HospitalFeedsCell.swift in Sources */,
@@ -916,6 +931,7 @@
 				CCFB467A1FB8377400B4A057 /* Publish+CoreDataProperties.swift in Sources */,
 				CC4238C71FADCFA900480A33 /* AddInputsViewController.swift in Sources */,
 				A731177F1FA4C34E00CC9628 /* CoreDataAccessLayer.swift in Sources */,
+				A7ACE7AD1FBC5325006471BF /* Queries+CoreDataClass.swift in Sources */,
 				A7F7D4641F8FB1C500FA108F /* HomeViewController.swift in Sources */,
 				A78B615F1F9F22AC002F8E8F /* PromotionListViewController.swift in Sources */,
 				A73F00611FAA015B00824BC8 /* LeadMainTableViewCell.swift in Sources */,
