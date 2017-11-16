@@ -12,13 +12,17 @@ import WebKit
 class BlogWebViewController: BaseViewController {
     var detailBO = BlogBO()
     
-    @IBOutlet weak var webView: WKWebView!
+    var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let configuration = WKWebViewConfiguration()
+
+        webView = WKWebView(frame: self.view.bounds, configuration: configuration)
+        webView.navigationDelegate = self
         self.designNavigationBarWithBackAnd(strTitle: detailBO.title)
         webView.loadHTMLString(detailBO.textplain, baseURL: nil)
         print("detailBO.textplain : \(detailBO.textplain)")
-
+        self.view.addSubview(webView)
         // Do any additional setup after loading the view.
     }
 
@@ -27,4 +31,15 @@ class BlogWebViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension BlogWebViewController: WKNavigationDelegate
+{
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("Webview Start")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("Webview Error")
+    }
 }
