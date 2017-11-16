@@ -301,6 +301,8 @@ class BaseViewController: UIViewController,AddCustomPopUpViewDelegate {
     }
     @objc func searchButtonClicked(sender:UIButton)
     {
+        let searchVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
 
     @objc func menuClicked(sender:UIButton)
