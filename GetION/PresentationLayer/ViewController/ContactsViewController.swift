@@ -61,10 +61,22 @@ extension ContactsViewController:UITableViewDelegate,UITableViewDataSource
         }
         cell.constBtnSelWidth.constant = 40
         cell.tag = indexPath.row + 5670
+        cell.lblNameTag.textAlignment = .center
         let url = URL(string: bo.image)
         cell.imgVwLead.kf.indicatorType = .activity
-        cell.imgVwLead.kf.setImage(with: url)
-        
+        cell.imgVwLead.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.2))] , progressBlock: nil) { (image, error, cacheType, url) in
+            if image != nil
+            {
+                cell.lblNameTag.isHidden = true
+                cell.lblNameTag.text = ""
+            }
+            else
+            {
+                cell.lblNameTag.isHidden = false
+                cell.lblNameTag.text = bo.imgTag
+            }
+        }
+
         return cell
     }
     
