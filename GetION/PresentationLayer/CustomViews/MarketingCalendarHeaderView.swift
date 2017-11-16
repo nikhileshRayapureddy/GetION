@@ -80,6 +80,88 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
 {
     
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        
+        //return UIColor.lightGray
+        
+        let dateFormator = DateFormatter()
+        dateFormator.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormator.string(from: date)
+        if self.arrPlans.count > 0
+        {
+            print(dateString)
+        }
+        let arrTemp = self.arrPlans.filter { (objPlanner) -> Bool in
+            if objPlanner.date == dateString
+            {
+                return true
+            }
+            return false
+        }
+        
+        if arrTemp.count > 0
+        {
+            
+            
+            let tmp = arrTemp.filter({ (obj) -> Bool in
+                if obj.state != ""
+                {
+                    return true
+                }
+                return false
+            })
+            
+            if tmp.count > 1 || tmp.count == 1
+            {
+                if tmp[0].state == "1"
+                {
+                    return  UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
+                    
+                }
+                else if tmp[0].state == "2"
+                {
+                    return UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
+                    
+                }
+                else if tmp[0].state == "3"
+                {
+                    return THEME_COLOR
+                }
+                return THEME_COLOR
+            }
+            return THEME_COLOR
+            
+        }
+        else
+        {
+            return UIColor.lightGray
+        }
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        let dateFormator = DateFormatter()
+        dateFormator.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormator.string(from: date)
+        if self.arrPlans.count > 0
+        {
+            print(dateString)
+        }
+        let arrTemp = self.arrPlans.filter { (objPlanner) -> Bool in
+            if objPlanner.date == dateString
+            {
+                return true
+            }
+            return false
+        }
+        
+        if arrTemp.count > 0
+        {
+            return UIColor.white
+        }
+        else
+        {
+            return UIColor.black
+        }
+    }
     public func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor?
     {
         let dateFormator = DateFormatter()
@@ -127,7 +209,7 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
                 }
                 return THEME_COLOR
             }
-            return UIColor.white
+            return UIColor.lightGray
             
         }
         else
