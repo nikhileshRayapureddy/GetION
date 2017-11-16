@@ -19,7 +19,7 @@ class UpdateVisitsViewController: BaseViewController
     let datePicker = UIDatePicker()
     let picker = UIPickerView()
     var selectedDate = Date()
-
+    var vwSep = UIView()
     
     @IBOutlet weak var vwGroupsBase: UIView!
     @IBOutlet weak var vwScrollMain: UIScrollView!
@@ -63,7 +63,8 @@ class UpdateVisitsViewController: BaseViewController
     var imagePicker = UIImagePickerController()
     var selectedProfilePicUrl = ""
     var selectedProfilePic : UIImage!
-    
+    var isFromFeeds = false
+    var visitID = ""
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -73,10 +74,33 @@ class UpdateVisitsViewController: BaseViewController
         self.designNavigationBarWithBackAnd(strTitle: "VISITS")
         self.vwAppointmentDetails.layer.borderColor = UIColor.lightGray.cgColor
         self.vwAppointmentDetails.layer.borderWidth = 0.8
-        self.getSuggestions()
         arrGroupItems = arrSelectedGroups
+        if isFromFeeds
+        {
+            app_delegate.showLoader(message: "Loading...")
+            let layer = ServiceLayer()
+            layer.getVisitDetailWith(strVisitId: visitID, successMessage: { (response) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    self.objVisits = response as! VisitsBO
+                    self.getSuggestions()
+                    self.bindData()
+
+                }
+            }, failureMessage: { (err) in
+                DispatchQueue.main.async {
+                    app_delegate.removeloder()
+                    self.getSuggestions()
+                }
+            })
+        }
+        else
+        {
+            self.getSuggestions()
+            self.bindData()
+
+        }
         self.setGroups()
-        self.bindData()
         datePicker.datePickerMode = .date
         txtDOB.inputView = datePicker
         txtGender.inputView = picker
@@ -355,12 +379,19 @@ class UpdateVisitsViewController: BaseViewController
         self.view.addSubview(datePicker)
         
         let btnDone = UIButton(type: .custom)
-        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 30, width: 50, height: 30)
-        btnDone.backgroundColor = UIColor.lightGray
-        btnDone.setTitleColor(.white, for: .normal)
-        btnDone.setTitle("Done", for: .normal)
+        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 31, width: ScreenWidth, height: 30)
+        btnDone.backgroundColor = UIColor.white
+        btnDone.setTitleColor(.black, for: .normal)
+        btnDone.contentVerticalAlignment = .center
+        btnDone.contentHorizontalAlignment = .left
+        btnDone.titleLabel?.font = UIFont.myridSemiboldFontOfSize(size: 15)
+        btnDone.setTitle("  Done", for: .normal)
         btnDone.addTarget(self, action: #selector(self.btnDatePickerDoneClicked(sender:)), for: .touchUpInside)
         self.view.addSubview(btnDone)
+        
+        vwSep = UIView(frame: CGRect(x: 0, y: datePicker.frame.origin.y - 1, width: ScreenWidth, height: 1))
+        vwSep.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        self.view.addSubview(vwSep)
     }
     @objc func btnDatePickerDoneClicked(sender:UIButton)
     {
@@ -383,13 +414,21 @@ class UpdateVisitsViewController: BaseViewController
         datePicker.frame = CGRect(x: 0, y: ScreenHeight - 250, width: ScreenWidth, height: 250)
         self.view.addSubview(datePicker)
         
+        
         let btnDone = UIButton(type: .custom)
-        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 30, width: 50, height: 30)
-        btnDone.backgroundColor = UIColor.lightGray
-        btnDone.setTitleColor(.white, for: .normal)
-        btnDone.setTitle("Done", for: .normal)
+        btnDone.frame = CGRect(x: 0, y: datePicker.frame.origin.y - 31, width: ScreenWidth, height: 30)
+        btnDone.backgroundColor = UIColor.white
+        btnDone.setTitleColor(.black, for: .normal)
+        btnDone.contentVerticalAlignment = .center
+        btnDone.contentHorizontalAlignment = .left
+        btnDone.titleLabel?.font = UIFont.myridSemiboldFontOfSize(size: 15)
+        btnDone.setTitle("  Done", for: .normal)
         btnDone.addTarget(self, action: #selector(self.btnTimePickerDoneClicked(sender:)), for: .touchUpInside)
         self.view.addSubview(btnDone)
+        
+        vwSep = UIView(frame: CGRect(x: 0, y: datePicker.frame.origin.y - 1, width: ScreenWidth, height: 1))
+        vwSep.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        self.view.addSubview(vwSep)
     }
     @objc func btnTimePickerDoneClicked(sender:UIButton)
     {

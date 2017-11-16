@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        self.getAllLeads()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -79,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getAllPublishData()
     {
-        self.showLoader(message: "Fetching...")
         let layer = ServiceLayer()
         layer.getAllDraftsBlog(successMessage: { (response) in
                 layer.getAllPublishBlog(successMessage: { (success) in
@@ -122,6 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func getAllLeads()
     {
+        self.showLoader(message: "Fetching...")
         let layer = ServiceLayer()
         layer.getAllLeads(successMessage: { (reponse) in
             let arrLeads = reponse as! [LeadsBO]

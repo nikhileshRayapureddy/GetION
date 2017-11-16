@@ -138,7 +138,7 @@ class QueryReplyViewController: BaseViewController {
         layer.getCategoriesForTransfer(successMessage: { (response) in
             DispatchQueue.main.async {
                 app_delegate.removeloder()
-                self.showCategoriesPopUp(response as! [CategoryBO])
+                self.showCategoriesPopUp(response as! [CatagoryBO])
             }
         }) { (error) in
             DispatchQueue.main.async {
@@ -147,7 +147,7 @@ class QueryReplyViewController: BaseViewController {
         }
     }
     
-    func showCategoriesPopUp(_ categories: [CategoryBO])
+    func showCategoriesPopUp(_ categories: [CatagoryBO])
     {
         if let view = Bundle.main.loadNibNamed("CategoriesPopUp", owner: nil, options: nil)![0] as? CategoriesPopUp
         {

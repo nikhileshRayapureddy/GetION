@@ -24,4 +24,12 @@ class CatagoryBO: NSObject
     var checked_out_time = ""
     var ordering = ""
     var published = ""
+    
+    var id = ""
+    var category_name = ""
+    var title = ""
+    var alias = ""
+    var created = ""
+    var post_count = ""
+
 }

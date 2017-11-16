@@ -1,18 +1,18 @@
 //
-//  InputCategoriesCustomCell.swift
+//  SearchCustomCell.swift
 //  GetION
 //
-//  Created by Kiran Kumar on 04/11/17.
+//  Created by NIKHILESH on 16/11/17.
 //  Copyright © 2017 Nikhilesh. All rights reserved.
 //
 
 import UIKit
 
-class InputCategoriesCustomCell: UITableViewCell {
-    @IBOutlet weak var btnCheckBox: IndexPathButton!
-    @IBOutlet weak var btnDate: IndexPathButton!
+class SearchCustomCell: UITableViewCell {
+
+    @IBOutlet weak var vwBg: UIView!
     @IBOutlet weak var lblTitle: UILabel!
-    
+    @IBOutlet weak var imgType: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

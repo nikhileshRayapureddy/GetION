@@ -71,8 +71,8 @@ class LeadAddAndUpdateViewController: BaseViewController
     let datePicker = UIDatePicker()
     var arrPickerData = ["Male", "Female"]
     var selectedPickerRow = 0
-
-    
+    var leadID = ""
+    var isFromSearch = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.designNavigationBarWithBackAnd(strTitle: "Add New Lead")
@@ -108,7 +108,27 @@ class LeadAddAndUpdateViewController: BaseViewController
             constrtProfileHeight.constant = 220
             constrntSourceHeight.constant = 58
             constrnSourceSeperatorHeight.constant = 1
-            self.bindData()
+            if isFromSearch
+            {
+                app_delegate.showLoader(message: "Loading...")
+                let layer = ServiceLayer()
+                layer.getLeadDetailWith(strID: leadID, successMessage: { (response) in
+                    DispatchQueue.main.async {
+                        self.objLead = response as! LeadsBO
+                        app_delegate.removeloder()
+                        self.bindData()
+                    }
+                    
+                }, failureMessage: { (err) in
+                    DispatchQueue.main.async {
+                        app_delegate.removeloder()
+                    }
+                })
+            }
+            else
+            {
+                self.bindData()
+            }
 
         }
         self.getSuggestions()

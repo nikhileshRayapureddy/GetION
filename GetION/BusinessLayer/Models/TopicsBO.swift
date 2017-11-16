@@ -20,4 +20,5 @@ class TopicsBO: NSObject {
     var color = ""
     var modified = ""
     var state = ""
+    var selDate = ""
 }
