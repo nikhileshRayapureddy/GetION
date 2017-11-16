@@ -2716,10 +2716,10 @@ class ServiceLayer: NSObject {
             {
                 if let data = obj.parsedDataDict["description"] as? [[String:AnyObject]]
                 {
-                    var arrCategories = [CategoryBO]()
+                    var arrCategories = [CatagoryBO]()
                     for blog in data
                     {
-                        let category = CategoryBO()
+                        let category = CatagoryBO()
                         if let id = blog["id"] as? String
                         {
                             category.id = id
@@ -4034,7 +4034,55 @@ class ServiceLayer: NSObject {
             {
                 if let description = obj.parsedDataDict["description"] as? [String:AnyObject]
                 {
-                    successMessage("success")
+                    let keys = Array(description.keys)
+                    
+                    if keys.count > 0
+                    {
+                        var dict = [String:[TopicsBO]]()
+                        for key in keys
+                        {
+                            if let topics = description[key] as? [[String:AnyObject]]
+                            {
+                                var arrTopics = [TopicsBO]()
+                                for topic in topics
+                                {
+                                    let topicBO = TopicsBO()
+                                    if let id  = topic["id"] as? String
+                                    {
+                                        topicBO.id = id
+                                    }
+                                    if let title  = topic["title"] as? String
+                                    {
+                                        topicBO.title = title
+                                    }
+                                    if let start_date  = topic["start_date"] as? String
+                                    {
+                                        topicBO.start_date = start_date
+                                    }
+                                    if let description  = topic["description"] as? String
+                                    {
+                                        topicBO.Description = description
+                                    }
+                                    if let state  = topic["state"] as? String
+                                    {
+                                        topicBO.state = state
+                                    }
+                                    if let hours  = topic["hours"] as? String
+                                    {
+                                        topicBO.hours = hours
+                                    }
+                                    arrTopics.append(topicBO)
+                                }
+                                dict[key] = arrTopics
+
+                            }
+                        }
+                        successMessage(dict)
+                    }
+                    else
+                    {
+                        failureMessage("No data found.")
+                    }
                 }
                 else
                 {
@@ -4387,6 +4435,262 @@ class ServiceLayer: NSObject {
                     failureMessage(self.SERVER_ERROR)
                 }
                 
+            }
+        }
+    }
+    
+    func addTopicsToCalenderWith(strTopics:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //staging.getion.in/index.php?option=com_api&format=raw&app=easyblog&resource=ionize&key=178b5f7f049b32a8fc34d9116099cd706b7f9631&topics=97:2017-11-03,98:2017-11-01,100:2017-11-01
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)?option=com_api&format=raw&app=easyblog&resource=ionize&key=\(GetIONUserDefaults.getAuth())&topics=\(strTopics)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                {
+                    if description.count > 0
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+
+    }
+    func getAllCategories(successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+//        http://staging.getion.in/index.php?resource=tags&option=com_api&app=easyblog&format=raw&key=178b5f7f049b32a8fc34d9116099cd706b7f9631
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)?resource=tags&option=com_api&app=easyblog&format=raw&key=\(GetIONUserDefaults.getAuth())"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let data = obj.parsedDataDict["data"] as? [[String:AnyObject]]
+                {
+                    var arrcat = [CatagoryBO]()
+                    for cat in data
+                    {
+                        let bo = CatagoryBO()
+                        if let id = cat["id"] as? String
+                        {
+                            bo.id = id
+                        }
+                        if let title = cat["title"] as? String
+                        {
+                            bo.title = title
+                        }
+                        if let alias = cat["alias"] as? String
+                        {
+                            bo.alias = alias
+                        }
+                        if let created = cat["created"] as? String
+                        {
+                            bo.created = created
+                        }
+                        if let post_count = cat["post_count"] as? String
+                        {
+                            bo.post_count = post_count
+                        }
+                        arrcat.append(bo)
+                    }
+                    successMessage(arrcat)
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+
+    }
+    public func addNewTopicWith(strTitle:String,strdescription : String,tag:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request?action=post&module=ionplanner&resource=planner&created_by=180&title=cardiology&start_date=0000-00-00 00:00:00&color=red&description=cardiology&end_date=0000-00-00 00:00:00&tag=cardiology
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "POST"
+        obj._serviceURL = "\(BASE_URL)/request?action=post&module=ionplanner&resource=planner&created_by=\(GetIONUserDefaults.getUserId())&title=\(strTitle)&start_date=0000-00-00 00:00:00&color=red&description=\(strdescription)&end_date=0000-00-00 00:00:00&tag=\(tag)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "success"
+                    {
+                        successMessage("success")
+                    }
+                    else
+                    {
+                        failureMessage("failure")
+                    }
+                }
+                else
+                {
+                    failureMessage(self.SERVER_ERROR)
+                }
+                
+            }
+        }
+    }
+    func getLeadDetailWith(strID:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://staging.getion.in/index.php/request/get/contacts/contacts?user_id=180&username=ramesh&pwd=cmFtZXNo&encode=true&id=78443
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/get/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&username=\(GetIONUserDefaults.getUserName())&pwd=\(GetIONUserDefaults.getPassword())&encode=true&id=\(strID)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            let bo = LeadsBO()
+                            if description.count > 0
+                            {
+                                let lead = description[0]
+                                if let id = lead["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let department = lead["department"] as? String
+                                {
+                                    bo.department = department
+                                }
+                                if let age = lead["age"] as? String
+                                {
+                                    bo.age = age
+                                }
+                                if let firstname = lead["firstname"] as? String
+                                {
+                                    bo.firstname = firstname
+                                }
+                                if let surname = lead["surname"] as? String
+                                {
+                                    bo.surname = surname
+                                }
+                                if let mobile = lead["mobile"] as? String
+                                {
+                                    bo.mobile = mobile
+                                }
+                                if let email = lead["email"] as? String
+                                {
+                                    bo.email = email
+                                }
+                                if let birthday = lead["birthday"] as? String
+                                {
+                                    bo.birthday = birthday
+                                }
+                                if let sex = lead["sex"] as? String
+                                {
+                                    bo.sex = sex
+                                }
+                                if let purpose = lead["purpose"] as? String
+                                {
+                                    bo.purpose = purpose
+                                }
+                                if let area = lead["area"] as? String
+                                {
+                                    bo.area = area
+                                }
+                                if let city = lead["city"] as? String
+                                {
+                                    bo.city = city
+                                }
+                                if let pincode = lead["pincode"] as? String
+                                {
+                                    bo.pincode = pincode
+                                }
+                                if let remarks = lead["remarks"] as? String
+                                {
+                                    bo.remarks = remarks
+                                }
+                                if let login_id = lead["login_id"] as? String
+                                {
+                                    bo.login_id = login_id
+                                }
+                                if let lastupdated = lead["lastupdated"] as? String
+                                {
+                                    bo.lastupdated = lastupdated
+                                }
+                                if let flag = lead["flag"] as? String
+                                {
+                                    bo.flag = flag
+                                }
+                                if let image = lead["image"] as? String
+                                {
+                                    bo.image = image
+                                }
+                                if let source = lead["source"] as? String
+                                {
+                                    bo.source = source
+                                }
+                                if let imgTag = lead["imgTag"] as? String
+                                {
+                                    bo.imgTag = imgTag
+                                }
+                                if let leadsTags = lead["leadsTags"] as? String
+                                {
+                                    bo.leadsTags = leadsTags
+                                }
+
+                            }
+                            
+                            successMessage(bo)
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
             }
         }
     }

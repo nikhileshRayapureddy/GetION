@@ -19,7 +19,7 @@ class CategoriesPopUp: UIView {
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var viewBackgroundHeightConstraint: NSLayoutConstraint!
     var delegate: CategoriesPopUp_Delegate!
-    var arrCategories = [CategoryBO]()
+    var arrCategories = [CatagoryBO]()
    
     func resizeViews()
     {

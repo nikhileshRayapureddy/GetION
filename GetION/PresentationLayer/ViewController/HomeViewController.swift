@@ -386,9 +386,8 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
                 if arrContect[0] == "visits"
                 {
                     let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
-                    let visitBO = VisitsBO()
-                    visitBO.visitId = bo.context_id
-                    detailVisitVC.objVisits = visitBO
+                    detailVisitVC.isFromFeeds = true
+                    detailVisitVC.visitID = bo.context_id
                     self.navigationController?.pushViewController(detailVisitVC, animated: true)
                 }
                 else if arrContect[0] == "blog"

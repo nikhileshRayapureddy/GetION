@@ -16,6 +16,7 @@ class LeadMainTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var lblLead: UILabel!
     @IBOutlet weak var imgVwType: UIImageView!
     @IBOutlet weak var constBtnSelWidth: NSLayoutConstraint!
+    @IBOutlet weak var lblNameTag: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
