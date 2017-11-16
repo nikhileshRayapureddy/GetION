@@ -225,10 +225,18 @@ class LeadAddAndUpdateViewController: BaseViewController
     func bindData()
     {
         self.setEditablesWithBool(isEditiable: isLeadAdd)
-
         let url = URL(string: objLead.image)
-        imgProfile.kf.setImage(with: url)
-        
+        imgProfile.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.2))] , progressBlock: nil) { (image, error, cacheType, url) in
+            if image != nil
+            {
+                self.btnImagePicker.setTitle("", for: .normal)
+            }
+            else
+            {
+                self.btnImagePicker.setTitle(self.objLead.imgTag, for: .normal)
+            }
+        }
+        btnImagePicker.setTitleColor(UIColor.black, for: .normal)
         self.txtFirstName.text = objLead.firstname
         self.txtLastName.text = objLead.surname
         self.txtPhone.text = objLead.mobile
