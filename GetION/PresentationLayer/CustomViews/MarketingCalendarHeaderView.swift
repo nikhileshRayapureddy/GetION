@@ -79,11 +79,16 @@ class MarketingCalendarHeaderView: UIView {
 extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance
 {
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor?
+    
+    public func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor?
     {
         let dateFormator = DateFormatter()
         dateFormator.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormator.string(from: date)
+        if self.arrPlans.count > 0
+        {
+            print(dateString)
+        }
         let arrTemp = self.arrPlans.filter { (objPlanner) -> Bool in
             if objPlanner.date == dateString
             {
@@ -94,6 +99,8 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
         
         if arrTemp.count > 0
         {
+            
+            
             let tmp = arrTemp.filter({ (obj) -> Bool in
                 if obj.state != ""
                 {
@@ -120,14 +127,76 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
                 }
                 return THEME_COLOR
             }
-            return UIColor.red
+            return UIColor.white
             
         }
         else
         {
-            return UIColor.red
+            return UIColor.white
         }
     }
+    
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+//        
+//        let dateFormator = DateFormatter()
+//        dateFormator.dateFormat = "yyyy-MM-dd"
+//        let dateString = dateFormator.string(from: date)
+//        if self.arrPlans.count > 0
+//        {
+//            print(dateString)
+//        }
+//        let arrTemp = self.arrPlans.filter { (objPlanner) -> Bool in
+//            if objPlanner.date == dateString
+//            {
+//                return true
+//            }
+//            return false
+//        }
+//        
+//        if arrTemp.count > 0
+//        {
+//            
+//            
+//            let tmp = arrTemp.filter({ (obj) -> Bool in
+//                if obj.state != ""
+//                {
+//                    return true
+//                }
+//                return false
+//            })
+//            
+//            if tmp.count > 1 || tmp.count == 1
+//            {
+//                var arrColors = [UIColor]()
+//
+//                for item in tmp
+//                {
+//                    if item.state == "1"
+//                    {
+//                        arrColors.append(UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1))
+//                        
+//                    }
+//                    else if item.state == "2"
+//                    {
+//                        
+//                        arrColors.append(UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1))
+//                        
+//                        
+//                    }
+//                    else if item.state == "3"
+//                    {
+//                        arrColors.append(THEME_COLOR)
+//                    }
+//                }
+//                
+//             return  arrColors
+//        }
+//        else
+//        {
+//            return  arrColors
+//        }
+//    }
+//    }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int
     {
@@ -141,6 +210,7 @@ extension MarketingCalendarHeaderView : FSCalendarDataSource, FSCalendarDelegate
             }
              return false
         }
+        
         
         return arrTemp.count
     }
