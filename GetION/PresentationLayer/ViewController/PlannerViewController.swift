@@ -21,8 +21,10 @@ class PlannerViewController: BaseViewController {
 
     ///
     var isCalendarShow = false
+    var arrPermenantPlans = [PlannerBO]()
     var arrPlans = [PlannerBO]()
     var selectedDate = Date()
+    var selectedDay = Date()
     override func viewDidLoad() {
         super.viewDidLoad()
         // designTabBar()
@@ -80,6 +82,8 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
             let headerView = Bundle.main.loadNibNamed("MarketingCalendarHeaderView", owner: self, options: nil)![0] as! MarketingCalendarHeaderView
             headerView.frame = CGRect (x: 0, y: 0, width: UIScreen.main.bounds.width, height: 470)
             headerView.selectedDate = selectedDate
+            headerView.selectedDay = self.selectedDay
+            headerView.arrPlans = self.arrPermenantPlans
             headerView.callBack = self
             headerView.loadCalender()
             return headerView
@@ -144,18 +148,21 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
             cell?.lblStatus.text = "Publish"
             cell?.lblStatus.textColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
             cell?.lblTime.backgroundColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
+            cell?.vwColor.backgroundColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
         }
         else if objPlanner.state == "2"
         {
             cell?.lblStatus.text = "Draft"
             cell?.lblStatus.textColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
             cell?.lblTime.backgroundColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
+             cell?.vwColor.backgroundColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
         }
         else if objPlanner.state == "3"
         {
             cell?.lblStatus.text = "Ionize"
             cell?.lblStatus.textColor = THEME_COLOR
             cell?.lblTime.backgroundColor = THEME_COLOR
+            cell?.vwColor.backgroundColor = THEME_COLOR
         }
         
         
@@ -184,7 +191,47 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
         return cell!
     }
     
-    
+    func calendarEventSelected(arrPlanns: [PlannerBO], selectedDate: Date)
+    {
+        selectedDay = selectedDate
+//        if arrPlanns.count > 0
+//        {
+            app_delegate.showLoader(message: "Loading. . .")
+            let dateFormate = DateFormatter()
+            dateFormate.dateFormat = "yyyy-MM"
+            
+            let strDate = dateFormate.string(from: selectedDate)
+            
+            let layer = ServiceLayer()
+            layer.getCalendarTopicsbymonth(month: strDate, successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    self.arrPlans.removeAll()
+                    self.arrPlans.append(contentsOf: response as! [PlannerBO])
+                    self.tblPlanner.reloadData()
+                    if self.arrPlans.count == 0
+                    {
+                        self.imgDots.isHidden = true
+                    }
+                    else
+                    {
+                        self.imgDots.isHidden = false
+                    }
+                    
+                    app_delegate.removeloder()
+                }
+                
+            }) { (error) in
+                print(error)
+            }
+//        }
+//        else
+//        {
+//            self.arrPlans.removeAll()
+//            self.arrPlans.append(contentsOf: self.arrPermenantPlans)
+//            self.tblPlanner.reloadData()
+//        }
+    }
     func calendarMonthChanged(month: Date)
     {
         app_delegate.showLoader(message: "Loading...")
@@ -199,7 +246,9 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
             
             DispatchQueue.main.async {
             self.arrPlans.removeAll()
+            self.arrPermenantPlans.removeAll()
             self.arrPlans.append(contentsOf: response as! [PlannerBO])
+            self.arrPermenantPlans.append(contentsOf: response as! [PlannerBO])
             self.tblPlanner.reloadData()
                 if self.arrPlans.count == 0
                 {
@@ -209,6 +258,7 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
                 {
                     self.imgDots.isHidden = false
                 }
+                
                 app_delegate.removeloder()
             }
             
