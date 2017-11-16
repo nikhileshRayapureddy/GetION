@@ -4694,6 +4694,67 @@ class ServiceLayer: NSObject {
             }
         }
     }
+    func searchWith(strKey:String,successMessage: @escaping (Any) -> Void , failureMessage : @escaping(Any) ->Void)
+    {
+        //http://www.staging.getion.in/index.php/request/searchall/contacts/contacts?user_id=180&word=test
+        let obj : HttpRequest = HttpRequest()
+        obj.tag = ParsingConstant.Login.rawValue
+        obj.MethodNamee = "GET"
+        obj._serviceURL = "\(BASE_URL)/request/searchall/contacts/contacts?user_id=\(GetIONUserDefaults.getUserId())&word=\(strKey)"
+        obj.params = [:]
+        obj.doGetSOAPResponse {(success : Bool) -> Void in
+            if !success
+            {
+                failureMessage(self.SERVER_ERROR)
+            }
+            else
+            {
+                if let code = obj.parsedDataDict["status"] as? String
+                {
+                    if code == "ok"
+                    {
+                        if let description = obj.parsedDataDict["description"] as? [[String:AnyObject]]
+                        {
+                            var arrResults = [SearchBO]()
+                            for key in description
+                            {
+                                let bo = SearchBO()
+                                if let id = key["id"] as? String
+                                {
+                                    bo.id = id
+                                }
+                                if let title = key["title"] as? String
+                                {
+                                    bo.title = title
+                                }
+                                if let type = key["type"] as? String
+                                {
+                                    bo.type = type
+                                }
+                                arrResults.append(bo)
+
+                            }
+                            
+                            successMessage(arrResults)
+                        }
+                        else
+                        {
+                            failureMessage("Failure")
+                        }
+                        
+                    }
+                    else
+                    {
+                        failureMessage("Failure")
+                    }
+                }
+                else
+                {
+                    failureMessage("Failure")
+                }
+            }
+        }
+    }
     //MARK:- Utility Methods
     public func convertDictionaryToString(dict: [String:String]) -> String? {
         var strReturn = ""
