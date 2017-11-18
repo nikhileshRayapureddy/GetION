@@ -19,23 +19,12 @@ class PlannerDayEventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblStatus: UILabel!
     
-    @IBOutlet weak var vwPlanner: UIView!
+    @IBOutlet weak var vwColor: UIImageView!
     
-    
-    @IBOutlet weak var vwMaskLayer: UIView!
-    
-    @IBOutlet weak var vwGray: UIView!
-    
-    
-    @IBOutlet weak var vwColor: UIView!
-    
+    @IBOutlet weak var viewBorder: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-         self.vwPlanner.setShadowOfColor(UIColor.darkGray, andShadowOffset: CGSize (width: -1, height: 4), andShadowOpacity: 0.3, andShadowRadius: 4)
-        self.vwColor.round(corners: [.bottomLeft,.topLeft], radius: 6)
-        self.vwPlanner.layer.cornerRadius = 6
         
     }
 
