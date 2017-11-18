@@ -18,7 +18,8 @@ class PlannerViewController: BaseViewController {
     
     @IBOutlet weak var btnAdd: UIButton!
     
-
+    @IBOutlet weak var viewDots: UIView!
+    
     ///
     var isCalendarShow = false
     var arrPermenantPlans = [PlannerBO]()
@@ -31,20 +32,24 @@ class PlannerViewController: BaseViewController {
       
         self.calendarMonthChanged(month: Date())
         // Do any additional setup after loading the view.
-        self.tblPlanner.isScrollEnabled = false
+        self.tblPlanner.isScrollEnabled = true
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        isCalendarShow = true
+        isCalendarShow = false
     }
     override func viewWillDisappear(_ animated: Bool)
     {
         self.navigationController?.isNavigationBarHidden = false
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        viewDots.addDashedBorder()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,21 +118,27 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let objPlanner = arrPlans[indexPath.row]
+        let frame = objPlanner.title.height(withConstrainedWidth: self.view.frame.size.width - 90, font: UIFont.myridSemiboldFontOfSize(size: 15))
+        var height = 0.0
+        height = Double(frame) + height
+        height = height + 110.0
+        return CGFloat(height)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlannerDayEventTableViewCell", for: indexPath) as?PlannerDayEventTableViewCell
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        
+
+        cell?.viewBorder.layer.cornerRadius = 10.0
+        cell?.viewBorder.layer.borderColor = UIColor.lightGray.cgColor
+        cell?.viewBorder.layer.borderWidth = 1.0
+        cell?.viewBorder.clipsToBounds = true
+        cell?.viewBorder.backgroundColor = UIColor.init(red: 238.0/255.0, green: 242.0/255.0, blue: 244.0/255.0, alpha: 1.0)
         let objPlanner = arrPlans[indexPath.row]
         
-        if indexPath.row == 0
-        {
-            cell?.vwMaskLayer.isHidden = false
-        }
-        else
-        {
-            cell?.vwMaskLayer.isHidden = true
-        }
 
         if objPlanner.isShowDate == true
         {
@@ -147,21 +158,18 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
         {
             cell?.lblStatus.text = "Publish"
             cell?.lblStatus.textColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
-            cell?.lblTime.backgroundColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
             cell?.vwColor.backgroundColor = UIColor (red: 70.0/255, green: 70.0/255, blue: 70.0/255, alpha: 1)
         }
         else if objPlanner.state == "2"
         {
             cell?.lblStatus.text = "Draft"
             cell?.lblStatus.textColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
-            cell?.lblTime.backgroundColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
              cell?.vwColor.backgroundColor = UIColor (red: 204.0/255, green: 91.0/255, blue: 113.0/255, alpha: 1)
         }
         else if objPlanner.state == "3"
         {
             cell?.lblStatus.text = "Ionize"
             cell?.lblStatus.textColor = THEME_COLOR
-            cell?.lblTime.backgroundColor = THEME_COLOR
             cell?.vwColor.backgroundColor = THEME_COLOR
         }
         
@@ -179,15 +187,6 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
      
         cell?.lblDate.attributedText = dateText
         
-        if isCalendarShow == true
-        {
-            cell?.vwGray.isHidden = false
-        }
-        else
-        {
-            cell?.vwGray.isHidden = true
-        }
-
         return cell!
     }
     
@@ -209,14 +208,14 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
                     self.arrPlans.removeAll()
                     self.arrPlans.append(contentsOf: response as! [PlannerBO])
                     self.tblPlanner.reloadData()
-                    if self.arrPlans.count == 0
-                    {
-                        self.imgDots.isHidden = true
-                    }
-                    else
-                    {
-                        self.imgDots.isHidden = false
-                    }
+//                    if self.arrPlans.count == 0
+//                    {
+//                        self.imgDots.isHidden = true
+//                    }
+//                    else
+//                    {
+//                        self.imgDots.isHidden = false
+//                    }
                     
                     app_delegate.removeloder()
                 }
@@ -250,14 +249,14 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
             self.arrPlans.append(contentsOf: response as! [PlannerBO])
             self.arrPermenantPlans.append(contentsOf: response as! [PlannerBO])
             self.tblPlanner.reloadData()
-                if self.arrPlans.count == 0
-                {
-                    self.imgDots.isHidden = true
-                }
-                else
-                {
-                    self.imgDots.isHidden = false
-                }
+//                if self.arrPlans.count == 0
+//                {
+//                    self.imgDots.isHidden = true
+//                }
+//                else
+//                {
+//                    self.imgDots.isHidden = false
+//                }
                 
                 app_delegate.removeloder()
             }
@@ -271,3 +270,25 @@ extension PlannerViewController : UITableViewDelegate, UITableViewDataSource, ca
 }
 
 
+extension UIView {
+    
+    func addDashedBorder() {
+        let color = UIColor.lightGray.cgColor
+        
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let frameSize = self.frame.size
+        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+        
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = color
+        shapeLayer.lineWidth = 2
+        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineDashPattern = [6,3]
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+
+}
