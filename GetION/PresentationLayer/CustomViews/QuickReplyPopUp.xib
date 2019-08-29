@@ -36,13 +36,17 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnP-pY-tyk">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnP-pY-tyk">
                             <rect key="frame" x="305" y="10" width="40" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="OVp-ap-lbp"/>
                                 <constraint firstAttribute="height" constant="30" id="eHu-xK-Lpl"/>
                             </constraints>
-                            <state key="normal" title="Edit"/>
+                            <state key="normal" image="edit-1"/>
+                            <connections>
+                                <action selector="btnEditTemplateClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xs3-Mv-mcM"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r85-UE-JHb">
                             <rect key="frame" x="20" y="65" width="315" height="90"/>
@@ -54,7 +58,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09v-7j-bBi">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09v-7j-bBi">
                             <rect key="frame" x="0.0" y="155" width="355" height="342"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -81,6 +85,9 @@
                                     <state key="normal" title="Send">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnSendClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="27W-rT-OxR"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,9 +137,14 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="lblMessage" destination="r85-UE-JHb" id="Aav-fe-fd3"/>
                 <outlet property="tblView" destination="09v-7j-bBi" id="O3K-Rk-fTz"/>
+                <outlet property="viewPopUp" destination="TuK-JP-0Py" id="bx3-ev-yMN"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="78.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="edit-1" width="27" height="27"/>
+    </resources>
 </document>

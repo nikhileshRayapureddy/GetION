@@ -9,9 +9,9 @@
 import UIKit
 
 class ReportsBO: NSObject {
-    public var strIonized = ""
-    public var strDraft = ""
-    public var strDraftIonized = ""
-    public var strUnanswered = ""
-    public var strVisitcount = ""
+    public var strIonized = "0"
+    public var strDraft = "0"
+    public var strDraftIonized = "0"
+    public var strUnanswered = "0"
+    public var strVisitcount = "0"
 }

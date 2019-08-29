@@ -24,21 +24,81 @@ class HomeViewController: BaseViewController {
     
     var arrBlogs = [BlogBO]()
     var arrFeeds = [FeedsBO]()
+    var timer : Timer!
+
+    @IBOutlet weak var btnPublished: UIButton!
+    @IBOutlet weak var btnVisits: UIButton!
+    @IBOutlet weak var btnQuery: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.btnActionPointsClicked(self.btnActionPoints)
+        designTabBar()
+
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeDown)
+
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                if self.btnHsptlFeeds.isSelected
+                {
+                    self.btnActionPointsClicked(self.btnActionPoints)
+                }
+                else
+                {
+                    print("No more tabs on the left")
+                }
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                if self.btnActionPoints.isSelected
+                {
+                    self.btnHsptlFeedsClicked(self.btnHsptlFeeds)
+                }
+                else
+                {
+                    print("No more tabs on the right")
+                }
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
         super.viewWillAppear(animated)
         designNavigationBar()
-        designTabBar()
         setSelectedButtonAtIndex(1)
 
         self.getIonisedReports()
         self.getBlogs()
         self.getFeeds()
+    }
+    
+    @IBAction func btnPublishedClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnPublish)
+    }
+    @IBAction func btnVisitClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnVisit)
+    }
+    @IBAction func btnQueryClicked(_ sender: UIButton) {
+        self.btnBottomTabBarClicked(btnQueries)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     func getIonisedReports()
     {
@@ -95,7 +155,10 @@ class HomeViewController: BaseViewController {
             self.arrBlogs = success as! [BlogBO]
             DispatchQueue.main.async {
                 app_delegate.removeloder()
-                self.loadBlogs()
+                if self.arrBlogs.count > 0
+                {
+                    self.loadBlogs()
+                }
             }
         }) { (failure) in
             DispatchQueue.main.async {
@@ -120,24 +183,33 @@ class HomeViewController: BaseViewController {
             imgBlog.kf.setImage(with: url)
             scrlVwBlog.addSubview(imgBlog)
             
-            let lblTitle = UILabel(frame: CGRect(x: Xpos, y: CGFloat(30), width: 150, height: 25))
+            let strTitle = "   " + bo.title + "   "
+            let constraintRect = CGSize(width: scrlVwBlog.frame.size.width, height: .greatestFiniteMagnitude)
+            let boundingBox = strTitle.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.myridFontOfSize(size: 15)], context: nil)
+            
+            let lblTitle = UILabel(frame: CGRect(x: Xpos, y: CGFloat(30), width: boundingBox.width + 5, height: boundingBox.height + 15))
             lblTitle.backgroundColor = UIColor.white
-            lblTitle.text = bo.title
-            lblTitle.layer.cornerRadius = 2.0
+            lblTitle.text = strTitle
             lblTitle.numberOfLines = 0
             lblTitle.lineBreakMode = .byWordWrapping
-            lblTitle.layer.masksToBounds = true
             lblTitle.textColor = UIColor.black
-            lblTitle.font = UIFont(name: "Myriad_Pro_Regular", size: 11)
+            lblTitle.round(corners: [.bottomRight,.topRight], radius: 5)
+            lblTitle.font = UIFont.myridFontOfSize(size: 15)
             scrlVwBlog.addSubview(lblTitle)
 
-            let lblContent = UILabel(frame: CGRect(x: Xpos + 15, y: CGFloat(60), width: 250, height: 30))
+            
+            let strContent = "   " + bo.intro + "   "
+            let constraintRectContent = CGSize(width: scrlVwBlog.frame.size.width - 15, height: .greatestFiniteMagnitude)
+            let boundingBoxContent = strContent.boundingRect(with: constraintRectContent, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.myridFontOfSize(size: 15)], context: nil)
+
+
+            let lblContent = UILabel(frame: CGRect(x: Xpos + 15, y: lblTitle.frame.size.height + 40, width: boundingBoxContent.width + 5, height: boundingBoxContent.height + 15))
             lblContent.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-            lblContent.text = bo.intro
-            lblTitle.numberOfLines = 0
-            lblTitle.lineBreakMode = .byWordWrapping
+            lblContent.text = strContent
+            lblContent.numberOfLines = 0
+            lblContent.lineBreakMode = .byWordWrapping
             lblContent.textColor = UIColor.white
-            lblContent.font = UIFont(name: "Myriad_Pro_Regular", size: 12)
+            lblContent.font = UIFont.myridFontOfSize(size: 15)
             scrlVwBlog.addSubview(lblContent)
 
             
@@ -149,7 +221,30 @@ class HomeViewController: BaseViewController {
             Xpos = Xpos + imgBlog.frame.size.width
         }
         scrlVwBlog.contentSize = CGSize(width: CGFloat(arrBlogs.count) * scrlVwBlog.frame.size.width, height: scrlVwBlog.frame.size.height)
+        
+        if timer == nil
+        {
+            timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.scrollingTimer), userInfo: nil, repeats: true)
+        }
+
     }
+   @objc func scrollingTimer()
+    {
+        let contentOffset : CGFloat = scrlVwBlog.contentOffset.x
+        
+        let nextPage : Int = Int((contentOffset/scrlVwBlog.frame.width) + 1)
+        
+        if nextPage != arrBlogs.count
+        {
+            scrlVwBlog.setContentOffset(CGPoint(x: CGFloat(nextPage) * scrlVwBlog.frame.width, y: 0), animated: true)
+        }
+        else
+        {
+
+            scrlVwBlog.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
+
     @IBAction func btnHsptlFeedsClicked(_ sender: UIButton) {
         sender.isSelected = true
         btnActionPoints.isSelected = false
@@ -171,6 +266,17 @@ class HomeViewController: BaseViewController {
         }
 
     }
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        if timer != nil
+        {
+            timer.invalidate()
+            timer = nil
+            
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -262,6 +368,77 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+            let bo = arrFeeds[indexPath.row]
+            if bo.action == "Reply"
+            {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+                let queryBO = QueriesBO()
+                queryBO.id = bo.context_id
+                queryBO.content = bo.content
+                vc.queryBO = queryBO
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else if bo.action == "Congratulated"
+            {
+            }
+            else if bo.action == "View"
+            {
+                let arrContect = bo.context.split(separator: ".")
+                if arrContect[0] == "visits"
+                {
+                    let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
+                    detailVisitVC.isFromFeeds = true
+                    detailVisitVC.visitID = bo.context_id
+                    self.navigationController?.pushViewController(detailVisitVC, animated: true)
+                }
+                else if arrContect[0] == "blog"
+                {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublishDetailsViewController") as! PublishDetailsViewController
+                    let blogBO = BlogBO()
+                    blogBO.postId = bo.context_id
+                    vc.objBlog = blogBO
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else if arrContect[0] == "queries"
+                {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "QueryReplyViewController") as! QueryReplyViewController
+                    let queryBO = QueriesBO()
+                    queryBO.id = bo.context_id
+                    vc.queryBO = queryBO
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+
+            }
+            else
+            {
+                app_delegate.showLoader(message:"Fetching data....")
+                let layer = ServiceLayer()
+                layer.congratulateFeedWith(Id: bo.id as String,
+                                   successMessage: { (success) in
+                                    let bo = success as! Dictionary<String, AnyObject>
+                                    DispatchQueue.main.async {
+                                        app_delegate.removeloder()
+                                        let message: String = bo["description"] as! String
+                                        let alert = UIAlertController(title: "Alert!", message:
+                                            message, preferredStyle: UIAlertControllerStyle.alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style:
+                                            .default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                }) { (failure) in
+                    DispatchQueue.main.async {
+                        app_delegate.removeloder()
+                        let alert = UIAlertController(title: "Alert!", message:
+                            "Unable to Congratulate.", preferredStyle:
+                            UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style:
+                            .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+        }
     }
     
 }
+

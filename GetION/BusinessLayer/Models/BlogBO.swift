@@ -46,5 +46,6 @@ class BlogBO: NSObject {
     public var intro = ""
     public var like = 0
     public var isVoted = 0
+    public var status = ""
 
 }

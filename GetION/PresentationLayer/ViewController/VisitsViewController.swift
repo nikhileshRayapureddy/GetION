@@ -15,7 +15,8 @@ class VisitsViewController: BaseViewController {
     @IBOutlet weak var btnToday: UIButton!
     @IBOutlet weak var tblVisitEvents: UITableView!
     @IBOutlet weak var calender: FSCalendar!
-    
+    @IBOutlet weak var lblNoVisits: UILabel!
+    var arrVisits = [VisitsBO]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,62 @@ class VisitsViewController: BaseViewController {
         setSelectedButtonAtIndex(3)
         self.calender.scope = .week
         self.calender.adjustMonthPosition()
-        
+        calender.select(Date(), scrollToDate: true)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: Date())
+        self.getVisitsFor(date: strDate)
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    func getVisitsFor(date : String)
+    {
+        self.arrVisits.removeAll()
+        self.arrVisits = CoreDataAccessLayer().getAllVisitItemsFor(date: date)
+        if self.arrVisits.count > 0
+        {
+            self.lblNoVisits.isHidden = true
+        }
+        else
+        {
+            self.lblNoVisits.isHidden = false
+        }
+        self.tblVisitEvents.reloadData()
+
+        /*app_delegate.showLoader(message: "Loading. . .")
+        let layer = ServiceLayer()
+        
+        layer.getVisitsFor(date: date, username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
+            
+            DispatchQueue.main.async {
+                 self.arrVisits.removeAll()
+                self.arrVisits.append(contentsOf: response as! [VisitsBO])
+                if self.arrVisits.count > 0
+                {
+                    self.lblNoVisits.isHidden = true
+                }
+                else
+                {
+                    self.lblNoVisits.isHidden = false
+                }
+                self.tblVisitEvents.reloadData()
+                app_delegate.removeloder()
+            }
+            
+        }) { (error) in
+            
+        }*/
+    }
     
+    @IBAction func btnBlockAction(_ sender: UIButton)
+    {
+        let blockVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockCalendarViewController") as! BlockCalendarViewController
+        self.navigationController?.pushViewController(blockVC, animated: true)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +103,14 @@ class VisitsViewController: BaseViewController {
     @IBAction func btnTodayAction(_ sender: UIButton)
     {
         calender.select(Date(), scrollToDate: true)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: Date())
+        self.getVisitsFor(date: strDate)
+        
     }
+    
+    
     
     /*
      // MARK: - Navigation
@@ -83,7 +143,7 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 10
+        return arrVisits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -91,9 +151,23 @@ extension VisitsViewController : UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "VisitsEventTableViewCell", for: indexPath) as?VisitsEventTableViewCell
         cell?.delegate = self
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        // cell?.lblName.text = "vc"
+        let objVisits = arrVisits[indexPath.section]
+        cell?.lblName.text = objVisits.name
+        cell?.lblAge.text = objVisits.age + "," + objVisits.sex
+        cell?.lblDrName.text = objVisits.resname
+        cell?.lblTime.text = objVisits.displayStarttime
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let detailVisitVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "UpdateVisitsViewController") as! UpdateVisitsViewController
+        detailVisitVC.isFromFeeds = false
+        detailVisitVC.visitID = ""
+        detailVisitVC.objVisits = arrVisits[indexPath.section]
+        self.navigationController?.pushViewController(detailVisitVC, animated: true)
+        
     }
 }
 
@@ -102,33 +176,71 @@ extension VisitsViewController : SwipeTableViewCellDelegate
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let callAction = SwipeAction(style: .default, title: "Call") { action, indexPath in
+        let callAction = SwipeAction(style: .default, title: "call") { action, indexPath in
             // handle action by updating model with deletion
+            
+            
+                if let url = URL(string: "tel://\(self.arrVisits[indexPath.section].mobile)"), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            
+            
         }
-        let smsAction = SwipeAction(style: .default, title: "Sms") { action, indexPath in
+        let smsAction = SwipeAction(style: .default, title: "sms") { action, indexPath in
             // handle action by updating model with deletion
+            
+            let smsVC = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SMSViewController") as! SMSViewController
+            smsVC.isSingleContact = true
+            smsVC.arrContactItems = [self.arrVisits[indexPath.section].mobile]
+            self.navigationController?.pushViewController(smsVC, animated: true)
         }
-        let deleteAction = SwipeAction(style: .default, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .default, title: "delete") { action, indexPath in
             // handle action by updating model with deletion
             // Update model
-            //        self.emails.remove(at: indexPath.row)
-            //
-            //        // Coordinate table view update animations
-            //        self.tableView.beginUpdates()
-            //        self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
-            //        action.fulfill(with: .delete)
-            //        self.tableView.endUpdates()
+            
+            app_delegate.showLoader(message: "Loading. . .")
+            let layer = ServiceLayer()
+            let objVisit = self.arrVisits[indexPath.section]
+            
+            layer.deletVisitsWithID(visitID: objVisit.visitId, username: GetIONUserDefaults.getUserName(), password: GetIONUserDefaults.getPassword(), successMessage: { (response) in
+                
+                DispatchQueue.main.async {
+                    if let status = response as? String
+                    {
+                        if status == "OK"
+                        {
+                            self.arrVisits.remove(at: indexPath.section)
+                            self.tblVisitEvents.reloadData()
+                            // Coordinate table view update animations
+//                            self.tblVisitEvents.beginUpdates()
+//                            self.tblVisitEvents.deleteRows(at: [IndexPath(row: 0, section: indexPath.section)], with: .automatic)
+//                            action.fulfill(with: .delete)
+//                            self.tblVisitEvents.endUpdates()
+                        }
+                    }
+                    app_delegate.removeloder()
+                    
+                }
+                
+            }, failureMessage: { (error) in
+                
+            })
+            
             //
         }
         
         // customize the action appearance
-        callAction.image = #imageLiteral(resourceName: "Visit_UnSelected")
+        callAction.image = #imageLiteral(resourceName: "call")
         callAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
-        smsAction.image = #imageLiteral(resourceName: "Publish_UnSelected")
+        smsAction.image = #imageLiteral(resourceName: "sms")
         smsAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
-        deleteAction.image = #imageLiteral(resourceName: "HomeIcon_Unselected")
+        deleteAction.image = #imageLiteral(resourceName: "delete")
         deleteAction.backgroundColor = UIColor (red: 0/255.0, green: 211/255.0, blue: 208/255.0, alpha: 1)
         
         return [deleteAction, smsAction, callAction]
@@ -146,6 +258,14 @@ extension VisitsViewController : FSCalendarDataSource, FSCalendarDelegate
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool)
     {
         self.viewWillLayoutSubviews()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition)
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDate = formatter.string(from: date)
+        self.getVisitsFor(date: strDate)
     }
 }
 

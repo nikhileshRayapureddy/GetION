@@ -14,6 +14,15 @@ let FirstName = "FirstName"
 let LastName = "LastName"
 let Role = "Role"
 let UserName = "UserName"
+let Password = "Password"
+let Auth = "Auth"
+let Publishid = "Publishid"
+let TeamId = "TeamId"
+let CatId = "CatId"
+let PUBLISHLASTSYNCTIME = "PUBLISHLASTSYNCTIME"
+let DRAFTLASTSYNCTIME = "DRAFTLASTSYNCTIME"
+let ONLINELASTSYNCTIME = "ONLINELASTSYNCTIME"
+let NAME = "name"
 
 class GetIONUserDefaults: NSObject {
     class func setLoginStatus (object : String)
@@ -34,6 +43,25 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
+    class func setTeamId (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: TeamId)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getTeamId () -> String
+    {
+        if UserDefaults.standard.object(forKey: TeamId) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: TeamId) as! String
+            
+        }
+    }
+
     class func setUserId (object : String)
     {
         UserDefaults.standard.set(object, forKey: UserId)
@@ -52,7 +80,25 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
+    class func setPublishId (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: Publishid)
+        UserDefaults.standard.synchronize()
+    }
     
+    class func getPublishId () -> String
+    {
+        if UserDefaults.standard.object(forKey: Publishid) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: Publishid) as! String
+            
+        }
+    }
+
     class func setUserName (object : String)
     {
         UserDefaults.standard.set(object, forKey: UserName)
@@ -71,7 +117,46 @@ class GetIONUserDefaults: NSObject {
             
         }
     }
-
+    
+    class func setCatID(object : String)
+    {
+        UserDefaults.standard.set(object, forKey: CatId)
+        UserDefaults.standard.synchronize()
+    }
+    class func getCatID () -> String
+    {
+        if UserDefaults.standard.object(forKey: CatId) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: CatId) as! String
+            
+        }
+    }
+    
+    class func setPassword (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: Password)
+        UserDefaults.standard.synchronize()
+    }
+    
+    
+    
+    class func getPassword () -> String
+    {
+        if UserDefaults.standard.object(forKey: Password) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: Password) as! String
+            
+        }
+    }
+    
     class func setProfPic (object : String)
     {
         UserDefaults.standard.set(object, forKey: ProfPic)
@@ -141,6 +226,109 @@ class GetIONUserDefaults: NSObject {
         else
         {
             return UserDefaults.standard.object(forKey: Role) as! String
+            
+        }
+    }
+    
+    class func getPublishLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: PUBLISHLASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: PUBLISHLASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setPublishLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: PUBLISHLASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func getDraftLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: DRAFTLASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: DRAFTLASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setDraftLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: DRAFTLASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func getOnlineLastSyncTime() -> String
+    {
+        if UserDefaults.standard.object(forKey: ONLINELASTSYNCTIME) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: ONLINELASTSYNCTIME) as! String
+        }
+    }
+    
+    class func setOnlineLastSyncTime()
+    {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        UserDefaults.standard.set(dateString, forKey: ONLINELASTSYNCTIME)
+        UserDefaults.standard.synchronize()
+    }
+
+    class func setAuth (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: Auth)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getAuth () -> String
+    {
+        if UserDefaults.standard.object(forKey: Auth) as? String == nil
+        {
+            return ""
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: Auth) as! String
+            
+        }
+    }
+    class func setProfileName (object : String)
+    {
+        UserDefaults.standard.set(object, forKey: NAME)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getProfileName () -> String
+    {
+        if UserDefaults.standard.object(forKey: NAME) as? String == nil
+        {
+            return "0"
+        }
+        else
+        {
+            return UserDefaults.standard.object(forKey: NAME) as! String
             
         }
     }

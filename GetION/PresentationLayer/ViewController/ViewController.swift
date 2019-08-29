@@ -13,11 +13,12 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        designTabBar()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        designTabBar()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

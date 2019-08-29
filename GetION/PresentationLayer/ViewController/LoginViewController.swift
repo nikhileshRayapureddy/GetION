@@ -48,8 +48,12 @@ class LoginViewController: UIViewController {
             layer.loginWithUsername(username: txtUsername.text!, password: txtPwd.text!, successMessage: { (success) in
                 DispatchQueue.main.async {
                     GetIONUserDefaults.setUserName(object: self.txtUsername.text!)
+                    let data = (self.txtPwd.text!).data(using: String.Encoding.utf8)
+                    let base64Pass = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                    GetIONUserDefaults.setPassword(object: base64Pass)
                     app_delegate.removeloder()
                     self.navigateToDashboard()
+                    app_delegate.getAllLeads()
                 }
             }, failureMessage: { (failure) in
                 DispatchQueue.main.async {
@@ -70,7 +74,7 @@ class LoginViewController: UIViewController {
     }
     func navigateToDashboard()
     {
-        
+        GetIONUserDefaults.setLoginStatus(object: "true")
         let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController"))
         
         let rightMenuViewController: RightMenuViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RightMenuViewController") as! RightMenuViewController

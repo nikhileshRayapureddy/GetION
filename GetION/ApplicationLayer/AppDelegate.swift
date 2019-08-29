@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import AKSideMenu
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Create content and menu controllers
-        
+        IQKeyboardManager.sharedManager().enable = true
         
         if GetIONUserDefaults.getLoginStatus() == "true"
         {
+            self.getAllLeads()
             let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController"))
             
             let rightMenuViewController: RightMenuViewController = UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RightMenuViewController") as! RightMenuViewController
@@ -39,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else
         {
+//            self.getAllLeads()
+
             let navigationController: UINavigationController = UINavigationController.init(rootViewController: UIStoryboard (name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController"))
             self.window!.rootViewController = navigationController
             self.window!.backgroundColor = UIColor.white
@@ -46,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
-        
         return true
     }
 
@@ -62,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        self.getAllLeads()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -71,52 +75,102 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        CoreDataAccessLayer.sharedInstance.saveContext()
     }
 
-    // MARK: - Core Data stack
+    func getAllPublishData()
+    {
+        let layer = ServiceLayer()
+        layer.getAllDraftsBlog(successMessage: { (response) in
+                layer.getAllPublishBlog(successMessage: { (success) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
+                    
+                }, failureMessage: { (error) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
 
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "GetION")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
+                })
+        }) { (error) in
+            layer.getAllPublishBlog(successMessage: { (success) in
+                layer.getAllOnlineBlog(successMessage: { (success) in
+                    app_delegate.removeloder()
+                }, failureMessage: { (error) in
+                    layer.getAllOnlineBlog(successMessage: { (success) in
+                        app_delegate.removeloder()
+                    }, failureMessage: { (error) in
+                        app_delegate.removeloder()
+                    })
+                })
+                
+            }, failureMessage: { (error) in
+                layer.getAllOnlineBlog(successMessage: { (success) in
+                    app_delegate.removeloder()
+                }, failureMessage: { (error) in
+                    app_delegate.removeloder()
+                })
 
-    // MARK: - Core Data Saving support
+            })
 
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
         }
+    }
+    func getAllLeads()
+    {
+        self.showLoader(message: "Fetching...")
+        let layer = ServiceLayer()
+        layer.getAllLeads(successMessage: { (reponse) in
+            let arrLeads = reponse as! [LeadsBO]
+            DispatchQueue.main.async {
+                let dataLayer = CoreDataAccessLayer()
+                dataLayer.saveAllItemsIntoLeadTableInLocalDB(arrTmpItems: arrLeads)
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getAllQueries(successMessage: { (success) in
+                    layer.getVisitsFor(date: strDate,successMessage: { (reponse1) in
+                        self.getAllPublishData()
+                    }, failureMessage: { (err) in
+                        self.getAllPublishData()
+                    })
+                }, failureMessage: { (errors) in
+                    layer.getVisitsFor(date: strDate,successMessage: { (reponse1) in
+                        self.getAllPublishData()
+                    }, failureMessage: { (err) in
+                        self.getAllPublishData()
+                    })
+                })
+            }
+
+        }) { (error) in
+            layer.getAllQueries(successMessage: { (success) in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getVisitsFor(date: strDate,successMessage: { (reponse) in
+                    self.getAllPublishData()
+                }, failureMessage: { (err) in
+                    self.getAllPublishData()
+                })
+
+            }, failureMessage: { (error) in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let strDate = formatter.string(from: Date())
+                layer.getVisitsFor(date: strDate,successMessage: { (reponse) in
+                    self.getAllPublishData()
+                }, failureMessage: { (err) in
+                    self.getAllPublishData()
+                })
+            })
+
+        }
+        
     }
     //MARK:- Loader  methods
     func showLoader(message:String)

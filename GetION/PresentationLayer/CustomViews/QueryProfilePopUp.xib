@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,139 +8,228 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Myriad_Pro_Regular.ttf">
+            <string>MyriadPro-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QueryProfilePopUp" customModule="GetION" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOo-3b-Onb">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOo-3b-Onb">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXB-ZE-Y8L">
-                    <rect key="frame" x="30" y="120" width="315" height="300"/>
+                    <rect key="frame" x="30" y="120" width="260" height="300"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name           :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMt-lo-y9S">
-                            <rect key="frame" x="30" y="20" width="100" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name           :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMt-lo-y9S">
+                            <rect key="frame" x="30" y="20" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="6mg-E6-HE2"/>
+                                <constraint firstAttribute="width" constant="80" id="M8X-bt-Ax8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age              :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2W-nq-WO2">
-                            <rect key="frame" x="30" y="60" width="100" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age               :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2W-nq-WO2">
+                            <rect key="frame" x="30" y="60" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Nmt-EL-gyg"/>
+                                <constraint firstAttribute="width" constant="80" id="j3O-aO-ZpW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender        :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEZ-kk-eTM">
-                            <rect key="frame" x="30" y="100" width="100" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender        :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEZ-kk-eTM">
+                            <rect key="frame" x="30" y="100" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="9cg-CI-n5U"/>
+                                <constraint firstAttribute="height" constant="20" id="pRH-Tu-alt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile         :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-zo-2qx">
-                            <rect key="frame" x="30" y="140" width="100" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile         :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-zo-2qx">
+                            <rect key="frame" x="30" y="140" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="4BQ-d0-SMA"/>
+                                <constraint firstAttribute="height" constant="20" id="ZSF-Dh-Gad"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email           :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCL-jN-8Kf">
-                            <rect key="frame" x="30" y="180" width="100" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email           :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCL-jN-8Kf">
+                            <rect key="frame" x="30" y="180" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="3Wd-hx-XSv"/>
+                                <constraint firstAttribute="width" constant="80" id="Qb2-xy-xYU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rahul Yadav" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKP-Ub-xeq">
-                            <rect key="frame" x="135" y="20" width="170" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rahul Yadav" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKP-Ub-xeq">
+                            <rect key="frame" x="110" y="20" width="140" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Zew-AC-YMA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0s-Rs-eB1">
-                            <rect key="frame" x="135" y="60" width="170" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0s-Rs-eB1">
+                            <rect key="frame" x="110" y="60" width="140" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="UJw-r3-5L7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x08-tt-i3R">
-                            <rect key="frame" x="135" y="100" width="170" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x08-tt-i3R">
+                            <rect key="frame" x="110" y="100" width="140" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Xtu-3t-9kP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="897741273" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR0-Fa-69r">
-                            <rect key="frame" x="135" y="140" width="170" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="897741273" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR0-Fa-69r">
+                            <rect key="frame" x="110" y="140" width="140" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="148-cw-Nv8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rahulyadav@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSl-bB-SSp">
-                            <rect key="frame" x="135" y="180" width="170" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rahulyadav@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSl-bB-SSp">
+                            <rect key="frame" x="110" y="180" width="140" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="x3T-TB-maQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-Ic-Gce">
-                            <rect key="frame" x="30" y="230" width="80" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-Ic-Gce">
+                            <rect key="frame" x="30" y="230" width="90" height="40"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="hfY-ES-4wV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <state key="normal" title="Call">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnCallClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="KRa-pQ-yE1"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLu-W8-UUV">
-                            <rect key="frame" x="205" y="230" width="80" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLu-W8-UUV">
+                            <rect key="frame" x="140" y="230" width="90" height="40"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="4BQ-Rk-1a7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                             <state key="normal" title="SMS">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnSmsClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="WAq-G8-5EN"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="315" id="FXN-b2-V3F"/>
-                        <constraint firstAttribute="height" constant="300" id="O4Q-Ul-zsX"/>
+                        <constraint firstItem="R0s-Rs-eB1" firstAttribute="leading" secondItem="A2W-nq-WO2" secondAttribute="trailing" id="2Ow-eC-UBn"/>
+                        <constraint firstItem="A2W-nq-WO2" firstAttribute="top" secondItem="fMt-lo-y9S" secondAttribute="bottom" constant="20" id="2es-Q6-Rr0"/>
+                        <constraint firstItem="TEZ-kk-eTM" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="4bL-oc-noj"/>
+                        <constraint firstItem="hSl-bB-SSp" firstAttribute="top" secondItem="dR0-Fa-69r" secondAttribute="bottom" constant="20" id="64I-wy-Xy7"/>
+                        <constraint firstAttribute="trailing" secondItem="R0s-Rs-eB1" secondAttribute="trailing" constant="10" id="9Rr-Hn-Fbv"/>
+                        <constraint firstItem="x08-tt-i3R" firstAttribute="top" secondItem="R0s-Rs-eB1" secondAttribute="bottom" constant="20" id="CpZ-jZ-ODP"/>
+                        <constraint firstItem="hLu-W8-UUV" firstAttribute="top" secondItem="hSl-bB-SSp" secondAttribute="bottom" constant="30" id="Dvl-kp-Hlp"/>
+                        <constraint firstItem="R0s-Rs-eB1" firstAttribute="top" secondItem="WKP-Ub-xeq" secondAttribute="bottom" constant="20" id="F75-IC-5JG"/>
+                        <constraint firstItem="gCL-jN-8Kf" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="GUe-hD-MA0"/>
+                        <constraint firstItem="hLu-W8-UUV" firstAttribute="width" secondItem="LCy-Ic-Gce" secondAttribute="width" id="I4p-ec-nIh"/>
+                        <constraint firstItem="LCy-Ic-Gce" firstAttribute="top" secondItem="gCL-jN-8Kf" secondAttribute="bottom" constant="30" id="SCD-Px-rnZ"/>
+                        <constraint firstItem="hLu-W8-UUV" firstAttribute="leading" secondItem="LCy-Ic-Gce" secondAttribute="trailing" constant="20" id="SMg-yS-288"/>
+                        <constraint firstItem="x08-tt-i3R" firstAttribute="leading" secondItem="TEZ-kk-eTM" secondAttribute="trailing" id="VwL-ed-vfT"/>
+                        <constraint firstItem="hLu-W8-UUV" firstAttribute="leading" secondItem="LCy-Ic-Gce" secondAttribute="trailing" constant="20" id="W8e-t2-gT3"/>
+                        <constraint firstItem="vp3-zo-2qx" firstAttribute="top" secondItem="TEZ-kk-eTM" secondAttribute="bottom" constant="20" id="WUZ-L2-RZ7"/>
+                        <constraint firstAttribute="trailing" secondItem="x08-tt-i3R" secondAttribute="trailing" constant="10" id="XBO-qh-QOC"/>
+                        <constraint firstItem="TEZ-kk-eTM" firstAttribute="top" secondItem="A2W-nq-WO2" secondAttribute="bottom" constant="20" id="aKh-yb-FRd"/>
+                        <constraint firstItem="LCy-Ic-Gce" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="dCp-Ne-wVb"/>
+                        <constraint firstItem="WKP-Ub-xeq" firstAttribute="top" secondItem="jXB-ZE-Y8L" secondAttribute="top" constant="20" id="eGF-0P-U0e"/>
+                        <constraint firstItem="fMt-lo-y9S" firstAttribute="top" secondItem="jXB-ZE-Y8L" secondAttribute="top" constant="20" id="eNC-oq-1b3"/>
+                        <constraint firstItem="A2W-nq-WO2" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="g0b-uh-HSI"/>
+                        <constraint firstAttribute="trailing" secondItem="hLu-W8-UUV" secondAttribute="trailing" constant="30" id="gEa-b8-ngR"/>
+                        <constraint firstAttribute="height" constant="300" id="gQo-mR-cAI"/>
+                        <constraint firstItem="vp3-zo-2qx" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="jY4-YR-9dC"/>
+                        <constraint firstItem="fMt-lo-y9S" firstAttribute="leading" secondItem="jXB-ZE-Y8L" secondAttribute="leading" constant="30" id="lC1-Qm-m3S"/>
+                        <constraint firstAttribute="trailing" secondItem="WKP-Ub-xeq" secondAttribute="trailing" constant="10" id="ldB-X4-tJn"/>
+                        <constraint firstAttribute="trailing" secondItem="dR0-Fa-69r" secondAttribute="trailing" constant="10" id="qGS-ex-XP6"/>
+                        <constraint firstItem="dR0-Fa-69r" firstAttribute="leading" secondItem="vp3-zo-2qx" secondAttribute="trailing" id="rXZ-P1-H8B"/>
+                        <constraint firstItem="dR0-Fa-69r" firstAttribute="top" secondItem="x08-tt-i3R" secondAttribute="bottom" constant="20" id="sF6-AC-aj2"/>
+                        <constraint firstAttribute="trailing" secondItem="hSl-bB-SSp" secondAttribute="trailing" constant="10" id="ueo-Nk-FQA"/>
+                        <constraint firstItem="gCL-jN-8Kf" firstAttribute="top" secondItem="vp3-zo-2qx" secondAttribute="bottom" constant="20" id="w6M-mi-q7x"/>
+                        <constraint firstItem="WKP-Ub-xeq" firstAttribute="leading" secondItem="fMt-lo-y9S" secondAttribute="trailing" id="xab-qU-xEe"/>
+                        <constraint firstItem="hSl-bB-SSp" firstAttribute="leading" secondItem="gCL-jN-8Kf" secondAttribute="trailing" id="xyP-kS-qc0"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-4v-XNF">
-                    <rect key="frame" x="164" y="454" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="X">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-4v-XNF">
+                    <rect key="frame" x="130.5" y="440" width="59" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="Yoj-56-xqQ"/>
+                        <constraint firstAttribute="width" constant="59" id="swa-oy-Ma4"/>
+                    </constraints>
+                    <state key="normal" image="popup_close">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnClosePopUpClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="JWQ-3h-DMr"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="hOo-3b-Onb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="8HF-CX-JZn"/>
-                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ANW-f1-rr8"/>
                 <constraint firstItem="hOo-3b-Onb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FTq-wZ-PAu"/>
+                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="FWF-Nh-vWw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hOo-3b-Onb" secondAttribute="bottom" id="Tbf-J6-hl9"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jXB-ZE-Y8L" secondAttribute="trailing" constant="30" id="VPY-r8-POu"/>
+                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VAQ-gl-SSj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hOo-3b-Onb" secondAttribute="trailing" id="XQV-LZ-w3g"/>
-                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="hT5-SY-H9b"/>
-                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="yYq-qZ-gaT"/>
+                <constraint firstItem="UU5-4v-XNF" firstAttribute="top" secondItem="jXB-ZE-Y8L" secondAttribute="bottom" constant="20" id="a66-dY-OvA"/>
+                <constraint firstItem="jXB-ZE-Y8L" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="elJ-E3-ldE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jXB-ZE-Y8L" secondAttribute="trailing" constant="30" id="yP6-JH-iGY"/>
+                <constraint firstItem="UU5-4v-XNF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ykW-ma-WY3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="btnCall" destination="LCy-Ic-Gce" id="3hw-a9-XlE"/>
                 <outlet property="btnSMS" destination="hLu-W8-UUV" id="5oG-LE-uKW"/>
+                <outlet property="lblAge" destination="R0s-Rs-eB1" id="fMI-Vi-7OA"/>
+                <outlet property="lblEmail" destination="hSl-bB-SSp" id="gIG-LD-cOM"/>
+                <outlet property="lblGender" destination="x08-tt-i3R" id="fnn-aM-pyf"/>
+                <outlet property="lblMobileNumber" destination="dR0-Fa-69r" id="daE-QL-Qjl"/>
+                <outlet property="lblName" destination="WKP-Ub-xeq" id="wyO-24-eaX"/>
                 <outlet property="viewBackground" destination="jXB-ZE-Y8L" id="Rwu-Lq-g75"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="popup_close" width="59" height="59"/>
+    </resources>
 </document>
